@@ -3,12 +3,20 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 
+let fileReader;
+
 const UploadCode = () => {
   const [file, setFile] = useState(null);
+  const [content, setContent] = useState(null);
   const [uploadClicked, setUploadClicked] = useState(false);
 
   const onFileChange = (event) => {
     setFile(event.target.files[0]);
+    fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      setContent(fileReader.result);
+    };
+    fileReader.readAsText(event.target.files[0]);
   };
 
   const onFileUpload = () => {
@@ -27,6 +35,7 @@ const UploadCode = () => {
           <h3>File details :</h3>
           <p>File name : {file.name}</p>
           <p>File type : {file.type}</p>
+          <p>{content}</p>
         </>
       );
     } else {
