@@ -2,8 +2,21 @@ import axios from "axios";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import AceEditor from "react-ace";
+import "ace-builds/src-noconflict/mode-c_cpp";
+import "ace-builds/src-noconflict/theme-xcode";
+import "ace-builds/src-noconflict/ext-language_tools";
 
 let fileReader;
+let markers = [];
+markers.push({
+  startRow: 6,
+  startCol: 5,
+  endRow: 7,
+  endCol: 6,
+  className: "highlight_lines",
+  type: "text",
+});
 
 const UploadCode = () => {
   const [file, setFile] = useState(null);
@@ -32,10 +45,30 @@ const UploadCode = () => {
     if (file) {
       return (
         <>
-          <h3>File details :</h3>
-          <p>File name : {file.name}</p>
-          <p>File type : {file.type}</p>
-          <p>{content}</p>
+          <h3>Code :</h3>
+          {/* <p>File name : {file.name}</p>
+          <p>File type : {file.type}</p> */}
+          <AceEditor
+            mode="c_cpp"
+            theme="xcode"
+            name="fileContentEditor"
+            value={content}
+            markers={markers}
+            readOnly={true}
+            cursorStart={3}
+            fontSize={14}
+            showPrintMargin={true}
+            showGutter={true}
+            highlightActiveLine={true}
+            width="100%"
+            setOptions={{
+              enableBasicAutocompletion: true,
+              enableLiveAutocompletion: true,
+              enableSnippets: true,
+              showLineNumbers: true,
+              tabSize: 4,
+            }}
+          />
         </>
       );
     } else {
