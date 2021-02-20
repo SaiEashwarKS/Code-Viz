@@ -8,6 +8,7 @@ const CodeEditor = () => {
 
   const onChange = (newValue) => {
     setCode(newValue);
+    console.log(code);
   };
   return (
     <>
