@@ -2,10 +2,12 @@ import axios from "axios";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import Jumbotron from "react-bootstrap/Jumbotron";
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-xcode";
 import "ace-builds/src-noconflict/ext-language_tools";
+import { useHistory } from "react-router-dom";
 
 let fileReader;
 let markers = [];
@@ -22,6 +24,15 @@ const UploadCode = () => {
   const [file, setFile] = useState(null);
   const [content, setContent] = useState(null);
   const [uploadClicked, setUploadClicked] = useState(false);
+  const history = useHistory();
+
+  const fileNotUploaded = () => {
+    return (
+      <>
+        <p className="pt-3">Select a file before uploading...</p>
+      </>
+    );
+  };
 
   const onFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -33,16 +44,21 @@ const UploadCode = () => {
   };
 
   const onFileUpload = () => {
-    const formData = new FormData();
-    formData.append("codeFile", file);
-    console.log(file);
-
-    axios.post("api/uploadfile", formData);
     setUploadClicked(true);
+    if (file) {
+      const formData = new FormData();
+      formData.append("codeFile", file);
+      console.log(file);
+
+      axios.post("api/uploadfile", formData);
+
+      history.push("/visualise");
+    }
   };
 
   const fileData = () => {
     if (file) {
+      console.log("Content:", content);
       return (
         <>
           <h3>Code :</h3>
@@ -71,20 +87,16 @@ const UploadCode = () => {
           />
         </>
       );
-    } else {
-      if (uploadClicked) {
-        return (
-          <>
-            <br />
-            <p>Choose a file before pressing the upload button</p>
-          </>
-        );
-      }
     }
   };
 
   return (
     <>
+      <Container className="pt-3">
+        <Jumbotron>
+          <h1 className="header">Welcome to Code-Viz!</h1>
+        </Jumbotron>
+      </Container>
       <Container>
         <div className="row">
           <div className="col-12 offset-sm-2 col-sm-8">
@@ -100,6 +112,7 @@ const UploadCode = () => {
                   </div>
                 </div>
                 {fileData()}
+                {uploadClicked && !file && fileNotUploaded()}
               </div>
             </div>
           </div>
