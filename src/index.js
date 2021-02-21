@@ -4,10 +4,12 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Animation from "./Animation";
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <Animation />
   </React.StrictMode>,
   document.getElementById("root")
 );

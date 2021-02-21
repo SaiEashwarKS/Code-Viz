@@ -9,11 +9,11 @@ import "ace-builds/src-noconflict/ext-language_tools";
 
 let fileReader;
 let markers = [];
+
+//marker to highlight 7th line
 markers.push({
   startRow: 6,
-  startCol: 5,
   endRow: 7,
-  endCol: 6,
   className: "highlight_lines",
   type: "text",
 });
