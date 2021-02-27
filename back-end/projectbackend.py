@@ -11,10 +11,11 @@ import copy
 import string
 import json
 
-mo=[]
-mp=[]
-ml=[]
-lnc=0
+mo=[] # [['$i/func_name', 'address'], ['$i/func_name', 'address'], ...]
+mp=[] # [['name', 'value'], ['name', 'value'], ...]
+ml=[] # [['name', 'address'], ['name', 'address'], ...]
+
+lnc=0 # global variable for storing current line no
 #above are temporarily used lists during data processing
 vall=[]#stores variable address
 vallv=[]#stores variable value
@@ -31,9 +32,9 @@ tsav=[]
 tsav2=[]
 tsav11=[]
 cc11=0
-counter=0
+counter=0 # incremented for every step
 gn=0
-sn=0
+sn=0 # no of local/stack variables
 an=0
 
 sep = ['+','-','=','*','/',';','[','.']
@@ -48,8 +49,8 @@ my_file = raw_input('Enter C Program Name (with ./ if in local directory): ')
 subprocess.call(["gcc","-g","-static",my_file])
 
 p_glob = Popen(['gdb', 'a.out'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-p_glob.stdin.write('info variables\n')
-op = p_glob.communicate()
+p_glob.stdin.write('info variables\n') # info variables -> to get all global variables
+op = p_glob.communicate() # .communicate returns (stdout_data, stderr_data)
 glob_list = op[0].split('\n')
 
 i = glob_list.index('File '+my_file+':') + 1
@@ -73,6 +74,9 @@ fcntl(p1.stdout, F_SETFL, flags | O_NONBLOCK)
 print 'Hit Enter to Begin'
 
 def tr():#function name
+	'''
+	returns ['function_name', 'address']
+	'''
 	p1.stdin.write('bt\n')
 	my_out1 = ''
 	sleep(0.1)
@@ -81,30 +85,35 @@ def tr():#function name
 			my_out1 = read(p1.stdout.fileno(), 1024)
 		except OSError:
 			break
+	''' my_out1-> 
+	#0  foo (a=1, p=0x7fffffffddfc, d=0x7fffffffddf8) at ./b.c:13
+	#1  0x0000000000400ca1 in main () at ./b.c:33
+	(gdb)
+	'''
 	my_out1 = string.replace(my_out1,'(gdb)','').strip()
-	my_out2 = my_out1.split(" ")
-	s = "p &"+my_out2[2]+"\n"
+	my_out2 = my_out1.split(" ") 
+	s = "p &"+my_out2[2]+"\n" # my_out2[2]-> function_name-> foo
 	p1.stdin.write(s)	
 	my_out = ''
 	sleep(0.1)
 	while True:
 		try:
-			my_out = read(p1.stdout.fileno(), 1024)
+			my_out = read(p1.stdout.fileno(), 1024) # $11 = (int (*)(int, int *, int *)) 0x400bb6 <foo>\n(gdb)
 		except OSError:
 			break
-	my_out = string.replace(my_out,'(gdb)','').strip()
-	my_out = my_out.split("\n")
-	my_out = [ x.split('=') for x in my_out ]
+	my_out = string.replace(my_out,'(gdb)','').strip() # $11 = (int (*)(int, int *, int *)) 0x400bb6 <foo>
+	my_out = my_out.split("\n") # [$11 = (int (*)(int, int *, int *)) 0x400bb6 <foo>]
+	my_out = [ x.split('=') for x in my_out ] # [['$11 ', ' (int (*)(int, int *, int *)) 0x400bb6 <foo>']]
 	for x in range(len(my_out)):
-		my_out[x] = [ y.strip() for y in my_out[x] ]
-	my_out = filter(lambda a : len(a) == 2,my_out)
-	mo = copy.deepcopy(my_out)	
+		my_out[x] = [ y.strip() for y in my_out[x] ] # [['$11', '(int (*)(int, int *, int *)) 0x400bb6 <foo>']]
+	my_out = filter(lambda a : len(a) == 2,my_out) # [['$11', '(int (*)(int, int *, int *)) 0x400bb6 <foo>']]
+	mo = copy.deepcopy(my_out)	# [['$11', '(int (*)(int, int *, int *)) 0x400bb6 <foo>']]
 	if len(my_out2)>2:
 		if len(mo)>0:
 			if len(mo[0])>0:
-				mo[0][0]=my_out2[2]
+				mo[0][0]=my_out2[2]	# [['foo', '(int (*)(int, int *, int *)) 0x400bb6 <foo>']]
 	if len(my_out2)>1:
-		return mo
+		return mo # [['foo', '(int (*)(int, int *, int *)) 0x400bb6 <foo>']]
 
 def pdisp(rv):#for further display
 	'''
@@ -162,11 +171,11 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		heading = ["Line\nNo.","Function\nName/Address\n(Pointer)","Pointer\nName/Address/Value","Variable\nPointed to\nName/Address","Value of\nVariable\nPointed to","Function\nName/Address\n(Variable Pointed to)"]
 		print(tabulate(rv[6],headers=heading,tablefmt="psql"))
 	#print(di)
-	f=open("b.txt","a")
-	f.write(json.dumps(di,indent=4))
-	f.write("\n".join([str(i) for i in rv[6]]))
-	f.write("\n--------------------------------------------\n")
-	f.close()
+	f1=open("b.txt","a")
+	f1.write(json.dumps(di,indent=4))
+	f1.write("\n".join([str(i) for i in rv[6]]))
+	f1.write("\n--------------------------------------------\n")
+	f1.close()
 
 
 def linkall(gl,sl,al,ln,fn):#links pointers and displays it
@@ -279,7 +288,9 @@ def linkall(gl,sl,al,ln,fn):#links pointers and displays it
 			tsdispv.append([i[0],i[1][0],i[2],i[5],i[6],i[8][0]])
 			tsdispv.append(["",i[1][1],"","","",i[8][1]])
 	return [gl,sl,al,ln,fn,tsav11,tsdispv]
-	
+
+f = open('test.txt','w')
+
 def output(p1,flag):#display (stack frame, arguments..)
 	global stop
 	my_out = ''
@@ -313,40 +324,43 @@ def output(p1,flag):#display (stack frame, arguments..)
 			i += 1
 		print '\n'		
 	global ret
-	m = func.match(my_out)
+	m = func.match(my_out) #foo (a=1, p=0x7fffffffddfc, d=0x7fffffffddf8)
 	if m is not None:
+		# prints function name/address like-> [['foo', '(int (*)(int, int *, int *)) 0x400bb6 <foo>']]
 		my_out = m.group()
 		func_name,my_out = my_out.split('(')
 		my_out = my_out.split(')')[0]
-		my_out = my_out.split(',')
-		func_name = string.replace(func_name,' ','')
+		my_out = my_out.split(',') #myout-> ['a=1','p=0x7fffffffddfc','d=0x7fffffffddf8']
+		func_name = string.replace(func_name,' ','') #funcname -> foo
 		fname.append([func_name])
 
 		print "Function '",func_name,"' with Arguments:"
 		var_tab = []
 		for arg in my_out:
-			var_tab.append(arg.strip().split("="))
+			var_tab.append(arg.strip().split("=")) #appends [variable_name, value] for all args
 		if len(var_tab)>0:
 			heading = ["ARGUMENT","VALUE"]
 			print(tabulate(var_tab,headers=heading,tablefmt="psql"))
-		mp = copy.deepcopy(my_out)	
+		mp = copy.deepcopy(my_out)	#mp-> ['a=1','p=0x7fffffffddfc','d=0x7fffffffddf8']
 		s = "p &"+func_name+"\n"
-		p1.stdin.write(s)	
+		p1.stdin.write(s)	# p &foo\n
 		my_out = ''
 		sleep(0.1)
 		while True:
 			try:
-				my_out = read(p1.stdout.fileno(), 1024)
+				my_out += read(p1.stdout.fileno(), 1024) #p &foo-> $1 = (int (*)(int, int *, int *)) 0x400bb6 <foo>\n(gdb) 			
 			except OSError:
 				break
-		my_out = string.replace(my_out,'(gdb)','').strip()
-		my_out = my_out.split("\n")
-		my_out = [ x.split('=') for x in my_out ]
+		
+		my_out = string.replace(my_out,'(gdb)','').strip() # $1 = (int (*)(int, int *, int *)) 0x400bb6 <foo>
+		my_out = my_out.split("\n")	# ['$1 = (int (*)(int, int *, int *)) 0x400bb6 <foo>']
+		my_out = [ x.split('=') for x in my_out ] # [['$1 ', ' (int (*)(int, int *, int *)) 0x400bb6 <foo>']]
 		for x in range(len(my_out)):
-			my_out[x] = [ y.strip() for y in my_out[x] ]
-		my_out = filter(lambda a : len(a) == 2,my_out)
+			my_out[x] = [y.strip() for y in my_out[x]] # [['$1', '(int (*)(int, int *, int *)) 0x400bb6 <foo>']]
+		my_out = filter(lambda a : len(a) == 2,my_out) # [['$55', '(int (*)(int, int *, int *)) 0x400bb6 <foo>']]
 		mo = copy.deepcopy(my_out)	
-		mo[0][0]=func_name
+		mo[0][0]=func_name #mo-> [['foo', '(int (*)(int, int *, int *)) 0x400bb6 <foo>']]
+
 		print "Function Name/Address: ",mo
 		mo = []
 		return
@@ -361,33 +375,46 @@ def output(p1,flag):#display (stack frame, arguments..)
 	if 'return' in my_out:
 		ret = 1
 		return 
-	if flag == 6:
-		my_out = my_out.split('=')[1]
-		my_out = string.replace(my_out,'(gdb)','')
-		my_out = string.replace(my_out,'\n','')
-		return my_out
+	if flag == 6: # 'print '+i+'\n' #i-> global variable # $2 = 0\n(gdb)
+		# returns value of the global variable
+		my_out = my_out.split('=')[1] #  0\n(gdb)
+		my_out = string.replace(my_out,'(gdb)','') #  0\n
+		my_out = string.replace(my_out,'\n','') #  0
+		return my_out # 0
 	if flag == 5:
 		my_out = my_out.split('=')[1]
 		my_out = string.replace(my_out,'(gdb)','')
 		my_out = string.replace(my_out,'\n','')
 		sys.stdout.write(my_out)
-	elif flag == 2:
-		my_out = string.replace(my_out,'(gdb)','')
+	elif flag == 2: #for info line
+		# stores current line no in lnc
+		my_out = string.replace(my_out,'(gdb)','') # Line 12 of "./b.c" starts at address 0x400bb6 <foo> and ends at 0x400bc9 <foo+19>.\n(gdb)
 		my_out = my_out.split(' ')
 		my_out = my_out[:2]
-		ln=' '.join(my_out)
+		ln=' '.join(my_out) #Line 28
+		#f.write('\n'+ln)
+
 		#print "\n"
 		#print ln
 		global lnc
 		lnc=ln
-	elif flag == 1:
+	elif flag == 1: # info locals
+		'''
+		p = 0x401a50 <__libc_csu_fini>
+		l = 0x0
+		k = 4195328
+		x = 0
+		ret = 4200880
+		z = 0
+		(gdb)
+		'''
 		if my_out != 'No symbol table info available.\n(gdb) ':
 			my_out = string.replace(my_out,'(gdb)','')
 			#print '\n(Stack Frame)'
-			my_out = my_out.split('\n')
-			my_out = [ x.split('=') for x in my_out ]
+			my_out = my_out.split('\n') # ['p = 0x401a50 <__libc_csu_fini>', 'l = 0x0', ...]
+			my_out = [ x.split('=') for x in my_out ] # [['p ', ' 0x401a50 <__libc_csu_fini>'], ['l ', ' 0x0'], ...]
 			for x in range(len(my_out)):
-				my_out[x] = [ y.strip() for y in my_out[x] ]
+				my_out[x] = [ y.strip() for y in my_out[x] ] # [['p', '0x401a50 <__libc_csu_fini>'], ['l', '0x0'], ...]
 			prev = 0
 			if len(my_out)==2 and len(my_out[0])==1:
 				print "\nNo Locals.\n"
@@ -399,7 +426,7 @@ def output(p1,flag):#display (stack frame, arguments..)
 					else:
 						prev = x
 				my_out = filter(lambda a: len(a) ==2, my_out)
-				mp = copy.deepcopy(my_out)
+				mp = copy.deepcopy(my_out) # mp-> [['p', '0x401a50 <__libc_csu_fini>'], ['l', '0x0'], ...]
 				#heading = ["VARIABLE","VALUE"]
 				#print(tabulate(my_out,headers=heading,tablefmt="psql"))
 				global sn
@@ -417,28 +444,34 @@ def output(p1,flag):#display (stack frame, arguments..)
 				sleep(0.1)
 				while True:
 					try:
-						my_out = read(p1.stdout.fileno(), 1024)
+						my_out += read(p1.stdout.fileno(), 1024)
 					except OSError:
 						break
-				my_out = string.replace(my_out,'(gdb)','').strip()
-				my_out = my_out.split("\n")
-				my_out = [ x.split('=') for x in my_out ]
+				my_out = string.replace(my_out,'(gdb)','').strip() # $9 = (int **) 0x7fffffffde08\n$10 = (int **) 0x7fffffffde10\n..
+				my_out = my_out.split("\n") # ['$9 = (int **) 0x7fffffffde08', '$10 = (int **) 0x7fffffffde10', ..]
+				my_out = [ x.split('=') for x in my_out ] # ['$9 ', ' (int **) 0x7fffffffde08'], ['$10 ', ' (int **) 0x7fffffffde10'], ...]
 				for x in range(len(my_out)):
-					my_out[x] = [ y.strip() for y in my_out[x] ]
-				my_out = filter(lambda a : len(a) == 2,my_out)
-				mo = copy.deepcopy(my_out)	
+					my_out[x] = [ y.strip() for y in my_out[x] ] # ['$9', '(int **) 0x7fffffffde08'], ['$10', '(int **) 0x7fffffffde10'], ...]
+				my_out = filter(lambda a : len(a) == 2,my_out) # ['$9', '(int **) 0x7fffffffde08'], ['$10', '(int **) 0x7fffffffde10'], ...]
+				mo = copy.deepcopy(my_out)	#mo-> ['$9', '(int **) 0x7fffffffde08'], ['$10', '(int **) 0x7fffffffde10'], ...]
 				c = 0
 				for i in mp:
-					a = mo[c][1]
-					ml.append([i[0],a])
+					a = mo[c][1] # '(int **) 0x7fffffffde08'
+					ml.append([i[0],a]) # [['p', '(int **) 0x7fffffffde08'], ['l', '(int **) 0x7fffffffde10'], ...]
 					c+=1
 				c = 0
 				#print ml
 				for i in ml:
-					vall.append(i)
+					vall.append(i) # vall-> [['name', 'address'], ['name', 'address'], ..]
 		else:
 			stop =1
-	elif flag == 4:
+	elif flag == 4: # info args
+		'''
+		a = 1
+		p = 0x7fffffffddfc
+		d = 0x7fffffffddf8
+		(gdb)
+		'''
 		my_out = string.replace(my_out,'(gdb)','').strip()
 		if my_out != "No arguments.":
 			#print "\n(Arguments)"
@@ -513,12 +546,14 @@ while True:
 	#heading = ["VARIABLE","VALUE"]
 	for i in global_name_list:
 		p1.stdin.write('print '+i+'\n')
-		var_tab.append([i,output(p1,6)])
+		var_tab.append([i,output(p1,6)]) # [['name','value'],['name','value'],...] for all global variables
 	#print(tabulate(var_tab,headers=heading,tablefmt="psql"))
-	vallv = copy.deepcopy(var_tab)
+	vallv = copy.deepcopy(var_tab) # [['name','value'],['name','value'],...]
+	#f.write(str(mp)+'\n')
 	for i in mp:
 		vallv.append(i)
-	mp = copy.deepcopy(var_tab)		
+	mp = copy.deepcopy(var_tab)	
+	#f.write(str(mp)+'\n')
 	for j in var_tab:
 		s = "p &"+j[0]+"\n"
 		p1.stdin.write(s)
@@ -526,24 +561,25 @@ while True:
 	sleep(0.1)
 	while True:
 		try:
-			my_out = read(p1.stdout.fileno(), 1024)
+			my_out += read(p1.stdout.fileno(), 1024) # $3 = (int *) 0x6bc3a0 <g>\n(gdb)
 		except OSError:
 			break
-	my_out = string.replace(my_out,'(gdb)','').strip()
-	my_out = my_out.split("\n")
-	my_out = [ x.split('=') for x in my_out ]
+	my_out = string.replace(my_out,'(gdb)','').strip() # $3 = (int *) 0x6bc3a0 <g>\n
+	my_out = my_out.split("\n") # ['$3 = (int *) 0x6bc3a0 <g>', '$4 = (int *) 0x6bc3a0 <g>', ..]
+	my_out = [ x.split('=') for x in my_out ] # [['$3 ', ' (int *) 0x6bc3a0 <g>'], ['$4 ', ' (int *) 0x6bc3a0 <g>'], ...]
 	for x in range(len(my_out)):
-		my_out[x] = [ y.strip() for y in my_out[x] ]
+		my_out[x] = [ y.strip() for y in my_out[x] ] # [['$3', '(int *) 0x6bc3a0 <g>'], ['$4', '(int *) 0x6bc3a0 <g>'], ...]
 	my_out = filter(lambda a : len(a) == 2,my_out)
-	mo=copy.deepcopy(my_out)
+	mo=copy.deepcopy(my_out) # [['$3', '(int *) 0x6bc3a0 <g>'], ['$4', '(int *) 0x6bc3a0 <g>'], ...]
 	c = 0
-	for i in mp:
-		a = mo[c][1]
-		ml.append([i[0],a])
+	for i in mp: # mp-> [['name', 'value'], ['name', 'value'],...]
+		a = mo[c][1] # '(int *) 0x6bc3a0 <g>'
+		ml.append([i[0],a]) # ['g', '(int *) 0x6bc3a0 <g>']
 		c+=1
 	c = 0
 	#print ml
-	vall = copy.deepcopy(ml)
+	# ml-> [['name','address'],['name','address'],...]
+	vall = copy.deepcopy(ml) # [['name','address'],['name','address'],...]
 	mo=[]
 	mp=[]
 	ml=[]
@@ -551,6 +587,7 @@ while True:
 	output(p1,1)
 	p1.stdin.write('info args\n')
 	output(p1,4)
+
 	fname.extend(tr())
 	sv.extend([counter])
 	sv.extend(fname)
