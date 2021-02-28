@@ -1,0 +1,400 @@
+{
+  "Lines_Data": [
+    {
+      "LineNum": 21, 
+      "Contents": {
+        "StackFrame": [
+          {
+            "data_type": "struct example1", 
+            "type": "var", 
+            "id": 140737488346080, 
+            "val": "{a = -8904, b = {a = 32767, b = {4195328, 0, 4200640, 0, 4200800}}}", 
+            "name": "e1"
+          }, 
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 140737488346064, 
+            "val": "7037248", 
+            "name": "x"
+          }, 
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 140737488346068, 
+            "val": "0", 
+            "name": "y"
+          }, 
+          {
+            "data_type": "int *", 
+            "type": "ptr", 
+            "id": 140737488346072, 
+            "val": 0, 
+            "name": "z"
+          }
+        ], 
+        "GlobalVariables": [
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 7062432, 
+            "val": " 0 ", 
+            "name": "g"
+          }
+        ]
+      }
+    }, 
+    {
+      "LineNum": 22, 
+      "Contents": {
+        "StackFrame": [
+          {
+            "data_type": "struct example1", 
+            "type": "var", 
+            "id": 140737488346080, 
+            "val": "{a = 1, b = {a = 32767, b = {4195328, 0, 4200640, 0, 4200800}}}", 
+            "name": "e1"
+          }, 
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 140737488346064, 
+            "val": "7037248", 
+            "name": "x"
+          }, 
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 140737488346068, 
+            "val": "0", 
+            "name": "y"
+          }, 
+          {
+            "data_type": "int *", 
+            "type": "ptr", 
+            "id": 140737488346072, 
+            "val": 0, 
+            "name": "z"
+          }
+        ], 
+        "GlobalVariables": [
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 7062432, 
+            "val": " 0 ", 
+            "name": "g"
+          }
+        ]
+      }
+    }, 
+    {
+      "LineNum": 23, 
+      "Contents": {
+        "StackFrame": [
+          {
+            "data_type": "struct example1", 
+            "type": "var", 
+            "id": 140737488346080, 
+            "val": "{a = 1, b = {a = 2, b = {4195328, 0, 4200640, 0, 4200800}}}", 
+            "name": "e1"
+          }, 
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 140737488346064, 
+            "val": "7037248", 
+            "name": "x"
+          }, 
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 140737488346068, 
+            "val": "0", 
+            "name": "y"
+          }, 
+          {
+            "data_type": "int *", 
+            "type": "ptr", 
+            "id": 140737488346072, 
+            "val": 0, 
+            "name": "z"
+          }
+        ], 
+        "GlobalVariables": [
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 7062432, 
+            "val": " 0 ", 
+            "name": "g"
+          }
+        ]
+      }
+    }, 
+    {
+      "LineNum": 24, 
+      "Contents": {
+        "StackFrame": [
+          {
+            "data_type": "struct example1", 
+            "type": "var", 
+            "id": 140737488346080, 
+            "val": "{a = 1, b = {a = 2, b = {100, 0, 4200640, 0, 4200800}}}", 
+            "name": "e1"
+          }, 
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 140737488346064, 
+            "val": "7037248", 
+            "name": "x"
+          }, 
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 140737488346068, 
+            "val": "0", 
+            "name": "y"
+          }, 
+          {
+            "data_type": "int *", 
+            "type": "ptr", 
+            "id": 140737488346072, 
+            "val": 0, 
+            "name": "z"
+          }
+        ], 
+        "GlobalVariables": [
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 7062432, 
+            "val": " 0 ", 
+            "name": "g"
+          }
+        ]
+      }
+    }, 
+    {
+      "LineNum": 25, 
+      "Contents": {
+        "StackFrame": [
+          {
+            "data_type": "struct example1", 
+            "type": "var", 
+            "id": 140737488346080, 
+            "val": "{a = 1, b = {a = 2, b = {100, 200, 4200640, 0, 4200800}}}", 
+            "name": "e1"
+          }, 
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 140737488346064, 
+            "val": "7037248", 
+            "name": "x"
+          }, 
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 140737488346068, 
+            "val": "0", 
+            "name": "y"
+          }, 
+          {
+            "data_type": "int *", 
+            "type": "ptr", 
+            "id": 140737488346072, 
+            "val": 0, 
+            "name": "z"
+          }
+        ], 
+        "GlobalVariables": [
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 7062432, 
+            "val": " 0 ", 
+            "name": "g"
+          }
+        ]
+      }
+    }, 
+    {
+      "LineNum": 26, 
+      "Contents": {
+        "StackFrame": [
+          {
+            "data_type": "struct example1", 
+            "type": "var", 
+            "id": 140737488346080, 
+            "val": "{a = 1, b = {a = 2, b = {100, 200, 300, 0, 4200800}}}", 
+            "name": "e1"
+          }, 
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 140737488346064, 
+            "val": "7037248", 
+            "name": "x"
+          }, 
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 140737488346068, 
+            "val": "0", 
+            "name": "y"
+          }, 
+          {
+            "data_type": "int *", 
+            "type": "ptr", 
+            "id": 140737488346072, 
+            "val": 0, 
+            "name": "z"
+          }
+        ], 
+        "GlobalVariables": [
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 7062432, 
+            "val": " 0 ", 
+            "name": "g"
+          }
+        ]
+      }
+    }, 
+    {
+      "LineNum": 27, 
+      "Contents": {
+        "StackFrame": [
+          {
+            "data_type": "struct example1", 
+            "type": "var", 
+            "id": 140737488346080, 
+            "val": "{a = 1, b = {a = 2, b = {100, 200, 300, 0, 4200800}}}", 
+            "name": "e1"
+          }, 
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 140737488346064, 
+            "val": "10", 
+            "name": "x"
+          }, 
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 140737488346068, 
+            "val": "0", 
+            "name": "y"
+          }, 
+          {
+            "data_type": "int *", 
+            "type": "ptr", 
+            "id": 140737488346072, 
+            "val": 0, 
+            "name": "z"
+          }
+        ], 
+        "GlobalVariables": [
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 7062432, 
+            "val": " 0 ", 
+            "name": "g"
+          }
+        ]
+      }
+    }, 
+    {
+      "LineNum": 28, 
+      "Contents": {
+        "StackFrame": [
+          {
+            "data_type": "struct example1", 
+            "type": "var", 
+            "id": 140737488346080, 
+            "val": "{a = 1, b = {a = 2, b = {100, 200, 300, 0, 4200800}}}", 
+            "name": "e1"
+          }, 
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 140737488346064, 
+            "val": "10", 
+            "name": "x"
+          }, 
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 140737488346068, 
+            "val": "20", 
+            "name": "y"
+          }, 
+          {
+            "data_type": "int *", 
+            "type": "ptr", 
+            "id": 140737488346072, 
+            "val": 0, 
+            "name": "z"
+          }
+        ], 
+        "GlobalVariables": [
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 7062432, 
+            "val": " 0 ", 
+            "name": "g"
+          }
+        ]
+      }
+    }, 
+    {
+      "LineNum": 29, 
+      "Contents": {
+        "StackFrame": [
+          {
+            "data_type": "struct example1", 
+            "type": "var", 
+            "id": 140737488346080, 
+            "val": "{a = 1, b = {a = 2, b = {100, 200, 300, 0, 4200800}}}", 
+            "name": "e1"
+          }, 
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 140737488346064, 
+            "val": "10", 
+            "name": "x"
+          }, 
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 140737488346068, 
+            "val": "20", 
+            "name": "y"
+          }, 
+          {
+            "data_type": "int *", 
+            "type": "ptr", 
+            "id": 140737488346072, 
+            "val": 140737488346064, 
+            "name": "z"
+          }
+        ], 
+        "GlobalVariables": [
+          {
+            "data_type": "int", 
+            "type": "var", 
+            "id": 7062432, 
+            "val": " 0 ", 
+            "name": "g"
+          }
+        ]
+      }
+    }
+  ]
+}

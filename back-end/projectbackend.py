@@ -11,6 +11,8 @@ import copy
 import string
 import json
 
+lines_data=[]
+
 mo=[] # [['$i/func_name', 'address'], ['$i/func_name', 'address'], ...]
 mp=[] # [['name', 'value'], ['name', 'value'], ...]
 ml=[] # [['name', 'address'], ['name', 'address'], ...]
@@ -37,7 +39,7 @@ gn=0
 sn=0 # no of local/stack variables
 an=0
 
-f1=open("out.txt","w")
+
 
 sep = ['+','-','=','*','/',';','[','.']
 global_name_list = []
@@ -143,6 +145,11 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 	#print("RV",rv)
 	fn=copy.deepcopy(fname)
 	di={}
+	try:
+		di["LineNum"]=int(lnc.split()[1])
+	except:
+		return
+	di["Contents"]={}
 	if len(fname)>0:
 		fn=fname[-1]
 	if len(fn)>1:
@@ -151,33 +158,102 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		print '\n(Global Variables)'
 		heading = ["VARIABLE","VALUE","ADDRESS"]
 		print(tabulate(gl,headers=heading,tablefmt="psql"))
-		di['Global Variables']={}
+		di['Contents']['GlobalVariables']=[]
 		for i in gl:
-			di['Global Variables'][i[2][i[2].rfind(")")+2:]]=[i[0],i[2][1:i[2].rfind('*')],i[1]] #i[0] will hold the variable name
+			sepdi={}
+			datatype=i[2][1:i[2].rfind('*')]
+			ID=int(i[2][i[2].rfind(")")+2:-4],16)#hexadecimal to int conversion
+			var=""
+			val=""
+			if '*' in datatype:
+				var="ptr"
+				try:
+					val=int(i[1],16)
+				except:
+					val=0
+			else:
+				var="var"
+				val=i[1]
+
+			sepdi['id']=ID
+			sepdi['type']=var
+			sepdi['data_type']=datatype.strip()
+			sepdi['name']=i[0].strip()
+			sepdi['val']=val
+			#di['Global Variables'][ID]=[i[0],i[2][1:i[2].rfind('*')],i[1]] #i[0] will hold the variable name
 			#i[1] will hold its value and we have assumed that the address is uinque
+			di['Contents']['GlobalVariables'].append(sepdi.copy())
+			del sepdi
 	if len(sl)>0:
 		print '\n(Stack Frame)'
 		heading = ["VARIABLE","VALUE","ADDRESS"]
 		print(tabulate(sl,headers=heading,tablefmt="psql"))
-		di['Stack Frame']={}
+		di['Contents']['StackFrame']=[]
 		for i in sl:
-			di['Stack Frame'][i[2][i[2].rfind(")")+2:]]=[i[0],i[2][1:i[2].rfind('*')],i[1]]
+			sepdi={}
+			datatype=i[2][1:i[2].rfind('*')]
+			var=""
+			val=""
+			if '*' in datatype:
+				var="ptr"
+				try:
+					val=int(i[1],16)
+				except:
+					val=0
+			else:
+				var="var"
+				val=i[1]
+			ID=int(i[2][i[2].rfind(")")+2:],16)
+			sepdi['id']=ID
+			sepdi['type']=var
+			sepdi['data_type']=datatype.strip()
+			sepdi['name']=i[0].strip()
+			sepdi['val']=val
+			#di['Global Variables'][ID]=[i[0],i[2][1:i[2].rfind('*')],i[1]] #i[0] will hold the variable name
+			#i[1] will hold its value and we have assumed that the address is uinque
+			di['Contents']['StackFrame'].append(sepdi.copy())
+			del sepdi
 	if len(al)>0:
 		print '\n(Arguments)'
 		heading = ["VARIABLE","VALUE","ADDRESS"]
 		print(tabulate(al,headers=heading,tablefmt="psql"))
-		di['Arguments']={}
+		di['Contents']['Arguments']=[]
 		for i in al:
-			di['Arguments'][i[2][i[2].rfind(")")+2:]]=[i[0],i[2][1:i[2].rfind('*')],i[1]]
+			sepdi={}
+			datatype=i[2][1:i[2].rfind('*')]
+			var=""
+			val=""
+			if '*' in datatype:
+				var="ptr"
+				try:
+					val=int(i[1],16)
+				except:
+					val=0
+			else:
+				var="var"
+				val=i[1]
+			ID=int(i[2][i[2].rfind(")")+2:],16)
+			sepdi['id']=ID
+			sepdi['type']=var
+			sepdi['data_type']=datatype.strip()
+			sepdi['name']=i[0].strip()
+			sepdi['val']=val
+			#di['Global Variables'][ID]=[i[0],i[2][1:i[2].rfind('*')],i[1]] #i[0] will hold the variable name
+			#i[1] will hold its value and we have assumed that the address is uinque
+			di['Contents']['Arguments'].append(sepdi.copy())
+			del sepdi
+	lines_data.append(di.copy())
+	del di
 	if len(rv[6])>0:
 		print '\n-Pointers-'
 		heading = ["Line\nNo.","Function\nName/Address\n(Pointer)","Pointer\nName/Address/Value","Variable\nPointed to\nName/Address","Value of\nVariable\nPointed to","Function\nName/Address\n(Variable Pointed to)"]
 		print(tabulate(rv[6],headers=heading,tablefmt="psql"))
 	#print(di)
-	
+	'''
 	f1.write(json.dumps(di,indent=4))
 	f1.write("\n".join([str(i) for i in rv[6]]))
 	f1.write("\n--------------------------------------------\n")
+	'''
 	#f1.close()
 
 
@@ -654,3 +730,9 @@ while True:
 		p1.stdin.write('finish\n')
 		output(p1,3)
 	print '\nHit Enter to Continue, exit/quit to stop\n'
+
+maindic={"Lines_Data":lines_data}
+maindic=json.dumps(maindic,indent=2)
+f1=open("out.json","w")
+f1.write(maindic)
+f1.close()
