@@ -421,11 +421,123 @@ Example2.prototype.animateCallback = function () {
   this.implementAction(this.animate.bind(this), "");
 };
 
+var objectIds = [];
+var objectList = [];
+var ptrList = [];
+
+Example2.prototype.visualizeObj = function (object) {
+  let object_type = object.type;
+  if (!objectIds.includes(object.id)) {
+    objectIds.push(object.id);
+    objectList.push(object);
+    let insert_y =
+      Example2.INSERT_Y +
+      Example2.VERT_COUNT * (Example2.RECT_HEIGHT + Example2.VERT_PADDING);
+    Example2.VERT_COUNT++;
+    switch (object_type) {
+      case "var":
+        // this.cmd(
+        //   "CreateRectangle",
+        //   object.id,
+        //   object.data_type + " " + object.name + "\t" + object.val,
+        //   Example2.RECT_WIDTH,
+        //   Example2.RECT_HEIGHT,
+        //   Example2.INSERT_X,
+        //   insert_y
+        // );
+        this.cmd(
+          "CreateLinkedList",
+          object.id,
+          object.data_type + " " + object.name,
+          Example2.RECT_WIDTH,
+          Example2.RECT_HEIGHT * 2,
+          Example2.INSERT_X,
+          insert_y,
+          0,
+          false,
+          false,
+          2
+        );
+        this.cmd("SetText", object.id, object.val, 1);
+        Example2.VERT_COUNT++; //because height is 2 times RECT_HEIGHT
+        break;
+      case "ptr":
+        let ptrObj = { id: object.id, pointeeId: 0 };
+        this.cmd(
+          "CreateLinkedList",
+          object.id,
+          object.data_type + " " + object.name,
+          Example2.RECT_WIDTH,
+          Example2.RECT_HEIGHT * 2,
+          Example2.INSERT_X,
+          insert_y,
+          0.25,
+          false,
+          false,
+          1
+        );
+        if (object.val == "0") {
+          this.cmd("SetText", object.id, "NULL", 1);
+        } else {
+          if (objectIds.includes(parseInt(object.val))) {
+            ptrObj.pointeeId = parseInt(object.val);
+            this.cmd("Connect", object.id, parseInt(object.val));
+          }
+        }
+        ptrList.push(ptrObj);
+        Example2.VERT_COUNT++;
+        break;
+    }
+  } else {
+    switch (object_type) {
+      case "var":
+        for (let objectIdx = 0; objectIdx < objectList.length; ++objectIdx) {
+          let insertedObject = objectList[objectIdx];
+          if (insertedObject.id === object.id) {
+            if (insertedObject.val !== object.val) {
+              insertedObject.val = object.val;
+              this.cmd("SetHighlight", object.id, 1);
+              this.cmd("Step");
+              this.cmd("SetText", object.id, object.val, 1);
+              this.cmd("Step");
+              this.cmd("SetHighlight", object.id, 0);
+            }
+          }
+        }
+
+        break;
+      case "ptr":
+        for (let ptrIdx = 0; ptrIdx < ptrList.length; ++ptrIdx) {
+          let insertedPtr = ptrList[ptrIdx];
+          if (insertedPtr.id === object.id) {
+            if (insertedPtr.pointeeId !== parseInt(object.val)) {
+              if (insertedPtr.pointeeId !== 0) {
+                this.cmd("Disconnect", object.id, insertedPtr.pointeeId);
+              }
+              insertedPtr.pointeeId = parseInt(object.val);
+              this.cmd("SetHighlight", object.id, 1);
+              this.cmd("Step");
+              if (object.val == "0") {
+                this.cmd("SetText", object.id, "NULL", 1);
+              } else {
+                if (objectIds.includes(parseInt(object.val))) {
+                  this.cmd("SetText", object.id, "", 1);
+                  this.cmd("Connect", object.id, parseInt(object.val));
+                }
+              }
+              this.cmd("Step");
+              this.cmd("SetHighlight", object.id, 0);
+            }
+          }
+        }
+
+        break;
+    }
+  }
+};
+
 Example2.prototype.animate = function () {
   this.commands = [];
-  var objectIds = [];
-  var objectList = [];
-  var ptrList = [];
 
   linesData = this.json.Lines_data;
   for (let linesDataIdx = 0; linesDataIdx < linesData.length; ++linesDataIdx) {
@@ -442,124 +554,19 @@ Example2.prototype.animate = function () {
         ) {
           //console.log(linesData[linesDataIdx].Contents[contentsIdx]);
           let object = linesData[linesDataIdx].Contents[contentsIdx];
-          let object_type = object.type;
-          if (!objectIds.includes(object.id)) {
-            objectIds.push(object.id);
-            objectList.push(object);
-            let insert_y =
-              Example2.INSERT_Y +
-              Example2.VERT_COUNT *
-                (Example2.RECT_HEIGHT + Example2.VERT_PADDING);
-            Example2.VERT_COUNT++;
-            switch (object_type) {
-              case "var":
-                // this.cmd(
-                //   "CreateRectangle",
-                //   object.id,
-                //   object.data_type + " " + object.name + "\t" + object.val,
-                //   Example2.RECT_WIDTH,
-                //   Example2.RECT_HEIGHT,
-                //   Example2.INSERT_X,
-                //   insert_y
-                // );
-                this.cmd(
-                  "CreateLinkedList",
-                  object.id,
-                  object.data_type + " " + object.name,
-                  Example2.RECT_WIDTH,
-                  Example2.RECT_HEIGHT * 2,
-                  Example2.INSERT_X,
-                  insert_y,
-                  0,
-                  false,
-                  false,
-                  2
-                );
-                this.cmd("SetText", object.id, object.val, 1);
-                Example2.VERT_COUNT++; //because height is 2 times RECT_HEIGHT
-                break;
-              case "ptr":
-                let ptrObj = { id: object.id, pointeeId: 0 };
-                this.cmd(
-                  "CreateLinkedList",
-                  object.id,
-                  object.data_type + " " + object.name,
-                  Example2.RECT_WIDTH,
-                  Example2.RECT_HEIGHT * 2,
-                  Example2.INSERT_X,
-                  insert_y,
-                  0.25,
-                  false,
-                  false,
-                  1
-                );
-                if (object.val == "0") {
-                  this.cmd("SetText", object.id, "NULL", 1);
-                } else {
-                  if (objectIds.includes(parseInt(object.val))) {
-                    ptrObj.pointeeId = parseInt(object.val);
-                    this.cmd("Connect", object.id, parseInt(object.val));
-                  }
-                }
-                ptrList.push(ptrObj);
-                Example2.VERT_COUNT++;
-                break;
-            }
-          } else {
-            switch (object_type) {
-              case "var":
-                for (
-                  let objectIdx = 0;
-                  objectIdx < objectList.length;
-                  ++objectIdx
-                ) {
-                  let insertedObject = objectList[objectIdx];
-                  if (insertedObject.id === object.id) {
-                    if (insertedObject.val !== object.val) {
-                      insertedObject.val = object.val;
-                      this.cmd("SetHighlight", object.id, 1);
-                      this.cmd("Step");
-                      this.cmd("SetText", object.id, object.val, 1);
-                      this.cmd("Step");
-                      this.cmd("SetHighlight", object.id, 0);
-                    }
-                  }
-                }
-
-                break;
-              case "ptr":
-                for (let ptrIdx = 0; ptrIdx < ptrList.length; ++ptrIdx) {
-                  let insertedPtr = ptrList[ptrIdx];
-                  if (insertedPtr.id === object.id) {
-                    if (insertedPtr.pointeeId !== parseInt(object.val)) {
-                      if (insertedPtr.pointeeId !== 0) {
-                        this.cmd(
-                          "Disconnect",
-                          object.id,
-                          insertedPtr.pointeeId
-                        );
-                      }
-                      insertedPtr.pointeeId = parseInt(object.val);
-                      this.cmd("SetHighlight", object.id, 1);
-                      this.cmd("Step");
-                      if (object.val == "0") {
-                        this.cmd("SetText", object.id, "NULL", 1);
-                      } else {
-                        if (objectIds.includes(parseInt(object.val))) {
-                          this.cmd("SetText", object.id, "", 1);
-                          this.cmd("Connect", object.id, parseInt(object.val));
-                        }
-                      }
-                      this.cmd("Step");
-                      this.cmd("SetHighlight", object.id, 0);
-                    }
-                  }
-                }
-
-                break;
-            }
-          }
+          this.visualizeObj(object);
         }
+        break;
+      case "GlobalVariables":
+        for (
+          let contentsIdx = 0;
+          contentsIdx < linesData[linesDataIdx].Contents.length;
+          ++contentsIdx
+        ) {
+          let object = linesData[linesDataIdx].Contents[contentsIdx];
+          this.visualizeObj(object);
+        }
+        break;
     }
     this.cmd("Step");
   }
