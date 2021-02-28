@@ -48,7 +48,6 @@ const UploadCode = () => {
     if (file) {
       const formData = new FormData();
       formData.append("codeFile", file);
-      console.log(file);
 
       axios.post("api/uploadfile", formData);
 
@@ -58,7 +57,6 @@ const UploadCode = () => {
 
   const fileData = () => {
     if (file) {
-      console.log("Content:", content);
       return (
         <>
           <h3>Code :</h3>

@@ -1,0 +1,424 @@
+
+	{
+		"LineNum" : 0,
+		"Type" : "StackFrame",
+		"Contents": [
+			{
+				"id" : 1,
+				"type" : "var",
+				"data_type" : "int",
+				"name" : "z",
+				"val" : "0"
+			},
+			{
+				"id" : 2,
+				"type" : "ptr",
+				"data_type" : "int *",
+				"name" : "l",
+				"val" : "0"
+			},
+			{
+					"id" : 3,
+					"type" : "var",
+					"data_type" : "int",
+					"name" : "k",
+					"val" : "0"
+			},
+			{
+					"id" : 4,
+					"type" : "ptr",
+					"data_type" : "int *",
+					"name" : "p",
+					"val" :	"0"
+			},
+			{
+					"id" : 5
+					"type" : "var"
+					"data_type" : "int"
+					"name" : "x",
+					"val" : "4200640"
+			}
+		]
+	}
+
+%%
+
+{
+		"LineNum" : 0,
+		"Type"	: "GlobalVariables",
+		"Contents" : [
+			{
+				"id" : 6,
+				"type" : "var",
+				"data_type" : "int",
+				"name" : "g",
+				"val" : "0"
+			}
+		]
+		
+}
+
+%%
+
+{
+		"LineNum" : 9,
+		"Type" : "StackFrame",
+		"Contents": [
+			{
+				"id" : 1,
+				"type" : "var",
+				"data_type" : "int",
+				"name" : "z",
+				"val" : "0"
+			},
+			{
+				"id" : 2,
+				"type" : "ptr",
+				"data_type" : "int *",
+				"name" : "l",
+				"val" : "0"
+			},
+			{
+					"id" : 3,
+					"type" : "var",
+					"data_type" : "int",
+					"name" : "k",
+					"val" : "5"
+			},
+			{
+					"id" : 4,
+					"type" : "ptr",
+					"data_type" : "int *",
+					"name" : "p",
+					"val" :	"0"
+			},
+			{
+					"id" : 5
+					"type" : "var"
+					"data_type" : "int"
+					"name" : "x",
+					"val" : "4200640"
+			}
+		]
+	}
+
+%%
+
+{
+		"LineNum" : 0,
+		"Type"	: "GlobalVariables",
+		"Contents" : [
+			{
+				"id" : 6,
+				"type" : "var",
+				"data_type" : "int",
+				"name" : "g",
+				"val" : "0"
+			}
+		]
+		
+}
+
+%%
+
+{
+		"LineNum" : 10,
+		"Type" : "StackFrame",
+		"Contents": [
+			{
+				"id" : 1,
+				"type" : "var",
+				"data_type" : "int",
+				"name" : "z",
+				"val" : "0"
+			},
+			{
+				"id" : 2,
+				"type" : "ptr",
+				"data_type" : "int *",
+				"name" : "l",
+				"val" : "0"
+			},
+			{
+					"id" : 3,
+					"type" : "var",
+					"data_type" : "int",
+					"name" : "k",
+					"val" : "5"
+			},
+			{
+					"id" : 4,
+					"type" : "ptr",
+					"data_type" : "int *",
+					"name" : "p",
+					"val" :	"3"
+			},
+			{
+					"id" : 5
+					"type" : "var"
+					"data_type" : "int"
+					"name" : "x",
+					"val" : "4200640"
+			}
+		]
+	}
+
+%%
+
+{
+		"LineNum" : 0,
+		"Type"	: "GlobalVariables",
+		"Contents" : [
+			{
+				"id" : 6,
+				"type" : "var",
+				"data_type" : "int",
+				"name" : "g",
+				"val" : "0"
+			}
+		]
+		
+}
+
+%%
+{
+		"LineNum" : 11,
+		"Type" : "StackFrame",
+		"Contents": [
+			{
+				"id" : 1,
+				"type" : "var",
+				"data_type" : "int",
+				"name" : "z",
+				"val" : "0"
+			},
+			{
+				"id" : 2,
+				"type" : "ptr",
+				"data_type" : "int *",
+				"name" : "l",
+				"val" : "3"
+			},
+			{
+					"id" : 3,
+					"type" : "var",
+					"data_type" : "int",
+					"name" : "k",
+					"val" : "5"
+			},
+			{
+					"id" : 4,
+					"type" : "ptr",
+					"data_type" : "int *",
+					"name" : "p",
+					"val" :	"3"
+			},
+			{
+					"id" : 5
+					"type" : "var"
+					"data_type" : "int"
+					"name" : "x",
+					"val" : "4200640"
+			}
+		]
+	}
+
+%%
+
+{
+		"LineNum" : 0,
+		"Type"	: "GlobalVariables",
+		"Contents" : [
+			{
+				"id" : 6,
+				"type" : "var",
+				"data_type" : "int",
+				"name" : "g",
+				"val" : "0"
+			}
+		]
+		
+}
+
+%%
+
+{
+		"LineNum" : 12,
+		"Type" : "StackFrame",
+		"Contents": [
+			{
+				"id" : 1,
+				"type" : "var",
+				"data_type" : "int",
+				"name" : "z",
+				"val" : "0"
+			},
+			{
+				"id" : 2,
+				"type" : "ptr",
+				"data_type" : "int *",
+				"name" : "l",
+				"val" : "3"
+			},
+			{
+					"id" : 3,
+					"type" : "var",
+					"data_type" : "int",
+					"name" : "k",
+					"val" : "5"
+			},
+			{
+					"id" : 4,
+					"type" : "ptr",
+					"data_type" : "int *",
+					"name" : "p",
+					"val" :	"3"
+			},
+			{
+					"id" : 5
+					"type" : "var"
+					"data_type" : "int"
+					"name" : "x",
+					"val" : "1"
+			}
+		]
+	}
+
+%%
+
+{
+		"LineNum" : 0,
+		"Type"	: "GlobalVariables",
+		"Contents" : [
+			{
+				"id" : 6,
+				"type" : "var",
+				"data_type" : "int",
+				"name" : "g",
+				"val" : "0"
+			}
+		]
+		
+}
+
+%%
+
+{
+		"LineNum" : 13,
+		"Type" : "StackFrame",
+		"Contents": [
+			{
+				"id" : 1,
+				"type" : "var",
+				"data_type" : "int",
+				"name" : "z",
+				"val" : "0"
+			},
+			{
+				"id" : 2,
+				"type" : "ptr",
+				"data_type" : "int *",
+				"name" : "l",
+				"val" : "3"
+			},
+			{
+					"id" : 3,
+					"type" : "var",
+					"data_type" : "int",
+					"name" : "k",
+					"val" : "5"
+			},
+			{
+					"id" : 4,
+					"type" : "ptr",
+					"data_type" : "int *",
+					"name" : "p",
+					"val" :	"5"
+			},
+			{
+					"id" : 5
+					"type" : "var"
+					"data_type" : "int"
+					"name" : "x",
+					"val" : "1"
+			}
+		]
+	}
+
+%%
+
+{
+		"LineNum" : 0,
+		"Type"	: "GlobalVariables",
+		"Contents" : [
+			{
+				"id" : 6,
+				"type" : "var",
+				"data_type" : "int",
+				"name" : "g",
+				"val" : "0"
+			}
+		]
+		
+}
+%%
+
+{
+		"LineNum" : 14,
+		"Type" : "StackFrame",
+		"Contents": [
+			{
+				"id" : 1,
+				"type" : "var",
+				"data_type" : "int",
+				"name" : "z",
+				"val" : "10"
+			},
+			{
+				"id" : 2,
+				"type" : "ptr",
+				"data_type" : "int *",
+				"name" : "l",
+				"val" : "3"
+			},
+			{
+					"id" : 3,
+					"type" : "var",
+					"data_type" : "int",
+					"name" : "k",
+					"val" : "5"
+			},
+			{
+					"id" : 4,
+					"type" : "ptr",
+					"data_type" : "int *",
+					"name" : "p",
+					"val" :	"5"
+			},
+			{
+					"id" : 5
+					"type" : "var"
+					"data_type" : "int"
+					"name" : "x",
+					"val" : "1"
+			}
+		]
+	}
+
+%%
+
+{
+		"LineNum" : 0,
+		"Type"	: "GlobalVariables",
+		"Contents" : [
+			{
+				"id" : 6,
+				"type" : "var",
+				"data_type" : "int",
+				"name" : "g",
+				"val" : "0"
+			}
+		]
+		
+}
+%%

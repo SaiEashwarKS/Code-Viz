@@ -16,11 +16,19 @@ markers.push({
 });
 
 let content = `#include<stdio.h>
+#include<stdlib.h>
+
+int g;
+
 int main()
-{
-	int x = 10;
-	int *p;
-	p = &x;
+{	
+	int *p,*l;
+	int k=5;
+	p=&k;
+	l=&k;
+	int x = g + 1;
+	p=&x;
+	int z = k+5;
 	return 0;
 }`;
 

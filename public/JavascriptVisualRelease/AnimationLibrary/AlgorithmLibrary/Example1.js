@@ -58,7 +58,7 @@ Example.prototype.animate = function () {
     Example.INSERT_Y + 2 * Example.ELEMENT_HEIGHT
   );
   this.cmd("Step");
-  this.cmd(
+  /*this.cmd(
     "Move",
     this.activationRecordId,
     Example.INSERT_X + 2 * Example.ELEMENT_WIDTH,
@@ -70,7 +70,7 @@ Example.prototype.animate = function () {
     Example.INSERT_X,
     Example.INSERT_Y
   );
-  this.cmd("Step");
+  this.cmd("Step");*/
   this.cmd("Connect", this.activationRecordId + 1, this.activationRecordId);
   return this.commands;
 };
