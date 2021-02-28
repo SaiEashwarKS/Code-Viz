@@ -1,26 +1,28 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<string.h>
 
 int g;
 
-typedef struct example
+typedef struct example2
 {
 	int a;
-	char b[100];
-}example;
+	int b[5];
+}example2;
+
+typedef struct example1
+{
+	int a;
+	struct example2 b;
+}example1;
 
 int main()
-{	
-	example c;
-	c.a=10;
-	strcpy(c.b,"abcde");
-	int *p,*l;
-	int k=5;
-	p=&k;
-	l=&k;
-	int x = g + 1;
-	p=&x;
-	int z = k+5;
-	return 0;
+{
+	struct example1 e1;
+	e1.a = 1;
+	e1.b.a = 2;
+	e1.b.b[0] = 100;
+	e1.b.b[1] = 200;
+	e1.b.b[2] = 300;
+	int x = 10;
+	int y = 20;
 }
