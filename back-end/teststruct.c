@@ -3,6 +3,7 @@
 #include<string.h>
 
 int g;
+int f;
 
 typedef struct example
 {
