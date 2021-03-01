@@ -255,6 +255,11 @@ Example2.prototype.visualizeObj = function (object) {
       Example2.INSERT_Y +
       Example2.VERT_COUNT * (Example2.RECT_HEIGHT + Example2.VERT_PADDING);
     Example2.VERT_COUNT++;
+    if (insert_y > 600 - 50) {
+      Example2.INSERT_X += 2 * Example2.RECT_WIDTH + 2 * Example2.HORI_PADDING;
+      Example2.VERT_COUNT = 0;
+      insert_y = Example2.INSERT_Y;
+    }
     object.x = Example2.INSERT_X;
     object.y = insert_y;
     this.objectList.push(object);
