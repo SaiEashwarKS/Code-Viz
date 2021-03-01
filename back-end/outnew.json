@@ -1,0 +1,204 @@
+{
+  "Lines_Data": [
+    {
+      "LineNum": 20, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 7062432, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 20, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 140737488346104, 
+          "val": "4200768", 
+          "name": "x"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 140737488346108, 
+          "val": "0", 
+          "name": "y"
+        }, 
+        {
+          "data_type": "int *", 
+          "type": "ptr", 
+          "id": 140737488346112, 
+          "val": 1005, 
+          "name": "z"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 21, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 7062432, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 21, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 140737488346104, 
+          "val": "10", 
+          "name": "x"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 140737488346108, 
+          "val": "0", 
+          "name": "y"
+        }, 
+        {
+          "data_type": "int *", 
+          "type": "ptr", 
+          "id": 140737488346112, 
+          "val": 1005, 
+          "name": "z"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 22, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 7062432, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 22, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 140737488346104, 
+          "val": "10", 
+          "name": "x"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 140737488346108, 
+          "val": "20", 
+          "name": "y"
+        }, 
+        {
+          "data_type": "int *", 
+          "type": "ptr", 
+          "id": 140737488346112, 
+          "val": 1005, 
+          "name": "z"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 23, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 7062432, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 23, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 140737488346104, 
+          "val": "10", 
+          "name": "x"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 140737488346108, 
+          "val": "20", 
+          "name": "y"
+        }, 
+        {
+          "data_type": "int *", 
+          "type": "ptr", 
+          "id": 140737488346112, 
+          "val": 140737488346104, 
+          "name": "z"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 25, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 7062432, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 25, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 140737488346104, 
+          "val": "10", 
+          "name": "x"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 140737488346108, 
+          "val": "20", 
+          "name": "y"
+        }, 
+        {
+          "data_type": "int *", 
+          "type": "ptr", 
+          "id": 140737488346112, 
+          "val": 140737488346108, 
+          "name": "z"
+        }
+      ]
+    }
+  ]
+}

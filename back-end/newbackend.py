@@ -39,6 +39,8 @@ gn=0
 sn=0 # no of local/stack variables
 an=0
 
+dimain={}#dimain is for mapping addressID to smaller id
+mainid=1
 
 
 sep = ['+','-','=','*','/',';','[','.']
@@ -145,6 +147,7 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 	#print("RV",rv)
 	fn=copy.deepcopy(fname)
 	ln=0
+        global mainid
 	try:
 		ln=int(lnc.split()[1])
 	except:
@@ -165,15 +168,23 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		for i in gl:
 			sepdi={}
 			datatype=i[2][1:i[2].rfind('*')]
-			ID=int(i[2][i[2].rfind(")")+2:-4],16)#hexadecimal to int conversion
+                        ID=int(i[2][i[2].rfind(")")+2:-4],16)#hexadecimal to int conversion
+                        if ID not in dimain:
+                           dimain[ID]=mainid
+                           mainid+=1
+                        ID=dimain[ID]
 			var=""
 			val=""
 			if '*' in datatype:
 				var="ptr"
 				try:
 					val=int(i[1],16)
+                                        if val in dimain:
+                                           val=dimain[val]
+                                        else:
+                                           val='U'
 				except:
-					val=0
+					val='U'
 			else:
 				var="var"
 				val=i[1].strip()
@@ -208,14 +219,22 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 				var="ptr"
 				try:
 					val=int(i[1],16)
+                                        if val in dimain:
+                                           val=dimain[val]
+                                        else:
+                                           val='U'
 				except:
-					val=0
+					val='U'
 			else:
 				var="var"
 				val=i[1].strip()
 			if val==0:
 				val=1005
 			ID=int(i[2][i[2].rfind(")")+2:],16)
+                        if ID not in dimain:
+                           dimain[ID]=mainid
+                           mainid+=1
+                        ID=dimain[ID]
 			sepdi['id']=ID
 			sepdi['type']=var
 			sepdi['data_type']=datatype.strip()
@@ -244,6 +263,10 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 				var="ptr"
 				try:
 					val=int(i[1],16)
+                                        if val in dimain:
+                                           val=dimain[val]
+                                        else:
+                                           val='U'
 				except:
 					val=0
 			else:
@@ -252,6 +275,10 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 			if val==0:
 				val=1005
 			ID=int(i[2][i[2].rfind(")")+2:],16)
+                        if ID not in dimain:
+                           dimain[ID]=maindi
+                           mainid+=1
+                        ID=dimain[ID]
 			sepdi['id']=ID
 			sepdi['type']=var
 			sepdi['data_type']=datatype.strip()
@@ -752,6 +779,6 @@ while True:
 
 maindic={"Lines_Data":lines_data}
 maindic=json.dumps(maindic,indent=2)
-f1=open("outnew.json","w")
+f1=open("outnew1.json","w")
 f1.write(maindic)
 f1.close()

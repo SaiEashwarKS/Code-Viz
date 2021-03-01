@@ -17,13 +17,9 @@ typedef struct example1
 
 int main()
 {
-	struct example1 e1;
-	e1.a = 1;
-	e1.b.a = 2;
-	e1.b.b[0] = 100;
-	e1.b.b[1] = 200;
-	e1.b.b[2] = 300;
 	int x = 10;
 	int y = 20;
 	int *z=&x;
+	z=&y;
+
 }
