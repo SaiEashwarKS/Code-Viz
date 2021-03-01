@@ -8,7 +8,7 @@ Example2.superclass = Algorithm.prototype;
 
 Example2.RECT_WIDTH = 80;
 Example2.RECT_HEIGHT = 30;
-Example2.INSERT_X = 50;
+Example2.INSERT_X = 150;
 Example2.INSERT_Y = 50;
 Example2.STARTING_X = 30;
 Example2.STARTING_Y = 100;
@@ -16,394 +16,220 @@ Example2.FOREGROUND_COLOR = "#000055";
 Example2.BACKGROUND_COLOR = "#AAAAFF";
 Example2.VERT_COUNT = 0; //used to get y coordinate for objects
 Example2.VERT_PADDING = 10; //verticle padding between objects
+Example2.HORI_PADDING = 30;
 Example2.marker = 0;
 
 Example2.prototype.init = function (am, w, h) {
   Example2.superclass.init.call(this, am, w, h);
   this.addControls();
-  this.objectId = 1;
+  this.customId = 1;
   this.json = {
-    Lines_data: [
+    Lines_Data: [
       {
-        LineNum: 0,
-        type: "StackFrame",
-        Contents: [
-          {
-            id: 1,
-            type: "var",
-            data_type: "int",
-            name: "z",
-            val: "0",
-          },
-          {
-            id: 2,
-            type: "ptr",
-            data_type: "int *",
-            name: "l",
-            val: "0",
-          },
-          {
-            id: 3,
-            type: "var",
-            data_type: "int",
-            name: "k",
-            val: "0",
-          },
-          {
-            id: 4,
-            type: "ptr",
-            data_type: "int *",
-            name: "p",
-            val: "0",
-          },
-          {
-            id: 5,
-            type: "var",
-            data_type: "int",
-            name: "x",
-            val: "4200640",
-          },
-        ],
-      },
-      {
-        LineNum: 0,
+        LineNum: 20,
         type: "GlobalVariables",
         Contents: [
           {
-            id: 6,
-            type: "var",
             data_type: "int",
-            name: "g",
+            type: "var",
+            id: 1,
             val: "0",
+            name: "g",
           },
         ],
       },
       {
-        LineNum: 9,
+        LineNum: 20,
         type: "StackFrame",
         Contents: [
           {
-            id: 1,
-            type: "var",
             data_type: "int",
-            name: "z",
-            val: "0",
-          },
-          {
+            type: "var",
             id: 2,
-            type: "ptr",
-            data_type: "int *",
-            name: "l",
-            val: "0",
-          },
-          {
-            id: 3,
-            type: "var",
-            data_type: "int",
-            name: "k",
-            val: "5",
-          },
-          {
-            id: 4,
-            type: "ptr",
-            data_type: "int *",
-            name: "p",
-            val: "0",
-          },
-          {
-            id: 5,
-            type: "var",
-            data_type: "int",
+            val: "4200768",
             name: "x",
-            val: "4200640",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 3,
+            val: "0",
+            name: "y",
+          },
+          {
+            data_type: "int *",
+            type: "ptr",
+            id: 4,
+            val: "N",
+            name: "z",
           },
         ],
       },
       {
-        LineNum: 0,
+        LineNum: 21,
         type: "GlobalVariables",
         Contents: [
           {
-            id: 6,
-            type: "var",
             data_type: "int",
-            name: "g",
+            type: "var",
+            id: 1,
             val: "0",
+            name: "g",
           },
         ],
       },
       {
-        LineNum: 10,
+        LineNum: 21,
         type: "StackFrame",
         Contents: [
           {
-            id: 1,
-            type: "var",
             data_type: "int",
-            name: "z",
-            val: "0",
-          },
-          {
+            type: "var",
             id: 2,
-            type: "ptr",
-            data_type: "int *",
-            name: "l",
-            val: "0",
-          },
-          {
-            id: 3,
-            type: "var",
-            data_type: "int",
-            name: "k",
-            val: "5",
-          },
-          {
-            id: 4,
-            type: "ptr",
-            data_type: "int *",
-            name: "p",
-            val: "3",
-          },
-          {
-            id: 5,
-            type: "var",
-            data_type: "int",
-            name: "x",
-            val: "4200640",
-          },
-        ],
-      },
-      {
-        LineNum: 0,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            id: 6,
-            type: "var",
-            data_type: "int",
-            name: "g",
-            val: "0",
-          },
-        ],
-      },
-      {
-        LineNum: 11,
-        type: "StackFrame",
-        Contents: [
-          {
-            id: 1,
-            type: "var",
-            data_type: "int",
-            name: "z",
-            val: "0",
-          },
-          {
-            id: 2,
-            type: "ptr",
-            data_type: "int *",
-            name: "l",
-            val: "3",
-          },
-          {
-            id: 3,
-            type: "var",
-            data_type: "int",
-            name: "k",
-            val: "5",
-          },
-          {
-            id: 4,
-            type: "ptr",
-            data_type: "int *",
-            name: "p",
-            val: "3",
-          },
-          {
-            id: 5,
-            type: "var",
-            data_type: "int",
-            name: "x",
-            val: "4200640",
-          },
-        ],
-      },
-      {
-        LineNum: 0,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            id: 6,
-            type: "var",
-            data_type: "int",
-            name: "g",
-            val: "0",
-          },
-        ],
-      },
-      {
-        LineNum: 12,
-        type: "StackFrame",
-        Contents: [
-          {
-            id: 1,
-            type: "var",
-            data_type: "int",
-            name: "z",
-            val: "0",
-          },
-          {
-            id: 2,
-            type: "ptr",
-            data_type: "int *",
-            name: "l",
-            val: "3",
-          },
-          {
-            id: 3,
-            type: "var",
-            data_type: "int",
-            name: "k",
-            val: "5",
-          },
-          {
-            id: 4,
-            type: "ptr",
-            data_type: "int *",
-            name: "p",
-            val: "3",
-          },
-          {
-            id: 5,
-            type: "var",
-            data_type: "int",
-            name: "x",
-            val: "1",
-          },
-        ],
-      },
-      {
-        LineNum: 0,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            id: 6,
-            type: "var",
-            data_type: "int",
-            name: "g",
-            val: "0",
-          },
-        ],
-      },
-      {
-        LineNum: 13,
-        type: "StackFrame",
-        Contents: [
-          {
-            id: 1,
-            type: "var",
-            data_type: "int",
-            name: "z",
-            val: "0",
-          },
-          {
-            id: 2,
-            type: "ptr",
-            data_type: "int *",
-            name: "l",
-            val: "3",
-          },
-          {
-            id: 3,
-            type: "var",
-            data_type: "int",
-            name: "k",
-            val: "5",
-          },
-          {
-            id: 4,
-            type: "ptr",
-            data_type: "int *",
-            name: "p",
-            val: "5",
-          },
-          {
-            id: 5,
-            type: "var",
-            data_type: "int",
-            name: "x",
-            val: "1",
-          },
-        ],
-      },
-      {
-        LineNum: 0,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            id: 6,
-            type: "var",
-            data_type: "int",
-            name: "g",
-            val: "0",
-          },
-        ],
-      },
-      {
-        LineNum: 14,
-        type: "StackFrame",
-        Contents: [
-          {
-            id: 1,
-            type: "var",
-            data_type: "int",
-            name: "z",
             val: "10",
-          },
-          {
-            id: 2,
-            type: "ptr",
-            data_type: "int *",
-            name: "l",
-            val: "3",
-          },
-          {
-            id: 3,
-            type: "var",
-            data_type: "int",
-            name: "k",
-            val: "5",
-          },
-          {
-            id: 4,
-            type: "ptr",
-            data_type: "int *",
-            name: "p",
-            val: "5",
-          },
-          {
-            id: 5,
-            type: "var",
-            data_type: "int",
             name: "x",
-            val: "1",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 3,
+            val: "0",
+            name: "y",
+          },
+          {
+            data_type: "int *",
+            type: "ptr",
+            id: 4,
+            val: "U",
+            name: "z",
           },
         ],
       },
       {
-        LineNum: 0,
+        LineNum: 22,
         type: "GlobalVariables",
         Contents: [
           {
-            id: 6,
-            type: "var",
             data_type: "int",
-            name: "g",
+            type: "var",
+            id: 1,
             val: "0",
+            name: "g",
+          },
+        ],
+      },
+      {
+        LineNum: 22,
+        type: "StackFrame",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 2,
+            val: "10",
+            name: "x",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 3,
+            val: "20",
+            name: "y",
+          },
+          {
+            data_type: "int *",
+            type: "ptr",
+            id: 4,
+            val: "U",
+            name: "z",
+          },
+        ],
+      },
+      {
+        LineNum: 23,
+        type: "GlobalVariables",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 1,
+            val: "0",
+            name: "g",
+          },
+        ],
+      },
+      {
+        LineNum: 23,
+        type: "StackFrame",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 2,
+            val: "10",
+            name: "x",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 3,
+            val: "20",
+            name: "y",
+          },
+          {
+            data_type: "int *",
+            type: "ptr",
+            id: 4,
+            val: 2,
+            name: "z",
+          },
+        ],
+      },
+      {
+        LineNum: 25,
+        type: "GlobalVariables",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 1,
+            val: "0",
+            name: "g",
+          },
+        ],
+      },
+      {
+        LineNum: 25,
+        type: "StackFrame",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 2,
+            val: "10",
+            name: "x",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 3,
+            val: "20",
+            name: "y",
+          },
+          {
+            data_type: "int *",
+            type: "ptr",
+            id: 4,
+            val: 3,
+            name: "z",
           },
         ],
       },
     ],
   };
+  this.ptrList = [];
+  this.objectIds = [];
+  this.objectList = [];
 };
 
 Example2.prototype.addControls = function () {
@@ -421,19 +247,17 @@ Example2.prototype.animateCallback = function () {
   this.implementAction(this.animate.bind(this), "");
 };
 
-var objectIds = [];
-var objectList = [];
-var ptrList = [];
-
 Example2.prototype.visualizeObj = function (object) {
   let object_type = object.type;
-  if (!objectIds.includes(object.id)) {
-    objectIds.push(object.id);
-    objectList.push(object);
+  if (!this.objectIds.includes(object.id)) {
+    this.objectIds.push(object.id);
     let insert_y =
       Example2.INSERT_Y +
       Example2.VERT_COUNT * (Example2.RECT_HEIGHT + Example2.VERT_PADDING);
     Example2.VERT_COUNT++;
+    object.x = Example2.INSERT_X;
+    object.y = insert_y;
+    this.objectList.push(object);
     switch (object_type) {
       case "var":
         // this.cmd(
@@ -445,6 +269,13 @@ Example2.prototype.visualizeObj = function (object) {
         //   Example2.INSERT_X,
         //   insert_y
         // );
+        console.log(
+          object.id,
+          object.data_type,
+          object.name,
+          insert_y,
+          Example2.INSERT_X
+        );
         this.cmd(
           "CreateLinkedList",
           object.id,
@@ -459,40 +290,61 @@ Example2.prototype.visualizeObj = function (object) {
           2
         );
         this.cmd("SetText", object.id, object.val, 1);
+        //console.log("inserted " + object.id);
         Example2.VERT_COUNT++; //because height is 2 times RECT_HEIGHT
         break;
       case "ptr":
-        let ptrObj = { id: object.id, pointeeId: 0 };
+        let ptrObj = { id: object.id, pointeeId: object.val };
         this.cmd(
           "CreateLinkedList",
           object.id,
           object.data_type + " " + object.name,
           Example2.RECT_WIDTH,
           Example2.RECT_HEIGHT * 2,
-          Example2.INSERT_X,
+          Example2.INSERT_X - 10,
           insert_y,
           0.25,
-          false,
-          false,
+          0,
+          1,
           1
         );
-        if (object.val == "0") {
-          this.cmd("SetText", object.id, "NULL", 1);
+        if (object.val === "U") {
+          this.cmd(
+            "SetText",
+            object.id,
+            object.data_type + " " + object.name + " (U)",
+            0
+          );
         } else {
-          if (objectIds.includes(parseInt(object.val))) {
-            ptrObj.pointeeId = parseInt(object.val);
-            this.cmd("Connect", object.id, parseInt(object.val));
+          if (object.val === "N") {
+            this.cmd(
+              "SetText",
+              object.id,
+              object.data_type + " " + object.name + " (N)",
+              0
+            );
+            this.cmd("SetNull", object.id, 1);
+          } else {
+            if (this.objectIds.includes(object.val)) {
+              ptrObj.pointeeId = object.val;
+              this.cmd("Connect", object.id, object.val);
+            }
           }
         }
-        ptrList.push(ptrObj);
+        this.ptrList.push(ptrObj);
         Example2.VERT_COUNT++;
+        //console.log("inserted " + object.id);
         break;
     }
   } else {
     switch (object_type) {
       case "var":
-        for (let objectIdx = 0; objectIdx < objectList.length; ++objectIdx) {
-          let insertedObject = objectList[objectIdx];
+        for (
+          let objectIdx = 0;
+          objectIdx < this.objectList.length;
+          ++objectIdx
+        ) {
+          let insertedObject = this.objectList[objectIdx];
           if (insertedObject.id === object.id) {
             if (insertedObject.val !== object.val) {
               insertedObject.val = object.val;
@@ -507,22 +359,63 @@ Example2.prototype.visualizeObj = function (object) {
 
         break;
       case "ptr":
-        for (let ptrIdx = 0; ptrIdx < ptrList.length; ++ptrIdx) {
-          let insertedPtr = ptrList[ptrIdx];
+        for (let ptrIdx = 0; ptrIdx < this.ptrList.length; ++ptrIdx) {
+          let insertedPtr = this.ptrList[ptrIdx];
           if (insertedPtr.id === object.id) {
-            if (insertedPtr.pointeeId !== parseInt(object.val)) {
-              if (insertedPtr.pointeeId !== 0) {
+            if (insertedPtr.pointeeId !== object.val) {
+              if (
+                insertedPtr.pointeeId !== "U" &&
+                insertedPtr.pointeeId !== "N"
+              ) {
                 this.cmd("Disconnect", object.id, insertedPtr.pointeeId);
               }
-              insertedPtr.pointeeId = parseInt(object.val);
+              insertedPtr.pointeeId = object.val;
               this.cmd("SetHighlight", object.id, 1);
               this.cmd("Step");
-              if (object.val == "0") {
-                this.cmd("SetText", object.id, "NULL", 1);
+              if (object.val == "N") {
+                this.cmd(
+                  "SetText",
+                  object.id,
+                  object.data_type + " " + object.name + " (N)",
+                  0
+                );
+                this.cmd("SetNull", object.id, 1);
               } else {
-                if (objectIds.includes(parseInt(object.val))) {
-                  this.cmd("SetText", object.id, "", 1);
-                  this.cmd("Connect", object.id, parseInt(object.val));
+                this.cmd("SetNull", object.id, 0);
+                if (object.val == "U") {
+                  this.cmd(
+                    "SetText",
+                    object.id,
+                    object.data_type + " " + object.name + " (U)",
+                    0
+                  );
+                } else {
+                  if (this.objectIds.includes(object.val)) {
+                    for (
+                      let insertedObjId = 0;
+                      insertedObjId < this.objectList.length;
+                      ++insertedObjId
+                    ) {
+                      if (this.objectList[insertedObjId].id === object.val) {
+                        let x = this.objectList[insertedObjId].x;
+                        let y = this.objectList[insertedObjId].y;
+                        this.cmd(
+                          "Move",
+                          object.id,
+                          x - Example2.RECT_WIDTH - Example2.HORI_PADDING,
+                          y
+                        );
+                      }
+                    }
+                    this.cmd(
+                      "SetText",
+                      object.id,
+                      object.data_type + " " + object.name,
+                      0
+                    );
+                    this.cmd("SetText", object.id, "", 1);
+                    this.cmd("Connect", object.id, object.val);
+                  }
                 }
               }
               this.cmd("Step");
@@ -530,7 +423,6 @@ Example2.prototype.visualizeObj = function (object) {
             }
           }
         }
-
         break;
     }
   }
@@ -538,8 +430,9 @@ Example2.prototype.visualizeObj = function (object) {
 
 Example2.prototype.animate = function () {
   this.commands = [];
+  var stackHasChanged = 1;
 
-  linesData = this.json.Lines_data;
+  linesData = this.json.Lines_Data;
   for (let linesDataIdx = 0; linesDataIdx < linesData.length; ++linesDataIdx) {
     //console.log(linesData[linesDataIdx]);
     let lineNum = linesData[linesDataIdx].LineNum;
@@ -556,6 +449,12 @@ Example2.prototype.animate = function () {
           let object = linesData[linesDataIdx].Contents[contentsIdx];
           this.visualizeObj(object);
         }
+        // if (stackHasChanged) {
+        //   let stackHeight =
+        //     Example2.VERT_COUNT *
+        //     (Example2.RECT_HEIGHT + Example2.VERT_PADDING);
+        //   this.cmd("CreateRectangle, ");
+        // }
         break;
       case "GlobalVariables":
         for (
@@ -570,7 +469,8 @@ Example2.prototype.animate = function () {
     }
     this.cmd("Step");
   }
-  console.log(ptrList);
+  console.log(this.objectList);
+  console.log(this.ptrList);
   return this.commands;
 };
 

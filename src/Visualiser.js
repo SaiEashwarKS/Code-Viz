@@ -20,17 +20,27 @@ let content = `#include<stdio.h>
 
 int g;
 
+typedef struct example2
+{
+	int a;
+	int b[5];
+}example2;
+
+typedef struct example1
+{
+	int a;
+	struct example2 b;
+}example1;
+
 int main()
-{	
-	int *p,*l;
-	int k=5;
-	p=&k;
-	l=&k;
-	int x = g + 1;
-	p=&x;
-	int z = k+5;
-	return 0;
-}`;
+{
+	int x = 10;
+	int y = 20;
+	int *z=&x;
+	z=&y;
+
+}
+`;
 
 const Visualiser = () => {
   return (
