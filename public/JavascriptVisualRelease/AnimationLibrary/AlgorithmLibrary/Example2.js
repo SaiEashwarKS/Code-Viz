@@ -479,200 +479,213 @@ Example2.prototype.animateCallback = function () {
   this.implementAction(this.animate.bind(this), "");
 };
 
-Example2.prototype.visualizeObj = function (object) {
-  let object_type = object.type;
-  if (!this.objectIds.includes(object.id)) {
-    this.objectIds.push(object.id);
-    let insert_y =
-      Example2.INSERT_Y +
-      Example2.VERT_COUNT * (Example2.RECT_HEIGHT + Example2.VERT_PADDING);
-    if (insert_y > 600 - 50) {
-      Example2.INSERT_X += 2 * Example2.RECT_WIDTH + 2 * Example2.HORI_PADDING;
-      Example2.VERT_COUNT = 0;
-      insert_y = Example2.INSERT_Y;
-    }
-    Example2.VERT_COUNT++;
-    object.x = Example2.INSERT_X;
-    object.y = insert_y;
-    this.objectList.push(object);
-    switch (object_type) {
-      case "var":
-        // this.cmd(
-        //   "CreateRectangle",
-        //   object.id,
-        //   object.data_type + " " + object.name + "\t" + object.val,
-        //   Example2.RECT_WIDTH,
-        //   Example2.RECT_HEIGHT,
-        //   Example2.INSERT_X,
-        //   insert_y
-        // );
-        console.log(
-          object.id,
-          object.data_type,
-          object.name,
-          insert_y,
-          Example2.INSERT_X
-        );
-        this.cmd(
-          "CreateLinkedList",
-          object.id,
-          object.data_type + " " + object.name,
-          Example2.RECT_WIDTH,
-          Example2.RECT_HEIGHT * 2,
-          Example2.INSERT_X,
-          insert_y,
-          0,
-          false,
-          false,
-          2
-        );
-        this.cmd("SetText", object.id, object.val, 1);
-        //console.log("inserted " + object.id);
-        Example2.VERT_COUNT++; //because height is 2 times RECT_HEIGHT
-        break;
-      case "ptr":
-        let ptrObj = { id: object.id, pointeeId: object.val };
-        this.cmd(
-          "CreateLinkedList",
-          object.id,
-          object.data_type + " " + object.name,
-          Example2.RECT_WIDTH,
-          Example2.RECT_HEIGHT * 2,
-          Example2.INSERT_X - 10,
-          insert_y,
-          0.25,
-          0,
-          1,
-          1
-        );
-        if (object.val === "U") {
-          this.cmd(
-            "SetText",
-            object.id,
-            object.data_type + " " + object.name + " (U)",
-            0
-          );
-        } else {
-          if (object.val === "N") {
-            this.cmd(
-              "SetText",
-              object.id,
-              object.data_type + " " + object.name + " (N)",
-              0
-            );
-            this.cmd("SetNull", object.id, 1);
-          } else {
-            if (this.objectIds.includes(object.val)) {
-              ptrObj.pointeeId = object.val;
-              this.cmd("Connect", object.id, object.val);
-            }
-          }
-        }
-        this.ptrList.push(ptrObj);
-        Example2.VERT_COUNT++;
-        //console.log("inserted " + object.id);
-        break;
-    }
-  } else {
-    switch (object_type) {
-      case "var":
-        for (
-          let objectIdx = 0;
-          objectIdx < this.objectList.length;
-          ++objectIdx
-        ) {
-          let insertedObject = this.objectList[objectIdx];
-          if (insertedObject.id === object.id) {
-            if (insertedObject.val !== object.val) {
-              insertedObject.val = object.val;
-              this.cmd("SetHighlight", object.id, 1);
-              this.cmd("Step");
-              this.cmd("SetText", object.id, object.val, 1);
-              this.cmd("Step");
-              this.cmd("SetHighlight", object.id, 0);
-            }
-          }
-        }
+Example2.prototype.getInsertY = function () {
+  let insert_y =
+    Example2.INSERT_Y +
+    Example2.VERT_COUNT * (Example2.RECT_HEIGHT + Example2.VERT_PADDING);
 
-        break;
-      case "ptr":
-        for (let ptrIdx = 0; ptrIdx < this.ptrList.length; ++ptrIdx) {
-          let insertedPtr = this.ptrList[ptrIdx];
-          if (insertedPtr.id === object.id) {
-            if (insertedPtr.pointeeId !== object.val) {
-              if (
-                insertedPtr.pointeeId !== "U" &&
-                insertedPtr.pointeeId !== "N"
-              ) {
-                this.cmd("Disconnect", object.id, insertedPtr.pointeeId);
-              }
-              insertedPtr.pointeeId = object.val;
-              this.cmd("SetHighlight", object.id, 1);
-              this.cmd("Step");
-              if (object.val == "N") {
-                this.cmd(
-                  "SetText",
-                  object.id,
-                  object.data_type + " " + object.name + " (N)",
-                  0
-                );
-                this.cmd("SetNull", object.id, 1);
-              } else {
-                this.cmd("SetNull", object.id, 0);
-                if (object.val == "U") {
-                  this.cmd(
-                    "SetText",
-                    object.id,
-                    object.data_type + " " + object.name + " (U)",
-                    0
-                  );
-                } else {
-                  if (this.objectIds.includes(object.val)) {
-                    for (
-                      let insertedObjId = 0;
-                      insertedObjId < this.objectList.length;
-                      ++insertedObjId
-                    ) {
-                      let obj_x;
-                      let new_x;
-                      let new_y;
-                      if (this.objectList[insertedObjId].id === object.val) {
-                        obj_x = this.objectList[insertedObjId].x;
-                        new_y = this.objectList[insertedObjId].y;
-                        new_x =
-                          obj_x - Example2.RECT_WIDTH - Example2.HORI_PADDING;
-                        this.cmd("Move", object.id, new_x - 10, new_y);
-                        //change the coordinates of the pointer object
-                        for (
-                          let pointerObjIdx = 0;
-                          pointerObjIdx < this.objectList.length;
-                          ++pointerObjIdx
-                        ) {
-                          if (this.objectList[pointerObjIdx].id === object.id) {
-                            this.objectList[pointerObjIdx].x = new_x;
-                            this.objectList[pointerObjIdx].y = new_y;
-                          }
-                        }
-                      }
-                    }
-                    this.cmd(
-                      "SetText",
-                      object.id,
-                      object.data_type + " " + object.name,
-                      0
-                    );
-                    this.cmd("SetText", object.id, "", 1);
-                    this.cmd("Connect", object.id, object.val);
-                  }
-                }
-              }
-              this.cmd("Step");
-              this.cmd("SetHighlight", object.id, 0);
-            }
+  //height of the canvas is exceeded
+  if (insert_y > 600 - 50) {
+    Example2.INSERT_X += 2 * Example2.RECT_WIDTH + 2 * Example2.HORI_PADDING;
+    Example2.VERT_COUNT = 0;
+    insert_y = Example2.INSERT_Y;
+  }
+  return insert_y;
+};
+
+Example2.prototype.createVar = function (object, width, height, x, y) {
+  this.cmd(
+    "CreateLinkedList",
+    object.id,
+    object.data_type + " " + object.name,
+    width,
+    height,
+    x,
+    y,
+    0,
+    false,
+    false,
+    2
+  );
+  this.cmd("SetText", object.id, object.val, 1);
+  //console.log("inserted " + object.id);
+};
+
+Example2.prototype.setPtrVal = function (object) {
+  this.cmd("SetNull", object.id, 0);
+  if (object.val === "U") {
+    this.cmd(
+      "SetText",
+      object.id,
+      object.data_type + " " + object.name + " (U)",
+      0
+    );
+  } else {
+    if (object.val === "N") {
+      this.cmd(
+        "SetText",
+        object.id,
+        object.data_type + " " + object.name + " (N)",
+        0
+      );
+      this.cmd("SetNull", object.id, 1);
+    } else {
+      if (this.objectIds.includes(object.val)) {
+        this.cmd("Connect", object.id, object.val);
+      }
+    }
+  }
+};
+
+Example2.prototype.createPtr = function (object, width, height, x, y) {
+  this.cmd(
+    "CreateLinkedList",
+    object.id,
+    object.data_type + " " + object.name,
+    width,
+    height,
+    x,
+    y,
+    0.25,
+    0,
+    1,
+    1
+  );
+  this.setPtrVal(object);
+};
+
+// Example2.prototype.updatePointeeId = function (ptrObj, pointeeId) {
+//   if (pointeeId !== "N" && pointeeId !== "U") {
+//     if (this.objectIds.includes(pointeeId)) {
+//       ptrObj.pointeeId = pointeeId;
+//     }
+//   }
+// };
+
+Example2.prototype.createObj = function (object) {
+  let object_type = object.type;
+  this.objectIds.push(object.id);
+  let insert_y = this.getInsertY();
+  Example2.VERT_COUNT++;
+  object.y = insert_y;
+  this.objectList.push(object);
+  switch (object_type) {
+    case "var":
+      object.x = Example2.INSERT_X;
+      this.createVar(
+        object,
+        Example2.RECT_WIDTH,
+        Example2.RECT_HEIGHT * 2,
+        object.x,
+        object.y
+      );
+      Example2.VERT_COUNT++; //because height is 2 times RECT_HEIGHT
+      break;
+    case "ptr":
+      object.x = Example2.INSERT_X - 10;
+      let ptrObj = { id: object.id, pointeeId: object.val };
+      this.createPtr(
+        object,
+        Example2.RECT_WIDTH,
+        Example2.RECT_HEIGHT * 2,
+        object.x,
+        object.y
+      );
+      ptrObj.pointeeId = object.val;
+      this.ptrList.push(ptrObj);
+      Example2.VERT_COUNT++; //because height is 2 times RECT_HEIGHT
+      //console.log("inserted " + object.id);
+      break;
+  }
+};
+
+Example2.prototype.modifyVar = function (object) {
+  for (let objectIdx = 0; objectIdx < this.objectList.length; ++objectIdx) {
+    let insertedObject = this.objectList[objectIdx];
+    if (insertedObject.id === object.id) {
+      if (insertedObject.val !== object.val) {
+        insertedObject.val = object.val;
+        this.cmd("SetHighlight", object.id, 1);
+        this.cmd("Step");
+        this.cmd("SetText", object.id, object.val, 1);
+        this.cmd("Step");
+        this.cmd("SetHighlight", object.id, 0);
+      }
+    }
+  }
+};
+
+Example2.prototype.modifyPtrVal = function (object) {
+  this.setPtrVal(object);
+
+  //move the ptr
+  if (this.objectIds.includes(object.val)) {
+    for (
+      let insertedObjId = 0;
+      insertedObjId < this.objectList.length;
+      ++insertedObjId
+    ) {
+      let obj_x;
+      let new_x;
+      let new_y;
+      if (this.objectList[insertedObjId].id === object.val) {
+        obj_x = this.objectList[insertedObjId].x;
+        new_y = this.objectList[insertedObjId].y;
+        new_x = obj_x - Example2.RECT_WIDTH - Example2.HORI_PADDING;
+        this.cmd("Move", object.id, new_x - 10, new_y);
+        //change the coordinates of the pointer object
+        for (
+          let pointerObjIdx = 0;
+          pointerObjIdx < this.objectList.length;
+          ++pointerObjIdx
+        ) {
+          if (this.objectList[pointerObjIdx].id === object.id) {
+            this.objectList[pointerObjIdx].x = new_x;
+            this.objectList[pointerObjIdx].y = new_y;
           }
         }
-        break;
+      }
     }
+    this.cmd("SetText", object.id, object.data_type + " " + object.name, 0);
+    this.cmd("SetText", object.id, "", 1);
+  }
+};
+
+Example2.prototype.modifyPtr = function (object) {
+  for (let ptrIdx = 0; ptrIdx < this.ptrList.length; ++ptrIdx) {
+    let insertedPtr = this.ptrList[ptrIdx];
+    if (insertedPtr.id === object.id) {
+      if (insertedPtr.pointeeId !== object.val) {
+        if (insertedPtr.pointeeId !== "U" && insertedPtr.pointeeId !== "N") {
+          this.cmd("Disconnect", object.id, insertedPtr.pointeeId);
+        }
+        insertedPtr.pointeeId = object.val;
+        this.cmd("SetHighlight", object.id, 1);
+        this.cmd("Step");
+        this.modifyPtrVal(object);
+        this.cmd("Step");
+        this.cmd("SetHighlight", object.id, 0);
+      }
+    }
+  }
+};
+
+Example2.prototype.modifyObject = function (object) {
+  switch (object.type) {
+    case "var":
+      this.modifyVar(object);
+      break;
+    case "ptr":
+      this.modifyPtr(object);
+      break;
+  }
+};
+
+Example2.prototype.visualizeObj = function (object) {
+  if (!this.objectIds.includes(object.id)) {
+    this.createObj(object);
+  } else {
+    this.modifyObject(object);
   }
 };
 
