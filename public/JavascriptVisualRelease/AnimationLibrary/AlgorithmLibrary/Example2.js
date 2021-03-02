@@ -8,7 +8,7 @@ Example2.superclass = Algorithm.prototype;
 
 Example2.RECT_WIDTH = 80;
 Example2.RECT_HEIGHT = 30;
-Example2.INSERT_X = 150;
+Example2.INSERT_X = 300;
 Example2.INSERT_Y = 50;
 Example2.STARTING_X = 30;
 Example2.STARTING_Y = 100;
@@ -46,22 +46,36 @@ Example2.prototype.init = function (am, w, h) {
             data_type: "int",
             type: "var",
             id: 2,
-            val: "4200768",
+            val: "0",
             name: "x",
           },
           {
             data_type: "int",
             type: "var",
             id: 3,
-            val: "0",
+            val: "4200640",
             name: "y",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 4,
+            val: "0",
+            name: "b",
           },
           {
             data_type: "int *",
             type: "ptr",
-            id: 4,
-            val: "N",
+            id: 5,
+            val: "U",
             name: "z",
+          },
+          {
+            data_type: "int **",
+            type: "ptr",
+            id: 6,
+            val: "U",
+            name: "a",
           },
         ],
       },
@@ -93,15 +107,29 @@ Example2.prototype.init = function (am, w, h) {
             data_type: "int",
             type: "var",
             id: 3,
-            val: "0",
+            val: "4200640",
             name: "y",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 4,
+            val: "0",
+            name: "b",
           },
           {
             data_type: "int *",
             type: "ptr",
-            id: 4,
+            id: 5,
             val: "U",
             name: "z",
+          },
+          {
+            data_type: "int **",
+            type: "ptr",
+            id: 6,
+            val: "U",
+            name: "a",
           },
         ],
       },
@@ -137,11 +165,25 @@ Example2.prototype.init = function (am, w, h) {
             name: "y",
           },
           {
+            data_type: "int",
+            type: "var",
+            id: 4,
+            val: "0",
+            name: "b",
+          },
+          {
             data_type: "int *",
             type: "ptr",
-            id: 4,
+            id: 5,
             val: "U",
             name: "z",
+          },
+          {
+            data_type: "int **",
+            type: "ptr",
+            id: 6,
+            val: "U",
+            name: "a",
           },
         ],
       },
@@ -177,12 +219,80 @@ Example2.prototype.init = function (am, w, h) {
             name: "y",
           },
           {
+            data_type: "int",
+            type: "var",
+            id: 4,
+            val: "20",
+            name: "b",
+          },
+          {
             data_type: "int *",
             type: "ptr",
+            id: 5,
+            val: "U",
+            name: "z",
+          },
+          {
+            data_type: "int **",
+            type: "ptr",
+            id: 6,
+            val: "U",
+            name: "a",
+          },
+        ],
+      },
+      {
+        LineNum: 24,
+        type: "GlobalVariables",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 1,
+            val: "0",
+            name: "g",
+          },
+        ],
+      },
+      {
+        LineNum: 24,
+        type: "StackFrame",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 2,
+            val: "10",
+            name: "x",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 3,
+            val: "20",
+            name: "y",
+          },
+          {
+            data_type: "int",
+            type: "var",
             id: 4,
+            val: "20",
+            name: "b",
+          },
+          {
+            data_type: "int *",
+            type: "ptr",
+            id: 5,
             val: 2,
             name: "z",
           },
+          {
+            data_type: "int **",
+            type: "ptr",
+            id: 6,
+            val: "U",
+            name: "a",
+          },
         ],
       },
       {
@@ -217,11 +327,133 @@ Example2.prototype.init = function (am, w, h) {
             name: "y",
           },
           {
+            data_type: "int",
+            type: "var",
+            id: 4,
+            val: "20",
+            name: "b",
+          },
+          {
             data_type: "int *",
             type: "ptr",
-            id: 4,
+            id: 5,
             val: 3,
             name: "z",
+          },
+          {
+            data_type: "int **",
+            type: "ptr",
+            id: 6,
+            val: "U",
+            name: "a",
+          },
+        ],
+      },
+      {
+        LineNum: 26,
+        type: "GlobalVariables",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 1,
+            val: "0",
+            name: "g",
+          },
+        ],
+      },
+      {
+        LineNum: 26,
+        type: "StackFrame",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 2,
+            val: "10",
+            name: "x",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 3,
+            val: "20",
+            name: "y",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 4,
+            val: "20",
+            name: "b",
+          },
+          {
+            data_type: "int *",
+            type: "ptr",
+            id: 5,
+            val: 3,
+            name: "z",
+          },
+          {
+            data_type: "int **",
+            type: "ptr",
+            id: 6,
+            val: 5,
+            name: "a",
+          },
+        ],
+      },
+      {
+        LineNum: 27,
+        type: "GlobalVariables",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 1,
+            val: "0",
+            name: "g",
+          },
+        ],
+      },
+      {
+        LineNum: 27,
+        type: "StackFrame",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 2,
+            val: "10",
+            name: "x",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 3,
+            val: "20",
+            name: "y",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 4,
+            val: "20",
+            name: "b",
+          },
+          {
+            data_type: "int *",
+            type: "ptr",
+            id: 5,
+            val: 4,
+            name: "z",
+          },
+          {
+            data_type: "int **",
+            type: "ptr",
+            id: 6,
+            val: 5,
+            name: "a",
           },
         ],
       },
@@ -254,12 +486,12 @@ Example2.prototype.visualizeObj = function (object) {
     let insert_y =
       Example2.INSERT_Y +
       Example2.VERT_COUNT * (Example2.RECT_HEIGHT + Example2.VERT_PADDING);
-    Example2.VERT_COUNT++;
     if (insert_y > 600 - 50) {
       Example2.INSERT_X += 2 * Example2.RECT_WIDTH + 2 * Example2.HORI_PADDING;
       Example2.VERT_COUNT = 0;
       insert_y = Example2.INSERT_Y;
     }
+    Example2.VERT_COUNT++;
     object.x = Example2.INSERT_X;
     object.y = insert_y;
     this.objectList.push(object);
@@ -401,15 +633,26 @@ Example2.prototype.visualizeObj = function (object) {
                       insertedObjId < this.objectList.length;
                       ++insertedObjId
                     ) {
+                      let obj_x;
+                      let new_x;
+                      let new_y;
                       if (this.objectList[insertedObjId].id === object.val) {
-                        let x = this.objectList[insertedObjId].x;
-                        let y = this.objectList[insertedObjId].y;
-                        this.cmd(
-                          "Move",
-                          object.id,
-                          x - Example2.RECT_WIDTH - Example2.HORI_PADDING,
-                          y
-                        );
+                        obj_x = this.objectList[insertedObjId].x;
+                        new_y = this.objectList[insertedObjId].y;
+                        new_x =
+                          obj_x - Example2.RECT_WIDTH - Example2.HORI_PADDING;
+                        this.cmd("Move", object.id, new_x - 10, new_y);
+                        //change the coordinates of the pointer object
+                        for (
+                          let pointerObjIdx = 0;
+                          pointerObjIdx < this.objectList.length;
+                          ++pointerObjIdx
+                        ) {
+                          if (this.objectList[pointerObjIdx].id === object.id) {
+                            this.objectList[pointerObjIdx].x = new_x;
+                            this.objectList[pointerObjIdx].y = new_y;
+                          }
+                        }
                       }
                     }
                     this.cmd(
