@@ -1,13 +1,31 @@
-l=[ 'e = {a = 0, b = {a = 7049240, b = 0}}','f = {a = 0, b = {a = 7049240, b = 0}}',]
+l=[ 'f = {a = 0, b = {a = 7049240, b = 0}}']
 l1=['e1 = {a = -8376, b = {a = 32767, b = {4195328, 0, 4200592, 0, 4200752}}}']
+
 from json import loads,dumps
-def recurse(i,cur_str,ans,level=0):
-    if '{' in i:
-        # i.strip("{}")
-        print(i)
-        for j in i.split(chr(126+level)):
-            print(j)
-    #print(i)
+def recurse(long_str,cur_str,ans,ind=0):
+    cur_stack=[]
+    if '{'==long_str[ind]:
+        for i in long_str[ind+1:]:
+            if i==",":
+                ans.append("".join(cur_str+cur_stack))
+                cur_stack=[]
+            elif i=="{":
+                cur_str+=cur_stack[-2]+"."
+                cur_stack=[]
+            elif i=="}":
+                if cur_str+cur_stack:
+                    if cur_stack:
+                        ans.append("".join(cur_str+cur_stack))
+                    cur_stack=[]
+                    cur_str=list(cur_str)[:-2]
+            else:
+                cur_stack.append(i)
+            #print(cur_stack,cur_str,ans)
+    if cur_str+cur_stack:
+        if cur_stack:
+            ans.append("".join(cur_str+cur_stack))
+        cur_stack=[]
+    print(ans)
 
 for j in l1:
     ele,typ=j.split("=",1)
@@ -20,6 +38,6 @@ for j in l1:
         #impling we can have 130 elements
         ans=[]
         level=0
-        typ=list(typ)
-        typ=typ.replace()
+        typ=typ.replace(" ","")
+        recurse(typ,[],ans)
 
