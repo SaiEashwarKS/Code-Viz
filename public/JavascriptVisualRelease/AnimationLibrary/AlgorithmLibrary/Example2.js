@@ -6,8 +6,8 @@ Example2.prototype = new Algorithm();
 Example2.prototype.constructor = Example2;
 Example2.superclass = Algorithm.prototype;
 
-Example2.RECT_WIDTH = 80;
-Example2.RECT_HEIGHT = 30;
+Example2.RECT_WIDTH = 63;
+Example2.RECT_HEIGHT = 25;
 Example2.INSERT_X = 300;
 Example2.INSERT_Y = 50;
 Example2.STARTING_X = 30;
@@ -17,7 +17,7 @@ Example2.BACKGROUND_COLOR = "#AAAAFF";
 Example2.VERT_COUNT = 0; //used to get y coordinate for objects
 Example2.VERT_PADDING = 10; //verticle padding between objects
 Example2.HORI_PADDING = 30;
-Example2.marker = 0;
+Example2.marker = 0; //line number of the line to be highlighted in aceeditor
 
 Example2.prototype.init = function (am, w, h) {
   Example2.superclass.init.call(this, am, w, h);
@@ -459,9 +459,17 @@ Example2.prototype.init = function (am, w, h) {
       },
     ],
   };
-  this.ptrList = [];
-  this.objectIds = [];
-  this.objectList = [];
+  this.objectList = []; //list of all the objects on the screen
+  // format of the objects that will be inserted in this list : {data_type, type, id, val, name}
+  this.objectIdList = []; //list of object IDs. need this list in addition to objectList because
+  //    we constantly keep searching if an object to be inserted is already inserted.
+  // this search is done based on ID's of the objects,
+  //    but checking if the id already exists in the objectList is slow.
+  //therefore having a seperate list with just the IDs will be more efficient to search if an ID already exists
+  this.ptrList = []; //list of ptr objects inserted.
+  // format of the objects that will be inserted in this list : {id, pointeeId}
+  this.colObjList = {}; //dict of key-value pairs which has info about the columns in the visualisation
+  // format of the key-value that will be inserted in this dict : x : [maxWidth, objIdList]
 };
 
 Example2.prototype.addControls = function () {
@@ -512,7 +520,6 @@ Example2.prototype.createVar = function (object, width, height, x, y) {
 };
 
 Example2.prototype.setPtrVal = function (object) {
-  this.cmd("SetNull", object.id, 0);
   if (object.val === "U") {
     this.cmd(
       "SetText",
@@ -530,7 +537,7 @@ Example2.prototype.setPtrVal = function (object) {
       );
       this.cmd("SetNull", object.id, 1);
     } else {
-      if (this.objectIds.includes(object.val)) {
+      if (this.objectIdList.includes(object.val)) {
         this.cmd("Connect", object.id, object.val);
       }
     }
@@ -554,17 +561,9 @@ Example2.prototype.createPtr = function (object, width, height, x, y) {
   this.setPtrVal(object);
 };
 
-// Example2.prototype.updatePointeeId = function (ptrObj, pointeeId) {
-//   if (pointeeId !== "N" && pointeeId !== "U") {
-//     if (this.objectIds.includes(pointeeId)) {
-//       ptrObj.pointeeId = pointeeId;
-//     }
-//   }
-// };
-
 Example2.prototype.createObj = function (object) {
   let object_type = object.type;
-  this.objectIds.push(object.id);
+  this.objectIdList.push(object.id);
   let insert_y = this.getInsertY();
   Example2.VERT_COUNT++;
   object.y = insert_y;
@@ -574,7 +573,7 @@ Example2.prototype.createObj = function (object) {
       object.x = Example2.INSERT_X;
       this.createVar(
         object,
-        Example2.RECT_WIDTH,
+        this.getWidth(object),
         Example2.RECT_HEIGHT * 2,
         object.x,
         object.y
@@ -586,7 +585,7 @@ Example2.prototype.createObj = function (object) {
       let ptrObj = { id: object.id, pointeeId: object.val };
       this.createPtr(
         object,
-        Example2.RECT_WIDTH,
+        this.getWidth(object),
         Example2.RECT_HEIGHT * 2,
         object.x,
         object.y
@@ -619,7 +618,7 @@ Example2.prototype.modifyPtrVal = function (object) {
   this.setPtrVal(object);
 
   //move the ptr
-  if (this.objectIds.includes(object.val)) {
+  if (this.objectIdList.includes(object.val)) {
     for (
       let insertedObjId = 0;
       insertedObjId < this.objectList.length;
@@ -681,8 +680,52 @@ Example2.prototype.modifyObject = function (object) {
   }
 };
 
+Example2.prototype.insertNewCol = function () {
+  let x = Example2.INSERT_X;
+  this.colObjList.x = { maxWidth: 0, objIds: [] };
+};
+
+Example2.prototype.getWidthVar = function (text) {
+  return 10 * text.length;
+};
+
+Example2.prototype.getWidthPtr = function (text) {
+  return 8 * (text.length + 4); //4 extra chars for " (U)" or " (N)"
+};
+
+Example2.prototype.getWidth = function (object) {
+  switch (object.type) {
+    case "var":
+      return this.getWidthVar(object.type + " " + object.name);
+      break;
+    case "ptr":
+      return this.getWidthPtr(object.type + " " + object.name);
+      break;
+  }
+};
+
+Example2.prototype.insertIntoCol = function (object) {
+  let x = Example2.INSERT_X;
+  let colExists = x in this.colObjList;
+
+  //new column
+  if (!colExists) {
+    this.insertNewCol();
+  }
+
+  //add the obj id
+  let colEntry = this.colObjList.x;
+  colEntry.objIds.push(object.id);
+
+  //change maxWidth if needed
+  let objWidth = this.getWidth(object);
+  let widthIsGreater = objWidth > colEntry.maxWidth;
+  colEntry.maxWidth = widthIsGreater ? objWidth : colEntry.maxWidth;
+};
+
 Example2.prototype.visualizeObj = function (object) {
-  if (!this.objectIds.includes(object.id)) {
+  this.insertIntoCol(object);
+  if (!this.objectIdList.includes(object.id)) {
     this.createObj(object);
   } else {
     this.modifyObject(object);
@@ -691,14 +734,10 @@ Example2.prototype.visualizeObj = function (object) {
 
 Example2.prototype.animate = function () {
   this.commands = [];
-  var stackHasChanged = 1;
 
-  linesData = this.json.Lines_Data;
+  let linesData = this.json.Lines_Data;
   for (let linesDataIdx = 0; linesDataIdx < linesData.length; ++linesDataIdx) {
-    //console.log(linesData[linesDataIdx]);
-    let lineNum = linesData[linesDataIdx].LineNum;
     let type = linesData[linesDataIdx].type;
-    //console.log(type, lineNum);
     switch (type) {
       case "StackFrame":
         for (
@@ -710,12 +749,6 @@ Example2.prototype.animate = function () {
           let object = linesData[linesDataIdx].Contents[contentsIdx];
           this.visualizeObj(object);
         }
-        // if (stackHasChanged) {
-        //   let stackHeight =
-        //     Example2.VERT_COUNT *
-        //     (Example2.RECT_HEIGHT + Example2.VERT_PADDING);
-        //   this.cmd("CreateRectangle, ");
-        // }
         break;
       case "GlobalVariables":
         for (
@@ -730,8 +763,9 @@ Example2.prototype.animate = function () {
     }
     this.cmd("Step");
   }
-  console.log(this.objectList);
-  console.log(this.ptrList);
+  //console.log(this.objectList);
+  //console.log(this.ptrList);
+  console.log(this.colObjList);
   return this.commands;
 };
 

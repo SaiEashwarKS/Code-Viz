@@ -20,25 +20,15 @@ let content = `#include<stdio.h>
 
 int g;
 
-typedef struct example2
-{
-	int a;
-	int b[5];
-}example2;
-
-typedef struct example1
-{
-	int a;
-	struct example2 b;
-}example1;
-
 int main()
 {
 	int x = 10;
 	int y = 20;
+	int b=20;
 	int *z=&x;
 	z=&y;
-
+	int **a=&z;
+	z=&b;
 }
 `;
 
@@ -53,7 +43,7 @@ const Visualiser = () => {
               theme="xcode"
               name="fileContentEditor"
               value={content}
-              markers={markers}
+              //markers={markers}
               readOnly={true}
               cursorStart={3}
               fontSize={14}
