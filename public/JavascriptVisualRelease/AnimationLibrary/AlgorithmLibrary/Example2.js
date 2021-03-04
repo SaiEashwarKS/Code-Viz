@@ -596,6 +596,7 @@ Example2.prototype.createObj = function (object) {
       //console.log("inserted " + object.id);
       break;
   }
+  this.insertIntoCol(object);
 };
 
 Example2.prototype.modifyVar = function (object) {
@@ -685,11 +686,6 @@ Example2.prototype.modifyObject = function (object) {
   this.modifyWidth(object);
 };
 
-Example2.prototype.insertNewCol = function () {
-  let x = Example2.INSERT_X;
-  this.colObjList.x = { maxWidth: 0, objIds: [] };
-};
-
 Example2.prototype.getWidthVar = function (text) {
   return 10 * text.length;
 };
@@ -709,6 +705,11 @@ Example2.prototype.getWidth = function (object) {
   }
 };
 
+Example2.prototype.insertNewCol = function () {
+  let x = Example2.INSERT_X;
+  this.colObjList[x] = { maxWidth: 0, objIds: [] };
+};
+
 Example2.prototype.insertIntoCol = function (object) {
   let x = Example2.INSERT_X;
   let colExists = x in this.colObjList;
@@ -718,8 +719,9 @@ Example2.prototype.insertIntoCol = function (object) {
     this.insertNewCol();
   }
 
+  let colEntry = this.colObjList[x];
+
   //add the obj id
-  let colEntry = this.colObjList.x;
   colEntry.objIds.push(object.id);
 
   //change maxWidth if needed
@@ -729,7 +731,6 @@ Example2.prototype.insertIntoCol = function (object) {
 };
 
 Example2.prototype.visualizeObj = function (object) {
-  this.insertIntoCol(object);
   if (!this.objectIdList.includes(object.id)) {
     this.createObj(object);
   } else {
@@ -770,7 +771,8 @@ Example2.prototype.animate = function () {
   }
   //console.log(this.objectList);
   //console.log(this.ptrList);
-  console.log(this.colObjList);
+  let x = Example2.INSERT_X;
+  console.log(x, this.colObjList[x].objIds);
   return this.commands;
 };
 
