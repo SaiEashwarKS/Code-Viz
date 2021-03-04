@@ -669,6 +669,10 @@ Example2.prototype.modifyPtr = function (object) {
   }
 };
 
+Example2.prototype.modifyWidth = function (object) {
+  this.cmd("SetWidth", this.getWidth(object));
+};
+
 Example2.prototype.modifyObject = function (object) {
   switch (object.type) {
     case "var":
@@ -678,6 +682,7 @@ Example2.prototype.modifyObject = function (object) {
       this.modifyPtr(object);
       break;
   }
+  this.modifyWidth(object);
 };
 
 Example2.prototype.insertNewCol = function () {
