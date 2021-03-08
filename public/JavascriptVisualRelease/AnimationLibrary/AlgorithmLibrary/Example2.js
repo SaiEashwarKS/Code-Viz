@@ -8,7 +8,7 @@ Example2.superclass = Algorithm.prototype;
 
 Example2.RECT_WIDTH = 63;
 Example2.RECT_HEIGHT = 25;
-Example2.INSERT_X = 300;
+Example2.INSERT_X = 100;
 Example2.INSERT_Y = 50;
 Example2.STARTING_X = 30;
 Example2.STARTING_Y = 100;
@@ -586,13 +586,13 @@ Example2.prototype.createObj = function (object) {
       this.createPtr(
         object,
         this.getWidth(object),
-        Example2.RECT_HEIGHT * 2,
+        Example2.RECT_HEIGHT * 1,
         object.x,
         object.y
       );
       ptrObj.pointeeId = object.val;
       this.ptrList.push(ptrObj);
-      Example2.VERT_COUNT++; //because height is 2 times RECT_HEIGHT
+      //Example2.VERT_COUNT++; //because height is 2 times RECT_HEIGHT
       //console.log("inserted " + object.id);
       break;
   }
@@ -615,40 +615,61 @@ Example2.prototype.modifyVar = function (object) {
   }
 };
 
+Example2.prototype.getPointeeObj = function (ptrObj) {
+  for (
+    let insertedObjId = 0;
+    insertedObjId < this.objectList.length;
+    ++insertedObjId
+  ) {
+    if (this.objectList[insertedObjId].id === ptrObj.val) {
+      return this.objectList[insertedObjId];
+    }
+  }
+};
+
+Example2.prototype.movePtr = function (ptrObj, pointeeObj) {
+  //returns new coordinates of the pointer object
+  let new_x;
+  new_x = pointeeObj.x - Example2.RECT_WIDTH - Example2.HORI_PADDING;
+  this.cmd("Move", ptrObj.id, new_x - 10, pointeeObj.y); // -10 because pointer onjects are offset to the right by 10 pixels by default (don't know why)
+  return [new_x, pointeeObj.y];
+};
+
+Example2.prototype.modifyPtrCoords = function (ptrId, x, y) {
+  for (
+    let pointerObjIdx = 0;
+    pointerObjIdx < this.objectList.length;
+    ++pointerObjIdx
+  ) {
+    if (this.objectList[pointerObjIdx].id === ptrId) {
+      this.objectList[pointerObjIdx].x = x;
+      this.objectList[pointerObjIdx].y = y;
+    }
+  }
+};
+
 Example2.prototype.modifyPtrVal = function (object) {
+  //change the text inside the ptr
   this.setPtrVal(object);
 
-  //move the ptr
+  let pointeeObj;
+
+  //get pointee object
   if (this.objectIdList.includes(object.val)) {
-    for (
-      let insertedObjId = 0;
-      insertedObjId < this.objectList.length;
-      ++insertedObjId
-    ) {
-      let obj_x;
-      let new_x;
-      let new_y;
-      if (this.objectList[insertedObjId].id === object.val) {
-        obj_x = this.objectList[insertedObjId].x;
-        new_y = this.objectList[insertedObjId].y;
-        new_x = obj_x - Example2.RECT_WIDTH - Example2.HORI_PADDING;
-        this.cmd("Move", object.id, new_x - 10, new_y);
-        //change the coordinates of the pointer object
-        for (
-          let pointerObjIdx = 0;
-          pointerObjIdx < this.objectList.length;
-          ++pointerObjIdx
-        ) {
-          if (this.objectList[pointerObjIdx].id === object.id) {
-            this.objectList[pointerObjIdx].x = new_x;
-            this.objectList[pointerObjIdx].y = new_y;
-          }
-        }
-      }
-    }
-    this.cmd("SetText", object.id, object.data_type + " " + object.name, 0);
-    this.cmd("SetText", object.id, "", 1);
+    pointeeObj = this.getPointeeObj(object);
   }
+  //move the entire column of pointee
+  //this.movePointeeCol();
+
+  //move the ptr
+  let new_x, new_y;
+  [new_x, new_y] = this.movePtr(object, pointeeObj);
+
+  //change the coordinates of the pointer object
+  this.modifyPtrCoords(object.id, new_x, new_y);
+
+  // this.cmd("SetText", object.id, object.data_type + " " + object.name, 0);
+  // this.cmd("SetText", object.id, "", 1);
 };
 
 Example2.prototype.modifyPtr = function (object) {
@@ -771,8 +792,7 @@ Example2.prototype.animate = function () {
   }
   //console.log(this.objectList);
   //console.log(this.ptrList);
-  let x = Example2.INSERT_X;
-  console.log(x, this.colObjList[x].objIds);
+  console.log(this.colObjList);
   return this.commands;
 };
 
