@@ -779,6 +779,6 @@ while True:
 
 maindic={"Lines_Data":lines_data}
 maindic=json.dumps(maindic,indent=2)
-f1=open("outnew1.json","w")
+f1=open("outnew12.json","w")
 f1.write(maindic)
 f1.close()
