@@ -157,6 +157,9 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		fn=fname[-1]
 	if len(fn)>1:
 		print "\nFunction Name: ",fn[0],"\nFunction Address: ",fn[1]
+		di = {"LineNum":ln, "FunctionName": fn[0], "FunctionAddress": fn[1]}
+		lines_data.append(di.copy())
+		del di
 	if len(gl)>0:
 		print '\n(Global Variables)'
 		heading = ["VARIABLE","VALUE","ADDRESS"]
@@ -276,7 +279,7 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 				val=1005
 			ID=int(i[2][i[2].rfind(")")+2:],16)
                         if ID not in dimain:
-                           dimain[ID]=maindi
+                           dimain[ID]=mainid
                            mainid+=1
                         ID=dimain[ID]
 			sepdi['id']=ID
@@ -414,7 +417,7 @@ def linkall(gl,sl,al,ln,fn):#links pointers and displays it
 			tsdispv.append(["",i[1][1],"","","",i[8][1]])
 	return [gl,sl,al,ln,fn,tsav11,tsdispv]
 
-f = open('test.txt','w')
+#f = open('test.txt','w')
 
 def output(p1,flag):#display (stack frame, arguments..)
 	global stop
@@ -537,15 +540,15 @@ def output(p1,flag):#display (stack frame, arguments..)
 		if my_out != 'No symbol table info available.\n(gdb) ':
 			my_out = string.replace(my_out,'(gdb)','')
 			my_out = my_out.strip()
-			f.write(str(my_out)+'\n')
+			#f.write(str(my_out)+'\n')
 			#print '\n(Stack Frame)'
 			my_out = my_out.split('\n') # ['p = 0x401a50 <__libc_csu_fini>', 'l = 0x0', ...]
-			f.write(str(my_out)+'\n')
+			#f.write(str(my_out)+'\n')
 			my_out = [ x.split('=',1) for x in my_out ] # [['p ', ' 0x401a50 <__libc_csu_fini>'], ['l ', ' 0x0'], ...]
-			f.write(str(my_out)+'\n')
+			#f.write(str(my_out)+'\n')
 			for x in range(len(my_out)):
 				my_out[x] = [ y.strip() for y in my_out[x] ] # [['p', '0x401a50 <__libc_csu_fini>'], ['l', '0x0'], ...]
-			f.write(str(my_out)+'\n')
+			#f.write(str(my_out)+'\n')
 			prev = 0
 			if len(my_out)==2 and len(my_out[0])==1:
 				print "\nNo Locals.\n"
@@ -557,7 +560,7 @@ def output(p1,flag):#display (stack frame, arguments..)
 					else:
 						prev = x
 				my_out = filter(lambda a: len(a) ==2, my_out)
-				f.write(str(my_out)+'\n')
+				#f.write(str(my_out)+'\n')
 				mp = copy.deepcopy(my_out) # mp-> [['p', '0x401a50 <__libc_csu_fini>'], ['l', '0x0'], ...]
 				#heading = ["VARIABLE","VALUE"]
 				#print(tabulate(my_out,headers=heading,tablefmt="psql"))
@@ -779,6 +782,6 @@ while True:
 
 maindic={"Lines_Data":lines_data}
 maindic=json.dumps(maindic,indent=2)
-f1=open("outnew12.json","w")
+f1=open("out.json","w")
 f1.write(maindic)
 f1.close()
