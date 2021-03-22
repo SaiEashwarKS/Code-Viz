@@ -14,6 +14,29 @@
     <!-- jqueury stuff.  Only used for the animation speed slider. -->
     <link rel="stylesheet" href="JavascriptVisualRelease/ThirdParty/jquery-ui-1.8.11.custom.css">
 
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 87;
+            right: 0;
+            bottom: 100;
+            left: 750;
+        }
+
+        .ace-marker {
+            position: absolute;
+            background: rgba(100, 200, 100, 0.5);
+            z-index: 1
+        }
+    </style>
+
+    <link rel="stylesheet" href="./../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./../node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./../node_modules/bootstrap-social/bootstrap-social.css">
+
+    <script src="JavascriptVisualRelease/AnimationLibrary/AlgorithmLibrary/ace-builds/src-noconflict/ace.js"
+        type="text/javascript" charset="utf-8"></script>
+
     <script src="JavascriptVisualRelease/ThirdParty/jquery-1.5.2.min.js"></script>
     <script src="JavascriptVisualRelease/ThirdParty/jquery-ui-1.8.11.custom.min.js"></script>
 
@@ -32,47 +55,77 @@
     <script type="application/javascript" src="JavascriptVisualRelease/AnimationLibrary/AnimationMain.js"> </script>
     <script type="application/javascript"
         src="JavascriptVisualRelease/AnimationLibrary/AlgorithmLibrary/Algorithm.js"> </script>
-    <script type="application/javascript"
-        src="JavascriptVisualRelease/AnimationLibrary/AlgorithmLibrary/Example2.js"> </script>
+
 
 
 </head>
 
 <body onload="init();" class="VisualizationMainPage">
 
-    <div id="container">
+    <div class="container" id="container">
+        <div class="row">
+            <!-- <div id="container"> -->
 
-        <div id="header">
-            <h1>Code-Viz</h1>
+            <div id="header">
+                <h1>Code-Viz</h1>
+            </div>
+            <!-- </div>container -->
         </div>
-
-        <div=id="mainContent">
-
+        <div class="row" id="mainContent">
             <div id="algoControlSection">
                 <!-- Table for buttons to control specific animation (insert/find/etc) -->
                 <!-- (filled in by javascript code specific to the animtion) -->
                 <table id="AlgorithmSpecificControls"> </table>
             </div>
-
-            <!-- Drawing canvas where all animation is done.  Note:  can be resized in code -->
-
-
-            <canvas id="canvas" width="1000" height="600"></canvas>
-
-            <div id="generalAnimationControlSection">
-                <!-- Table for buttons to control general animation (play/pause/undo/etc) ->
-				    <!-- (filled in by javascript code, specifically AnimationMain.js)  -->
-
-                <table id="GeneralAnimationControls"> </table>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <div id="editor">
+                </div>
             </div>
+            <div class="col-12 col-sm-6">
+                <canvas id="canvas" width="1000" height="900"></canvas>
+            </div>
+        </div>
+        <div class="row" id="generalAnimationControlSection">
+            <table id="GeneralAnimationControls"> </table>
+        </div>
 
-    </div> <!-- mainContent -->
-
-    <div id="footer">
-        <p><a href="Algorithms.html">Algorithm Visualizations</a></p>
+        <div class="row" id="footer">
+            <p><a href="Algorithms.html">Algorithm Visualizations</a></p>
+        </div>
     </div>
 
-    </div><!-- container -->
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="application/javascript"
+        src="JavascriptVisualRelease/AnimationLibrary/AlgorithmLibrary/Example2.js"> </script>
+
 </body>
+<script>
+    let code = `#include<stdio.h>
+#include<stdlib.h>
+
+int g;
+
+int main()
+{
+	int x = 10;
+	int y = 20;
+	int b=20;
+	int *z=&x;
+	z=&y;
+	int **a=&z;
+	z=&b;
+}
+
+`;
+
+    var editor = ace.edit("editor");
+    editor.session.setValue(code);//move cursor to the end
+
+</script>
+
 
 </html>

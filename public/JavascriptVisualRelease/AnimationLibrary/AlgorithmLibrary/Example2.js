@@ -1,3 +1,8 @@
+var editor = ace.edit("editor");
+editor.setTheme("ace/theme/xcode");
+editor.session.setMode("ace/mode/c_cpp");
+editor.setReadOnly("true");
+
 function Example2(am, w, h) {
   this.init(am, w, h);
 }
@@ -8,7 +13,7 @@ Example2.superclass = Algorithm.prototype;
 
 Example2.RECT_WIDTH = 63;
 Example2.RECT_HEIGHT = 25;
-Example2.INSERT_X = 100;
+Example2.INSERT_X = 300;
 Example2.INSERT_Y = 50;
 Example2.STARTING_X = 30;
 Example2.STARTING_Y = 100;
@@ -17,7 +22,6 @@ Example2.BACKGROUND_COLOR = "#AAAAFF";
 Example2.VERT_COUNT = 0; //used to get y coordinate for objects
 Example2.VERT_PADDING = 10; //verticle padding between objects
 Example2.HORI_PADDING = 30;
-Example2.marker = 0; //line number of the line to be highlighted in aceeditor
 
 Example2.prototype.init = function (am, w, h) {
   Example2.superclass.init.call(this, am, w, h);
@@ -26,7 +30,12 @@ Example2.prototype.init = function (am, w, h) {
   this.json = {
     Lines_Data: [
       {
-        LineNum: 20,
+        LineNum: 8,
+        FunctionName: "main",
+        FunctionAddress: "(int (*)()) 0x400b6d <main>",
+      },
+      {
+        LineNum: 8,
         type: "GlobalVariables",
         Contents: [
           {
@@ -39,7 +48,7 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 20,
+        LineNum: 8,
         type: "StackFrame",
         Contents: [
           {
@@ -80,7 +89,12 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 21,
+        LineNum: 9,
+        FunctionName: "main",
+        FunctionAddress: "(int (*)()) 0x400b6d <main>",
+      },
+      {
+        LineNum: 9,
         type: "GlobalVariables",
         Contents: [
           {
@@ -93,7 +107,7 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 21,
+        LineNum: 9,
         type: "StackFrame",
         Contents: [
           {
@@ -134,7 +148,12 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 22,
+        LineNum: 10,
+        FunctionName: "main",
+        FunctionAddress: "(int (*)()) 0x400b6d <main>",
+      },
+      {
+        LineNum: 10,
         type: "GlobalVariables",
         Contents: [
           {
@@ -147,7 +166,7 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 22,
+        LineNum: 10,
         type: "StackFrame",
         Contents: [
           {
@@ -188,7 +207,12 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 23,
+        LineNum: 11,
+        FunctionName: "main",
+        FunctionAddress: "(int (*)()) 0x400b6d <main>",
+      },
+      {
+        LineNum: 11,
         type: "GlobalVariables",
         Contents: [
           {
@@ -201,7 +225,7 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 23,
+        LineNum: 11,
         type: "StackFrame",
         Contents: [
           {
@@ -242,7 +266,12 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 24,
+        LineNum: 12,
+        FunctionName: "main",
+        FunctionAddress: "(int (*)()) 0x400b6d <main>",
+      },
+      {
+        LineNum: 12,
         type: "GlobalVariables",
         Contents: [
           {
@@ -255,7 +284,7 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 24,
+        LineNum: 12,
         type: "StackFrame",
         Contents: [
           {
@@ -296,7 +325,12 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 25,
+        LineNum: 13,
+        FunctionName: "main",
+        FunctionAddress: "(int (*)()) 0x400b6d <main>",
+      },
+      {
+        LineNum: 13,
         type: "GlobalVariables",
         Contents: [
           {
@@ -309,7 +343,7 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 25,
+        LineNum: 13,
         type: "StackFrame",
         Contents: [
           {
@@ -350,7 +384,12 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 26,
+        LineNum: 14,
+        FunctionName: "main",
+        FunctionAddress: "(int (*)()) 0x400b6d <main>",
+      },
+      {
+        LineNum: 14,
         type: "GlobalVariables",
         Contents: [
           {
@@ -363,7 +402,7 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 26,
+        LineNum: 14,
         type: "StackFrame",
         Contents: [
           {
@@ -404,7 +443,12 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 27,
+        LineNum: 15,
+        FunctionName: "main",
+        FunctionAddress: "(int (*)()) 0x400b6d <main>",
+      },
+      {
+        LineNum: 15,
         type: "GlobalVariables",
         Contents: [
           {
@@ -417,7 +461,7 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 27,
+        LineNum: 15,
         type: "StackFrame",
         Contents: [
           {
@@ -615,14 +659,14 @@ Example2.prototype.modifyVar = function (object) {
   }
 };
 
-Example2.prototype.getPointeeObj = function (ptrObj) {
+Example2.prototype.getObj = function (id) {
   for (
-    let insertedObjId = 0;
-    insertedObjId < this.objectList.length;
-    ++insertedObjId
+    let insertedObjIdx = 0;
+    insertedObjIdx < this.objectList.length;
+    ++insertedObjIdx
   ) {
-    if (this.objectList[insertedObjId].id === ptrObj.val) {
-      return this.objectList[insertedObjId];
+    if (this.objectList[insertedObjIdx].id === id) {
+      return this.objectList[insertedObjIdx];
     }
   }
 };
@@ -648,28 +692,94 @@ Example2.prototype.modifyPtrCoords = function (ptrId, x, y) {
   }
 };
 
+Example2.prototype.changeObjCol = function (objId, new_col_x) {
+  let colExists = Object.keys(this.colObjList).includes(new_col_x);
+  if (!colExists) {
+    //console.log("created new col", new_col_x);
+    this.insertNewCol(new_col_x);
+  }
+  this.colObjList[new_col_x].objIds.push(objId);
+  //console.log(this.colObjList);
+};
+
+Example2.prototype.removeFromCol = function (col_x, objId) {
+  let col = this.colObjList[col_x];
+  //console.log(col);
+  let objIds = col.objIds;
+  objIds = objIds.filter((item) => item !== objId);
+  col.objIds = objIds;
+};
+
+Example2.prototype.resetCol = function (col_x) {
+  this.colObjList[col_x].maxWidth = 0;
+  this.colObjList[col_x].objIds = [];
+};
+
+Example2.prototype.movePointeeCol = function (col_x, ptrObj) {
+  //add the pointee obj ids to the new col
+  //this should be done from the rightmost col to easily carry the maxWidth attribute of one col to the next col
+
+  //ASSUMPTION : KEYS IN COLOBJLIST ARE IN ASCENDING ORDER
+
+  let colKeys = Object.keys(this.colObjList);
+  let col;
+
+  //1. remove the objects from the old col
+  //2. add them to the new col
+  //3. move the object
+  //4. delete the old col
+  for (let keyIdx = colKeys.length - 1; keyIdx >= 0; --keyIdx) {
+    if (colKeys[keyIdx] >= col_x) {
+      col = this.colObjList[colKeys[keyIdx]];
+      let oldMaxWidth = col.maxWidth;
+      let objIds = col.objIds;
+      for (let objIdx = 0; objIdx < objIds.length; ++objIdx) {
+        let objId = objIds[objIdx];
+        if (objId !== ptrObj.id) {
+          let obj = this.getObj(objId);
+          obj.x += oldMaxWidth;
+          this.removeFromCol(colKeys[keyIdx], objId); //1
+          this.changeObjCol(objId, obj.x); //2
+          this.cmd("Move", objId, obj.x, obj.y); //3
+        }
+      }
+      let new_x = parseInt(colKeys[keyIdx]) + parseInt(oldMaxWidth);
+      // console.log("newx", new_x);
+      //delete the col - make its maxWidth = 0 and objIds = []. we are not actually deleting the key because that would break the ascending order of the keys
+      this.resetCol(colKeys[keyIdx]); //4
+      //change maxWidth of the new column
+      this.colObjList[new_x].maxWidth = oldMaxWidth;
+    }
+  }
+};
+
 Example2.prototype.modifyPtrVal = function (object) {
   //change the text inside the ptr
   this.setPtrVal(object);
 
-  let pointeeObj;
-
   //get pointee object
+  let pointeeObj;
   if (this.objectIdList.includes(object.val)) {
-    pointeeObj = this.getPointeeObj(object);
+    pointeeObj = this.getObj(object.val);
+
+    //this.movePointeeCol(pointeeObj.id);
+
+    //move the ptr
+    let new_x, new_y;
+    [new_x, new_y] = this.movePtr(object, pointeeObj);
+
+    //move the column of pointee and all the columns to the right of it
+    // if (new_x !== object.x) {
+    //   this.movePointeeCol(pointeeObj.id, object);
+    // }
+
+    //change the coordinates of the pointer object
+    this.modifyPtrCoords(object.id, new_x, new_y);
+
+    //remove any (U) or (N) in the name of the ptr object
+    this.cmd("SetText", object.id, object.data_type + " " + object.name, 0);
+    this.cmd("SetText", object.id, "", 1);
   }
-  //move the entire column of pointee
-  //this.movePointeeCol();
-
-  //move the ptr
-  let new_x, new_y;
-  [new_x, new_y] = this.movePtr(object, pointeeObj);
-
-  //change the coordinates of the pointer object
-  this.modifyPtrCoords(object.id, new_x, new_y);
-
-  // this.cmd("SetText", object.id, object.data_type + " " + object.name, 0);
-  // this.cmd("SetText", object.id, "", 1);
 };
 
 Example2.prototype.modifyPtr = function (object) {
@@ -726,8 +836,7 @@ Example2.prototype.getWidth = function (object) {
   }
 };
 
-Example2.prototype.insertNewCol = function () {
-  let x = Example2.INSERT_X;
+Example2.prototype.insertNewCol = function (x) {
   this.colObjList[x] = { maxWidth: 0, objIds: [] };
 };
 
@@ -737,7 +846,7 @@ Example2.prototype.insertIntoCol = function (object) {
 
   //new column
   if (!colExists) {
-    this.insertNewCol();
+    this.insertNewCol(Example2.INSERT_X);
   }
 
   let colEntry = this.colObjList[x];
@@ -765,6 +874,13 @@ Example2.prototype.animate = function () {
   let linesData = this.json.Lines_Data;
   for (let linesDataIdx = 0; linesDataIdx < linesData.length; ++linesDataIdx) {
     let type = linesData[linesDataIdx].type;
+    let line_no = linesData[linesDataIdx].LineNum;
+    this.cmd("RemoveAceMarker");
+    // editor.session.removeMarker(marker);
+    // range = new Range(line_no - 1, 0, line_no - 1, 1);
+    // marker = editor.session.addMarker(range, "ace-marker", "fullLine");
+    this.cmd("AddAceMarker", line_no - 1); //-1 because the backend sends line_no after the operation is completed
+    //console.log("highlighted", line_no - 1);
     switch (type) {
       case "StackFrame":
         for (
@@ -792,7 +908,7 @@ Example2.prototype.animate = function () {
   }
   //console.log(this.objectList);
   //console.log(this.ptrList);
-  console.log(this.colObjList);
+  //console.log(this.colObjList);
   return this.commands;
 };
 

@@ -5,37 +5,39 @@ import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-xcode";
 import "ace-builds/src-noconflict/ext-language_tools";
 
-let markers = [];
-
-//marker to highlight 7th line
-markers.push({
-  startRow: 6,
-  endRow: 7,
-  className: "highlight_lines",
-  type: "text",
-});
-
-let content = `#include<stdio.h>
+let content = `
+#include<stdio.h>
 #include<stdlib.h>
 
 int g;
+
+typedef struct example2
+{
+	int a;
+	int b[5];
+}example2;
+
+typedef struct example1
+{
+	int a;
+	struct example2 b;
+}example1;
 
 int main()
 {
 	int x = 10;
 	int y = 20;
-	int b=20;
 	int *z=&x;
 	z=&y;
-	int **a=&z;
-	z=&b;
+
 }
+
 `;
 
 const Visualiser = () => {
   return (
     <>
-      <Container fluid style={{ height: "900px" }}>
+      {/* <Container fluid style={{ height: "900px" }}>
         <div className="row" style={{ height: "100%" }}>
           <div className="col-12 col-sm-6" style={{ height: "100%" }}>
             <AceEditor
@@ -43,7 +45,7 @@ const Visualiser = () => {
               theme="xcode"
               name="fileContentEditor"
               value={content}
-              //markers={markers}
+              markers={marker.marker_info}
               readOnly={true}
               cursorStart={3}
               fontSize={14}
@@ -61,11 +63,11 @@ const Visualiser = () => {
               }}
             />
           </div>
-          <div className="col-12 col-sm-6" style={{ height: "100%" }}>
-            <Iframe src="../example.html" width="100%" height="100%"></Iframe>
-          </div>
+          <div className="col-12 col-sm-6" style={{ height: "100%" }}> */}
+      <Iframe src="../example.html" width="100%" height="650px"></Iframe>
+      {/* </div>
         </div>
-      </Container>
+      </Container> */}
     </>
   );
 };
