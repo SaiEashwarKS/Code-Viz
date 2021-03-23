@@ -1,12 +1,12 @@
 {
   "Lines_Data": [
     {
-      "LineNum": 8, 
+      "LineNum": 0, 
       "FunctionName": "main", 
       "FunctionAddress": "(int (*)()) 0x400b6d <main>"
     }, 
     {
-      "LineNum": 8, 
+      "LineNum": 0, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -19,43 +19,88 @@
       ]
     }, 
     {
-      "LineNum": 8, 
+      "LineNum": 0, 
       "type": "StackFrame", 
       "Contents": [
         {
           "data_type": "int", 
           "type": "var", 
           "id": 2, 
-          "val": "0", 
-          "name": "x"
+          "val": "5", 
+          "name": "n1"
         }, 
         {
           "data_type": "int", 
           "type": "var", 
           "id": 3, 
-          "val": "4200640", 
-          "name": "y"
+          "val": "7049240", 
+          "name": "n2"
         }, 
         {
           "data_type": "int", 
           "type": "var", 
           "id": 4, 
           "val": "0", 
-          "name": "b"
+          "name": "i"
         }, 
         {
-          "data_type": "int *", 
-          "type": "ptr", 
+          "data_type": "int", 
+          "type": "var", 
           "id": 5, 
-          "val": "U", 
-          "name": "z"
+          "val": "0", 
+          "name": "gcd"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 7, 
+      "FunctionName": "main", 
+      "FunctionAddress": "(int (*)()) 0x400b6d <main>"
+    }, 
+    {
+      "LineNum": 7, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 7, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "5", 
+          "name": "n1"
         }, 
         {
-          "data_type": "int **", 
-          "type": "ptr", 
-          "id": 6, 
-          "val": "U", 
-          "name": "a"
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "10", 
+          "name": "n2"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 4, 
+          "val": "0", 
+          "name": "i"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 5, 
+          "val": "0", 
+          "name": "gcd"
         }
       ]
     }, 
@@ -85,154 +130,29 @@
           "data_type": "int", 
           "type": "var", 
           "id": 2, 
-          "val": "10", 
-          "name": "x"
+          "val": "5", 
+          "name": "n1"
         }, 
         {
           "data_type": "int", 
           "type": "var", 
           "id": 3, 
-          "val": "4200640", 
-          "name": "y"
-        }, 
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 4, 
-          "val": "0", 
-          "name": "b"
-        }, 
-        {
-          "data_type": "int *", 
-          "type": "ptr", 
-          "id": 5, 
-          "val": "U", 
-          "name": "z"
-        }, 
-        {
-          "data_type": "int **", 
-          "type": "ptr", 
-          "id": 6, 
-          "val": "U", 
-          "name": "a"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 10, 
-      "FunctionName": "main", 
-      "FunctionAddress": "(int (*)()) 0x400b6d <main>"
-    }, 
-    {
-      "LineNum": 10, 
-      "type": "GlobalVariables", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 10, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 2, 
           "val": "10", 
-          "name": "x"
-        }, 
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 3, 
-          "val": "20", 
-          "name": "y"
+          "name": "n2"
         }, 
         {
           "data_type": "int", 
           "type": "var", 
           "id": 4, 
-          "val": "0", 
-          "name": "b"
+          "val": "1", 
+          "name": "i"
         }, 
         {
-          "data_type": "int *", 
-          "type": "ptr", 
+          "data_type": "int", 
+          "type": "var", 
           "id": 5, 
-          "val": "U", 
-          "name": "z"
-        }, 
-        {
-          "data_type": "int **", 
-          "type": "ptr", 
-          "id": 6, 
-          "val": "U", 
-          "name": "a"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 11, 
-      "FunctionName": "main", 
-      "FunctionAddress": "(int (*)()) 0x400b6d <main>"
-    }, 
-    {
-      "LineNum": 11, 
-      "type": "GlobalVariables", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 1, 
           "val": "0", 
-          "name": "g"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 11, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 2, 
-          "val": "10", 
-          "name": "x"
-        }, 
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 3, 
-          "val": "20", 
-          "name": "y"
-        }, 
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 4, 
-          "val": "20", 
-          "name": "b"
-        }, 
-        {
-          "data_type": "int *", 
-          "type": "ptr", 
-          "id": 5, 
-          "val": "U", 
-          "name": "z"
-        }, 
-        {
-          "data_type": "int **", 
-          "type": "ptr", 
-          "id": 6, 
-          "val": "U", 
-          "name": "a"
+          "name": "gcd"
         }
       ]
     }, 
@@ -262,36 +182,29 @@
           "data_type": "int", 
           "type": "var", 
           "id": 2, 
-          "val": "10", 
-          "name": "x"
+          "val": "5", 
+          "name": "n1"
         }, 
         {
           "data_type": "int", 
           "type": "var", 
           "id": 3, 
-          "val": "20", 
-          "name": "y"
+          "val": "10", 
+          "name": "n2"
         }, 
         {
           "data_type": "int", 
           "type": "var", 
           "id": 4, 
-          "val": "20", 
-          "name": "b"
+          "val": "1", 
+          "name": "i"
         }, 
         {
-          "data_type": "int *", 
-          "type": "ptr", 
+          "data_type": "int", 
+          "type": "var", 
           "id": 5, 
-          "val": 2, 
-          "name": "z"
-        }, 
-        {
-          "data_type": "int **", 
-          "type": "ptr", 
-          "id": 6, 
-          "val": "U", 
-          "name": "a"
+          "val": "0", 
+          "name": "gcd"
         }
       ]
     }, 
@@ -321,46 +234,39 @@
           "data_type": "int", 
           "type": "var", 
           "id": 2, 
-          "val": "10", 
-          "name": "x"
+          "val": "5", 
+          "name": "n1"
         }, 
         {
           "data_type": "int", 
           "type": "var", 
           "id": 3, 
-          "val": "20", 
-          "name": "y"
+          "val": "10", 
+          "name": "n2"
         }, 
         {
           "data_type": "int", 
           "type": "var", 
           "id": 4, 
-          "val": "20", 
-          "name": "b"
+          "val": "1", 
+          "name": "i"
         }, 
         {
-          "data_type": "int *", 
-          "type": "ptr", 
+          "data_type": "int", 
+          "type": "var", 
           "id": 5, 
-          "val": 3, 
-          "name": "z"
-        }, 
-        {
-          "data_type": "int **", 
-          "type": "ptr", 
-          "id": 6, 
-          "val": "U", 
-          "name": "a"
+          "val": "1", 
+          "name": "gcd"
         }
       ]
     }, 
     {
-      "LineNum": 14, 
+      "LineNum": 9, 
       "FunctionName": "main", 
       "FunctionAddress": "(int (*)()) 0x400b6d <main>"
     }, 
     {
-      "LineNum": 14, 
+      "LineNum": 9, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -373,53 +279,46 @@
       ]
     }, 
     {
-      "LineNum": 14, 
+      "LineNum": 9, 
       "type": "StackFrame", 
       "Contents": [
         {
           "data_type": "int", 
           "type": "var", 
           "id": 2, 
-          "val": "10", 
-          "name": "x"
+          "val": "5", 
+          "name": "n1"
         }, 
         {
           "data_type": "int", 
           "type": "var", 
           "id": 3, 
-          "val": "20", 
-          "name": "y"
+          "val": "10", 
+          "name": "n2"
         }, 
         {
           "data_type": "int", 
           "type": "var", 
           "id": 4, 
-          "val": "20", 
-          "name": "b"
+          "val": "2", 
+          "name": "i"
         }, 
         {
-          "data_type": "int *", 
-          "type": "ptr", 
+          "data_type": "int", 
+          "type": "var", 
           "id": 5, 
-          "val": 3, 
-          "name": "z"
-        }, 
-        {
-          "data_type": "int **", 
-          "type": "ptr", 
-          "id": 6, 
-          "val": 5, 
-          "name": "a"
+          "val": "1", 
+          "name": "gcd"
         }
       ]
     }, 
     {
-      "LineNum": 15, 
+      "LineNum": 12, 
       "FunctionName": "main", 
       "FunctionAddress": "(int (*)()) 0x400b6d <main>"
     }, 
     {
-      "LineNum": 15, 
+      "LineNum": 12, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -432,43 +331,504 @@
       ]
     }, 
     {
-      "LineNum": 15, 
+      "LineNum": 12, 
       "type": "StackFrame", 
       "Contents": [
         {
           "data_type": "int", 
           "type": "var", 
           "id": 2, 
-          "val": "10", 
-          "name": "x"
+          "val": "5", 
+          "name": "n1"
         }, 
         {
           "data_type": "int", 
           "type": "var", 
           "id": 3, 
-          "val": "20", 
-          "name": "y"
+          "val": "10", 
+          "name": "n2"
         }, 
         {
           "data_type": "int", 
           "type": "var", 
           "id": 4, 
-          "val": "20", 
-          "name": "b"
+          "val": "2", 
+          "name": "i"
         }, 
         {
-          "data_type": "int *", 
-          "type": "ptr", 
+          "data_type": "int", 
+          "type": "var", 
           "id": 5, 
-          "val": 4, 
-          "name": "z"
+          "val": "1", 
+          "name": "gcd"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
+      "FunctionName": "main", 
+      "FunctionAddress": "(int (*)()) 0x400b6d <main>"
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "5", 
+          "name": "n1"
         }, 
         {
-          "data_type": "int **", 
-          "type": "ptr", 
-          "id": 6, 
-          "val": 5, 
-          "name": "a"
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "10", 
+          "name": "n2"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 4, 
+          "val": "3", 
+          "name": "i"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 5, 
+          "val": "1", 
+          "name": "gcd"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 12, 
+      "FunctionName": "main", 
+      "FunctionAddress": "(int (*)()) 0x400b6d <main>"
+    }, 
+    {
+      "LineNum": 12, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 12, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "5", 
+          "name": "n1"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "10", 
+          "name": "n2"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 4, 
+          "val": "3", 
+          "name": "i"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 5, 
+          "val": "1", 
+          "name": "gcd"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
+      "FunctionName": "main", 
+      "FunctionAddress": "(int (*)()) 0x400b6d <main>"
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "5", 
+          "name": "n1"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "10", 
+          "name": "n2"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 4, 
+          "val": "4", 
+          "name": "i"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 5, 
+          "val": "1", 
+          "name": "gcd"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 12, 
+      "FunctionName": "main", 
+      "FunctionAddress": "(int (*)()) 0x400b6d <main>"
+    }, 
+    {
+      "LineNum": 12, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 12, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "5", 
+          "name": "n1"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "10", 
+          "name": "n2"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 4, 
+          "val": "4", 
+          "name": "i"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 5, 
+          "val": "1", 
+          "name": "gcd"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
+      "FunctionName": "main", 
+      "FunctionAddress": "(int (*)()) 0x400b6d <main>"
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "5", 
+          "name": "n1"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "10", 
+          "name": "n2"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 4, 
+          "val": "5", 
+          "name": "i"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 5, 
+          "val": "1", 
+          "name": "gcd"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 12, 
+      "FunctionName": "main", 
+      "FunctionAddress": "(int (*)()) 0x400b6d <main>"
+    }, 
+    {
+      "LineNum": 12, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 12, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "5", 
+          "name": "n1"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "10", 
+          "name": "n2"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 4, 
+          "val": "5", 
+          "name": "i"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 5, 
+          "val": "1", 
+          "name": "gcd"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 13, 
+      "FunctionName": "main", 
+      "FunctionAddress": "(int (*)()) 0x400b6d <main>"
+    }, 
+    {
+      "LineNum": 13, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 13, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "5", 
+          "name": "n1"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "10", 
+          "name": "n2"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 4, 
+          "val": "5", 
+          "name": "i"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 5, 
+          "val": "5", 
+          "name": "gcd"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
+      "FunctionName": "main", 
+      "FunctionAddress": "(int (*)()) 0x400b6d <main>"
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "5", 
+          "name": "n1"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "10", 
+          "name": "n2"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 4, 
+          "val": "6", 
+          "name": "i"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 5, 
+          "val": "5", 
+          "name": "gcd"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 16, 
+      "FunctionName": "main", 
+      "FunctionAddress": "(int (*)()) 0x400b6d <main>"
+    }, 
+    {
+      "LineNum": 16, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 16, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "5", 
+          "name": "n1"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "10", 
+          "name": "n2"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 4, 
+          "val": "6", 
+          "name": "i"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 5, 
+          "val": "5", 
+          "name": "gcd"
         }
       ]
     }
