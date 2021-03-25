@@ -29,7 +29,7 @@
 var timer;
 var swapped = false;
 
-var prevMarkerId = 0;
+var prevMarkerId = 0; //required for AddAceMarker and RemoveAceMarker cmds
 
 function reorderSibling(node1, node2) {
   node1.parentNode.replaceChild(node1, node2);
