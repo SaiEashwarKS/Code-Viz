@@ -104,22 +104,23 @@
 
 </body>
 <script>
-    let code = `#include<stdio.h>
-#include<stdlib.h>
-
+    let code = `#include <stdio.h>
 int g;
-
 int main()
 {
-	int x = 10;
-	int y = 20;
-	int b=20;
-	int *z=&x;
-	z=&y;
-	int **a=&z;
-	z=&b;
-}
+    int n1, n2, i, gcd;
+	n1 = 5;
+	n2 = 10;
 
+    for(i=1; i <= n1 && i <= n2; ++i)
+    {
+        // Checks if i is factor of both integers
+        if(n1%i==0 && n2%i==0)
+            gcd = i;
+    }
+
+    return 0;
+}
 `;
 
     var editor = ace.edit("editor");
