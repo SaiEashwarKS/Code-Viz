@@ -11,36 +11,38 @@ import copy
 import string
 import json
 
-lines_data=[]
+lines_data = []
 
-mo=[] # [['$i/func_name', 'address'], ['$i/func_name', 'address'], ...]
-mp=[] # [['name', 'value'], ['name', 'value'], ...]
-ml=[] # [['name', 'address'], ['name', 'address'], ...]
+mo = [] # [['$i/func_name', 'address'], ['$i/func_name', 'address'], ...]
+mp = [] # [['name', 'value'], ['name', 'value'], ...]
+ml = [] # [['name', 'address'], ['name', 'address'], ...]
 
-lnc=0 # global variable for storing current line no
+lnc = 0 # global variable for storing current line no
+prev_lineno = 0
+
 #above are temporarily used lists during data processing
-vall=[]#stores variable address
-vallv=[]#stores variable value
-hista=[]#stores variable, value, address; for each iteration
-histac=[]
-val=[]
-fname=[]#function name
-fadd=[]#function address
+vall = []#stores variable address
+vallv = []#stores variable value
+hista = []#stores variable, value, address; for each iteration
+histac = []
+val = []
+fname = []#function name
+fadd = []#function address
 #below are temporarily used lists and counters during data processing
-sv=[]
-svc=[]
-ap=[]
-tsav=[]
-tsav2=[]
-tsav11=[]
-cc11=0
-counter=0
-gn=0
-sn=0 # no of local/stack variables
-an=0
+sv = []
+svc = []
+ap = []
+tsav = []
+tsav2 = []
+tsav11 = []
+cc11 = 0
+counter = 0
+gn = 0
+sn = 0 # no of local/stack variables
+an = 0
 
-dimain={}#dimain is for mapping addressID to smaller id
-mainid=1
+addr_to_id = {}#addr_to_id is for mapping addressID to smaller id
+id_counter = 1
 
 
 sep = ['+','-','=','*','/',';','[','.']
@@ -145,17 +147,18 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 	#rv contains gl,sl,al,ln,fname, function can be altered with lesser arguments
 	print "\n",ln
 	#print("RV",rv)
-	fn=copy.deepcopy(fname)
-	ln=0
-        global mainid
+	fn = copy.deepcopy(fname)
+	ln = 0
+	global id_counter
 	try:
-		ln=int(lnc.split()[1])
+		ln = int(lnc.split()[1]) #next line to execute
+		ln = prev_lineno
 	except:
 		return
 	#di["Contents"]={}
-	if len(fname)>0:
-		fn=fname[-1]
-	if len(fn)>1:
+	if len(fname) > 0:
+		fn = fname[-1]
+	if len(fn) > 1:
 		print "\nFunction Name: ",fn[0],"\nFunction Address: ",fn[1]
 		di = {"LineNum":ln, "FunctionName": fn[0], "FunctionAddress": fn[1]}
 		lines_data.append(di.copy())
@@ -164,28 +167,28 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		print '\n(Global Variables)'
 		heading = ["VARIABLE","VALUE","ADDRESS"]
 		print(tabulate(gl,headers=heading,tablefmt="psql"))
-		di={}
+		di = {}
 		di["LineNum"]=ln
 		di["type"]="GlobalVariables"
 		di['Contents']=[]
 		for i in gl:
 			sepdi={}
 			datatype=i[2][1:i[2].rfind('*')]
-                        ID=int(i[2][i[2].rfind(")")+2:-4],16)#hexadecimal to int conversion
-                        if ID not in dimain:
-                           dimain[ID]=mainid
-                           mainid+=1
-                        ID=dimain[ID]
+			ID=int(i[2][i[2].rfind(")")+2:-4],16)#hexadecimal to int conversion
+			if ID not in addr_to_id:
+				addr_to_id[ID]=id_counter
+				id_counter+=1
+			ID=addr_to_id[ID]
 			var=""
 			val=""
 			if '*' in datatype:
 				var="ptr"
 				try:
 					val=int(i[1],16)
-                                        if val in dimain:
-                                           val=dimain[val]
-                                        else:
-                                           val='U'
+					if val in addr_to_id:
+						val=addr_to_id[val]
+					else:
+						val='U'
 				except:
 					val='U'
 			else:
@@ -222,10 +225,10 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 				var="ptr"
 				try:
 					val=int(i[1],16)
-                                        if val in dimain:
-                                           val=dimain[val]
-                                        else:
-                                           val='U'
+					if val in addr_to_id:
+						val=addr_to_id[val]
+					else:
+						val='U'
 				except:
 					val='U'
 			else:
@@ -234,10 +237,10 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 			if val==0:
 				val=1005
 			ID=int(i[2][i[2].rfind(")")+2:],16)
-                        if ID not in dimain:
-                           dimain[ID]=mainid
-                           mainid+=1
-                        ID=dimain[ID]
+			if ID not in addr_to_id:
+				addr_to_id[ID]=id_counter
+				id_counter+=1
+			ID=addr_to_id[ID]
 			sepdi['id']=ID
 			sepdi['type']=var
 			sepdi['data_type']=datatype.strip()
@@ -266,10 +269,10 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 				var="ptr"
 				try:
 					val=int(i[1],16)
-                                        if val in dimain:
-                                           val=dimain[val]
-                                        else:
-                                           val='U'
+					if val in addr_to_id:
+						val=addr_to_id[val]
+					else:
+						val='U'
 				except:
 					val=0
 			else:
@@ -278,10 +281,10 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 			if val==0:
 				val=1005
 			ID=int(i[2][i[2].rfind(")")+2:],16)
-                        if ID not in dimain:
-                           dimain[ID]=mainid
-                           mainid+=1
-                        ID=dimain[ID]
+			if ID not in addr_to_id:
+				addr_to_id[ID]=id_counter
+				id_counter+=1
+			ID=addr_to_id[ID]
 			sepdi['id']=ID
 			sepdi['type']=var
 			sepdi['data_type']=datatype.strip()
@@ -417,7 +420,7 @@ def linkall(gl,sl,al,ln,fn):#links pointers and displays it
 			tsdispv.append(["",i[1][1],"","","",i[8][1]])
 	return [gl,sl,al,ln,fn,tsav11,tsdispv]
 
-#f = open('test.txt','w')
+f = open('test.txt','w')
 
 def output(p1,flag):#display (stack frame, arguments..)
 	global stop
@@ -515,6 +518,7 @@ def output(p1,flag):#display (stack frame, arguments..)
 		my_out = string.replace(my_out,'(gdb)','')
 		my_out = string.replace(my_out,'\n','')
 		sys.stdout.write(my_out)
+
 	elif flag == 2: #for info line
 		# stores current line no in lnc
 		my_out = string.replace(my_out,'(gdb)','') # Line 12 of "./b.c" starts at address 0x400bb6 <foo> and ends at 0x400bc9 <foo+19>.\n(gdb)
@@ -526,7 +530,13 @@ def output(p1,flag):#display (stack frame, arguments..)
 		#print "\n"
 		#print ln
 		global lnc
+		global prev_lineno
+		try:
+			prev_lineno = int(lnc.split()[1])		
+		except:
+			prev_lineno = 0
 		lnc=ln
+
 	elif flag == 1: # info locals
 		'''
 		p = 0x401a50 <__libc_csu_fini>
@@ -660,12 +670,12 @@ p1.stdin.write('run\n')
 output(p1,0)
 
 while True:
-	inp = raw_input()
+	#inp = raw_input()
 	mo=[]
 	mp=[]
 	ml=[]
-	if(inp=='exit' or inp=='quit' or inp=='q'):
-		break
+	#if(inp=='exit' or inp=='quit' or inp=='q'):
+	#	break
 	p1.stdin.write('step\n')
 	counter+=1
 	hista.append([str(counter)])
@@ -767,7 +777,9 @@ while True:
 	rv=linkall(gvp1,svp1,avp1,lnc,fname)
 	vdisp(gvp1,svp1,avp1,lnc,fname,rv)
 	pdisp(rv)
-	lnc=0
+	
+	#lnc=0
+	
 	sn=0
 	an=0
 	histac.append(hista)
