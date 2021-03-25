@@ -520,11 +520,7 @@ function AnimationManager(objectManager) {
           "ace-marker",
           "fullLine"
         );
-        console.log("highlighted", prevMarkerId);
-        //prevMarkerId = nextCommand[1] - 1;
-        //}
       } else if (nextCommand[0].toUpperCase() == "REMOVEACEMARKER") {
-        console.log("removed", prevMarkerId);
         editor.session.removeMarker(prevMarkerId);
       } else if (nextCommand[0].toUpperCase() == "CREATECIRCLE") {
         this.animatedObjects.addCircleObject(

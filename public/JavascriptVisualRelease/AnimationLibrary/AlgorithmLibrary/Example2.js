@@ -21,13 +21,13 @@ Example2.HORI_PADDING = 30;
 Example2.prototype.init = function (am, w, h) {
   Example2.superclass.init.call(this, am, w, h);
   this.addControls();
-  this.customId = 1;
+  this.commands = [];
   this.json = {
     Lines_Data: [
       {
         LineNum: 0,
         FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
+        FunctionAddress: "(int (*)()) 0x400b7d <main>",
       },
       {
         LineNum: 0,
@@ -51,38 +51,17 @@ Example2.prototype.init = function (am, w, h) {
             type: "var",
             id: 2,
             val: "5",
-            name: "n1",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 3,
-            val: "7049240",
-            name: "n2",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 4,
-            val: "0",
-            name: "i",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 5,
-            val: "0",
-            name: "gcd",
+            name: "res",
           },
         ],
       },
       {
-        LineNum: 7,
-        FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
+        LineNum: 11,
+        FunctionName: "dummy",
+        FunctionAddress: "(int (*)()) 0x400b6d <dummy>",
       },
       {
-        LineNum: 7,
+        LineNum: 11,
         type: "GlobalVariables",
         Contents: [
           {
@@ -95,46 +74,25 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 7,
+        LineNum: 11,
         type: "StackFrame",
         Contents: [
           {
             data_type: "int",
             type: "var",
-            id: 2,
-            val: "5",
-            name: "n1",
-          },
-          {
-            data_type: "int",
-            type: "var",
             id: 3,
-            val: "10",
-            name: "n2",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 4,
             val: "0",
             name: "i",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 5,
-            val: "0",
-            name: "gcd",
           },
         ],
       },
       {
-        LineNum: 9,
-        FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
+        LineNum: 5,
+        FunctionName: "dummy",
+        FunctionAddress: "(int (*)()) 0x400b6d <dummy>",
       },
       {
-        LineNum: 9,
+        LineNum: 5,
         type: "GlobalVariables",
         Contents: [
           {
@@ -147,46 +105,25 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 9,
+        LineNum: 5,
         type: "StackFrame",
         Contents: [
           {
             data_type: "int",
             type: "var",
-            id: 2,
-            val: "5",
-            name: "n1",
-          },
-          {
-            data_type: "int",
-            type: "var",
             id: 3,
             val: "10",
-            name: "n2",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 4,
-            val: "1",
             name: "i",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 5,
-            val: "0",
-            name: "gcd",
           },
         ],
       },
       {
-        LineNum: 12,
+        LineNum: 6,
         FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
+        FunctionAddress: "(int (*)()) 0x400b7d <main>",
       },
       {
-        LineNum: 12,
+        LineNum: 6,
         type: "GlobalVariables",
         Contents: [
           {
@@ -199,660 +136,15 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 12,
+        LineNum: 6,
         type: "StackFrame",
         Contents: [
           {
             data_type: "int",
             type: "var",
             id: 2,
-            val: "5",
-            name: "n1",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 3,
             val: "10",
-            name: "n2",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 4,
-            val: "1",
-            name: "i",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 5,
-            val: "0",
-            name: "gcd",
-          },
-        ],
-      },
-      {
-        LineNum: 13,
-        FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
-      },
-      {
-        LineNum: 13,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 1,
-            val: "0",
-            name: "g",
-          },
-        ],
-      },
-      {
-        LineNum: 13,
-        type: "StackFrame",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 2,
-            val: "5",
-            name: "n1",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 3,
-            val: "10",
-            name: "n2",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 4,
-            val: "1",
-            name: "i",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 5,
-            val: "1",
-            name: "gcd",
-          },
-        ],
-      },
-      {
-        LineNum: 9,
-        FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
-      },
-      {
-        LineNum: 9,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 1,
-            val: "0",
-            name: "g",
-          },
-        ],
-      },
-      {
-        LineNum: 9,
-        type: "StackFrame",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 2,
-            val: "5",
-            name: "n1",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 3,
-            val: "10",
-            name: "n2",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 4,
-            val: "2",
-            name: "i",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 5,
-            val: "1",
-            name: "gcd",
-          },
-        ],
-      },
-      {
-        LineNum: 12,
-        FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
-      },
-      {
-        LineNum: 12,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 1,
-            val: "0",
-            name: "g",
-          },
-        ],
-      },
-      {
-        LineNum: 12,
-        type: "StackFrame",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 2,
-            val: "5",
-            name: "n1",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 3,
-            val: "10",
-            name: "n2",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 4,
-            val: "2",
-            name: "i",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 5,
-            val: "1",
-            name: "gcd",
-          },
-        ],
-      },
-      {
-        LineNum: 9,
-        FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
-      },
-      {
-        LineNum: 9,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 1,
-            val: "0",
-            name: "g",
-          },
-        ],
-      },
-      {
-        LineNum: 9,
-        type: "StackFrame",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 2,
-            val: "5",
-            name: "n1",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 3,
-            val: "10",
-            name: "n2",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 4,
-            val: "3",
-            name: "i",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 5,
-            val: "1",
-            name: "gcd",
-          },
-        ],
-      },
-      {
-        LineNum: 12,
-        FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
-      },
-      {
-        LineNum: 12,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 1,
-            val: "0",
-            name: "g",
-          },
-        ],
-      },
-      {
-        LineNum: 12,
-        type: "StackFrame",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 2,
-            val: "5",
-            name: "n1",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 3,
-            val: "10",
-            name: "n2",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 4,
-            val: "3",
-            name: "i",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 5,
-            val: "1",
-            name: "gcd",
-          },
-        ],
-      },
-      {
-        LineNum: 9,
-        FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
-      },
-      {
-        LineNum: 9,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 1,
-            val: "0",
-            name: "g",
-          },
-        ],
-      },
-      {
-        LineNum: 9,
-        type: "StackFrame",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 2,
-            val: "5",
-            name: "n1",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 3,
-            val: "10",
-            name: "n2",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 4,
-            val: "4",
-            name: "i",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 5,
-            val: "1",
-            name: "gcd",
-          },
-        ],
-      },
-      {
-        LineNum: 12,
-        FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
-      },
-      {
-        LineNum: 12,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 1,
-            val: "0",
-            name: "g",
-          },
-        ],
-      },
-      {
-        LineNum: 12,
-        type: "StackFrame",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 2,
-            val: "5",
-            name: "n1",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 3,
-            val: "10",
-            name: "n2",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 4,
-            val: "4",
-            name: "i",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 5,
-            val: "1",
-            name: "gcd",
-          },
-        ],
-      },
-      {
-        LineNum: 9,
-        FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
-      },
-      {
-        LineNum: 9,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 1,
-            val: "0",
-            name: "g",
-          },
-        ],
-      },
-      {
-        LineNum: 9,
-        type: "StackFrame",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 2,
-            val: "5",
-            name: "n1",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 3,
-            val: "10",
-            name: "n2",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 4,
-            val: "5",
-            name: "i",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 5,
-            val: "1",
-            name: "gcd",
-          },
-        ],
-      },
-      {
-        LineNum: 12,
-        FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
-      },
-      {
-        LineNum: 12,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 1,
-            val: "0",
-            name: "g",
-          },
-        ],
-      },
-      {
-        LineNum: 12,
-        type: "StackFrame",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 2,
-            val: "5",
-            name: "n1",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 3,
-            val: "10",
-            name: "n2",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 4,
-            val: "5",
-            name: "i",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 5,
-            val: "1",
-            name: "gcd",
-          },
-        ],
-      },
-      {
-        LineNum: 13,
-        FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
-      },
-      {
-        LineNum: 13,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 1,
-            val: "0",
-            name: "g",
-          },
-        ],
-      },
-      {
-        LineNum: 13,
-        type: "StackFrame",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 2,
-            val: "5",
-            name: "n1",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 3,
-            val: "10",
-            name: "n2",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 4,
-            val: "5",
-            name: "i",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 5,
-            val: "5",
-            name: "gcd",
-          },
-        ],
-      },
-      {
-        LineNum: 9,
-        FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
-      },
-      {
-        LineNum: 9,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 1,
-            val: "0",
-            name: "g",
-          },
-        ],
-      },
-      {
-        LineNum: 9,
-        type: "StackFrame",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 2,
-            val: "5",
-            name: "n1",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 3,
-            val: "10",
-            name: "n2",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 4,
-            val: "6",
-            name: "i",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 5,
-            val: "5",
-            name: "gcd",
-          },
-        ],
-      },
-      {
-        LineNum: 16,
-        FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
-      },
-      {
-        LineNum: 16,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 1,
-            val: "0",
-            name: "g",
-          },
-        ],
-      },
-      {
-        LineNum: 16,
-        type: "StackFrame",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 2,
-            val: "5",
-            name: "n1",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 3,
-            val: "10",
-            name: "n2",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 4,
-            val: "6",
-            name: "i",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 5,
-            val: "5",
-            name: "gcd",
+            name: "res",
           },
         ],
       },
@@ -869,6 +161,8 @@ Example2.prototype.init = function (am, w, h) {
   // format of the objects that will be inserted in this list : {id, pointeeId}
   this.colObjList = {}; //dict of key-value pairs which has info about the columns in the visualisation
   // format of the key-value that will be inserted in this dict : x : [maxWidth, objIdList]
+
+  this.setup(); //show the initial stack contents
 };
 
 Example2.prototype.addControls = function () {
@@ -886,6 +180,41 @@ Example2.prototype.animateCallback = function () {
   this.implementAction(this.animate.bind(this), "");
 };
 
+Example2.prototype.setup = function () {
+  let linesData = this.json.Lines_Data;
+  for (let linesDataIdx = 0; linesDataIdx < linesData.length; ++linesDataIdx) {
+    let type = linesData[linesDataIdx].type;
+    let line_no = linesData[linesDataIdx].LineNum;
+    if (line_no == 0) {
+      switch (type) {
+        case "StackFrame":
+          for (
+            let contentsIdx = 0;
+            contentsIdx < linesData[linesDataIdx].Contents.length;
+            ++contentsIdx
+          ) {
+            let object = linesData[linesDataIdx].Contents[contentsIdx];
+            this.visualizeObj(object);
+          }
+          break;
+        case "GlobalVariables":
+          for (
+            let contentsIdx = 0;
+            contentsIdx < linesData[linesDataIdx].Contents.length;
+            ++contentsIdx
+          ) {
+            let object = linesData[linesDataIdx].Contents[contentsIdx];
+            this.visualizeObj(object);
+          }
+          break;
+      }
+    }
+  }
+  this.animationManager.StartNewAnimation(this.commands);
+  this.animationManager.skipForward();
+  this.animationManager.clearHistory();
+};
+
 Example2.prototype.getInsertY = function () {
   let insert_y =
     Example2.INSERT_Y +
@@ -900,7 +229,7 @@ Example2.prototype.getInsertY = function () {
   return insert_y;
 };
 
-Example2.prototype.createVar = function (object, width, height, x, y) {
+Example2.prototype.createVar = function (object, width, height, x, y, isDef) {
   this.cmd(
     "CreateLinkedList",
     object.id,
@@ -914,8 +243,10 @@ Example2.prototype.createVar = function (object, width, height, x, y) {
     false,
     2
   );
+  //let value = isDef === false ? "?" : object.val;
+  //this.cmd("SetText", object.id, value, 1);
   this.cmd("SetText", object.id, object.val, 1);
-  //console.log("inserted " + object.id);
+  console.log("inserted " + object.id);
 };
 
 Example2.prototype.setPtrVal = function (object) {
@@ -960,7 +291,8 @@ Example2.prototype.createPtr = function (object, width, height, x, y) {
   this.setPtrVal(object);
 };
 
-Example2.prototype.createObj = function (object) {
+Example2.prototype.createObj = function (object, isDef) {
+  console.log(object);
   let object_type = object.type;
   this.objectIdList.push(object.id);
   let insert_y = this.getInsertY();
@@ -975,7 +307,8 @@ Example2.prototype.createObj = function (object) {
         this.getWidth(object),
         Example2.RECT_HEIGHT * 2,
         object.x,
-        object.y
+        object.y,
+        isDef
       );
       Example2.VERT_COUNT++; //because height is 2 times RECT_HEIGHT
       break;
@@ -1215,9 +548,10 @@ Example2.prototype.insertIntoCol = function (object) {
   colEntry.maxWidth = widthIsGreater ? objWidth : colEntry.maxWidth;
 };
 
-Example2.prototype.visualizeObj = function (object) {
+Example2.prototype.visualizeObj = function (object, isDef) {
+  //isDef : is the object defined or undefined
   if (!this.objectIdList.includes(object.id)) {
-    this.createObj(object);
+    this.createObj(object, isDef);
   } else {
     this.modifyObject(object);
   }
@@ -1230,6 +564,9 @@ Example2.prototype.animate = function () {
   for (let linesDataIdx = 0; linesDataIdx < linesData.length; ++linesDataIdx) {
     let type = linesData[linesDataIdx].type;
     let line_no = linesData[linesDataIdx].LineNum;
+    if (line_no == 0) {
+      continue;
+    }
     this.cmd("RemoveAceMarker");
     // editor.session.removeMarker(marker);
     // range = new Range(line_no - 1, 0, line_no - 1, 1);
