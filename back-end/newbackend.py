@@ -44,13 +44,12 @@ an = 0
 addr_to_id = {}#addr_to_id is for mapping addressID to smaller id
 id_counter = 1
 
-
 sep = ['+','-','=','*','/',';','[','.']
 global_name_list = []
 stop = 0
 ret = 0
 scanf = 0
-func = re.compile("\w+ \(((\w+\=\w+), )*(\w+\=\w+)?\)")
+func = re.compile("\w+ \(((\w+\=\w+), )*(\w+\=\w+)?\)")#function call(can match function declaration but gdb doesn't show)
 
 my_file = raw_input('Enter C Program Name (with ./ if in local directory): ')
 
@@ -78,8 +77,6 @@ gn=len(global_name_list)#no of global variables
 p1 = Popen(['gdb', 'a.out'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 flags = fcntl(p1.stdout, F_GETFL) # get current p.stdout flags
 fcntl(p1.stdout, F_SETFL, flags | O_NONBLOCK)
-
-print 'Hit Enter to Begin'
 
 def tr():#function name
 	'''
@@ -143,6 +140,47 @@ def pdisp(rv):#for further display
 	'''
 	#print rv
 
+def maketogether(ln,di,gl,stringnamed):
+	di["LineNum"]=ln
+	di["type"]=stringnamed
+	di['Contents']=[]
+	global id_counter
+	for i in gl:
+		sepdi={}
+		datatype=i[2][1:i[2].rfind('*')]
+		ID=int(i[2][i[2].rfind(")")+2:-4],16)#hexadecimal to int conversion
+		if ID not in addr_to_id:
+			addr_to_id[ID]=id_counter
+			id_counter+=1
+		ID=addr_to_id[ID]
+		var=""
+		val=""
+		if '*' in datatype:
+			var="ptr"
+			try:
+				val=int(i[1],16)
+				if val in addr_to_id:
+					val=addr_to_id[val]
+				else:
+					val='U'
+			except:
+				val='U'
+		else:
+			var="var"
+			val=i[1].strip()
+		if val==0:
+			val=1005
+
+		sepdi['id']=ID
+		sepdi['type']=var
+		sepdi['data_type']=datatype.strip()
+		sepdi['name']=i[0].strip()
+		sepdi['val']=val
+		#di['Global Variables'][ID]=[i[0],i[2][1:i[2].rfind('*')],i[1]] #i[0] will hold the variable name
+		#i[1] will hold its value and we have assumed that the address is uinque
+		di['Contents'].append(sepdi.copy())
+		del sepdi
+
 def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 	#rv contains gl,sl,al,ln,fname, function can be altered with lesser arguments
 	print "\n",ln
@@ -168,44 +206,7 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		heading = ["VARIABLE","VALUE","ADDRESS"]
 		print(tabulate(gl,headers=heading,tablefmt="psql"))
 		di = {}
-		di["LineNum"]=ln
-		di["type"]="GlobalVariables"
-		di['Contents']=[]
-		for i in gl:
-			sepdi={}
-			datatype=i[2][1:i[2].rfind('*')]
-			ID=int(i[2][i[2].rfind(")")+2:-4],16)#hexadecimal to int conversion
-			if ID not in addr_to_id:
-				addr_to_id[ID]=id_counter
-				id_counter+=1
-			ID=addr_to_id[ID]
-			var=""
-			val=""
-			if '*' in datatype:
-				var="ptr"
-				try:
-					val=int(i[1],16)
-					if val in addr_to_id:
-						val=addr_to_id[val]
-					else:
-						val='U'
-				except:
-					val='U'
-			else:
-				var="var"
-				val=i[1].strip()
-			if val==0:
-				val=1005
-
-			sepdi['id']=ID
-			sepdi['type']=var
-			sepdi['data_type']=datatype.strip()
-			sepdi['name']=i[0].strip()
-			sepdi['val']=val
-			#di['Global Variables'][ID]=[i[0],i[2][1:i[2].rfind('*')],i[1]] #i[0] will hold the variable name
-			#i[1] will hold its value and we have assumed that the address is uinque
-			di['Contents'].append(sepdi.copy())
-			del sepdi
+		maketogether(ln,di,gl,"GlobalVariables")
 		lines_data.append(di.copy())
 		del di
 	if len(sl)>0:
@@ -213,43 +214,7 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		heading = ["VARIABLE","VALUE","ADDRESS"]
 		print(tabulate(sl,headers=heading,tablefmt="psql"))
 		di={}
-		di['LineNum']=ln
-		di['type']='StackFrame'
-		di['Contents']=[]
-		for i in sl:
-			sepdi={}
-			datatype=i[2][1:i[2].rfind('*')]
-			var=""
-			val=""
-			if '*' in datatype:
-				var="ptr"
-				try:
-					val=int(i[1],16)
-					if val in addr_to_id:
-						val=addr_to_id[val]
-					else:
-						val='U'
-				except:
-					val='U'
-			else:
-				var="var"
-				val=i[1].strip()
-			if val==0:
-				val=1005
-			ID=int(i[2][i[2].rfind(")")+2:],16)
-			if ID not in addr_to_id:
-				addr_to_id[ID]=id_counter
-				id_counter+=1
-			ID=addr_to_id[ID]
-			sepdi['id']=ID
-			sepdi['type']=var
-			sepdi['data_type']=datatype.strip()
-			sepdi['name']=i[0].strip()
-			sepdi['val']=val
-			#di['Global Variables'][ID]=[i[0],i[2][1:i[2].rfind('*')],i[1]] #i[0] will hold the variable name
-			#i[1] will hold its value and we have assumed that the address is uinque
-			di['Contents'].append(sepdi.copy())
-			del sepdi
+		maketogether(ln,di,sl,"StackFrame")
 		lines_data.append(di.copy())
 		del di
 	if len(al)>0:
@@ -257,43 +222,7 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		heading = ["VARIABLE","VALUE","ADDRESS"]
 		print(tabulate(al,headers=heading,tablefmt="psql"))
 		di={}
-		di["LineNum"]=ln
-		di["type"]="Arguments"
-		di['Contents']=[]
-		for i in al:
-			sepdi={}
-			datatype=i[2][1:i[2].rfind('*')]
-			var=""
-			val=""
-			if '*' in datatype:
-				var="ptr"
-				try:
-					val=int(i[1],16)
-					if val in addr_to_id:
-						val=addr_to_id[val]
-					else:
-						val='U'
-				except:
-					val=0
-			else:
-				var="var"
-				val=i[1].strip()
-			if val==0:
-				val=1005
-			ID=int(i[2][i[2].rfind(")")+2:],16)
-			if ID not in addr_to_id:
-				addr_to_id[ID]=id_counter
-				id_counter+=1
-			ID=addr_to_id[ID]
-			sepdi['id']=ID
-			sepdi['type']=var
-			sepdi['data_type']=datatype.strip()
-			sepdi['name']=i[0].strip()
-			sepdi['val']=val
-			#di['Global Variables'][ID]=[i[0],i[2][1:i[2].rfind('*')],i[1]] #i[0] will hold the variable name
-			#i[1] will hold its value and we have assumed that the address is uinque
-			di['Contents'].append(sepdi.copy())
-			del sepdi
+		maketogether(ln,di,gl,"Arguments")
 		lines_data.append(di.copy())
 		del di
 	if len(rv[6])>0:
@@ -420,7 +349,7 @@ def linkall(gl,sl,al,ln,fn):#links pointers and displays it
 			tsdispv.append(["",i[1][1],"","","",i[8][1]])
 	return [gl,sl,al,ln,fn,tsav11,tsdispv]
 
-f = open('test.txt','w')
+#f = open('test.txt','w')
 
 def output(p1,flag):#display (stack frame, arguments..)
 	global stop
@@ -668,6 +597,12 @@ p1.stdin.write('break main\n')
 output(p1,0)
 p1.stdin.write('run\n')
 output(p1,0)
+p1.stdin.write('info line\n')
+output(p1,2)
+p1.stdin.write('info locals\n')
+output(p1,1)
+p1.stdin.write('info args\n')
+output(p1,4)
 
 while True:
 	#inp = raw_input()
@@ -790,10 +725,10 @@ while True:
 	if ret == 1:
 		p1.stdin.write('finish\n')
 		output(p1,3)
-	print '\nHit Enter to Continue, exit/quit to stop\n'
+	#print '\nHit Enter to Continue, exit/quit to stop\n'
 
 maindic={"Lines_Data":lines_data}
 maindic=json.dumps(maindic,indent=2)
-f1=open("out.json","w")
+f1=open("outqw.json","w")
 f1.write(maindic)
 f1.close()
