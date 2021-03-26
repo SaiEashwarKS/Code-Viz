@@ -145,10 +145,15 @@ def maketogether(ln,di,gl,stringnamed):
 	di["type"]=stringnamed
 	di['Contents']=[]
 	global id_counter
+	global addr_to_id
 	for i in gl:
 		sepdi={}
 		datatype=i[2][1:i[2].rfind('*')]
-		ID=int(i[2][i[2].rfind(")")+2:-4],16)#hexadecimal to int conversion
+		if stringnamed=="GlobalVariables":
+			ID=int(i[2][i[2].rfind(")")+2:-4],16)#hexadecimal to int conversion
+		else:
+			ID=int(i[2][i[2].rfind(")")+2:],16)
+		print(i,ID)
 		if ID not in addr_to_id:
 			addr_to_id[ID]=id_counter
 			id_counter+=1
@@ -158,13 +163,14 @@ def maketogether(ln,di,gl,stringnamed):
 		if '*' in datatype:
 			var="ptr"
 			try:
-				val=int(i[1],16)
+				val=int(i[1].split()[0],16)
 				if val in addr_to_id:
 					val=addr_to_id[val]
 				else:
+					print(val,addr_to_id)
 					val='U'
 			except:
-				val='U'
+				val='Z'
 		else:
 			var="var"
 			val=i[1].strip()
@@ -222,7 +228,7 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		heading = ["VARIABLE","VALUE","ADDRESS"]
 		print(tabulate(al,headers=heading,tablefmt="psql"))
 		di={}
-		maketogether(ln,di,gl,"Arguments")
+		maketogether(ln,di,al,"Arguments")
 		lines_data.append(di.copy())
 		del di
 	if len(rv[6])>0:
@@ -729,6 +735,6 @@ while True:
 
 maindic={"Lines_Data":lines_data}
 maindic=json.dumps(maindic,indent=2)
-f1=open("outqw.json","w")
+f1=open("outptr.json","w")
 f1.write(maindic)
 f1.close()
