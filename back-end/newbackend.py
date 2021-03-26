@@ -153,7 +153,7 @@ def maketogether(ln,di,gl,stringnamed):
 			ID=int(i[2][i[2].rfind(")")+2:-4],16)#hexadecimal to int conversion
 		else:
 			ID=int(i[2][i[2].rfind(")")+2:],16)
-		print(i,ID)
+		#print(i,ID)
 		if ID not in addr_to_id:
 			addr_to_id[ID]=id_counter
 			id_counter+=1
@@ -170,7 +170,7 @@ def maketogether(ln,di,gl,stringnamed):
 					print(val,addr_to_id)
 					val='U'
 			except:
-				val='Z'
+				val='U'
 		else:
 			var="var"
 			val=i[1].strip()
