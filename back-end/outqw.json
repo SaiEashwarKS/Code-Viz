@@ -65,7 +65,7 @@
     {
       "LineNum": 6, 
       "FunctionName": "main", 
-      "FunctionAddress": "(int (*)()) 0x400b7d <main>"
+      "FunctionAddress": "(int (*)()) 0x400b8d <main>"
     }, 
     {
       "LineNum": 6, 
@@ -94,9 +94,71 @@
       ]
     }, 
     {
+      "LineNum": 19, 
+      "FunctionName": "mummy", 
+      "FunctionAddress": "(int (*)()) 0x400b7d <mummy>"
+    }, 
+    {
+      "LineNum": 19, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 19, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "10", 
+          "name": "d"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 11, 
+      "FunctionName": "mummy", 
+      "FunctionAddress": "(int (*)()) 0x400b7d <mummy>"
+    }, 
+    {
+      "LineNum": 11, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 11, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "50", 
+          "name": "d"
+        }
+      ]
+    }, 
+    {
       "LineNum": 12, 
       "FunctionName": "main", 
-      "FunctionAddress": "(int (*)()) 0x400b7d <main>"
+      "FunctionAddress": "(int (*)()) 0x400b8d <main>"
     }, 
     {
       "LineNum": 12, 

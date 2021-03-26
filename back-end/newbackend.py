@@ -50,7 +50,7 @@ global_name_list = []
 stop = 0
 ret = 0
 scanf = 0
-func = re.compile("\w+ \(((\w+\=\w+), )*(\w+\=\w+)?\)")
+func = re.compile("\w+ \(((\w+\=\w+), )*(\w+\=\w+)?\);")
 
 my_file = raw_input('Enter C Program Name (with ./ if in local directory): ')
 
@@ -79,7 +79,7 @@ p1 = Popen(['gdb', 'a.out'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stde
 flags = fcntl(p1.stdout, F_GETFL) # get current p.stdout flags
 fcntl(p1.stdout, F_SETFL, flags | O_NONBLOCK)
 
-print 'Hit Enter to Begin'
+#print 'Hit Enter to Begin'
 
 def tr():#function name
 	'''
@@ -420,7 +420,7 @@ def linkall(gl,sl,al,ln,fn):#links pointers and displays it
 			tsdispv.append(["",i[1][1],"","","",i[8][1]])
 	return [gl,sl,al,ln,fn,tsav11,tsdispv]
 
-f = open('test.txt','w')
+#f = open('test.txt','w')
 
 def output(p1,flag):#display (stack frame, arguments..)
 	global stop
@@ -790,10 +790,10 @@ while True:
 	if ret == 1:
 		p1.stdin.write('finish\n')
 		output(p1,3)
-	print '\nHit Enter to Continue, exit/quit to stop\n'
+	#print '\nHit Enter to Continue, exit/quit to stop\n'
 
 maindic={"Lines_Data":lines_data}
 maindic=json.dumps(maindic,indent=2)
-f1=open("out.json","w")
+f1=open("outqw.json","w")
 f1.write(maindic)
 f1.close()
