@@ -1,12 +1,12 @@
 {
   "Lines_Data": [
     {
-      "LineNum": 0, 
+      "LineNum": 18, 
       "FunctionName": "dummy", 
       "FunctionAddress": "(int (*)()) 0x400b6d <dummy>"
     }, 
     {
-      "LineNum": 0, 
+      "LineNum": 18, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -19,7 +19,7 @@
       ]
     }, 
     {
-      "LineNum": 0, 
+      "LineNum": 18, 
       "type": "StackFrame", 
       "Contents": [
         {
@@ -87,7 +87,7 @@
         {
           "data_type": "int", 
           "type": "var", 
-          "id": 3, 
+          "id": 2, 
           "val": "10", 
           "name": "res"
         }
@@ -180,7 +180,7 @@
         {
           "data_type": "int", 
           "type": "var", 
-          "id": 3, 
+          "id": 2, 
           "val": "10", 
           "name": "res"
         }

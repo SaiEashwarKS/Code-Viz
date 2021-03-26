@@ -15,7 +15,6 @@ int mummy()
 int main()
 {
 	int res;
-	int des=dummy();
 	res = dummy();
 	mummy();
 }
