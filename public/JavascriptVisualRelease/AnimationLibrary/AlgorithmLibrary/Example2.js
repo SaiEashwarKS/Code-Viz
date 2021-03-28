@@ -26,23 +26,23 @@ Example2.prototype.init = function (am, w, h) {
     Lines_Data: [
       {
         LineNum: 0,
-        FunctionName: "main",
-        FunctionId: 10,
-        FunctionNameId: 20,
-        FunctionAddress: "(int (*)()) 0x400b7d <main>",
-      },
-      {
-        LineNum: 0,
         type: "GlobalVariables",
         Contents: [
           {
             data_type: "int",
             type: "var",
-            id: 1,
+            id: 10,
             val: "0",
             name: "g",
           },
         ],
+      },
+      {
+        LineNum: 0,
+        FunctionName: "main",
+        FunctionId: 1,
+        FunctionNameId: 2,
+        FunctionAddress: "(int (*)()) 0x400b7d <main>",
       },
       {
         LineNum: 0,
@@ -51,7 +51,7 @@ Example2.prototype.init = function (am, w, h) {
           {
             data_type: "int",
             type: "var",
-            id: 2,
+            id: 20,
             val: "5",
             name: "res",
           },
@@ -60,8 +60,8 @@ Example2.prototype.init = function (am, w, h) {
       {
         LineNum: 11,
         FunctionName: "dummy",
-        FunctionId: 11,
-        FunctionNameId: 21,
+        FunctionId: 3,
+        FunctionNameId: 4,
         FunctionAddress: "(int (*)()) 0x400b6d <dummy>",
       },
       {
@@ -71,7 +71,7 @@ Example2.prototype.init = function (am, w, h) {
           {
             data_type: "int",
             type: "var",
-            id: 1,
+            id: 10,
             val: "0",
             name: "g",
           },
@@ -84,7 +84,7 @@ Example2.prototype.init = function (am, w, h) {
           {
             data_type: "int",
             type: "var",
-            id: 3,
+            id: 5,
             val: "0",
             name: "i",
           },
@@ -93,8 +93,8 @@ Example2.prototype.init = function (am, w, h) {
       {
         LineNum: 5,
         FunctionName: "dummy",
-        FunctionId: 11,
-        FunctionNameId: 21,
+        FunctionId: 3,
+        FunctionNameId: 4,
         FunctionAddress: "(int (*)()) 0x400b6d <dummy>",
       },
       {
@@ -104,7 +104,7 @@ Example2.prototype.init = function (am, w, h) {
           {
             data_type: "int",
             type: "var",
-            id: 1,
+            id: 10,
             val: "0",
             name: "g",
           },
@@ -117,7 +117,7 @@ Example2.prototype.init = function (am, w, h) {
           {
             data_type: "int",
             type: "var",
-            id: 3,
+            id: 5,
             val: "10",
             name: "i",
           },
@@ -126,8 +126,8 @@ Example2.prototype.init = function (am, w, h) {
       {
         LineNum: 6,
         FunctionName: "main",
-        FunctionId: 10,
-        FunctionNameId: 20,
+        FunctionId: 1,
+        FunctionNameId: 2,
         FunctionAddress: "(int (*)()) 0x400b7d <main>",
       },
       {
@@ -137,7 +137,7 @@ Example2.prototype.init = function (am, w, h) {
           {
             data_type: "int",
             type: "var",
-            id: 1,
+            id: 10,
             val: "0",
             name: "g",
           },
@@ -150,7 +150,7 @@ Example2.prototype.init = function (am, w, h) {
           {
             data_type: "int",
             type: "var",
-            id: 2,
+            id: 20,
             val: "10",
             name: "res",
           },
@@ -170,7 +170,7 @@ Example2.prototype.init = function (am, w, h) {
   this.colObjList = {}; //dict of key-value pairs which has info about the columns in the visualisation
   // format of the key-value that will be inserted in this dict : x : [maxWidth, objIdList]
   this.funcList = {}; //dict of key-value pairs which has info about the functions, dimensions of the frame and the object ids in that function
-  // format of the key-value that will be inserted in this dict : funcId : {funcName, funcNameId, funcHeight, funcWidth, objIdList}
+  // format of the key-value that will be inserted in this dict : id : {funcName, funcNameId, funcHeight, funcWidth, objIdList}
 
   this.setup(); //show the initial stack contents
 };
@@ -191,6 +191,7 @@ Example2.prototype.animateCallback = function () {
 };
 
 Example2.prototype.setup = function () {
+  this.animationManager.setAllLayers([-1, 0]); //layers to be visible
   let linesData = this.json.Lines_Data;
   for (let linesDataIdx = 0; linesDataIdx < linesData.length; ++linesDataIdx) {
     let type = linesData[linesDataIdx].type;
@@ -295,7 +296,7 @@ Example2.prototype.createObj = function (object, isDef) {
       this.createVar(
         object,
         this.getWidth(object),
-        Example2.RECT_HEIGHT * 2,
+        this.getHeight(object),
         object.x,
         object.y,
         isDef
@@ -308,7 +309,7 @@ Example2.prototype.createObj = function (object, isDef) {
       this.createPtr(
         object,
         this.getWidth(object),
-        Example2.RECT_HEIGHT * 1,
+        this.getHeight(object),
         object.x,
         object.y
       );
@@ -514,6 +515,17 @@ Example2.prototype.getWidth = function (object) {
   }
 };
 
+Example2.prototype.getHeight = function (object) {
+  switch (object.type) {
+    case "var":
+      return 2 * Example2.RECT_HEIGHT;
+      break;
+    case "ptr":
+      return Example2.RECT_HEIGHT;
+      break;
+  }
+};
+
 Example2.prototype.insertNewCol = function (x) {
   this.colObjList[x] = { maxWidth: 0, objIds: [] };
 };
@@ -548,64 +560,125 @@ Example2.prototype.visualizeObj = function (object, isDef) {
 };
 
 Example2.prototype.addObjIdToFunc = function (objId, func) {
-  let funcInList = this.funcList[func.funcId];
+  let funcInList = this.funcList[func.id];
   let objExistsInFunc = funcInList.objIdList.includes(objId);
   if (!objExistsInFunc) {
-    this.funcList[func.funcId].objIdList.push(objId);
-    //console.log(objId, funcId);
+    this.funcList[func.id].objIdList.push(objId);
+    //console.log(objId, id);
   }
 };
 
 Example2.prototype.createFunc = function (func) {
-  this.funcList[func.funcId] = func;
+  this.funcList[func.id] = func;
   //console.log("added func", currFunc);
 
   //create rectangle frame for function
   let x = Example2.INSERT_X;
   let y = this.getInsertY();
+  func.x = x;
+  func.y = y;
   this.cmd(
     "CreateRectangle",
-    func.funcId,
+    func.id,
     "",
     func.funcWidth,
     func.funcHeight,
-    x - 10,
+    x,
     y
-  ); //-10 to give some space between the frame and its variables
+  );
+  this.cmd("SetLayer", func.id, -1);
 
   //insert function name
-  this.cmd("CreateLabel", func.funcNameId, func.funcName, x, y);
+  this.cmd("CreateLabel", func.funcNameId, func.funcName, 0, 0);
+  this.cmd("AlignTop", func.funcNameId, func.id);
 
   //slightly increase y for the next objects
   Example2.INSERT_Y += 20;
+
+  //add the func to colObjList
+  this.insertIntoCol(func);
 };
 
-Example2.prototype.modifyFunc = function (objId, func) {
-  //add objectId to this.funcList
-  this.addObjIdToFunc(objId, func);
-
-  //change dimensions of the function frame
+Example2.prototype.increaseFuncWidth = function (func, object) {
+  let newWidth = this.getWidth(object);
+  this.funcList[func.id].funcWidth = newWidth + 20; // empty space to right and left
+  this.cmd("SetWidth", func.id, this.funcList[func.id].funcWidth);
 };
 
-var func;
+Example2.prototype.increaseFuncHeight = function (func, object) {
+  let objHeight = this.getHeight(object);
+  this.funcList[func.id].funcHeight += objHeight;
+  this.cmd("SetHeight", func.id, this.funcList[func.id].funcHeight);
 
-Example2.prototype.visualiseLine = function (linesData, linesDataIdx, line_no) {
-  //handling highlighting code
-  this.cmd("RemoveAceMarker");
-  this.cmd("AddAceMarker", line_no);
+  this.funcList[func.id].y += objHeight / 2;
+  this.cmd("Move", func.id, this.funcList[func.id].x, this.funcList[func.id].y);
+};
 
-  //handling function
+Example2.prototype.modifyFunc = function (object, func) {
+  let funcInList = this.funcList[func.id];
+  let objExistsInFunc = funcInList.objIdList.includes(object.id);
+  if (!objExistsInFunc) {
+    //add objectId to this.funcList
+    this.addObjIdToFunc(object.id, func);
+
+    //change dimensions of the function frame
+    let objWidth = this.getWidth(object);
+    //console.log(this.funcList[func.id].funcWidth - 20, objWidth);
+    funcWidthIsGreater = this.funcList[func.id].funcWidth - 20 >= objWidth; //-20 to account for empty spaces in left and right
+    if (!funcWidthIsGreater) {
+      this.increaseFuncWidth(func, object);
+    }
+
+    this.increaseFuncHeight(func, object);
+  }
+};
+
+Example2.prototype.deleteFuncObjs = function (funcId) {
+  let objIds = this.funcList[funcId].objectIdList;
+  console.log(objIds);
+  for (let objIdIDx = 0; objIdIDx < objIds.length; ++objIdIDx) {
+    this.cmd("Delete", objIds[objIdIDx]);
+  }
+};
+
+Example2.prototype.deleteFunc = function (funcId) {
+  //remove the function frame
+  this.cmd("Delete", funcId);
+
+  //delete all the objects in the functions
+  this.deleteFuncObjs(funcId);
+
+  //remove func from funcList
+  delete this.funcList[funcID];
+
+  //move the objects below them upwards
+
+  //!!!!!!!!!!!!!!!!!!!!!! IMPLEMENT THIS !!!!!!!!!!!!!!!!!!!!!!!!!!!
+};
+
+var func; //global because 1.it has a single value 2.that value must be shared among iterations 3.used by different functions
+Example2.prototype.visualiseFunc = function (linesData, linesDataIdx) {
   let funcName = linesData[linesDataIdx].FunctionName;
-  let funcId = parseInt(linesData[linesDataIdx].FunctionId);
+  let id = parseInt(linesData[linesDataIdx].FunctionId);
   let funcNameId = parseInt(linesData[linesDataIdx].FunctionNameId);
   if (funcName) {
+    // if (func) {
+    //   let prevFuncIsMain = func.funcName == "main";
+    //   let newFuncIsDifferent = id != func.id;
+    //   if (!prevFuncIsMain && newFuncIsDifferent) {
+    //     //we've exited the different func. should delete the prev function (if it is not main)
+    //     this.deleteFunc(func.id);
+    //   }
+    // }
     func = {
       funcName: funcName,
-      funcId: funcId,
+      id: id,
       funcNameId: funcNameId,
-      funcHeight: 50,
+      funcHeight: 20,
       funcWidth: 50,
       objIdList: [],
+      x: 0,
+      y: 0,
     };
   }
   let funcExists = false;
@@ -616,19 +689,19 @@ Example2.prototype.visualiseLine = function (linesData, linesDataIdx, line_no) {
       funcListIdx < funcListKeys.length;
       ++funcListIdx
     ) {
-      if (funcListKeys[funcListIdx] == func.funcId) {
+      if (funcListKeys[funcListIdx] == func.id) {
         funcExists = true;
         break;
       }
     }
   }
-  //funcExists = funcListKeys.includes(func.funcId);
-  if (!funcExists) {
-    //console.log("creating function", func.funcName, func.funcId);
+  if (func && !funcExists) {
+    //console.log("creating function", func.funcName, func.id);
     this.createFunc(func);
   }
+};
 
-  //handling the variable
+Example2.prototype.visualiseVar = function (linesData, linesDataIdx) {
   let type = linesData[linesDataIdx].type;
   switch (type) {
     case "StackFrame":
@@ -640,8 +713,7 @@ Example2.prototype.visualiseLine = function (linesData, linesDataIdx, line_no) {
         //console.log(linesData[linesDataIdx].Contents[contentsIdx]);
         let object = linesData[linesDataIdx].Contents[contentsIdx];
         this.visualizeObj(object);
-        //this.addObjIdToFunc(object.id, funcName);
-        this.modifyFunc(object.id, func);
+        this.modifyFunc(object, func);
       }
       break;
     case "GlobalVariables":
@@ -655,6 +727,19 @@ Example2.prototype.visualiseLine = function (linesData, linesDataIdx, line_no) {
       }
       break;
   }
+};
+
+Example2.prototype.visualiseLine = function (linesData, linesDataIdx, line_no) {
+  //handling highlighting code
+  this.cmd("RemoveAceMarker");
+  this.cmd("AddAceMarker", line_no);
+
+  //handling function
+  this.visualiseFunc(linesData, linesDataIdx);
+
+  //handling the variable
+  this.visualiseVar(linesData, linesDataIdx);
+
   this.cmd("Step");
 };
 

@@ -10,15 +10,6 @@ import "ace-builds/src-noconflict/ext-language_tools";
 import { useHistory } from "react-router-dom";
 
 let fileReader;
-let markers = [];
-
-//marker to highlight 7th line
-markers.push({
-  startRow: 6,
-  endRow: 7,
-  className: "highlight_lines",
-  type: "text",
-});
 
 const UploadCode = () => {
   const [file, setFile] = useState(null);
@@ -67,7 +58,6 @@ const UploadCode = () => {
             theme="xcode"
             name="fileContentEditor"
             value={content}
-            markers={markers}
             readOnly={true}
             cursorStart={3}
             fontSize={14}
