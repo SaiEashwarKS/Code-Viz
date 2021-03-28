@@ -6,15 +6,8 @@ int dummy()
 	return i;
 }
 
-int mummy()
-{
-	int d=50;
-	return d;
-}
-
 int main()
 {
 	int res;
 	res = dummy();
-	mummy();
 }
