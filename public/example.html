@@ -105,17 +105,21 @@
 </body>
 <script>
     let code = `#include<stdio.h>
+#include<stdlib.h>
+
 int g;
-int dummy()
-{
-	int i = 10;
-	return i;
-}
+
 int main()
 {
-	int res=5;
-	res = dummy();
+	int x = 10;
+	int y = 20;
+	int b=20;
+	int *z=&x;
+	z=&y;
+	int **a=&z;
+	z=&b;
 }
+
 `;
 
     var editor = ace.edit("editor");

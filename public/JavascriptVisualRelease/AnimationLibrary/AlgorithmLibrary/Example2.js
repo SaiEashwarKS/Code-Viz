@@ -40,9 +40,9 @@ Example2.prototype.init = function (am, w, h) {
       {
         LineNum: 0,
         FunctionName: "main",
+        FunctionAddress: "(int (*)()) 0x400b6d <main>",
         FunctionId: 1,
         FunctionNameId: 2,
-        FunctionAddress: "(int (*)()) 0x400b7d <main>",
       },
       {
         LineNum: 0,
@@ -52,86 +52,48 @@ Example2.prototype.init = function (am, w, h) {
             data_type: "int",
             type: "var",
             id: 20,
-            val: "5",
-            name: "res",
-          },
-        ],
-      },
-      {
-        LineNum: 11,
-        FunctionName: "dummy",
-        FunctionId: 3,
-        FunctionNameId: 4,
-        FunctionAddress: "(int (*)()) 0x400b6d <dummy>",
-      },
-      {
-        LineNum: 11,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 10,
             val: "0",
-            name: "g",
+            name: "x",
           },
-        ],
-      },
-      {
-        LineNum: 11,
-        type: "StackFrame",
-        Contents: [
           {
             data_type: "int",
             type: "var",
+            id: 30,
+            val: "4200640",
+            name: "y",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 40,
+            val: "0",
+            name: "b",
+          },
+          {
+            data_type: "int *",
+            type: "ptr",
             id: 5,
-            val: "0",
-            name: "i",
+            val: "U",
+            name: "z",
           },
-        ],
-      },
-      {
-        LineNum: 5,
-        FunctionName: "dummy",
-        FunctionId: 3,
-        FunctionNameId: 4,
-        FunctionAddress: "(int (*)()) 0x400b6d <dummy>",
-      },
-      {
-        LineNum: 5,
-        type: "GlobalVariables",
-        Contents: [
           {
-            data_type: "int",
-            type: "var",
-            id: 10,
-            val: "0",
-            name: "g",
+            data_type: "int **",
+            type: "ptr",
+            id: 60,
+            val: "U",
+            name: "a",
           },
         ],
       },
       {
-        LineNum: 5,
-        type: "StackFrame",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 5,
-            val: "10",
-            name: "i",
-          },
-        ],
-      },
-      {
-        LineNum: 6,
+        LineNum: 8,
         FunctionName: "main",
+        FunctionAddress: "(int (*)()) 0x400b6d <main>",
         FunctionId: 1,
         FunctionNameId: 2,
-        FunctionAddress: "(int (*)()) 0x400b7d <main>",
       },
       {
-        LineNum: 6,
+        LineNum: 8,
         type: "GlobalVariables",
         Contents: [
           {
@@ -144,7 +106,7 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 6,
+        LineNum: 8,
         type: "StackFrame",
         Contents: [
           {
@@ -152,7 +114,401 @@ Example2.prototype.init = function (am, w, h) {
             type: "var",
             id: 20,
             val: "10",
-            name: "res",
+            name: "x",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 30,
+            val: "4200640",
+            name: "y",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 40,
+            val: "0",
+            name: "b",
+          },
+          {
+            data_type: "int *",
+            type: "ptr",
+            id: 5,
+            val: "U",
+            name: "z",
+          },
+          {
+            data_type: "int **",
+            type: "ptr",
+            id: 60,
+            val: "U",
+            name: "a",
+          },
+        ],
+      },
+      {
+        LineNum: 9,
+        FunctionName: "main",
+        FunctionAddress: "(int (*)()) 0x400b6d <main>",
+        FunctionId: 1,
+        FunctionNameId: 2,
+      },
+      {
+        LineNum: 9,
+        type: "GlobalVariables",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 10,
+            val: "0",
+            name: "g",
+          },
+        ],
+      },
+      {
+        LineNum: 9,
+        type: "StackFrame",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 20,
+            val: "10",
+            name: "x",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 30,
+            val: "20",
+            name: "y",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 40,
+            val: "0",
+            name: "b",
+          },
+          {
+            data_type: "int *",
+            type: "ptr",
+            id: 5,
+            val: "U",
+            name: "z",
+          },
+          {
+            data_type: "int **",
+            type: "ptr",
+            id: 60,
+            val: "U",
+            name: "a",
+          },
+        ],
+      },
+      {
+        LineNum: 10,
+        FunctionName: "main",
+        FunctionAddress: "(int (*)()) 0x400b6d <main>",
+        FunctionId: 1,
+        FunctionNameId: 2,
+      },
+      {
+        LineNum: 10,
+        type: "GlobalVariables",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 10,
+            val: "0",
+            name: "g",
+          },
+        ],
+      },
+      {
+        LineNum: 10,
+        type: "StackFrame",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 20,
+            val: "10",
+            name: "x",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 30,
+            val: "20",
+            name: "y",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 40,
+            val: "20",
+            name: "b",
+          },
+          {
+            data_type: "int *",
+            type: "ptr",
+            id: 5,
+            val: "U",
+            name: "z",
+          },
+          {
+            data_type: "int **",
+            type: "ptr",
+            id: 60,
+            val: "U",
+            name: "a",
+          },
+        ],
+      },
+      {
+        LineNum: 11,
+        FunctionName: "main",
+        FunctionAddress: "(int (*)()) 0x400b6d <main>",
+        FunctionId: 1,
+        FunctionNameId: 2,
+      },
+      {
+        LineNum: 11,
+        type: "GlobalVariables",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 10,
+            val: "0",
+            name: "g",
+          },
+        ],
+      },
+      {
+        LineNum: 11,
+        type: "StackFrame",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 20,
+            val: "10",
+            name: "x",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 30,
+            val: "20",
+            name: "y",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 40,
+            val: "20",
+            name: "b",
+          },
+          {
+            data_type: "int *",
+            type: "ptr",
+            id: 5,
+            val: 20,
+            name: "z",
+          },
+          {
+            data_type: "int **",
+            type: "ptr",
+            id: 60,
+            val: "U",
+            name: "a",
+          },
+        ],
+      },
+      {
+        LineNum: 12,
+        FunctionName: "main",
+        FunctionAddress: "(int (*)()) 0x400b6d <main>",
+        FunctionId: 1,
+        FunctionNameId: 2,
+      },
+      {
+        LineNum: 12,
+        type: "GlobalVariables",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 10,
+            val: "0",
+            name: "g",
+          },
+        ],
+      },
+      {
+        LineNum: 12,
+        type: "StackFrame",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 20,
+            val: "10",
+            name: "x",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 30,
+            val: "20",
+            name: "y",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 40,
+            val: "20",
+            name: "b",
+          },
+          {
+            data_type: "int *",
+            type: "ptr",
+            id: 5,
+            val: 30,
+            name: "z",
+          },
+          {
+            data_type: "int **",
+            type: "ptr",
+            id: 60,
+            val: "U",
+            name: "a",
+          },
+        ],
+      },
+      {
+        LineNum: 13,
+        FunctionName: "main",
+        FunctionAddress: "(int (*)()) 0x400b6d <main>",
+        FunctionId: 1,
+        FunctionNameId: 2,
+      },
+      {
+        LineNum: 13,
+        type: "GlobalVariables",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 10,
+            val: "0",
+            name: "g",
+          },
+        ],
+      },
+      {
+        LineNum: 13,
+        type: "StackFrame",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 20,
+            val: "10",
+            name: "x",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 30,
+            val: "20",
+            name: "y",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 40,
+            val: "20",
+            name: "b",
+          },
+          {
+            data_type: "int *",
+            type: "ptr",
+            id: 5,
+            val: 30,
+            name: "z",
+          },
+          {
+            data_type: "int **",
+            type: "ptr",
+            id: 60,
+            val: 5,
+            name: "a",
+          },
+        ],
+      },
+      {
+        LineNum: 14,
+        FunctionName: "main",
+        FunctionAddress: "(int (*)()) 0x400b6d <main>",
+        FunctionId: 1,
+        FunctionNameId: 2,
+      },
+      {
+        LineNum: 14,
+        type: "GlobalVariables",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 10,
+            val: "0",
+            name: "g",
+          },
+        ],
+      },
+      {
+        LineNum: 14,
+        type: "StackFrame",
+        Contents: [
+          {
+            data_type: "int",
+            type: "var",
+            id: 20,
+            val: "10",
+            name: "x",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 30,
+            val: "20",
+            name: "y",
+          },
+          {
+            data_type: "int",
+            type: "var",
+            id: 40,
+            val: "20",
+            name: "b",
+          },
+          {
+            data_type: "int *",
+            type: "ptr",
+            id: 5,
+            val: 40,
+            name: "z",
+          },
+          {
+            data_type: "int **",
+            type: "ptr",
+            id: 60,
+            val: 5,
+            name: "a",
           },
         ],
       },
@@ -191,7 +547,7 @@ Example2.prototype.animateCallback = function () {
 };
 
 Example2.prototype.setup = function () {
-  this.animationManager.setAllLayers([-1, 0]); //layers to be visible
+  //this.animationManager.setAllLayers([-1, 0]); //layers to be visible
   let linesData = this.json.Lines_Data;
   for (let linesDataIdx = 0; linesDataIdx < linesData.length; ++linesDataIdx) {
     let type = linesData[linesDataIdx].type;
@@ -554,9 +910,18 @@ Example2.prototype.visualizeObj = function (object, isDef) {
   //isDef : is the object defined or undefined
   if (!this.objectIdList.includes(object.id)) {
     this.createObj(object, isDef);
+    this.addObjToFunc(func, object);
   } else {
     this.modifyObject(object);
+    this.modifyFunc(func, object);
   }
+};
+
+Example2.prototype.modifyFunc = function (func, object) {
+  let obj = this.getObj(object.id);
+  let xDiff = Math.abs(func.x - obj.x);
+  //this.increaseFuncWidth(func, this.funcList[func.id].funcWidth + xDiff);
+  //console.log(xDiff);
 };
 
 Example2.prototype.addObjIdToFunc = function (objId, func) {
@@ -586,35 +951,47 @@ Example2.prototype.createFunc = function (func) {
     x,
     y
   );
-  this.cmd("SetLayer", func.id, -1);
 
   //insert function name
   this.cmd("CreateLabel", func.funcNameId, func.funcName, 0, 0);
   this.cmd("AlignTop", func.funcNameId, func.id);
 
   //slightly increase y for the next objects
-  Example2.INSERT_Y += 20;
+  Example2.INSERT_Y += 30;
 
   //add the func to colObjList
   this.insertIntoCol(func);
 };
 
-Example2.prototype.increaseFuncWidth = function (func, object) {
-  let newWidth = this.getWidth(object);
+Example2.prototype.increaseFuncWidth = function (func, newWidth) {
   this.funcList[func.id].funcWidth = newWidth + 20; // empty space to right and left
   this.cmd("SetWidth", func.id, this.funcList[func.id].funcWidth);
 };
 
-Example2.prototype.increaseFuncHeight = function (func, object) {
-  let objHeight = this.getHeight(object);
-  this.funcList[func.id].funcHeight += objHeight;
-  this.cmd("SetHeight", func.id, this.funcList[func.id].funcHeight);
+Example2.prototype.increaseFuncHeight = function (func, newHeight) {
+  let oldHeight = this.funcList[func.id].funcHeight;
+  let offset = newHeight - oldHeight;
+  this.cmd("SetHeight", func.id, newHeight);
+  this.funcList[func.id].funcHeight = newHeight;
 
-  this.funcList[func.id].y += objHeight / 2;
+  this.funcList[func.id].y += offset / 2;
   this.cmd("Move", func.id, this.funcList[func.id].x, this.funcList[func.id].y);
 };
 
-Example2.prototype.modifyFunc = function (object, func) {
+Example2.prototype.getNewHeightFunc = function (func, object) {
+  let objHeight = this.getHeight(object);
+  let newOffset = objHeight + Example2.VERT_PADDING;
+  if (object.type === "var") {
+    newOffset += Example2.VERT_PADDING;
+  }
+  let newHeight = this.funcList[func.id].funcHeight + newOffset;
+  return newHeight;
+};
+
+Example2.prototype.addObjToFunc = function (func, object) {
+  if (func.id === 0) {
+    return;
+  }
   let funcInList = this.funcList[func.id];
   let objExistsInFunc = funcInList.objIdList.includes(object.id);
   if (!objExistsInFunc) {
@@ -626,10 +1003,12 @@ Example2.prototype.modifyFunc = function (object, func) {
     //console.log(this.funcList[func.id].funcWidth - 20, objWidth);
     funcWidthIsGreater = this.funcList[func.id].funcWidth - 20 >= objWidth; //-20 to account for empty spaces in left and right
     if (!funcWidthIsGreater) {
-      this.increaseFuncWidth(func, object);
+      let newWidth = this.getWidth(object);
+      this.increaseFuncWidth(func, newWidth);
     }
 
-    this.increaseFuncHeight(func, object);
+    let newHeight = this.getNewHeightFunc(func, object);
+    this.increaseFuncHeight(func, newHeight);
   }
 };
 
@@ -656,20 +1035,24 @@ Example2.prototype.deleteFunc = function (funcId) {
   //!!!!!!!!!!!!!!!!!!!!!! IMPLEMENT THIS !!!!!!!!!!!!!!!!!!!!!!!!!!!
 };
 
-var func; //global because 1.it has a single value 2.that value must be shared among iterations 3.used by different functions
+var func = {
+  funcName: "",
+  id: 0,
+  funcNameId: 0,
+  funcHeight: 20,
+  funcWidth: 50,
+  objIdList: [],
+  x: 0,
+  y: 0,
+}; //global because 1.it has a single value 2.that value must be shared among iterations 3.used by different functions
+var prevFunc;
 Example2.prototype.visualiseFunc = function (linesData, linesDataIdx) {
   let funcName = linesData[linesDataIdx].FunctionName;
   let id = parseInt(linesData[linesDataIdx].FunctionId);
   let funcNameId = parseInt(linesData[linesDataIdx].FunctionNameId);
-  if (funcName) {
-    // if (func) {
-    //   let prevFuncIsMain = func.funcName == "main";
-    //   let newFuncIsDifferent = id != func.id;
-    //   if (!prevFuncIsMain && newFuncIsDifferent) {
-    //     //we've exited the different func. should delete the prev function (if it is not main)
-    //     this.deleteFunc(func.id);
-    //   }
-    // }
+  if (funcName && func.id !== id) {
+    prevFunc = func;
+    delete func;
     func = {
       funcName: funcName,
       id: id,
@@ -680,24 +1063,24 @@ Example2.prototype.visualiseFunc = function (linesData, linesDataIdx) {
       x: 0,
       y: 0,
     };
-  }
-  let funcExists = false;
-  let funcListKeys = Object.keys(this.funcList);
-  if (funcListKeys) {
-    for (
-      let funcListIdx = 0;
-      funcListIdx < funcListKeys.length;
-      ++funcListIdx
-    ) {
-      if (funcListKeys[funcListIdx] == func.id) {
-        funcExists = true;
-        break;
+    let funcExists = false;
+    let funcListKeys = Object.keys(this.funcList);
+    if (funcListKeys) {
+      for (
+        let funcListIdx = 0;
+        funcListIdx < funcListKeys.length;
+        ++funcListIdx
+      ) {
+        if (funcListKeys[funcListIdx] == func.id) {
+          funcExists = true;
+          break;
+        }
       }
     }
-  }
-  if (func && !funcExists) {
-    //console.log("creating function", func.funcName, func.id);
-    this.createFunc(func);
+    if (func && !funcExists) {
+      //console.log("creating function", func.funcName, func.id);
+      this.createFunc(func);
+    }
   }
 };
 
@@ -713,7 +1096,7 @@ Example2.prototype.visualiseVar = function (linesData, linesDataIdx) {
         //console.log(linesData[linesDataIdx].Contents[contentsIdx]);
         let object = linesData[linesDataIdx].Contents[contentsIdx];
         this.visualizeObj(object);
-        this.modifyFunc(object, func);
+        //this.modifyFunc(object, func);
       }
       break;
     case "GlobalVariables":
@@ -753,7 +1136,7 @@ Example2.prototype.animate = function () {
       this.visualiseLine(linesData, linesDataIdx, line_no);
     }
   }
-  //console.log(this.objectList);
+  console.log(this.objectList);
   //console.log(this.ptrList);
   //console.log(this.colObjList);
   console.log(this.funcList);
