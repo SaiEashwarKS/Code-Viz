@@ -8,6 +8,8 @@ int dummy()
 
 int main()
 {
-	int res;
+	int res = 10;
 	res = dummy();
+	int y = 100;
+	y = 200;
 }

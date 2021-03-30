@@ -35,41 +35,27 @@
           "data_type": "int", 
           "type": "var", 
           "id": 4, 
-          "val": "4200640", 
+          "val": "0", 
           "name": "y"
         }, 
         {
-          "data_type": "int", 
+          "data_type": "struct example1", 
           "type": "var", 
           "id": 4, 
-          "val": "0", 
-          "name": "b"
-        }, 
-        {
-          "data_type": "int *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "z"
-        }, 
-        {
-          "data_type": "int **", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "a"
+          "val": "{a = 0, b = {a = 7049240, b = 0}}", 
+          "name": "s1"
         }
       ]
     }, 
     {
       "id": 1, 
-      "LineNum": 7, 
+      "LineNum": 20, 
       "nameid": 2, 
       "name": "main", 
       "type": "Function"
     }, 
     {
-      "LineNum": 7, 
+      "LineNum": 20, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -82,68 +68,7 @@
       ]
     }, 
     {
-      "LineNum": 7, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 4, 
-          "val": "0", 
-          "name": "x"
-        }, 
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 4, 
-          "val": "4200640", 
-          "name": "y"
-        }, 
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 4, 
-          "val": "0", 
-          "name": "b"
-        }, 
-        {
-          "data_type": "int *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "z"
-        }, 
-        {
-          "data_type": "int **", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "a"
-        }
-      ]
-    }, 
-    {
-      "id": 1, 
-      "LineNum": 8, 
-      "nameid": 2, 
-      "name": "main", 
-      "type": "Function"
-    }, 
-    {
-      "LineNum": 8, 
-      "type": "GlobalVariables", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 3, 
-          "val": "0", 
-          "name": "g"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 8, 
+      "LineNum": 20, 
       "type": "StackFrame", 
       "Contents": [
         {
@@ -157,41 +82,27 @@
           "data_type": "int", 
           "type": "var", 
           "id": 4, 
-          "val": "4200640", 
+          "val": "0", 
           "name": "y"
         }, 
         {
-          "data_type": "int", 
+          "data_type": "struct example1", 
           "type": "var", 
           "id": 4, 
-          "val": "0", 
-          "name": "b"
-        }, 
-        {
-          "data_type": "int *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "z"
-        }, 
-        {
-          "data_type": "int **", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "a"
+          "val": "{a = 0, b = {a = 7049240, b = 0}}", 
+          "name": "s1"
         }
       ]
     }, 
     {
       "id": 1, 
-      "LineNum": 9, 
+      "LineNum": 21, 
       "nameid": 2, 
       "name": "main", 
       "type": "Function"
     }, 
     {
-      "LineNum": 9, 
+      "LineNum": 21, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -204,7 +115,7 @@
       ]
     }, 
     {
-      "LineNum": 9, 
+      "LineNum": 21, 
       "type": "StackFrame", 
       "Contents": [
         {
@@ -222,37 +133,23 @@
           "name": "y"
         }, 
         {
-          "data_type": "int", 
+          "data_type": "struct example1", 
           "type": "var", 
           "id": 4, 
-          "val": "0", 
-          "name": "b"
-        }, 
-        {
-          "data_type": "int *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "z"
-        }, 
-        {
-          "data_type": "int **", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "a"
+          "val": "{a = 0, b = {a = 7049240, b = 0}}", 
+          "name": "s1"
         }
       ]
     }, 
     {
       "id": 1, 
-      "LineNum": 10, 
+      "LineNum": 23, 
       "nameid": 2, 
       "name": "main", 
       "type": "Function"
     }, 
     {
-      "LineNum": 10, 
+      "LineNum": 23, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -265,7 +162,7 @@
       ]
     }, 
     {
-      "LineNum": 10, 
+      "LineNum": 23, 
       "type": "StackFrame", 
       "Contents": [
         {
@@ -283,37 +180,23 @@
           "name": "y"
         }, 
         {
-          "data_type": "int", 
+          "data_type": "struct example1", 
           "type": "var", 
           "id": 4, 
-          "val": "20", 
-          "name": "b"
-        }, 
-        {
-          "data_type": "int *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "z"
-        }, 
-        {
-          "data_type": "int **", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "a"
+          "val": "{a = 100, b = {a = 7049240, b = 0}}", 
+          "name": "s1"
         }
       ]
     }, 
     {
       "id": 1, 
-      "LineNum": 11, 
+      "LineNum": 24, 
       "nameid": 2, 
       "name": "main", 
       "type": "Function"
     }, 
     {
-      "LineNum": 11, 
+      "LineNum": 24, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -326,7 +209,7 @@
       ]
     }, 
     {
-      "LineNum": 11, 
+      "LineNum": 24, 
       "type": "StackFrame", 
       "Contents": [
         {
@@ -344,37 +227,23 @@
           "name": "y"
         }, 
         {
-          "data_type": "int", 
+          "data_type": "struct example1", 
           "type": "var", 
           "id": 4, 
-          "val": "20", 
-          "name": "b"
-        }, 
-        {
-          "data_type": "int *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "z"
-        }, 
-        {
-          "data_type": "int **", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "a"
+          "val": "{a = 100, b = {a = 110, b = 0}}", 
+          "name": "s1"
         }
       ]
     }, 
     {
       "id": 1, 
-      "LineNum": 12, 
+      "LineNum": 25, 
       "nameid": 2, 
       "name": "main", 
       "type": "Function"
     }, 
     {
-      "LineNum": 12, 
+      "LineNum": 25, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -387,7 +256,7 @@
       ]
     }, 
     {
-      "LineNum": 12, 
+      "LineNum": 25, 
       "type": "StackFrame", 
       "Contents": [
         {
@@ -405,147 +274,11 @@
           "name": "y"
         }, 
         {
-          "data_type": "int", 
+          "data_type": "struct example1", 
           "type": "var", 
           "id": 4, 
-          "val": "20", 
-          "name": "b"
-        }, 
-        {
-          "data_type": "int *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "z"
-        }, 
-        {
-          "data_type": "int **", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "a"
-        }
-      ]
-    }, 
-    {
-      "id": 1, 
-      "LineNum": 13, 
-      "nameid": 2, 
-      "name": "main", 
-      "type": "Function"
-    }, 
-    {
-      "LineNum": 13, 
-      "type": "GlobalVariables", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 3, 
-          "val": "0", 
-          "name": "g"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 13, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 4, 
-          "val": "10", 
-          "name": "x"
-        }, 
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 4, 
-          "val": "20", 
-          "name": "y"
-        }, 
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 4, 
-          "val": "20", 
-          "name": "b"
-        }, 
-        {
-          "data_type": "int *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "z"
-        }, 
-        {
-          "data_type": "int **", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "a"
-        }
-      ]
-    }, 
-    {
-      "id": 1, 
-      "LineNum": 14, 
-      "nameid": 2, 
-      "name": "main", 
-      "type": "Function"
-    }, 
-    {
-      "LineNum": 14, 
-      "type": "GlobalVariables", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 3, 
-          "val": "0", 
-          "name": "g"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 14, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 4, 
-          "val": "10", 
-          "name": "x"
-        }, 
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 4, 
-          "val": "20", 
-          "name": "y"
-        }, 
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 4, 
-          "val": "20", 
-          "name": "b"
-        }, 
-        {
-          "data_type": "int *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "z"
-        }, 
-        {
-          "data_type": "int **", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "a"
+          "val": "{a = 100, b = {a = 110, b = 220}}", 
+          "name": "s1"
         }
       ]
     }
