@@ -6,7 +6,7 @@ int g;
 typedef struct example2
 {
 	int a;
-	int b[5];
+	int b;
 }example2;
 
 typedef struct example1
@@ -17,12 +17,10 @@ typedef struct example1
 
 int main()
 {
-	struct example1 e1;
-	e1.a = 1;
-	e1.b.a = 2;
-	e1.b.b[0] = 100;
-	e1.b.b[1] = 200;
-	e1.b.b[2] = 300;
 	int x = 10;
 	int y = 20;
+	struct example1 s1;
+	s1.a = 100;
+	s1.b.a = 110;
+	s1.b.b = 220;
 }

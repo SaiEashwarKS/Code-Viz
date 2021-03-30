@@ -3,13 +3,18 @@
 
 int g;
 
+struct example
+{
+	int a;
+	int b;
+};
+
 int main()
 {
 	int x = 10;
 	int y = 20;
-	int b=20;
-	int *z=&x;
-	z=&y;
-	int **a=&z;
-	z=&b;
+
+	struct example s1;
+	s1.a = 10;
+	s1.b = 20;
 }
