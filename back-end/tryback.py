@@ -13,6 +13,9 @@ import json
 
 lines_data = []
 
+structures = set() #to store all structures used in the program
+struct_details = {}
+
 mo = [] # [['$i/func_name', 'address'], ['$i/func_name', 'address'], ...]
 mp = [] # [['name', 'value'], ['name', 'value'], ...]
 ml = [] # [['name', 'address'], ['name', 'address'], ...]
@@ -149,15 +152,19 @@ def maketogether(ln,di,gl,stringnamed):
 	global id_counter
 	global addr_to_id
 	for i in gl:
-		sepdi={}
-		datatype=i[2][1:i[2].rfind('*')]
-		ID=int(i[2][i[2].rfind(")")+2:-4],16)#hexadecimal to int conversion
+		sepdi = {}
+		datatype = i[2][1:i[2].rfind('*')]
+		
+		if 'struct' in datatype:
+			structures.add(datatype)
+		
+		ID = int(i[2][i[2].rfind(")")+2:-4],16)#hexadecimal to int conversion
 		if ID not in addr_to_id:
 			addr_to_id[ID]=id_counter
 			id_counter+=1
-		ID=addr_to_id[ID]
-		var=""
-		val=""
+		ID = addr_to_id[ID]
+		var = ""
+		val = ""
 		if '*' in datatype:
 			var="ptr"
 			try:
@@ -174,11 +181,11 @@ def maketogether(ln,di,gl,stringnamed):
 		# if val==0:
 		# 	val=1005
 
-		sepdi['id']=ID
-		sepdi['type']=var
-		sepdi['data_type']=datatype.strip()
-		sepdi['name']=i[0].strip()
-		sepdi['val']=val
+		sepdi['id'] = ID
+		sepdi['type'] = var
+		sepdi['data_type'] = datatype.strip()
+		sepdi['name'] = i[0].strip()
+		sepdi['val'] = val
 		#di['Global Variables'][ID]=[i[0],i[2][1:i[2].rfind('*')],i[1]] #i[0] will hold the variable name
 		#i[1] will hold its value and we have assumed that the address is uinque
 		di['Contents'].append(sepdi.copy())
@@ -364,8 +371,32 @@ def linkall(gl,sl,al,ln,fn):#links pointers and displays it
 			tsdispv.append(["",i[1][1],"","","",i[8][1]])
 	return [gl,sl,al,ln,fn,tsav11,tsdispv]
 
-#f = open('test.txt','w')
+f = open('test.txt','w')
 
+
+'''
+type = struct example1 {
+int a;
+struct example2 b;
+}
+(gdb)
+'''
+
+def struct_info(pipe, structure):
+	pipe.stdin.write('ptype '+structure+'\n')
+	my_out = ''
+	sleep(0.1)
+	while True:
+		try:
+			my_out += read(pipe.stdout.fileno(), 1024)
+		except OSError:
+			break
+	my_out = string.replace(my_out,'(gdb)','')
+	my_out = my_out.strip()
+	elem = my_out[my_out.find('{')+2 : my_out.find('}')-1].split('\n')
+	elem = [i.strip(' ;') for i in elem]
+	f.write(str(elem))
+	return elem
 
 def output(p1,flag):#display (stack frame, arguments..)
 	global stop
@@ -743,6 +774,10 @@ while True:
 	hista=[]
 	fname=[]
 	if stop == 1:
+		for i in structures:
+			#p1.stdin.write('ptype '+i+'\n')
+			#struct_info()
+			struct_details[i.strip()] = struct_info(p1, i.strip())
 		break
 	if ret == 1:
 		p1.stdin.write('finish\n')
@@ -755,8 +790,11 @@ while True:
 	print '\nHit Enter to Continue, exit/quit to stop\n'
 
 
-maindic={"Lines_Data":lines_data}
-maindic=json.dumps(maindic,indent=2)
+maindic = {"Lines_Data":lines_data}
+maindic["Structures"] = struct_details
+maindic = json.dumps(maindic,indent=2)
+
+
 f1=open("out.json","w")
 f1.write(maindic)
 f1.close()

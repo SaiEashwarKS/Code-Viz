@@ -1,4 +1,10 @@
 {
+  "Structures": {
+    "struct example": [
+      "int a", 
+      "int b"
+    ]
+  }, 
   "Lines_Data": [
     {
       "id": 1, 
@@ -39,23 +45,23 @@
           "name": "y"
         }, 
         {
-          "data_type": "struct example1", 
+          "data_type": "struct example", 
           "type": "var", 
           "id": 4, 
-          "val": "{a = 0, b = {a = 7049240, b = 0}}", 
+          "val": "{a = 7049240, b = 0}", 
           "name": "s1"
         }
       ]
     }, 
     {
       "id": 1, 
-      "LineNum": 20, 
+      "LineNum": 14, 
       "nameid": 2, 
       "name": "main", 
       "type": "Function"
     }, 
     {
-      "LineNum": 20, 
+      "LineNum": 14, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -68,7 +74,7 @@
       ]
     }, 
     {
-      "LineNum": 20, 
+      "LineNum": 14, 
       "type": "StackFrame", 
       "Contents": [
         {
@@ -86,23 +92,23 @@
           "name": "y"
         }, 
         {
-          "data_type": "struct example1", 
+          "data_type": "struct example", 
           "type": "var", 
           "id": 4, 
-          "val": "{a = 0, b = {a = 7049240, b = 0}}", 
+          "val": "{a = 7049240, b = 0}", 
           "name": "s1"
         }
       ]
     }, 
     {
       "id": 1, 
-      "LineNum": 21, 
+      "LineNum": 15, 
       "nameid": 2, 
       "name": "main", 
       "type": "Function"
     }, 
     {
-      "LineNum": 21, 
+      "LineNum": 15, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -115,54 +121,7 @@
       ]
     }, 
     {
-      "LineNum": 21, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 4, 
-          "val": "10", 
-          "name": "x"
-        }, 
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 4, 
-          "val": "20", 
-          "name": "y"
-        }, 
-        {
-          "data_type": "struct example1", 
-          "type": "var", 
-          "id": 4, 
-          "val": "{a = 0, b = {a = 7049240, b = 0}}", 
-          "name": "s1"
-        }
-      ]
-    }, 
-    {
-      "id": 1, 
-      "LineNum": 23, 
-      "nameid": 2, 
-      "name": "main", 
-      "type": "Function"
-    }, 
-    {
-      "LineNum": 23, 
-      "type": "GlobalVariables", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 3, 
-          "val": "0", 
-          "name": "g"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 23, 
+      "LineNum": 15, 
       "type": "StackFrame", 
       "Contents": [
         {
@@ -180,23 +139,23 @@
           "name": "y"
         }, 
         {
-          "data_type": "struct example1", 
+          "data_type": "struct example", 
           "type": "var", 
           "id": 4, 
-          "val": "{a = 100, b = {a = 7049240, b = 0}}", 
+          "val": "{a = 7049240, b = 0}", 
           "name": "s1"
         }
       ]
     }, 
     {
       "id": 1, 
-      "LineNum": 24, 
+      "LineNum": 18, 
       "nameid": 2, 
       "name": "main", 
       "type": "Function"
     }, 
     {
-      "LineNum": 24, 
+      "LineNum": 18, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -209,7 +168,7 @@
       ]
     }, 
     {
-      "LineNum": 24, 
+      "LineNum": 18, 
       "type": "StackFrame", 
       "Contents": [
         {
@@ -227,23 +186,23 @@
           "name": "y"
         }, 
         {
-          "data_type": "struct example1", 
+          "data_type": "struct example", 
           "type": "var", 
           "id": 4, 
-          "val": "{a = 100, b = {a = 110, b = 0}}", 
+          "val": "{a = 10, b = 0}", 
           "name": "s1"
         }
       ]
     }, 
     {
       "id": 1, 
-      "LineNum": 25, 
+      "LineNum": 19, 
       "nameid": 2, 
       "name": "main", 
       "type": "Function"
     }, 
     {
-      "LineNum": 25, 
+      "LineNum": 19, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -256,7 +215,7 @@
       ]
     }, 
     {
-      "LineNum": 25, 
+      "LineNum": 19, 
       "type": "StackFrame", 
       "Contents": [
         {
@@ -274,10 +233,10 @@
           "name": "y"
         }, 
         {
-          "data_type": "struct example1", 
+          "data_type": "struct example", 
           "type": "var", 
           "id": 4, 
-          "val": "{a = 100, b = {a = 110, b = 220}}", 
+          "val": "{a = 10, b = 20}", 
           "name": "s1"
         }
       ]
