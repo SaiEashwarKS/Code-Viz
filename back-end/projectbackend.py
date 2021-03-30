@@ -11,42 +11,45 @@ import copy
 import string
 import json
 
-lines_data=[]
+lines_data = []
 
-mo=[] # [['$i/func_name', 'address'], ['$i/func_name', 'address'], ...]
-mp=[] # [['name', 'value'], ['name', 'value'], ...]
-ml=[] # [['name', 'address'], ['name', 'address'], ...]
+mo = [] # [['$i/func_name', 'address'], ['$i/func_name', 'address'], ...]
+mp = [] # [['name', 'value'], ['name', 'value'], ...]
+ml = [] # [['name', 'address'], ['name', 'address'], ...]
 
-lnc=0 # global variable for storing current line no
+lnc = 0 # global variable for storing current line no
+prev_lineno = 0
+
 #above are temporarily used lists during data processing
-vall=[]#stores variable address
-vallv=[]#stores variable value
-hista=[]#stores variable, value, address; for each iteration
-histac=[]
-val=[]
-fname=[]#function name
-fadd=[]#function address
+vall = []#stores variable address
+vallv = []#stores variable value
+hista = []#stores variable, value, address; for each iteration
+histac = []
+val = []
+fname = []#function name
+fadd = []#function address
 #below are temporarily used lists and counters during data processing
-sv=[]
-svc=[]
-ap=[]
-tsav=[]
-tsav2=[]
-tsav11=[]
-cc11=0
-counter=0
-gn=0
-sn=0 # no of local/stack variables
-an=0
+sv = []
+svc = []
+ap = []
+tsav = []
+tsav2 = []
+tsav11 = []
+cc11 = 0
+counter = 0
+gn = 0
+sn = 0 # no of local/stack variables
+an = 0
 
-
+addr_to_id = {}#addr_to_id is for mapping addressID to smaller id
+id_counter = 1
 
 sep = ['+','-','=','*','/',';','[','.']
 global_name_list = []
 stop = 0
 ret = 0
 scanf = 0
-func = re.compile("\w+ \(((\w+\=\w+), )*(\w+\=\w+)?\)")
+func = re.compile("\w+ \(((\w+\=\w+), )*(\w+\=\w+)?\)")#function call(can match function declaration but gdb doesn't show)
 
 my_file = raw_input('Enter C Program Name (with ./ if in local directory): ')
 
@@ -74,8 +77,6 @@ gn=len(global_name_list)#no of global variables
 p1 = Popen(['gdb', 'a.out'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 flags = fcntl(p1.stdout, F_GETFL) # get current p.stdout flags
 fcntl(p1.stdout, F_SETFL, flags | O_NONBLOCK)
-
-print 'Hit Enter to Begin'
 
 def tr():#function name
 	'''
@@ -139,56 +140,79 @@ def pdisp(rv):#for further display
 	'''
 	#print rv
 
+def maketogether(ln,di,gl,stringnamed):
+	di["LineNum"]=ln
+	di["type"]=stringnamed
+	di['Contents']=[]
+	global id_counter
+	global addr_to_id
+	for i in gl:
+		sepdi={}
+		datatype=i[2][1:i[2].rfind('*')]
+		if stringnamed=="GlobalVariables":
+			ID=int(i[2][i[2].rfind(")")+2:-4],16)#hexadecimal to int conversion
+		else:
+			ID=int(i[2][i[2].rfind(")")+2:],16)
+		#print(i,ID)
+		if ID not in addr_to_id:
+			addr_to_id[ID]=id_counter
+			id_counter+=1
+		ID=addr_to_id[ID]
+		var=""
+		val=""
+		if '*' in datatype:
+			var="ptr"
+			try:
+				val=int(i[1].split()[0],16)
+				if val in addr_to_id:
+					val=addr_to_id[val]
+				else:
+					print(val,addr_to_id)
+					val='U'
+			except:
+				val='U'
+		else:
+			var="var"
+			val=i[1].strip()
+		if val==0:
+			val=1005
+
+		sepdi['id']=ID
+		sepdi['type']=var
+		sepdi['data_type']=datatype.strip()
+		sepdi['name']=i[0].strip()
+		sepdi['val']=val
+		#di['Global Variables'][ID]=[i[0],i[2][1:i[2].rfind('*')],i[1]] #i[0] will hold the variable name
+		#i[1] will hold its value and we have assumed that the address is uinque
+		di['Contents'].append(sepdi.copy())
+		del sepdi
+
 def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 	#rv contains gl,sl,al,ln,fname, function can be altered with lesser arguments
 	print "\n",ln
 	#print("RV",rv)
-	fn=copy.deepcopy(fname)
-	ln=0
+	fn = copy.deepcopy(fname)
+	ln = 0
+	global id_counter
 	try:
-		ln=int(lnc.split()[1])
+		ln = int(lnc.split()[1]) #next line to execute
+		ln = prev_lineno
 	except:
 		return
 	#di["Contents"]={}
-	if len(fname)>0:
-		fn=fname[-1]
-	if len(fn)>1:
+	if len(fname) > 0:
+		fn = fname[-1]
+	if len(fn) > 1:
 		print "\nFunction Name: ",fn[0],"\nFunction Address: ",fn[1]
+		di = {"LineNum":ln, "FunctionName": fn[0], "FunctionAddress": fn[1]}
+		lines_data.append(di.copy())
+		del di
 	if len(gl)>0:
 		print '\n(Global Variables)'
 		heading = ["VARIABLE","VALUE","ADDRESS"]
 		print(tabulate(gl,headers=heading,tablefmt="psql"))
-		di={}
-		di["LineNum"]=ln
-		di["type"]="GlobalVariables"
-		di['Contents']=[]
-		for i in gl:
-			sepdi={}
-			datatype=i[2][1:i[2].rfind('*')]
-			ID=int(i[2][i[2].rfind(")")+2:-4],16)#hexadecimal to int conversion
-			var=""
-			val=""
-			if '*' in datatype:
-				var="ptr"
-				try:
-					val=int(i[1],16)
-				except:
-					val=0
-			else:
-				var="var"
-				val=i[1].strip()
-			if val==0:
-				val=1005
-
-			sepdi['id']=ID
-			sepdi['type']=var
-			sepdi['data_type']=datatype.strip()
-			sepdi['name']=i[0].strip()
-			sepdi['val']=val
-			#di['Global Variables'][ID]=[i[0],i[2][1:i[2].rfind('*')],i[1]] #i[0] will hold the variable name
-			#i[1] will hold its value and we have assumed that the address is uinque
-			di['Contents'].append(sepdi.copy())
-			del sepdi
+		di = {}
+		maketogether(ln,di,gl,"GlobalVariables")
 		lines_data.append(di.copy())
 		del di
 	if len(sl)>0:
@@ -196,35 +220,7 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		heading = ["VARIABLE","VALUE","ADDRESS"]
 		print(tabulate(sl,headers=heading,tablefmt="psql"))
 		di={}
-		di['LineNum']=ln
-		di['type']='StackFrame'
-		di['Contents']=[]
-		for i in sl:
-			sepdi={}
-			datatype=i[2][1:i[2].rfind('*')]
-			var=""
-			val=""
-			if '*' in datatype:
-				var="ptr"
-				try:
-					val=int(i[1],16)
-				except:
-					val=0
-			else:
-				var="var"
-				val=i[1].strip()
-			if val==0:
-				val=1005
-			ID=int(i[2][i[2].rfind(")")+2:],16)
-			sepdi['id']=ID
-			sepdi['type']=var
-			sepdi['data_type']=datatype.strip()
-			sepdi['name']=i[0].strip()
-			sepdi['val']=val
-			#di['Global Variables'][ID]=[i[0],i[2][1:i[2].rfind('*')],i[1]] #i[0] will hold the variable name
-			#i[1] will hold its value and we have assumed that the address is uinque
-			di['Contents'].append(sepdi.copy())
-			del sepdi
+		maketogether(ln,di,sl,"StackFrame")
 		lines_data.append(di.copy())
 		del di
 	if len(al)>0:
@@ -232,35 +228,7 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		heading = ["VARIABLE","VALUE","ADDRESS"]
 		print(tabulate(al,headers=heading,tablefmt="psql"))
 		di={}
-		di["LineNum"]=ln
-		di["type"]="Arguments"
-		di['Contents']=[]
-		for i in al:
-			sepdi={}
-			datatype=i[2][1:i[2].rfind('*')]
-			var=""
-			val=""
-			if '*' in datatype:
-				var="ptr"
-				try:
-					val=int(i[1],16)
-				except:
-					val=0
-			else:
-				var="var"
-				val=i[1].strip()
-			if val==0:
-				val=1005
-			ID=int(i[2][i[2].rfind(")")+2:],16)
-			sepdi['id']=ID
-			sepdi['type']=var
-			sepdi['data_type']=datatype.strip()
-			sepdi['name']=i[0].strip()
-			sepdi['val']=val
-			#di['Global Variables'][ID]=[i[0],i[2][1:i[2].rfind('*')],i[1]] #i[0] will hold the variable name
-			#i[1] will hold its value and we have assumed that the address is uinque
-			di['Contents'].append(sepdi.copy())
-			del sepdi
+		maketogether(ln,di,al,"Arguments")
 		lines_data.append(di.copy())
 		del di
 	if len(rv[6])>0:
@@ -387,7 +355,7 @@ def linkall(gl,sl,al,ln,fn):#links pointers and displays it
 			tsdispv.append(["",i[1][1],"","","",i[8][1]])
 	return [gl,sl,al,ln,fn,tsav11,tsdispv]
 
-f = open('test.txt','w')
+#f = open('test.txt','w')
 
 def output(p1,flag):#display (stack frame, arguments..)
 	global stop
@@ -485,6 +453,7 @@ def output(p1,flag):#display (stack frame, arguments..)
 		my_out = string.replace(my_out,'(gdb)','')
 		my_out = string.replace(my_out,'\n','')
 		sys.stdout.write(my_out)
+
 	elif flag == 2: #for info line
 		# stores current line no in lnc
 		my_out = string.replace(my_out,'(gdb)','') # Line 12 of "./b.c" starts at address 0x400bb6 <foo> and ends at 0x400bc9 <foo+19>.\n(gdb)
@@ -496,7 +465,13 @@ def output(p1,flag):#display (stack frame, arguments..)
 		#print "\n"
 		#print ln
 		global lnc
+		global prev_lineno
+		try:
+			prev_lineno = int(lnc.split()[1])		
+		except:
+			prev_lineno = 0
 		lnc=ln
+
 	elif flag == 1: # info locals
 		'''
 		p = 0x401a50 <__libc_csu_fini>
@@ -510,15 +485,15 @@ def output(p1,flag):#display (stack frame, arguments..)
 		if my_out != 'No symbol table info available.\n(gdb) ':
 			my_out = string.replace(my_out,'(gdb)','')
 			my_out = my_out.strip()
-			f.write(str(my_out)+'\n')
+			#f.write(str(my_out)+'\n')
 			#print '\n(Stack Frame)'
 			my_out = my_out.split('\n') # ['p = 0x401a50 <__libc_csu_fini>', 'l = 0x0', ...]
-			f.write(str(my_out)+'\n')
+			#f.write(str(my_out)+'\n')
 			my_out = [ x.split('=',1) for x in my_out ] # [['p ', ' 0x401a50 <__libc_csu_fini>'], ['l ', ' 0x0'], ...]
-			f.write(str(my_out)+'\n')
+			#f.write(str(my_out)+'\n')
 			for x in range(len(my_out)):
 				my_out[x] = [ y.strip() for y in my_out[x] ] # [['p', '0x401a50 <__libc_csu_fini>'], ['l', '0x0'], ...]
-			f.write(str(my_out)+'\n')
+			#f.write(str(my_out)+'\n')
 			prev = 0
 			if len(my_out)==2 and len(my_out[0])==1:
 				print "\nNo Locals.\n"
@@ -530,7 +505,7 @@ def output(p1,flag):#display (stack frame, arguments..)
 					else:
 						prev = x
 				my_out = filter(lambda a: len(a) ==2, my_out)
-				f.write(str(my_out)+'\n')
+				#f.write(str(my_out)+'\n')
 				mp = copy.deepcopy(my_out) # mp-> [['p', '0x401a50 <__libc_csu_fini>'], ['l', '0x0'], ...]
 				#heading = ["VARIABLE","VALUE"]
 				#print(tabulate(my_out,headers=heading,tablefmt="psql"))
@@ -628,14 +603,20 @@ p1.stdin.write('break main\n')
 output(p1,0)
 p1.stdin.write('run\n')
 output(p1,0)
+p1.stdin.write('info line\n')
+output(p1,2)
+p1.stdin.write('info locals\n')
+output(p1,1)
+p1.stdin.write('info args\n')
+output(p1,4)
 
 while True:
-	inp = raw_input()
+	#inp = raw_input()
 	mo=[]
 	mp=[]
 	ml=[]
-	if(inp=='exit' or inp=='quit' or inp=='q'):
-		break
+	#if(inp=='exit' or inp=='quit' or inp=='q'):
+	#	break
 	p1.stdin.write('step\n')
 	counter+=1
 	hista.append([str(counter)])
@@ -737,7 +718,9 @@ while True:
 	rv=linkall(gvp1,svp1,avp1,lnc,fname)
 	vdisp(gvp1,svp1,avp1,lnc,fname,rv)
 	pdisp(rv)
-	lnc=0
+	
+	#lnc=0
+	
 	sn=0
 	an=0
 	histac.append(hista)
@@ -748,10 +731,10 @@ while True:
 	if ret == 1:
 		p1.stdin.write('finish\n')
 		output(p1,3)
-	print '\nHit Enter to Continue, exit/quit to stop\n'
+	#print '\nHit Enter to Continue, exit/quit to stop\n'
 
 maindic={"Lines_Data":lines_data}
 maindic=json.dumps(maindic,indent=2)
-f1=open("outnew.json","w")
+f1=open("outptr.json","w")
 f1.write(maindic)
 f1.close()
