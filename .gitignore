@@ -1,3 +1,7 @@
 .vscode
 *.pyc
+<<<<<<< HEAD
+*.out
+=======
 a.out
+>>>>>>> 4c2afbf5a5d57a60314a32aa3af99666a464d38a

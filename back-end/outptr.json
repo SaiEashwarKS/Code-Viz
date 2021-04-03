@@ -107,7 +107,7 @@
     {
       "LineNum": 15, 
       "FunctionName": "main", 
-      "FunctionAddress": "(int (*)()) 0x400b6d <main>"
+      "FunctionAddress": "(int (*)()) 0x400b7d <main>"
     }, 
     {
       "LineNum": 15, 
@@ -126,13 +126,6 @@
       "LineNum": 15, 
       "type": "StackFrame", 
       "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 2, 
-          "val": "10", 
-          "name": "x"
-        }, 
         {
           "data_type": "int", 
           "type": "var", 

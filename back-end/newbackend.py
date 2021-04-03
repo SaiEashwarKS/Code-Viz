@@ -603,12 +603,14 @@ p1.stdin.write('break main\n')
 output(p1,0)
 p1.stdin.write('run\n')
 output(p1,0)
+'''
 p1.stdin.write('info line\n')
 output(p1,2)
 p1.stdin.write('info locals\n')
 output(p1,1)
 p1.stdin.write('info args\n')
 output(p1,4)
+'''
 
 while True:
 	#inp = raw_input()
