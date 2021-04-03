@@ -795,7 +795,8 @@ maindic["Structures"] = struct_details
 maindic = json.dumps(maindic,indent=2)
 
 
-f1=open("out.json","w")
+
+f1=open("ll.json","w")
 f1.write(maindic)
 f1.close()
 
