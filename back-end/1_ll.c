@@ -15,13 +15,13 @@ int main()
     struct Node second;
     struct Node third;
   
-    head.data = 1; // assign data in first node
-    head.next = &second; // Link first node with
+    head.data = 1;
+    head.next = &second;
 	
     second.data = 2;
     second.next = &third;
 	 
-    third.data = 3; // assign data to third node
+    third.data = 3;
     third.next = NULL;
 	
     return 0;

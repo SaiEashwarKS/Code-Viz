@@ -4,27 +4,28 @@
       "int data", 
       "struct Node *next"
     ]
-  },
+  }, 
   "Lines_Data": [
     {
-      "id": 1, 
-      "LineNum": 0, 
-      "nameid": 2, 
-      "name": "main", 
-      "type": "Function"
-    }, 
-    {
       "LineNum": 0, 
       "type": "GlobalVariables", 
       "Contents": [
         {
           "data_type": "int", 
           "type": "var", 
-          "id": 3, 
+          "id": 1, 
           "val": "0", 
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 0, 
+      "stackdepth": 1, 
+      "nameid": 3, 
+      "type": "Function", 
+      "id": 2, 
+      "name": "main"
     }, 
     {
       "LineNum": 0, 
@@ -34,31 +35,24 @@
           "data_type": "struct Node", 
           "type": "var", 
           "id": 4, 
-          "val": "{data = 7037248, next = 0x40192c <__libc_csu_init+124>}", 
+          "val": "{data = 7037248, next = U}", 
           "name": "head"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
-          "id": 4, 
-          "val": "{data = -8376, next = 0x400400 <_init>}", 
+          "id": 5, 
+          "val": "{data = -8376, next = U}", 
           "name": "second"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
-          "id": 4, 
-          "val": "{data = 4200624, next = 0x401950 <__libc_csu_fini>}", 
+          "id": 6, 
+          "val": "{data = 4200624, next = U}", 
           "name": "third"
         }
       ]
-    }, 
-    {
-      "id": 1, 
-      "LineNum": 13, 
-      "nameid": 2, 
-      "name": "main", 
-      "type": "Function"
     }, 
     {
       "LineNum": 13, 
@@ -67,11 +61,19 @@
         {
           "data_type": "int", 
           "type": "var", 
-          "id": 3, 
+          "id": 1, 
           "val": "0", 
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 13, 
+      "stackdepth": 1, 
+      "nameid": 3, 
+      "type": "Function", 
+      "id": 2, 
+      "name": "main"
     }, 
     {
       "LineNum": 13, 
@@ -81,31 +83,24 @@
           "data_type": "struct Node", 
           "type": "var", 
           "id": 4, 
-          "val": "{data = 7037248, next = 0x40192c <__libc_csu_init+124>}", 
+          "val": "{data = 7037248, next = U}", 
           "name": "head"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
-          "id": 4, 
-          "val": "{data = -8376, next = 0x400400 <_init>}", 
+          "id": 5, 
+          "val": "{data = -8376, next = U}", 
           "name": "second"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
-          "id": 4, 
-          "val": "{data = 4200624, next = 0x401950 <__libc_csu_fini>}", 
+          "id": 6, 
+          "val": "{data = 4200624, next = U}", 
           "name": "third"
         }
       ]
-    }, 
-    {
-      "id": 1, 
-      "LineNum": 18, 
-      "nameid": 2, 
-      "name": "main", 
-      "type": "Function"
     }, 
     {
       "LineNum": 18, 
@@ -114,11 +109,19 @@
         {
           "data_type": "int", 
           "type": "var", 
-          "id": 3, 
+          "id": 1, 
           "val": "0", 
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 18, 
+      "stackdepth": 1, 
+      "nameid": 3, 
+      "type": "Function", 
+      "id": 2, 
+      "name": "main"
     }, 
     {
       "LineNum": 18, 
@@ -128,31 +131,24 @@
           "data_type": "struct Node", 
           "type": "var", 
           "id": 4, 
-          "val": "{data = 1, next = 0x40192c <__libc_csu_init+124>}", 
+          "val": "{data = 1, next = U}", 
           "name": "head"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
-          "id": 4, 
-          "val": "{data = -8376, next = 0x400400 <_init>}", 
+          "id": 5, 
+          "val": "{data = -8376, next = U}", 
           "name": "second"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
-          "id": 4, 
-          "val": "{data = 4200624, next = 0x401950 <__libc_csu_fini>}", 
+          "id": 6, 
+          "val": "{data = 4200624, next = U}", 
           "name": "third"
         }
       ]
-    }, 
-    {
-      "id": 1, 
-      "LineNum": 19, 
-      "nameid": 2, 
-      "name": "main", 
-      "type": "Function"
     }, 
     {
       "LineNum": 19, 
@@ -161,11 +157,19 @@
         {
           "data_type": "int", 
           "type": "var", 
-          "id": 3, 
+          "id": 1, 
           "val": "0", 
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 19, 
+      "stackdepth": 1, 
+      "nameid": 3, 
+      "type": "Function", 
+      "id": 2, 
+      "name": "main"
     }, 
     {
       "LineNum": 19, 
@@ -175,31 +179,24 @@
           "data_type": "struct Node", 
           "type": "var", 
           "id": 4, 
-          "val": "{data = 1, next = 0x7fffffffddf0}", 
+          "val": "{data = 1, next = 5}", 
           "name": "head"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
-          "id": 4, 
-          "val": "{data = -8376, next = 0x400400 <_init>}", 
+          "id": 5, 
+          "val": "{data = -8376, next = U}", 
           "name": "second"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
-          "id": 4, 
-          "val": "{data = 4200624, next = 0x401950 <__libc_csu_fini>}", 
+          "id": 6, 
+          "val": "{data = 4200624, next = U}", 
           "name": "third"
         }
       ]
-    }, 
-    {
-      "id": 1, 
-      "LineNum": 21, 
-      "nameid": 2, 
-      "name": "main", 
-      "type": "Function"
     }, 
     {
       "LineNum": 21, 
@@ -208,11 +205,19 @@
         {
           "data_type": "int", 
           "type": "var", 
-          "id": 3, 
+          "id": 1, 
           "val": "0", 
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 21, 
+      "stackdepth": 1, 
+      "nameid": 3, 
+      "type": "Function", 
+      "id": 2, 
+      "name": "main"
     }, 
     {
       "LineNum": 21, 
@@ -222,31 +227,24 @@
           "data_type": "struct Node", 
           "type": "var", 
           "id": 4, 
-          "val": "{data = 1, next = 0x7fffffffddf0}", 
+          "val": "{data = 1, next = 5}", 
           "name": "head"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
-          "id": 4, 
-          "val": "{data = 2, next = 0x400400 <_init>}", 
+          "id": 5, 
+          "val": "{data = 2, next = U}", 
           "name": "second"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
-          "id": 4, 
-          "val": "{data = 4200624, next = 0x401950 <__libc_csu_fini>}", 
+          "id": 6, 
+          "val": "{data = 4200624, next = U}", 
           "name": "third"
         }
       ]
-    }, 
-    {
-      "id": 1, 
-      "LineNum": 22, 
-      "nameid": 2, 
-      "name": "main", 
-      "type": "Function"
     }, 
     {
       "LineNum": 22, 
@@ -255,11 +253,19 @@
         {
           "data_type": "int", 
           "type": "var", 
-          "id": 3, 
+          "id": 1, 
           "val": "0", 
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 22, 
+      "stackdepth": 1, 
+      "nameid": 3, 
+      "type": "Function", 
+      "id": 2, 
+      "name": "main"
     }, 
     {
       "LineNum": 22, 
@@ -269,31 +275,24 @@
           "data_type": "struct Node", 
           "type": "var", 
           "id": 4, 
-          "val": "{data = 1, next = 0x7fffffffddf0}", 
+          "val": "{data = 1, next = 5}", 
           "name": "head"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
-          "id": 4, 
-          "val": "{data = 2, next = 0x7fffffffde00}", 
+          "id": 5, 
+          "val": "{data = 2, next = 6}", 
           "name": "second"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
-          "id": 4, 
-          "val": "{data = 4200624, next = 0x401950 <__libc_csu_fini>}", 
+          "id": 6, 
+          "val": "{data = 4200624, next = U}", 
           "name": "third"
         }
       ]
-    }, 
-    {
-      "id": 1, 
-      "LineNum": 24, 
-      "nameid": 2, 
-      "name": "main", 
-      "type": "Function"
     }, 
     {
       "LineNum": 24, 
@@ -302,11 +301,19 @@
         {
           "data_type": "int", 
           "type": "var", 
-          "id": 3, 
+          "id": 1, 
           "val": "0", 
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 24, 
+      "stackdepth": 1, 
+      "nameid": 3, 
+      "type": "Function", 
+      "id": 2, 
+      "name": "main"
     }, 
     {
       "LineNum": 24, 
@@ -316,31 +323,24 @@
           "data_type": "struct Node", 
           "type": "var", 
           "id": 4, 
-          "val": "{data = 1, next = 0x7fffffffddf0}", 
+          "val": "{data = 1, next = 5}", 
           "name": "head"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
-          "id": 4, 
-          "val": "{data = 2, next = 0x7fffffffde00}", 
+          "id": 5, 
+          "val": "{data = 2, next = 6}", 
           "name": "second"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
-          "id": 4, 
-          "val": "{data = 3, next = 0x401950 <__libc_csu_fini>}", 
+          "id": 6, 
+          "val": "{data = 3, next = U}", 
           "name": "third"
         }
       ]
-    }, 
-    {
-      "id": 1, 
-      "LineNum": 25, 
-      "nameid": 2, 
-      "name": "main", 
-      "type": "Function"
     }, 
     {
       "LineNum": 25, 
@@ -349,11 +349,19 @@
         {
           "data_type": "int", 
           "type": "var", 
-          "id": 3, 
+          "id": 1, 
           "val": "0", 
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 25, 
+      "stackdepth": 1, 
+      "nameid": 3, 
+      "type": "Function", 
+      "id": 2, 
+      "name": "main"
     }, 
     {
       "LineNum": 25, 
@@ -363,31 +371,24 @@
           "data_type": "struct Node", 
           "type": "var", 
           "id": 4, 
-          "val": "{data = 1, next = 0x7fffffffddf0}", 
+          "val": "{data = 1, next = 5}", 
           "name": "head"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
-          "id": 4, 
-          "val": "{data = 2, next = 0x7fffffffde00}", 
+          "id": 5, 
+          "val": "{data = 2, next = 6}", 
           "name": "second"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
-          "id": 4, 
-          "val": "{data = 3, next = 0x0}", 
+          "id": 6, 
+          "val": "{data = 3, next = U}", 
           "name": "third"
         }
       ]
-    }, 
-    {
-      "id": 1, 
-      "LineNum": 27, 
-      "nameid": 2, 
-      "name": "main", 
-      "type": "Function"
     }, 
     {
       "LineNum": 27, 
@@ -396,11 +397,19 @@
         {
           "data_type": "int", 
           "type": "var", 
-          "id": 3, 
+          "id": 1, 
           "val": "0", 
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 27, 
+      "stackdepth": 1, 
+      "nameid": 3, 
+      "type": "Function", 
+      "id": 2, 
+      "name": "main"
     }, 
     {
       "LineNum": 27, 
@@ -410,21 +419,21 @@
           "data_type": "struct Node", 
           "type": "var", 
           "id": 4, 
-          "val": "{data = 1, next = 0x7fffffffddf0}", 
+          "val": "{data = 1, next = 5}", 
           "name": "head"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
-          "id": 4, 
-          "val": "{data = 2, next = 0x7fffffffde00}", 
+          "id": 5, 
+          "val": "{data = 2, next = 6}", 
           "name": "second"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
-          "id": 4, 
-          "val": "{data = 3, next = 0x0}", 
+          "id": 6, 
+          "val": "{data = 3, next = U}", 
           "name": "third"
         }
       ]
