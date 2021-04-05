@@ -755,7 +755,7 @@ LL.prototype.createVar = function (object, width, height, x, y, isDef) {
         x,
         y,
         0,
-        false,
+        1,
         false,
         2
     );
@@ -789,6 +789,33 @@ LL.prototype.setPtrVal = function (object) {
         }
     }
 };
+
+LL.prototype.setStructPtrVal = function (object) {
+    let [fieldVals, numVarFields] = this.extractStructFieldVals(object);
+    let fieldNames = Object.keys(fieldVals);
+    let numFields = fieldNames.length;
+
+    let fields = object.val;
+    let structName = object.data_type;
+    let structPtrFieldNames = this.structList[structName].structPtr;
+    //console.log(structPtrFieldNames);
+
+    for (let fieldIdx = 0; fieldIdx < numFields; ++fieldIdx) {
+        let field = fields[fieldIdx];
+        //console.log(field);
+        let fieldName = Object.keys(field)[0];
+        if (structPtrFieldNames.includes(fieldName)) {
+            let val = field[fieldName];
+            if (val !== "U" && val !== "N") {
+                val = parseInt(val);
+                //console.log(this.objectList);
+                if (this.objectIdList.includes(val)) {
+                    this.cmd("Connect", object.id, val);
+                }
+            }
+        }
+    }
+}
 
 LL.prototype.createPtr = function (object, width, height, x, y) {
     this.cmd(
@@ -830,7 +857,7 @@ LL.prototype.extractStructFieldVals = function (object) {
         else { fieldVals[fieldName] = fields[fieldIdx][fieldName]; }
     }
 
-    let numFields = Object.keys(fieldVals).length;
+    let numVarFields = Object.keys(fieldVals).length;
 
     //add all structPtrs to the end
     let structPtrNames = Object.keys(structPtrs)
@@ -839,16 +866,16 @@ LL.prototype.extractStructFieldVals = function (object) {
         fieldVals[ptrName] = structPtrs[ptrName];
     }
     //console.log(fieldVals, structPtrs);
-    return [fieldVals, numFields];
+    return [fieldVals, numVarFields];
 }
 
-LL.prototype.createStructVar = function (object, width, height, x, y) {
-    let [fieldVals, numFields] = this.extractStructFieldVals(object);
-    console.log(fieldVals, numFields);
+LL.prototype.createStructVar = function (object, width, height, x, y, isDef) {
+    let [fieldVals, numVarFields] = this.extractStructFieldVals(object);
+    //console.log(fieldVals, numVarFields);
     let fieldNames = Object.keys(fieldVals);
     let firstFieldName = fieldNames[0];
     let firstVal = fieldVals[firstFieldName];
-    console.log(numFields);
+    //console.log(numVarFields);
     this.cmd(
         "CreateLinkedList",
         object.id,
@@ -858,15 +885,17 @@ LL.prototype.createStructVar = function (object, width, height, x, y) {
         x,
         y,
         0.25,
-        false,
-        false,
-        numFields
+        0,
+        1,
+        numVarFields
     );
-    for (let i = 1; i < numFields; ++i) {
+    for (let i = 1; i < numVarFields; ++i) {
         let val = fieldVals[fieldNames[i]];
         this.cmd("SetText", object.id, val, i);
     }
     //console.log("inserted ", object);
+    this.setStructPtrVal(object);
+    LL.VERT_COUNT += numVarFields;
 };
 
 LL.prototype.createObj = function (object, isDef) {
@@ -875,14 +904,17 @@ LL.prototype.createObj = function (object, isDef) {
     let insert_y = this.getInsertY();
     LL.VERT_COUNT++;
     object.y = insert_y;
+    //console.log(object);
     this.objectList.push(object);
     switch (object_type) {
         case "var":
             object.x = LL.INSERT_X;
             if (object.data_type.includes("struct ")) {
+                object.x -= 10;
                 this.createStructVar(
                     object,
                     this.getWidth(object),
+                    this.getHeight(object),
                     object.x,
                     object.y,
                     isDef
@@ -920,6 +952,7 @@ LL.prototype.createObj = function (object, isDef) {
 };
 
 LL.prototype.modifyStructVar = function (object) {
+    let [fieldVals, numVarfields] = this.extractStructFieldVals(object);
 
 }
 
@@ -1109,9 +1142,21 @@ LL.prototype.getWidthPtr = function (length) {
     return 8 * (length + 4); //4 extra chars for " (U)" or " (N)"
 };
 
+LL.prototype.getWidthStructVar = function (object) {
+    let structName = object.data_type;
+    let structInfo = this.structList[structName];
+    let fields = object.val;
+    let numVarFields = structInfo.structFields.length - structInfo.structPtr.length;
+    console.log(numVarFields);
+    return numVarFields * 65;
+}
+
 LL.prototype.getWidth = function (object) {
     switch (object.type) {
         case "var":
+            if (object.data_type.includes("struct ")) {
+                return this.getWidthStructVar(object);
+            }
             return this.getWidthVar(
                 Math.max((object.type + " " + object.name).length, object.val.length)
             );

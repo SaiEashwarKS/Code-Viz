@@ -2,3 +2,5 @@ complete pointers
 complete (/remove) functions
 improve getInsertY
 make this.objList an object of objects with id as key instead of it being a list of objects
+get list of all pointers in struct, not just struct pointers
+add pointers in struct to ptrObjList
