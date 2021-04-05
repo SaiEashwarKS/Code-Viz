@@ -56,7 +56,6 @@
         src="JavascriptVisualRelease/AnimationLibrary/AlgorithmLibrary/Algorithm.js"> </script>
 
 
-
 </head>
 
 <body onload="init();" class="VisualizationMainPage">
@@ -99,22 +98,38 @@
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="application/javascript"
-        src="JavascriptVisualRelease/AnimationLibrary/AlgorithmLibrary/Example2.js"> </script>
+        src="JavascriptVisualRelease/AnimationLibrary/AlgorithmLibrary/LL.js"> </script>
     <script type="text/javascript" src="./js/ace_setup.js"></script>
 
 </body>
 <script>
-    let code = `#include<stdio.h>
+    let code = `#include <stdio.h>
+#include <stdlib.h>
+
 int g;
-int dummy()
-{
-	int i = 10;
-	return i;
-}
+
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+
 int main()
 {
-	int res=5;
-	res = dummy();
+    struct Node head;
+    struct Node second;
+    struct Node third;
+
+    head.data = 1;
+    head.next = &second;
+
+    second.data = 2;
+    second.next = &third;
+
+    third.data = 3;
+    third.next = NULL;
+
+    return 0;
 }`;
 
     var editor = ace.edit("editor");

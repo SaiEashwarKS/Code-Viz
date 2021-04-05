@@ -40,9 +40,9 @@ Example2.prototype.init = function (am, w, h) {
       {
         LineNum: 0,
         FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
         FunctionId: 1,
         FunctionNameId: 2,
+        FunctionAddress: "(int (*)()) 0x400b7d <main>",
       },
       {
         LineNum: 0,
@@ -52,228 +52,17 @@ Example2.prototype.init = function (am, w, h) {
             data_type: "int",
             type: "var",
             id: 20,
-            val: "0",
-            name: "x",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 30,
-            val: "4200640",
-            name: "y",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 40,
-            val: "0",
-            name: "b",
-          },
-          {
-            data_type: "int *",
-            type: "ptr",
-            id: 5,
-            val: "U",
-            name: "z",
-          },
-          {
-            data_type: "int **",
-            type: "ptr",
-            id: 60,
-            val: "U",
-            name: "a",
-          },
-        ],
-      },
-      {
-        LineNum: 8,
-        FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
-        FunctionId: 1,
-        FunctionNameId: 2,
-      },
-      {
-        LineNum: 8,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 10,
-            val: "0",
-            name: "g",
-          },
-        ],
-      },
-      {
-        LineNum: 8,
-        type: "StackFrame",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 20,
-            val: "10",
-            name: "x",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 30,
-            val: "4200640",
-            name: "y",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 40,
-            val: "0",
-            name: "b",
-          },
-          {
-            data_type: "int *",
-            type: "ptr",
-            id: 5,
-            val: "U",
-            name: "z",
-          },
-          {
-            data_type: "int **",
-            type: "ptr",
-            id: 60,
-            val: "U",
-            name: "a",
-          },
-        ],
-      },
-      {
-        LineNum: 9,
-        FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
-        FunctionId: 1,
-        FunctionNameId: 2,
-      },
-      {
-        LineNum: 9,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 10,
-            val: "0",
-            name: "g",
-          },
-        ],
-      },
-      {
-        LineNum: 9,
-        type: "StackFrame",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 20,
-            val: "10",
-            name: "x",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 30,
-            val: "20",
-            name: "y",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 40,
-            val: "0",
-            name: "b",
-          },
-          {
-            data_type: "int *",
-            type: "ptr",
-            id: 5,
-            val: "U",
-            name: "z",
-          },
-          {
-            data_type: "int **",
-            type: "ptr",
-            id: 60,
-            val: "U",
-            name: "a",
-          },
-        ],
-      },
-      {
-        LineNum: 10,
-        FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
-        FunctionId: 1,
-        FunctionNameId: 2,
-      },
-      {
-        LineNum: 10,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 10,
-            val: "0",
-            name: "g",
-          },
-        ],
-      },
-      {
-        LineNum: 10,
-        type: "StackFrame",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 20,
-            val: "10",
-            name: "x",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 30,
-            val: "20",
-            name: "y",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 40,
-            val: "20",
-            name: "b",
-          },
-          {
-            data_type: "int *",
-            type: "ptr",
-            id: 5,
-            val: "U",
-            name: "z",
-          },
-          {
-            data_type: "int **",
-            type: "ptr",
-            id: 60,
-            val: "U",
-            name: "a",
+            val: "5",
+            name: "res",
           },
         ],
       },
       {
         LineNum: 11,
-        FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
-        FunctionId: 1,
-        FunctionNameId: 2,
+        FunctionName: "dummy",
+        FunctionId: 3,
+        FunctionNameId: 4,
+        FunctionAddress: "(int (*)()) 0x400b6d <dummy>",
       },
       {
         LineNum: 11,
@@ -295,49 +84,21 @@ Example2.prototype.init = function (am, w, h) {
           {
             data_type: "int",
             type: "var",
-            id: 20,
-            val: "10",
-            name: "x",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 30,
-            val: "20",
-            name: "y",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 40,
-            val: "20",
-            name: "b",
-          },
-          {
-            data_type: "int *",
-            type: "ptr",
             id: 5,
-            val: 20,
-            name: "z",
-          },
-          {
-            data_type: "int **",
-            type: "ptr",
-            id: 60,
-            val: "U",
-            name: "a",
+            val: "0",
+            name: "i",
           },
         ],
       },
       {
-        LineNum: 12,
-        FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
-        FunctionId: 1,
-        FunctionNameId: 2,
+        LineNum: 5,
+        FunctionName: "dummy",
+        FunctionId: 3,
+        FunctionNameId: 4,
+        FunctionAddress: "(int (*)()) 0x400b6d <dummy>",
       },
       {
-        LineNum: 12,
+        LineNum: 5,
         type: "GlobalVariables",
         Contents: [
           {
@@ -350,55 +111,27 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 12,
+        LineNum: 5,
         type: "StackFrame",
         Contents: [
           {
             data_type: "int",
             type: "var",
-            id: 20,
-            val: "10",
-            name: "x",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 30,
-            val: "20",
-            name: "y",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 40,
-            val: "20",
-            name: "b",
-          },
-          {
-            data_type: "int *",
-            type: "ptr",
             id: 5,
-            val: 30,
-            name: "z",
-          },
-          {
-            data_type: "int **",
-            type: "ptr",
-            id: 60,
-            val: "U",
-            name: "a",
+            val: "10",
+            name: "i",
           },
         ],
       },
       {
-        LineNum: 13,
+        LineNum: 6,
         FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
         FunctionId: 1,
         FunctionNameId: 2,
+        FunctionAddress: "(int (*)()) 0x400b7d <main>",
       },
       {
-        LineNum: 13,
+        LineNum: 6,
         type: "GlobalVariables",
         Contents: [
           {
@@ -411,7 +144,7 @@ Example2.prototype.init = function (am, w, h) {
         ],
       },
       {
-        LineNum: 13,
+        LineNum: 6,
         type: "StackFrame",
         Contents: [
           {
@@ -419,96 +152,7 @@ Example2.prototype.init = function (am, w, h) {
             type: "var",
             id: 20,
             val: "10",
-            name: "x",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 30,
-            val: "20",
-            name: "y",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 40,
-            val: "20",
-            name: "b",
-          },
-          {
-            data_type: "int *",
-            type: "ptr",
-            id: 5,
-            val: 30,
-            name: "z",
-          },
-          {
-            data_type: "int **",
-            type: "ptr",
-            id: 60,
-            val: 5,
-            name: "a",
-          },
-        ],
-      },
-      {
-        LineNum: 14,
-        FunctionName: "main",
-        FunctionAddress: "(int (*)()) 0x400b6d <main>",
-        FunctionId: 1,
-        FunctionNameId: 2,
-      },
-      {
-        LineNum: 14,
-        type: "GlobalVariables",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 10,
-            val: "0",
-            name: "g",
-          },
-        ],
-      },
-      {
-        LineNum: 14,
-        type: "StackFrame",
-        Contents: [
-          {
-            data_type: "int",
-            type: "var",
-            id: 20,
-            val: "10",
-            name: "x",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 30,
-            val: "20",
-            name: "y",
-          },
-          {
-            data_type: "int",
-            type: "var",
-            id: 40,
-            val: "20",
-            name: "b",
-          },
-          {
-            data_type: "int *",
-            type: "ptr",
-            id: 5,
-            val: 40,
-            name: "z",
-          },
-          {
-            data_type: "int **",
-            type: "ptr",
-            id: 60,
-            val: 5,
-            name: "a",
+            name: "res",
           },
         ],
       },
@@ -852,21 +496,24 @@ Example2.prototype.modifyObject = function (object) {
   this.modifyWidth(object);
 };
 
-Example2.prototype.getWidthVar = function (text) {
-  return 10 * text.length;
+Example2.prototype.getWidthVar = function (length) {
+  if (length < 18) return 10 * length;
+  return 7 * length;
 };
 
-Example2.prototype.getWidthPtr = function (text) {
-  return 8 * (text.length + 4); //4 extra chars for " (U)" or " (N)"
+Example2.prototype.getWidthPtr = function (length) {
+  return 8 * (length + 4); //4 extra chars for " (U)" or " (N)"
 };
 
 Example2.prototype.getWidth = function (object) {
   switch (object.type) {
     case "var":
-      return this.getWidthVar(object.type + " " + object.name);
+      return this.getWidthVar(
+        Math.max((object.type + " " + object.name).length, object.val.length)
+      );
       break;
     case "ptr":
-      return this.getWidthPtr(object.type + " " + object.name);
+      return this.getWidthPtr((object.type + " " + object.name).length);
       break;
   }
 };
@@ -976,6 +623,7 @@ Example2.prototype.increaseFuncHeight = function (func, newHeight) {
 
   this.funcList[func.id].y += offset / 2;
   this.cmd("Move", func.id, this.funcList[func.id].x, this.funcList[func.id].y);
+  Example2.VERT_COUNT += 1;
 };
 
 Example2.prototype.getNewHeightFunc = function (func, object) {

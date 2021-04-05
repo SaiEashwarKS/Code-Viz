@@ -1,0 +1,4 @@
+complete pointers
+complete (/remove) functions
+improve getInsertY
+make this.objList an object of objects with id as key instead of it being a list of objects
