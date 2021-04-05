@@ -158,7 +158,11 @@ def maketogether(ln,di,gl,stringnamed):
 		if 'struct' in datatype:
 			structures.add(datatype)
 		
-		ID = int(i[2][i[2].rfind(")")+2:-4],16)#hexadecimal to int conversion
+		if stringnamed=="GlobalVariables":
+			ID=int(i[2][i[2].rfind(")")+2:-4],16)#hexadecimal to int conversion
+		else:
+			ID=int(i[2][i[2].rfind(")")+2:],16)
+			
 		if ID not in addr_to_id:
 			addr_to_id[ID]=id_counter
 			id_counter+=1
