@@ -13,8 +13,10 @@ import json
 
 lines_data = []
 
-structures = set() #to store all structures used in the program
+structures = [] #set() #to store all structures used in the program
 struct_details = {}
+
+stack_depth = 1
 
 mo = [] # [['$i/func_name', 'address'], ['$i/func_name', 'address'], ...]
 mp = [] # [['name', 'value'], ['name', 'value'], ...]
@@ -101,9 +103,13 @@ def tr():#function name
 	(gdb)
 	'''
 	my_out1 = string.replace(my_out1,'(gdb)','').strip()
-	my_out2 = my_out1.split(" ") 
+
+	global stack_depth
+	stack_depth = len(my_out1.split("\n"))
+	
+	my_out2 = my_out1.split(" ")
 	s = "p &"+my_out2[2]+"\n" # my_out2[2]-> function_name-> foo
-	p1.stdin.write(s)	
+	p1.stdin.write(s)
 	my_out = ''
 	sleep(0.1)
 	while True:
@@ -145,6 +151,7 @@ def pdisp(rv):#for further display
 	'''
 	#print rv
 
+
 def maketogether(ln,di,gl,stringnamed):
 	di["LineNum"]=ln
 	di["type"]=stringnamed
@@ -152,44 +159,81 @@ def maketogether(ln,di,gl,stringnamed):
 	global id_counter
 	global addr_to_id
 	for i in gl:
-		sepdi = {}
-		datatype = i[2][1:i[2].rfind('*')]
+		is_struct = False
+		sepdi={}
+		datatype=i[2][1:i[2].rfind('*')]
 		
 		if 'struct' in datatype:
-			structures.add(datatype)
+			is_struct = True
+			if datatype not in structures:
+				structures.append(datatype)#structures.add(datatype)
 		
 		if stringnamed=="GlobalVariables":
 			ID=int(i[2][i[2].rfind(")")+2:-4],16)#hexadecimal to int conversion
 		else:
 			ID=int(i[2][i[2].rfind(")")+2:],16)
-			
+		#print(i,ID)
 		if ID not in addr_to_id:
 			addr_to_id[ID]=id_counter
 			id_counter+=1
-		ID = addr_to_id[ID]
-		var = ""
-		val = ""
+		ID=addr_to_id[ID]
+		var=""
+		val=""
 		if '*' in datatype:
 			var="ptr"
 			try:
-				val=int(i[1],16)
+				val=int(i[1].split()[0],16)
 				if val in addr_to_id:
-					val=addr_to_id[val]
+					val = addr_to_id[val]
 				else:
-					val='U'
+					print(val,addr_to_id)
+					val = 'U'
 			except:
 				val='U'
 		else:
 			var="var"
 			val=i[1].strip()
-		# if val==0:
-		# 	val=1005
+		if val==0:
+			val=1005
 
-		sepdi['id'] = ID
-		sepdi['type'] = var
-		sepdi['data_type'] = datatype.strip()
-		sepdi['name'] = i[0].strip()
-		sepdi['val'] = val
+		sepdi['id']=ID
+		sepdi['type']=var
+		sepdi['data_type']=datatype.strip()
+		sepdi['name']=i[0].strip()
+		sepdi['val']=val
+		
+		if is_struct:
+			pat = re.compile(r' <.*?>')
+			val = re.sub(pat, '', val)
+			reg = re.compile(r'0x[0-9a-f]*[,}]') #pattern to find hexadecimals in val, => they are pointers and we need to replace it with ID
+			l = reg.findall(val)
+			l = [x[0:-1] for x in l]
+			for addr in l:
+				ID = int(addr,16)
+				if ID in addr_to_id:
+					ID = addr_to_id[ID]
+					#f.write("\n=====\naddr:"+addr+"\nID:"+str(ID)+"\nval:"+val+"\n=====\n\n")
+				elif ID == 0:	# hexadecimal 0x0 i.e 0 corresponds to NULL
+					ID = 'N'
+				else:
+					ID = 'U'
+				val = val.replace(addr, str(ID))
+			sepdi['val'] = val #val is string -> 'data = 123, next = U'
+			
+			
+			# string processing to make val a list of dictionary(key is variable name value is value)
+			s = sepdi["val"]
+			s = s.strip("{}")
+			v = ["{"+x.replace("=",":")+"}" for x in s.split(",")]
+			x = []
+			for i in v:
+				k=i.strip("{}")
+				k=k.split(":")
+				x.append({k[0].strip():k[1].strip()})
+			sepdi['val'] = x
+			
+			#f.write("\n-----\n"+str(l)+"\n")
+			#f.write(val + "\n")
 		#di['Global Variables'][ID]=[i[0],i[2][1:i[2].rfind('*')],i[1]] #i[0] will hold the variable name
 		#i[1] will hold its value and we have assumed that the address is uinque
 		di['Contents'].append(sepdi.copy())
@@ -208,6 +252,18 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 	except:
 		return
 	#di["Contents"]={}
+	
+	#Global Variables
+	if len(gl)>0:
+		print '\n(Global Variables)'
+		heading = ["VARIABLE","VALUE","ADDRESS"]
+		print(tabulate(gl,headers=heading,tablefmt="psql"))
+		di = {}
+		maketogether(ln,di,gl,"GlobalVariables")
+		lines_data.append(di.copy())
+		del di
+	
+	#Function
 	if len(fname) > 0:
 		fn = fname[-1]
 	if len(fn) > 1:
@@ -224,17 +280,11 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 			addr_to_id[fnameID] = id_counter
 			id_counter += 1
 		fnameID = addr_to_id[fnameID]
-		di = {"LineNum":ln, "type":"Function", "name": fn[0], "id":FunctionID, "nameid":fnameID}
+		di = {"LineNum":ln, "type":"Function", "name": fn[0], "id":FunctionID, "nameid":fnameID, "stackdepth":stack_depth}
 		lines_data.append(di.copy())
 		del di
-	if len(gl)>0:
-		print '\n(Global Variables)'
-		heading = ["VARIABLE","VALUE","ADDRESS"]
-		print(tabulate(gl,headers=heading,tablefmt="psql"))
-		di = {}
-		maketogether(ln,di,gl,"GlobalVariables")
-		lines_data.append(di.copy())
-		del di
+	
+	#Stack variables
 	if len(sl)>0:
 		print '\n(Stack Frame)'
 		heading = ["VARIABLE","VALUE","ADDRESS"]
@@ -243,6 +293,8 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		maketogether(ln,di,sl,"StackFrame")
 		lines_data.append(di.copy())
 		del di
+		
+	#Arguments
 	if len(al)>0:
 		print '\n(Arguments)'
 		heading = ["VARIABLE","VALUE","ADDRESS"]
@@ -397,10 +449,26 @@ def struct_info(pipe, structure):
 			break
 	my_out = string.replace(my_out,'(gdb)','')
 	my_out = my_out.strip()
-	elem = my_out[my_out.find('{')+2 : my_out.find('}')-1].split('\n')
-	elem = [i.strip(' ;') for i in elem]
-	f.write(str(elem))
-	return elem
+	fields = my_out[my_out.find('{')+2 : my_out.find('}')-1].split('\n')
+	fields = [i.strip(' ;') for i in fields]
+	fields_info = []
+	for i in fields:
+		info = {}
+		if '*' in i:
+			info['type'] = 'ptr'
+			info['data_type'] = i[0 : i.rfind('*') + 1]
+			info['name'] = i[i.rfind('*') + 1 : ]
+		else:
+			info['type'] = 'var'
+			info['data_type'] = i[0 : i.rfind(' ')]
+			info['name'] = i[i.rfind(' ') + 1 : ]
+		fields_info.append(info.copy())
+	
+	# f.write(str(fields)+"\n")
+	# return fields
+	# f.write(str(fields_info))
+	return fields_info
+
 
 def output(p1,flag):#display (stack frame, arguments..)
 	global stop
@@ -778,10 +846,20 @@ while True:
 	hista=[]
 	fname=[]
 	if stop == 1:
-		for i in structures:
-			#p1.stdin.write('ptype '+i+'\n')
-			#struct_info()
-			struct_details[i.strip()] = struct_info(p1, i.strip())
+		#for i in structures:
+		#	#p1.stdin.write('ptype '+i+'\n')
+		#	fields_list = struct_info(p1, i.strip())
+		#	struct_details[i.strip()] = fields_list
+		i = 0
+		while i < len(structures):
+			fields_list = struct_info(p1, structures[i].strip())
+			struct_details[structures[i].strip()] = fields_list
+			for x in fields_list:
+				if 'struct' in x:
+					x = x[0 : x.rfind(" ") + 1]
+					if x not in structures:
+						structures.append(x)
+			i += 1
 		break
 	if ret == 1:
 		p1.stdin.write('finish\n')
@@ -799,7 +877,7 @@ maindic["Structures"] = struct_details
 maindic = json.dumps(maindic,indent=2)
 
 
-f1=open("out.json","w")
+f1=open("ll.json","w")
 f1.write(maindic)
 f1.close()
 
