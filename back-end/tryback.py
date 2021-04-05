@@ -205,19 +205,33 @@ def maketogether(ln,di,gl,stringnamed):
 		if is_struct:
 			pat = re.compile(r' <.*?>')
 			val = re.sub(pat, '', val)
-			reg = re.compile(r'0x[0-9a-f]*[,}]')
+			reg = re.compile(r'0x[0-9a-f]*[,}]') #pattern to find hexadecimals in val, => they are pointers and we need to replace it with ID
 			l = reg.findall(val)
 			l = [x[0:-1] for x in l]
 			for addr in l:
 				ID = int(addr,16)
 				if ID in addr_to_id:
 					ID = addr_to_id[ID]
-					#val = val.replace(addr, str(ID))
 					#f.write("\n=====\naddr:"+addr+"\nID:"+str(ID)+"\nval:"+val+"\n=====\n\n")
+				elif ID == 0:	# hexadecimal 0x0 i.e 0 corresponds to NULL
+					ID = 'N'
 				else:
 					ID = 'U'
 				val = val.replace(addr, str(ID))
-			sepdi['val']=val	
+			sepdi['val'] = val #val is string -> 'data = 123, next = U'
+			
+			
+			# string processing to make val a list of dictionary(key is variable name value is value)
+			s = sepdi["val"]
+			s = s.strip("{}")
+			v = ["{"+x.replace("=",":")+"}" for x in s.split(",")]
+			x = []
+			for i in v:
+				k=i.strip("{}")
+				k=k.split(":")
+				x.append({k[0].strip():k[1].strip()})
+			sepdi['val'] = x
+			
 			#f.write("\n-----\n"+str(l)+"\n")
 			#f.write(val + "\n")
 		#di['Global Variables'][ID]=[i[0],i[2][1:i[2].rfind('*')],i[1]] #i[0] will hold the variable name

@@ -1,8 +1,16 @@
 {
   "Structures": {
     "struct Node": [
-      "int data", 
-      "struct Node *next"
+      {
+        "type": "var", 
+        "name": "data", 
+        "data_type": "int"
+      }, 
+      {
+        "type": "ptr", 
+        "name": "next", 
+        "data_type": "struct Node *"
+      }
     ]
   }, 
   "Lines_Data": [
@@ -35,21 +43,42 @@
           "data_type": "struct Node", 
           "type": "var", 
           "id": 4, 
-          "val": "{data = 7037248, next = U}", 
+          "val": [
+            {
+              "data": "7037248"
+            }, 
+            {
+              "next": "U"
+            }
+          ], 
           "name": "head"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
           "id": 5, 
-          "val": "{data = -8376, next = U}", 
+          "val": [
+            {
+              "data": "-8376"
+            }, 
+            {
+              "next": "U"
+            }
+          ], 
           "name": "second"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
           "id": 6, 
-          "val": "{data = 4200624, next = U}", 
+          "val": [
+            {
+              "data": "4200624"
+            }, 
+            {
+              "next": "U"
+            }
+          ], 
           "name": "third"
         }
       ]
@@ -83,21 +112,42 @@
           "data_type": "struct Node", 
           "type": "var", 
           "id": 4, 
-          "val": "{data = 7037248, next = U}", 
+          "val": [
+            {
+              "data": "7037248"
+            }, 
+            {
+              "next": "U"
+            }
+          ], 
           "name": "head"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
           "id": 5, 
-          "val": "{data = -8376, next = U}", 
+          "val": [
+            {
+              "data": "-8376"
+            }, 
+            {
+              "next": "U"
+            }
+          ], 
           "name": "second"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
           "id": 6, 
-          "val": "{data = 4200624, next = U}", 
+          "val": [
+            {
+              "data": "4200624"
+            }, 
+            {
+              "next": "U"
+            }
+          ], 
           "name": "third"
         }
       ]
@@ -131,21 +181,42 @@
           "data_type": "struct Node", 
           "type": "var", 
           "id": 4, 
-          "val": "{data = 1, next = U}", 
+          "val": [
+            {
+              "data": "1"
+            }, 
+            {
+              "next": "U"
+            }
+          ], 
           "name": "head"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
           "id": 5, 
-          "val": "{data = -8376, next = U}", 
+          "val": [
+            {
+              "data": "-8376"
+            }, 
+            {
+              "next": "U"
+            }
+          ], 
           "name": "second"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
           "id": 6, 
-          "val": "{data = 4200624, next = U}", 
+          "val": [
+            {
+              "data": "4200624"
+            }, 
+            {
+              "next": "U"
+            }
+          ], 
           "name": "third"
         }
       ]
@@ -179,21 +250,42 @@
           "data_type": "struct Node", 
           "type": "var", 
           "id": 4, 
-          "val": "{data = 1, next = 5}", 
+          "val": [
+            {
+              "data": "1"
+            }, 
+            {
+              "next": "5"
+            }
+          ], 
           "name": "head"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
           "id": 5, 
-          "val": "{data = -8376, next = U}", 
+          "val": [
+            {
+              "data": "-8376"
+            }, 
+            {
+              "next": "U"
+            }
+          ], 
           "name": "second"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
           "id": 6, 
-          "val": "{data = 4200624, next = U}", 
+          "val": [
+            {
+              "data": "4200624"
+            }, 
+            {
+              "next": "U"
+            }
+          ], 
           "name": "third"
         }
       ]
@@ -227,21 +319,42 @@
           "data_type": "struct Node", 
           "type": "var", 
           "id": 4, 
-          "val": "{data = 1, next = 5}", 
+          "val": [
+            {
+              "data": "1"
+            }, 
+            {
+              "next": "5"
+            }
+          ], 
           "name": "head"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
           "id": 5, 
-          "val": "{data = 2, next = U}", 
+          "val": [
+            {
+              "data": "2"
+            }, 
+            {
+              "next": "U"
+            }
+          ], 
           "name": "second"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
           "id": 6, 
-          "val": "{data = 4200624, next = U}", 
+          "val": [
+            {
+              "data": "4200624"
+            }, 
+            {
+              "next": "U"
+            }
+          ], 
           "name": "third"
         }
       ]
@@ -275,21 +388,42 @@
           "data_type": "struct Node", 
           "type": "var", 
           "id": 4, 
-          "val": "{data = 1, next = 5}", 
+          "val": [
+            {
+              "data": "1"
+            }, 
+            {
+              "next": "5"
+            }
+          ], 
           "name": "head"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
           "id": 5, 
-          "val": "{data = 2, next = 6}", 
+          "val": [
+            {
+              "data": "2"
+            }, 
+            {
+              "next": "6"
+            }
+          ], 
           "name": "second"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
           "id": 6, 
-          "val": "{data = 4200624, next = U}", 
+          "val": [
+            {
+              "data": "4200624"
+            }, 
+            {
+              "next": "U"
+            }
+          ], 
           "name": "third"
         }
       ]
@@ -323,21 +457,42 @@
           "data_type": "struct Node", 
           "type": "var", 
           "id": 4, 
-          "val": "{data = 1, next = 5}", 
+          "val": [
+            {
+              "data": "1"
+            }, 
+            {
+              "next": "5"
+            }
+          ], 
           "name": "head"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
           "id": 5, 
-          "val": "{data = 2, next = 6}", 
+          "val": [
+            {
+              "data": "2"
+            }, 
+            {
+              "next": "6"
+            }
+          ], 
           "name": "second"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
           "id": 6, 
-          "val": "{data = 3, next = U}", 
+          "val": [
+            {
+              "data": "3"
+            }, 
+            {
+              "next": "U"
+            }
+          ], 
           "name": "third"
         }
       ]
@@ -371,21 +526,42 @@
           "data_type": "struct Node", 
           "type": "var", 
           "id": 4, 
-          "val": "{data = 1, next = 5}", 
+          "val": [
+            {
+              "data": "1"
+            }, 
+            {
+              "next": "5"
+            }
+          ], 
           "name": "head"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
           "id": 5, 
-          "val": "{data = 2, next = 6}", 
+          "val": [
+            {
+              "data": "2"
+            }, 
+            {
+              "next": "6"
+            }
+          ], 
           "name": "second"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
           "id": 6, 
-          "val": "{data = 3, next = U}", 
+          "val": [
+            {
+              "data": "3"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
           "name": "third"
         }
       ]
@@ -419,21 +595,42 @@
           "data_type": "struct Node", 
           "type": "var", 
           "id": 4, 
-          "val": "{data = 1, next = 5}", 
+          "val": [
+            {
+              "data": "1"
+            }, 
+            {
+              "next": "5"
+            }
+          ], 
           "name": "head"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
           "id": 5, 
-          "val": "{data = 2, next = 6}", 
+          "val": [
+            {
+              "data": "2"
+            }, 
+            {
+              "next": "6"
+            }
+          ], 
           "name": "second"
         }, 
         {
           "data_type": "struct Node", 
           "type": "var", 
           "id": 6, 
-          "val": "{data = 3, next = U}", 
+          "val": [
+            {
+              "data": "3"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
           "name": "third"
         }
       ]
