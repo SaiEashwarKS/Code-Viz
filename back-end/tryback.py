@@ -438,7 +438,7 @@ struct example2 b;
 (gdb)
 '''
 
-def struct_info(pipe, structure):
+def struct_fields_info(pipe, structure):
 	pipe.stdin.write('ptype '+structure+'\n')
 	my_out = ''
 	sleep(0.1)
@@ -712,10 +712,23 @@ def output(p1,flag):#display (stack frame, arguments..)
 			for i in ml:
 				vall.append(i)
 
+
+# dictionary of structure containing its fields, the structure name 
+def identify_datastructure(structure, structure_name):
+	for field in structure['fields']:
+		dt = field['data_type']
+		if field['type'] == 'ptr' and structure_name == dt[ : dt.rfind('*') - 1]:
+			#struct_details[structure].append({'datastructure':'linkedlist'})
+			#struct_details[structure]['datastructure'] ='linkedlist'
+			return 'linkedlist'
+			#break
+
+
 p1.stdin.write('break main\n')
 output(p1,0)
 p1.stdin.write('run\n')
 output(p1,0)
+
 
 while True:
 	#inp = raw_input()
@@ -848,12 +861,17 @@ while True:
 	if stop == 1:
 		#for i in structures:
 		#	#p1.stdin.write('ptype '+i+'\n')
-		#	fields_list = struct_info(p1, i.strip())
+		#	fields_list = struct_fields_info(p1, i.strip())
 		#	struct_details[i.strip()] = fields_list
 		i = 0
 		while i < len(structures):
-			fields_list = struct_info(p1, structures[i].strip())
-			struct_details[structures[i].strip()] = fields_list
+			fields_list = struct_fields_info(p1, structures[i].strip())
+			#struct_details[structures[i].strip()] = fields_list
+			name = structures[i].strip()
+			struct_details[name] = {}
+			struct_details[name]['fields'] = fields_list
+			struct_details[name]['datastructure'] = identify_datastructure(struct_details[name], name)	#
+			
 			for x in fields_list:
 				if 'struct' in x:
 					x = x[0 : x.rfind(" ") + 1]
@@ -872,6 +890,17 @@ while True:
 	print '\nHit Enter to Continue, exit/quit to stop\n'
 
 
+# adding possible data structure type in struct_details
+# doing this using identify_datastructure function 
+'''
+for structure in struct_details:
+	for field in struct_details[structure]['fields']:
+		dt = field['data_type']
+		if field['type'] == 'ptr' and structure == dt[ : dt.rfind('*') - 1]:
+			#struct_details[structure].append({'datastructure':'linkedlist'})
+			struct_details[structure]['datastructure'] ='linkedlist'
+			break
+'''
 maindic = {"Lines_Data":lines_data}
 maindic["Structures"] = struct_details
 maindic = json.dumps(maindic,indent=2)
