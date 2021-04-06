@@ -806,7 +806,9 @@ LL.prototype.setStructPtrVal = function (object) {
         let fieldName = Object.keys(field)[0];
         if (structPtrFieldNames.includes(fieldName)) {
             let val = field[fieldName];
-            if (val !== "U" && val !== "N") {
+            //if (val !== "U" && val !== "N") {
+            if (val === "N") { this.cmd("SetNull", object.id, 1); }
+            else if (val !== "U") {
                 val = parseInt(val);
                 //console.log(this.objectList);
                 if (this.objectIdList.includes(val)) {
@@ -952,11 +954,17 @@ LL.prototype.createObj = function (object, isDef) {
 };
 
 LL.prototype.modifyStructFields = function (object) {
+    let structName = object.data_type;
+    let structInfo = this.structList[structName];
     let [fieldVals, numVarfields] = this.extractStructFieldVals(object);
-    //console.log(fieldVals);
     let fields = Object.keys(fieldVals);
     for (let fieldIdx = 0; fieldIdx < fields.length; ++fieldIdx) {
-        this.cmd("SetText", object.id, fieldVals[fields[fieldIdx]], fieldIdx);
+        let fieldName = fields[fieldIdx];
+        let isPtr = structInfo.structPtr.includes(fieldName);
+        if (isPtr) {
+            this.setStructPtrVal(object);
+        }
+        this.cmd("SetText", object.id, fieldVals[fieldName], fieldIdx);
     }
 }
 
