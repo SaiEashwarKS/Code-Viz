@@ -1,17 +1,20 @@
 {
   "Structures": {
-    "struct Node": [
-      {
-        "type": "var", 
-        "name": "data", 
-        "data_type": "int"
-      }, 
-      {
-        "type": "ptr", 
-        "name": "next", 
-        "data_type": "struct Node *"
-      }
-    ]
+    "struct Node": {
+      "fields": [
+        {
+          "type": "var", 
+          "name": "data", 
+          "data_type": "int"
+        }, 
+        {
+          "type": "ptr", 
+          "name": "next", 
+          "data_type": "struct Node *"
+        }
+      ], 
+      "datastructure": "linkedlist"
+    }
   }, 
   "Lines_Data": [
     {
