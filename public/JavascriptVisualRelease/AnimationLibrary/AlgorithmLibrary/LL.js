@@ -951,25 +951,66 @@ LL.prototype.createObj = function (object, isDef) {
     this.insertIntoCol(object);
 };
 
-LL.prototype.modifyStructVar = function (object) {
+LL.prototype.modifyStructFields = function (object) {
     let [fieldVals, numVarfields] = this.extractStructFieldVals(object);
+    //console.log(fieldVals);
+    let fields = Object.keys(fieldVals);
+    for (let fieldIdx = 0; fieldIdx < fields.length; ++fieldIdx) {
+        this.cmd("SetText", object.id, fieldVals[fields[fieldIdx]], fieldIdx);
+    }
+}
+
+LL.prototype.compareFieldVals = function (val1, val2) {
+    for (let fieldIdx = 0; fieldIdx < val1.length; ++fieldIdx) {
+        let field1 = val1[fieldIdx];
+        let field2 = val2[fieldIdx];
+        let fieldName = Object.keys(field1)[0];
+        if (field1[fieldName] !== field2[fieldName]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+LL.prototype.modifyStruct = function (object) {
+    for (let objectIdx = 0; objectIdx < this.objectList.length; ++objectIdx) {
+        let insertedObject = this.objectList[objectIdx];
+        if (insertedObject.id === object.id) {
+            //console.log(insertedObject.val, object.val);
+            let fieldValsAreSame = this.compareFieldVals(insertedObject.val, object.val);
+            if (!fieldValsAreSame) {
+                //console.log(insertedObject.val, object.val);
+                insertedObject.val = object.val;
+                this.cmd("SetHighlight", object.id, 1);
+                this.cmd("Step");
+
+                //modify all the fields
+                this.modifyStructFields(object);
+                this.cmd("Step");
+
+                this.cmd("SetHighlight", object.id, 0);
+            }
+        }
+    }
 
 }
 
 LL.prototype.modifyVar = function (object) {
     if (object.data_type.includes("struct ")) {
-        this.modifyStructVar(object);
+        this.modifyStruct(object);
     }
-    for (let objectIdx = 0; objectIdx < this.objectList.length; ++objectIdx) {
-        let insertedObject = this.objectList[objectIdx];
-        if (insertedObject.id === object.id) {
-            if (insertedObject.val !== object.val) {
-                insertedObject.val = object.val;
-                this.cmd("SetHighlight", object.id, 1);
-                this.cmd("Step");
-                this.cmd("SetText", object.id, object.val, 1);
-                this.cmd("Step");
-                this.cmd("SetHighlight", object.id, 0);
+    else {
+        for (let objectIdx = 0; objectIdx < this.objectList.length; ++objectIdx) {
+            let insertedObject = this.objectList[objectIdx];
+            if (insertedObject.id === object.id) {
+                if (insertedObject.val !== object.val) {
+                    insertedObject.val = object.val;
+                    this.cmd("SetHighlight", object.id, 1);
+                    this.cmd("Step");
+                    this.cmd("SetText", object.id, object.val, 1);
+                    this.cmd("Step");
+                    this.cmd("SetHighlight", object.id, 0);
+                }
             }
         }
     }
@@ -1147,7 +1188,7 @@ LL.prototype.getWidthStructVar = function (object) {
     let structInfo = this.structList[structName];
     let fields = object.val;
     let numVarFields = structInfo.structFields.length - structInfo.structPtr.length;
-    console.log(numVarFields);
+    //console.log(numVarFields);
     return numVarFields * 65;
 }
 
