@@ -869,7 +869,7 @@ while True:
 	p1.stdin.write('step\n')
 	counter+=1
 
-	print '\nHit Enter to Continue, exit/quit to stop\n'
+	#print '\nHit Enter to Continue, exit/quit to stop\n'
 
 
 maindic = {"Lines_Data":lines_data}

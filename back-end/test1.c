@@ -30,6 +30,8 @@ int main()
 	int x = 10;
 	int y = 20;
 	int b=20;
+	int* p=malloc(sizeof(int));
+	p=&x;
 	int d[]={1,2,3,4,5,6};
 	example1 ex1;
 	ex1.a=5;
