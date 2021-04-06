@@ -893,12 +893,15 @@ LL.prototype.createStructVar = function (object, width, height, x, y, isDef) {
     }
     //console.log("inserted ", object);
     this.setStructPtrVal(object);
-    LL.VERT_COUNT += numVarFields;
+    //LL.VERT_COUNT += numVarFields;
+    LL.VERT_COUNT--; //undo the increment done in createObj
+    LL.INSERT_X += this.getWidth(object) + LL.HORI_PADDING;
 };
 
 LL.prototype.createObj = function (object, isDef) {
     let object_type = object.type;
     this.objectIdList.push(object.id);
+    object.x = LL.INSERT_X;
     let insert_y = this.getInsertY();
     LL.VERT_COUNT++;
     object.y = insert_y;
@@ -906,7 +909,6 @@ LL.prototype.createObj = function (object, isDef) {
     this.objectList.push(object);
     switch (object_type) {
         case "var":
-            object.x = LL.INSERT_X;
             if (object.data_type.includes("struct ")) {
                 object.x -= 10;
                 this.createStructVar(
@@ -931,7 +933,7 @@ LL.prototype.createObj = function (object, isDef) {
 
             break;
         case "ptr":
-            object.x = LL.INSERT_X - 10;
+            object.x -= 10;
             let ptrObj = { id: object.id, pointeeId: object.val };
             this.createPtr(
                 object,

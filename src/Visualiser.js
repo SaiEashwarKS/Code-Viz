@@ -64,7 +64,7 @@ const Visualiser = () => {
             />
           </div>
           <div className="col-12 col-sm-6" style={{ height: "100%" }}> */}
-      <Iframe src="../LL.html" width="100%" height="650px"></Iframe>
+      <Iframe src="../LL.html" width="100%" height="780px"></Iframe>
       {/* </div>
         </div>
       </Container> */}
