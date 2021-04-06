@@ -798,19 +798,15 @@ LL.prototype.setStructPtrVal = function (object) {
     let fields = object.val;
     let structName = object.data_type;
     let structPtrFieldNames = this.structList[structName].structPtr;
-    //console.log(structPtrFieldNames);
 
     for (let fieldIdx = 0; fieldIdx < numFields; ++fieldIdx) {
         let field = fields[fieldIdx];
-        //console.log(field);
         let fieldName = Object.keys(field)[0];
         if (structPtrFieldNames.includes(fieldName)) {
             let val = field[fieldName];
-            //if (val !== "U" && val !== "N") {
             if (val === "N") { this.cmd("SetNull", object.id, 1); }
             else if (val !== "U") {
                 val = parseInt(val);
-                //console.log(this.objectList);
                 if (this.objectIdList.includes(val)) {
                     this.cmd("Connect", object.id, val);
                 }
@@ -876,7 +872,7 @@ LL.prototype.createStructVar = function (object, width, height, x, y, isDef) {
     //console.log(fieldVals, numVarFields);
     let fieldNames = Object.keys(fieldVals);
     let firstFieldName = fieldNames[0];
-    let firstVal = fieldVals[firstFieldName];
+    let firstVal = firstFieldName + " : " + fieldVals[firstFieldName];
     //console.log(numVarFields);
     this.cmd(
         "CreateLinkedList",
@@ -886,13 +882,13 @@ LL.prototype.createStructVar = function (object, width, height, x, y, isDef) {
         height,
         x,
         y,
-        0.25,
+        0.2,
         0,
         1,
         numVarFields
     );
     for (let i = 1; i < numVarFields; ++i) {
-        let val = fieldVals[fieldNames[i]];
+        let val = fieldNames[i] + " : " + fieldVals[fieldNames[i]];
         this.cmd("SetText", object.id, val, i);
     }
     //console.log("inserted ", object);
@@ -964,7 +960,7 @@ LL.prototype.modifyStructFields = function (object) {
         if (isPtr) {
             this.setStructPtrVal(object);
         }
-        this.cmd("SetText", object.id, fieldVals[fieldName], fieldIdx);
+        this.cmd("SetText", object.id, fieldName + " : " + fieldVals[fieldName], fieldIdx);
     }
 }
 
@@ -1167,7 +1163,9 @@ LL.prototype.modifyPtr = function (object) {
 };
 
 LL.prototype.modifyWidth = function (object) {
-    this.cmd("SetWidth", this.getWidth(object));
+    let newWidth = this.getWidth(object);
+    //console.log("modifying width", object.val, newWidth);
+    this.cmd("SetWidth", object.id, newWidth);
 };
 
 LL.prototype.modifyObject = function (object) {
@@ -1184,7 +1182,8 @@ LL.prototype.modifyObject = function (object) {
 
 LL.prototype.getWidthVar = function (length) {
     if (length < 18) return 10 * length;
-    return 7 * length;
+    if (length < 30) return 7 * length;
+    return 10 * length;
 };
 
 LL.prototype.getWidthPtr = function (length) {
@@ -1193,11 +1192,19 @@ LL.prototype.getWidthPtr = function (length) {
 
 LL.prototype.getWidthStructVar = function (object) {
     let structName = object.data_type;
-    let structInfo = this.structList[structName];
     let fields = object.val;
-    let numVarFields = structInfo.structFields.length - structInfo.structPtr.length;
+    maxFieldNameLen = 0;
+    maxFieldValLen = 0;
+    for (let fieldIdx = 0; fieldIdx < fields.length; ++fieldIdx) {
+        let fieldName = Object.keys(fields[fieldIdx])[0];
+        let fieldVal = fields[fieldIdx][fieldName].toString();
+        maxFieldValLen = Math.max(maxFieldValLen, fieldVal.length);
+        maxFieldNameLen = Math.max(maxFieldNameLen, fieldName.length);
+    }
+    //let width = this.getWidthVar(maxFieldNameLen + 3 + maxFieldValLen); 
+    let width = this.getWidthVar(maxFieldNameLen + 3 + 7)//+3 for " : "; +7 assuming the value can be max 7 chars long
     //console.log(numVarFields);
-    return numVarFields * 65;
+    return width;
 }
 
 LL.prototype.getWidth = function (object) {

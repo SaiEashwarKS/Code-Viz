@@ -23,140 +23,643 @@ Example2.prototype.init = function (am, w, h) {
   this.addControls();
   this.commands = [];
   this.json = {
-    Lines_Data: [
+    "Structures": {
+      "struct Node": [
+        {
+          "type": "var",
+          "name": "data",
+          "data_type": "int"
+        },
+        {
+          "type": "ptr",
+          "name": "next",
+          "data_type": "struct Node *"
+        }
+      ]
+    },
+    "Lines_Data": [
       {
-        LineNum: 0,
-        type: "GlobalVariables",
-        Contents: [
+        "LineNum": 0,
+        "type": "GlobalVariables",
+        "Contents": [
           {
-            data_type: "int",
-            type: "var",
-            id: 10,
-            val: "0",
-            name: "g",
-          },
-        ],
+            "data_type": "int",
+            "type": "var",
+            "id": 1,
+            "val": "0",
+            "name": "g"
+          }
+        ]
       },
       {
-        LineNum: 0,
-        FunctionName: "main",
-        FunctionId: 1,
-        FunctionNameId: 2,
-        FunctionAddress: "(int (*)()) 0x400b7d <main>",
+        "LineNum": 0,
+        "stackdepth": 1,
+        "nameid": 3,
+        "type": "Function",
+        "id": 2,
+        "name": "main"
       },
       {
-        LineNum: 0,
-        type: "StackFrame",
-        Contents: [
+        "LineNum": 0,
+        "type": "StackFrame",
+        "Contents": [
           {
-            data_type: "int",
-            type: "var",
-            id: 20,
-            val: "5",
-            name: "res",
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 4,
+            "val": [
+              {
+                "data": "7037248"
+              },
+              {
+                "next": "U"
+              }
+            ],
+            "name": "head"
           },
-        ],
-      },
-      {
-        LineNum: 11,
-        FunctionName: "dummy",
-        FunctionId: 3,
-        FunctionNameId: 4,
-        FunctionAddress: "(int (*)()) 0x400b6d <dummy>",
-      },
-      {
-        LineNum: 11,
-        type: "GlobalVariables",
-        Contents: [
           {
-            data_type: "int",
-            type: "var",
-            id: 10,
-            val: "0",
-            name: "g",
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 5,
+            "val": [
+              {
+                "data": "-8376"
+              },
+              {
+                "next": "U"
+              }
+            ],
+            "name": "second"
           },
-        ],
-      },
-      {
-        LineNum: 11,
-        type: "StackFrame",
-        Contents: [
           {
-            data_type: "int",
-            type: "var",
-            id: 5,
-            val: "0",
-            name: "i",
-          },
-        ],
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 6,
+            "val": [
+              {
+                "data": "4200624"
+              },
+              {
+                "next": "U"
+              }
+            ],
+            "name": "third"
+          }
+        ]
       },
       {
-        LineNum: 5,
-        FunctionName: "dummy",
-        FunctionId: 3,
-        FunctionNameId: 4,
-        FunctionAddress: "(int (*)()) 0x400b6d <dummy>",
-      },
-      {
-        LineNum: 5,
-        type: "GlobalVariables",
-        Contents: [
+        "LineNum": 13,
+        "type": "GlobalVariables",
+        "Contents": [
           {
-            data_type: "int",
-            type: "var",
-            id: 10,
-            val: "0",
-            name: "g",
-          },
-        ],
+            "data_type": "int",
+            "type": "var",
+            "id": 1,
+            "val": "0",
+            "name": "g"
+          }
+        ]
       },
       {
-        LineNum: 5,
-        type: "StackFrame",
-        Contents: [
+        "LineNum": 13,
+        "stackdepth": 1,
+        "nameid": 3,
+        "type": "Function",
+        "id": 2,
+        "name": "main"
+      },
+      {
+        "LineNum": 13,
+        "type": "StackFrame",
+        "Contents": [
           {
-            data_type: "int",
-            type: "var",
-            id: 5,
-            val: "10",
-            name: "i",
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 4,
+            "val": [
+              {
+                "data": "7037248"
+              },
+              {
+                "next": "U"
+              }
+            ],
+            "name": "head"
           },
-        ],
-      },
-      {
-        LineNum: 6,
-        FunctionName: "main",
-        FunctionId: 1,
-        FunctionNameId: 2,
-        FunctionAddress: "(int (*)()) 0x400b7d <main>",
-      },
-      {
-        LineNum: 6,
-        type: "GlobalVariables",
-        Contents: [
           {
-            data_type: "int",
-            type: "var",
-            id: 10,
-            val: "0",
-            name: "g",
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 5,
+            "val": [
+              {
+                "data": "-8376"
+              },
+              {
+                "next": "U"
+              }
+            ],
+            "name": "second"
           },
-        ],
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 6,
+            "val": [
+              {
+                "data": "4200624"
+              },
+              {
+                "next": "U"
+              }
+            ],
+            "name": "third"
+          }
+        ]
       },
       {
-        LineNum: 6,
-        type: "StackFrame",
-        Contents: [
+        "LineNum": 18,
+        "type": "GlobalVariables",
+        "Contents": [
           {
-            data_type: "int",
-            type: "var",
-            id: 20,
-            val: "10",
-            name: "res",
-          },
-        ],
+            "data_type": "int",
+            "type": "var",
+            "id": 1,
+            "val": "0",
+            "name": "g"
+          }
+        ]
       },
-    ],
+      {
+        "LineNum": 18,
+        "stackdepth": 1,
+        "nameid": 3,
+        "type": "Function",
+        "id": 2,
+        "name": "main"
+      },
+      {
+        "LineNum": 18,
+        "type": "StackFrame",
+        "Contents": [
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 4,
+            "val": [
+              {
+                "data": "1"
+              },
+              {
+                "next": "U"
+              }
+            ],
+            "name": "head"
+          },
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 5,
+            "val": [
+              {
+                "data": "-8376"
+              },
+              {
+                "next": "U"
+              }
+            ],
+            "name": "second"
+          },
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 6,
+            "val": [
+              {
+                "data": "4200624"
+              },
+              {
+                "next": "U"
+              }
+            ],
+            "name": "third"
+          }
+        ]
+      },
+      {
+        "LineNum": 19,
+        "type": "GlobalVariables",
+        "Contents": [
+          {
+            "data_type": "int",
+            "type": "var",
+            "id": 1,
+            "val": "0",
+            "name": "g"
+          }
+        ]
+      },
+      {
+        "LineNum": 19,
+        "stackdepth": 1,
+        "nameid": 3,
+        "type": "Function",
+        "id": 2,
+        "name": "main"
+      },
+      {
+        "LineNum": 19,
+        "type": "StackFrame",
+        "Contents": [
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 4,
+            "val": [
+              {
+                "data": "1"
+              },
+              {
+                "next": "5"
+              }
+            ],
+            "name": "head"
+          },
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 5,
+            "val": [
+              {
+                "data": "-8376"
+              },
+              {
+                "next": "U"
+              }
+            ],
+            "name": "second"
+          },
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 6,
+            "val": [
+              {
+                "data": "4200624"
+              },
+              {
+                "next": "U"
+              }
+            ],
+            "name": "third"
+          }
+        ]
+      },
+      {
+        "LineNum": 21,
+        "type": "GlobalVariables",
+        "Contents": [
+          {
+            "data_type": "int",
+            "type": "var",
+            "id": 1,
+            "val": "0",
+            "name": "g"
+          }
+        ]
+      },
+      {
+        "LineNum": 21,
+        "stackdepth": 1,
+        "nameid": 3,
+        "type": "Function",
+        "id": 2,
+        "name": "main"
+      },
+      {
+        "LineNum": 21,
+        "type": "StackFrame",
+        "Contents": [
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 4,
+            "val": [
+              {
+                "data": "1"
+              },
+              {
+                "next": "5"
+              }
+            ],
+            "name": "head"
+          },
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 5,
+            "val": [
+              {
+                "data": "2"
+              },
+              {
+                "next": "U"
+              }
+            ],
+            "name": "second"
+          },
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 6,
+            "val": [
+              {
+                "data": "4200624"
+              },
+              {
+                "next": "U"
+              }
+            ],
+            "name": "third"
+          }
+        ]
+      },
+      {
+        "LineNum": 22,
+        "type": "GlobalVariables",
+        "Contents": [
+          {
+            "data_type": "int",
+            "type": "var",
+            "id": 1,
+            "val": "0",
+            "name": "g"
+          }
+        ]
+      },
+      {
+        "LineNum": 22,
+        "stackdepth": 1,
+        "nameid": 3,
+        "type": "Function",
+        "id": 2,
+        "name": "main"
+      },
+      {
+        "LineNum": 22,
+        "type": "StackFrame",
+        "Contents": [
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 4,
+            "val": [
+              {
+                "data": "1"
+              },
+              {
+                "next": "5"
+              }
+            ],
+            "name": "head"
+          },
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 5,
+            "val": [
+              {
+                "data": "2"
+              },
+              {
+                "next": "6"
+              }
+            ],
+            "name": "second"
+          },
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 6,
+            "val": [
+              {
+                "data": "4200624"
+              },
+              {
+                "next": "U"
+              }
+            ],
+            "name": "third"
+          }
+        ]
+      },
+      {
+        "LineNum": 24,
+        "type": "GlobalVariables",
+        "Contents": [
+          {
+            "data_type": "int",
+            "type": "var",
+            "id": 1,
+            "val": "0",
+            "name": "g"
+          }
+        ]
+      },
+      {
+        "LineNum": 24,
+        "stackdepth": 1,
+        "nameid": 3,
+        "type": "Function",
+        "id": 2,
+        "name": "main"
+      },
+      {
+        "LineNum": 24,
+        "type": "StackFrame",
+        "Contents": [
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 4,
+            "val": [
+              {
+                "data": "1"
+              },
+              {
+                "next": "5"
+              }
+            ],
+            "name": "head"
+          },
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 5,
+            "val": [
+              {
+                "data": "2"
+              },
+              {
+                "next": "6"
+              }
+            ],
+            "name": "second"
+          },
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 6,
+            "val": [
+              {
+                "data": "3"
+              },
+              {
+                "next": "U"
+              }
+            ],
+            "name": "third"
+          }
+        ]
+      },
+      {
+        "LineNum": 25,
+        "type": "GlobalVariables",
+        "Contents": [
+          {
+            "data_type": "int",
+            "type": "var",
+            "id": 1,
+            "val": "0",
+            "name": "g"
+          }
+        ]
+      },
+      {
+        "LineNum": 25,
+        "stackdepth": 1,
+        "nameid": 3,
+        "type": "Function",
+        "id": 2,
+        "name": "main"
+      },
+      {
+        "LineNum": 25,
+        "type": "StackFrame",
+        "Contents": [
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 4,
+            "val": [
+              {
+                "data": "1"
+              },
+              {
+                "next": "5"
+              }
+            ],
+            "name": "head"
+          },
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 5,
+            "val": [
+              {
+                "data": "2"
+              },
+              {
+                "next": "6"
+              }
+            ],
+            "name": "second"
+          },
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 6,
+            "val": [
+              {
+                "data": "3"
+              },
+              {
+                "next": "N"
+              }
+            ],
+            "name": "third"
+          }
+        ]
+      },
+      {
+        "LineNum": 27,
+        "type": "GlobalVariables",
+        "Contents": [
+          {
+            "data_type": "int",
+            "type": "var",
+            "id": 1,
+            "val": "0",
+            "name": "g"
+          }
+        ]
+      },
+      {
+        "LineNum": 27,
+        "stackdepth": 1,
+        "nameid": 3,
+        "type": "Function",
+        "id": 2,
+        "name": "main"
+      },
+      {
+        "LineNum": 27,
+        "type": "StackFrame",
+        "Contents": [
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 4,
+            "val": [
+              {
+                "data": "1"
+              },
+              {
+                "next": "5"
+              }
+            ],
+            "name": "head"
+          },
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 5,
+            "val": [
+              {
+                "data": "2"
+              },
+              {
+                "next": "6"
+              }
+            ],
+            "name": "second"
+          },
+          {
+            "data_type": "struct Node",
+            "type": "var",
+            "id": 6,
+            "val": [
+              {
+                "data": "3"
+              },
+              {
+                "next": "N"
+              }
+            ],
+            "name": "third"
+          }
+        ]
+      }
+    ]
   };
   this.objectList = []; //list of all the objects on the screen
   // format of the objects that will be inserted in this list : {data_type, type, id, val, name}
