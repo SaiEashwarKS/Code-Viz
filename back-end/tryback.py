@@ -186,7 +186,7 @@ def maketogether(ln,di,gl,stringnamed):
 				if val in addr_to_id:
 					val = addr_to_id[val]
 				else:
-					print(val,addr_to_id)
+					#print(val,addr_to_id) ##
 					val = 'U'
 			except:
 				val='U'
@@ -202,7 +202,7 @@ def maketogether(ln,di,gl,stringnamed):
 		sepdi['name']=i[0].strip()
 		sepdi['val']=val
 		
-		if is_struct:
+		if is_struct and '*' not in datatype:
 			pat = re.compile(r' <.*?>')
 			val = re.sub(pat, '', val)
 			reg = re.compile(r'0x[0-9a-f]*[,}]') #pattern to find hexadecimals in val, => they are pointers and we need to replace it with ID
