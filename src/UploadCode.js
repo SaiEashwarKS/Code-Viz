@@ -8,6 +8,7 @@ import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-xcode";
 import "ace-builds/src-noconflict/ext-language_tools";
 import { useHistory } from "react-router-dom";
+import logo from "./pes.jpg";
 
 let fileReader;
 
@@ -78,11 +79,25 @@ const UploadCode = () => {
     }
   };
 
+  var jumboStyle = {
+    padding: "25px",
+  };
+
   return (
     <>
       <Container className="pt-3">
-        <Jumbotron>
-          <h1 className="header">Welcome to Code-Viz!</h1>
+        <Jumbotron style={jumboStyle}>
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-12 col-sm-6">
+                <h1 className="header">Welcome to Code-Viz!</h1>
+              </div>
+              <div className="d-flex col-12 col-sm-6 justify-content-center justify-content-sm-end" style={{ width: "100px", height: "100px" }}>
+                <img src={logo} className="img-fluid"></img>
+              </div>
+            </div>
+          </div>
+
         </Jumbotron>
       </Container>
       <Container>

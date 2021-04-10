@@ -37,37 +37,7 @@ int main()
 const Visualiser = () => {
   return (
     <>
-      {/* <Container fluid style={{ height: "900px" }}>
-        <div className="row" style={{ height: "100%" }}>
-          <div className="col-12 col-sm-6" style={{ height: "100%" }}>
-            <AceEditor
-              mode="c_cpp"
-              theme="xcode"
-              name="fileContentEditor"
-              value={content}
-              markers={marker.marker_info}
-              readOnly={true}
-              cursorStart={3}
-              fontSize={14}
-              showPrintMargin={true}
-              showGutter={true}
-              highlightActiveLine={true}
-              width="100%"
-              height="100%"
-              setOptions={{
-                enableBasicAutocompletion: true,
-                enableLiveAutocompletion: true,
-                enableSnippets: true,
-                showLineNumbers: true,
-                tabSize: 4,
-              }}
-            />
-          </div>
-          <div className="col-12 col-sm-6" style={{ height: "100%" }}> */}
-      <Iframe src="../LL.html" width="100%" height="780px"></Iframe>
-      {/* </div>
-        </div>
-      </Container> */}
+      <Iframe src="../LL.html" width="100%" height="800px"></Iframe>
     </>
   );
 };
