@@ -1,21 +1,5 @@
 {
-  "Structures": {
-    "struct Node": {
-      "fields": [
-        {
-          "type": "var", 
-          "name": "data", 
-          "data_type": "int"
-        }, 
-        {
-          "type": "ptr", 
-          "name": "next", 
-          "data_type": "struct Node *"
-        }
-      ], 
-      "datastructure": "linkedlist"
-    }
-  }, 
+  "Structures": {}, 
   "Lines_Data": [
     {
       "LineNum": 0, 
@@ -43,51 +27,23 @@
       "type": "StackFrame", 
       "Contents": [
         {
-          "data_type": "struct Node", 
-          "type": "var", 
+          "data_type": "int *", 
+          "type": "ptr", 
           "id": 4, 
-          "val": [
-            {
-              "data": "7037248"
-            }, 
-            {
-              "next": "U"
-            }
-          ], 
-          "name": "head"
+          "val": "U", 
+          "name": "p"
         }, 
         {
-          "data_type": "struct Node", 
+          "data_type": "int", 
           "type": "var", 
           "id": 5, 
-          "val": [
-            {
-              "data": "-8376"
-            }, 
-            {
-              "next": "U"
-            }
-          ], 
-          "name": "second"
-        }, 
-        {
-          "data_type": "struct Node", 
-          "type": "var", 
-          "id": 6, 
-          "val": [
-            {
-              "data": "4200624"
-            }, 
-            {
-              "next": "U"
-            }
-          ], 
-          "name": "third"
+          "val": "0", 
+          "name": "a"
         }
       ]
     }, 
     {
-      "LineNum": 13, 
+      "LineNum": 8, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -100,63 +56,41 @@
       ]
     }, 
     {
-      "LineNum": 13, 
-      "stackdepth": 1, 
-      "nameid": 3, 
+      "LineNum": 8, 
+      "stackdepth": 2, 
+      "nameid": 7, 
       "type": "Function", 
-      "id": 2, 
-      "name": "main"
+      "id": 6, 
+      "name": "mymalloc"
     }, 
     {
-      "LineNum": 13, 
+      "LineNum": 8, 
       "type": "StackFrame", 
       "Contents": [
         {
-          "data_type": "struct Node", 
-          "type": "var", 
-          "id": 4, 
-          "val": [
-            {
-              "data": "7037248"
-            }, 
-            {
-              "next": "U"
-            }
-          ], 
-          "name": "head"
-        }, 
-        {
-          "data_type": "struct Node", 
-          "type": "var", 
-          "id": 5, 
-          "val": [
-            {
-              "data": "-8376"
-            }, 
-            {
-              "next": "U"
-            }
-          ], 
-          "name": "second"
-        }, 
-        {
-          "data_type": "struct Node", 
-          "type": "var", 
-          "id": 6, 
-          "val": [
-            {
-              "data": "4200624"
-            }, 
-            {
-              "next": "U"
-            }
-          ], 
-          "name": "third"
+          "data_type": "void *", 
+          "type": "ptr", 
+          "id": 8, 
+          "val": "U", 
+          "name": "ptr"
         }
       ]
     }, 
     {
-      "LineNum": 18, 
+      "LineNum": 8, 
+      "type": "Arguments", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 6, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -169,63 +103,41 @@
       ]
     }, 
     {
-      "LineNum": 18, 
-      "stackdepth": 1, 
-      "nameid": 3, 
+      "LineNum": 6, 
+      "stackdepth": 2, 
+      "nameid": 7, 
       "type": "Function", 
-      "id": 2, 
-      "name": "main"
+      "id": 6, 
+      "name": "mymalloc"
     }, 
     {
-      "LineNum": 18, 
+      "LineNum": 6, 
       "type": "StackFrame", 
       "Contents": [
         {
-          "data_type": "struct Node", 
-          "type": "var", 
-          "id": 4, 
-          "val": [
-            {
-              "data": "1"
-            }, 
-            {
-              "next": "U"
-            }
-          ], 
-          "name": "head"
-        }, 
-        {
-          "data_type": "struct Node", 
-          "type": "var", 
-          "id": 5, 
-          "val": [
-            {
-              "data": "-8376"
-            }, 
-            {
-              "next": "U"
-            }
-          ], 
-          "name": "second"
-        }, 
-        {
-          "data_type": "struct Node", 
-          "type": "var", 
-          "id": 6, 
-          "val": [
-            {
-              "data": "4200624"
-            }, 
-            {
-              "next": "U"
-            }
-          ], 
-          "name": "third"
+          "data_type": "void *", 
+          "type": "ptr", 
+          "id": 8, 
+          "val": "U", 
+          "name": "ptr"
         }
       ]
     }, 
     {
-      "LineNum": 19, 
+      "LineNum": 6, 
+      "type": "Arguments", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 7, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -238,63 +150,41 @@
       ]
     }, 
     {
-      "LineNum": 19, 
-      "stackdepth": 1, 
-      "nameid": 3, 
+      "LineNum": 7, 
+      "stackdepth": 2, 
+      "nameid": 7, 
       "type": "Function", 
-      "id": 2, 
-      "name": "main"
+      "id": 6, 
+      "name": "mymalloc"
     }, 
     {
-      "LineNum": 19, 
+      "LineNum": 7, 
       "type": "StackFrame", 
       "Contents": [
         {
-          "data_type": "struct Node", 
-          "type": "var", 
-          "id": 4, 
-          "val": [
-            {
-              "data": "1"
-            }, 
-            {
-              "next": "5"
-            }
-          ], 
-          "name": "head"
-        }, 
-        {
-          "data_type": "struct Node", 
-          "type": "var", 
-          "id": 5, 
-          "val": [
-            {
-              "data": "-8376"
-            }, 
-            {
-              "next": "U"
-            }
-          ], 
-          "name": "second"
-        }, 
-        {
-          "data_type": "struct Node", 
-          "type": "var", 
-          "id": 6, 
-          "val": [
-            {
-              "data": "4200624"
-            }, 
-            {
-              "next": "U"
-            }
-          ], 
-          "name": "third"
+          "data_type": "void *", 
+          "type": "ptr", 
+          "id": 8, 
+          "val": "U", 
+          "name": "ptr"
         }
       ]
     }, 
     {
-      "LineNum": 21, 
+      "LineNum": 7, 
+      "type": "Arguments", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 8, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -307,63 +197,42 @@
       ]
     }, 
     {
-      "LineNum": 21, 
-      "stackdepth": 1, 
-      "nameid": 3, 
+      "LineNum": 8, 
+      "stackdepth": 2, 
+      "nameid": 7, 
       "type": "Function", 
-      "id": 2, 
-      "name": "main"
+      "id": 6, 
+      "name": "mymalloc"
     }, 
     {
-      "LineNum": 21, 
+      "LineNum": 8, 
       "type": "StackFrame", 
       "Contents": [
         {
-          "data_type": "struct Node", 
-          "type": "var", 
-          "id": 4, 
-          "val": [
-            {
-              "data": "1"
-            }, 
-            {
-              "next": "5"
-            }
-          ], 
-          "name": "head"
-        }, 
-        {
-          "data_type": "struct Node", 
-          "type": "var", 
-          "id": 5, 
-          "val": [
-            {
-              "data": "2"
-            }, 
-            {
-              "next": "U"
-            }
-          ], 
-          "name": "second"
-        }, 
-        {
-          "data_type": "struct Node", 
-          "type": "var", 
-          "id": 6, 
-          "val": [
-            {
-              "data": "4200624"
-            }, 
-            {
-              "next": "U"
-            }
-          ], 
-          "name": "third"
+          "val": 9, 
+          "data_type": "void *", 
+          "deref_val": "", 
+          "type": "ptr", 
+          "id": 8, 
+          "name": "ptr"
         }
       ]
     }, 
     {
-      "LineNum": 22, 
+      "LineNum": 8, 
+      "type": "Arguments", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -376,63 +245,42 @@
       ]
     }, 
     {
-      "LineNum": 22, 
-      "stackdepth": 1, 
-      "nameid": 3, 
+      "LineNum": 9, 
+      "stackdepth": 2, 
+      "nameid": 7, 
       "type": "Function", 
-      "id": 2, 
-      "name": "main"
+      "id": 6, 
+      "name": "mymalloc"
     }, 
     {
-      "LineNum": 22, 
+      "LineNum": 9, 
       "type": "StackFrame", 
       "Contents": [
         {
-          "data_type": "struct Node", 
-          "type": "var", 
-          "id": 4, 
-          "val": [
-            {
-              "data": "1"
-            }, 
-            {
-              "next": "5"
-            }
-          ], 
-          "name": "head"
-        }, 
-        {
-          "data_type": "struct Node", 
-          "type": "var", 
-          "id": 5, 
-          "val": [
-            {
-              "data": "2"
-            }, 
-            {
-              "next": "6"
-            }
-          ], 
-          "name": "second"
-        }, 
-        {
-          "data_type": "struct Node", 
-          "type": "var", 
-          "id": 6, 
-          "val": [
-            {
-              "data": "4200624"
-            }, 
-            {
-              "next": "U"
-            }
-          ], 
-          "name": "third"
+          "val": 9, 
+          "data_type": "void *", 
+          "deref_val": "", 
+          "type": "ptr", 
+          "id": 8, 
+          "name": "ptr"
         }
       ]
     }, 
     {
-      "LineNum": 24, 
+      "LineNum": 9, 
+      "type": "Arguments", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 10, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -445,7 +293,7 @@
       ]
     }, 
     {
-      "LineNum": 24, 
+      "LineNum": 10, 
       "stackdepth": 1, 
       "nameid": 3, 
       "type": "Function", 
@@ -453,55 +301,28 @@
       "name": "main"
     }, 
     {
-      "LineNum": 24, 
+      "LineNum": 10, 
       "type": "StackFrame", 
       "Contents": [
         {
-          "data_type": "struct Node", 
-          "type": "var", 
+          "val": 9, 
+          "data_type": "int *", 
+          "deref_val": "0", 
+          "type": "ptr", 
           "id": 4, 
-          "val": [
-            {
-              "data": "1"
-            }, 
-            {
-              "next": "5"
-            }
-          ], 
-          "name": "head"
+          "name": "p"
         }, 
         {
-          "data_type": "struct Node", 
+          "data_type": "int", 
           "type": "var", 
           "id": 5, 
-          "val": [
-            {
-              "data": "2"
-            }, 
-            {
-              "next": "6"
-            }
-          ], 
-          "name": "second"
-        }, 
-        {
-          "data_type": "struct Node", 
-          "type": "var", 
-          "id": 6, 
-          "val": [
-            {
-              "data": "3"
-            }, 
-            {
-              "next": "U"
-            }
-          ], 
-          "name": "third"
+          "val": "0", 
+          "name": "a"
         }
       ]
     }, 
     {
-      "LineNum": 25, 
+      "LineNum": 9, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -514,7 +335,7 @@
       ]
     }, 
     {
-      "LineNum": 25, 
+      "LineNum": 9, 
       "stackdepth": 1, 
       "nameid": 3, 
       "type": "Function", 
@@ -522,55 +343,28 @@
       "name": "main"
     }, 
     {
-      "LineNum": 25, 
+      "LineNum": 9, 
       "type": "StackFrame", 
       "Contents": [
         {
-          "data_type": "struct Node", 
-          "type": "var", 
+          "val": 9, 
+          "data_type": "int *", 
+          "deref_val": "100", 
+          "type": "ptr", 
           "id": 4, 
-          "val": [
-            {
-              "data": "1"
-            }, 
-            {
-              "next": "5"
-            }
-          ], 
-          "name": "head"
+          "name": "p"
         }, 
         {
-          "data_type": "struct Node", 
+          "data_type": "int", 
           "type": "var", 
           "id": 5, 
-          "val": [
-            {
-              "data": "2"
-            }, 
-            {
-              "next": "6"
-            }
-          ], 
-          "name": "second"
-        }, 
-        {
-          "data_type": "struct Node", 
-          "type": "var", 
-          "id": 6, 
-          "val": [
-            {
-              "data": "3"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "name": "third"
+          "val": "0", 
+          "name": "a"
         }
       ]
     }, 
     {
-      "LineNum": 27, 
+      "LineNum": 10, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -583,7 +377,7 @@
       ]
     }, 
     {
-      "LineNum": 27, 
+      "LineNum": 10, 
       "stackdepth": 1, 
       "nameid": 3, 
       "type": "Function", 
@@ -591,50 +385,23 @@
       "name": "main"
     }, 
     {
-      "LineNum": 27, 
+      "LineNum": 10, 
       "type": "StackFrame", 
       "Contents": [
         {
-          "data_type": "struct Node", 
-          "type": "var", 
+          "val": 9, 
+          "data_type": "int *", 
+          "deref_val": "100", 
+          "type": "ptr", 
           "id": 4, 
-          "val": [
-            {
-              "data": "1"
-            }, 
-            {
-              "next": "5"
-            }
-          ], 
-          "name": "head"
+          "name": "p"
         }, 
         {
-          "data_type": "struct Node", 
+          "data_type": "int", 
           "type": "var", 
           "id": 5, 
-          "val": [
-            {
-              "data": "2"
-            }, 
-            {
-              "next": "6"
-            }
-          ], 
-          "name": "second"
-        }, 
-        {
-          "data_type": "struct Node", 
-          "type": "var", 
-          "id": 6, 
-          "val": [
-            {
-              "data": "3"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "name": "third"
+          "val": "10", 
+          "name": "a"
         }
       ]
     }
