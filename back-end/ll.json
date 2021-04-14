@@ -27,18 +27,18 @@
       "type": "StackFrame", 
       "Contents": [
         {
-          "data_type": "int *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "p"
-        }, 
-        {
           "data_type": "int", 
           "type": "var", 
-          "id": 5, 
+          "id": 4, 
           "val": "0", 
           "name": "a"
+        }, 
+        {
+          "data_type": "int *", 
+          "type": "ptr", 
+          "id": 5, 
+          "val": "U", 
+          "name": "p"
         }
       ]
     }, 
@@ -57,6 +57,47 @@
     }, 
     {
       "LineNum": 8, 
+      "stackdepth": 1, 
+      "nameid": 3, 
+      "type": "Function", 
+      "id": 2, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 8, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 4, 
+          "val": "10", 
+          "name": "a"
+        }, 
+        {
+          "data_type": "int *", 
+          "type": "ptr", 
+          "id": 5, 
+          "val": "U", 
+          "name": "p"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
       "stackdepth": 2, 
       "nameid": 7, 
       "type": "Function", 
@@ -64,7 +105,7 @@
       "name": "mymalloc"
     }, 
     {
-      "LineNum": 8, 
+      "LineNum": 9, 
       "type": "StackFrame", 
       "Contents": [
         {
@@ -77,7 +118,7 @@
       ]
     }, 
     {
-      "LineNum": 8, 
+      "LineNum": 9, 
       "type": "Arguments", 
       "Contents": [
         {
@@ -304,62 +345,20 @@
       "LineNum": 10, 
       "type": "StackFrame", 
       "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 4, 
+          "val": "10", 
+          "name": "a"
+        }, 
         {
           "val": 9, 
           "data_type": "int *", 
           "deref_val": "0", 
           "type": "ptr", 
-          "id": 4, 
-          "name": "p"
-        }, 
-        {
-          "data_type": "int", 
-          "type": "var", 
           "id": 5, 
-          "val": "0", 
-          "name": "a"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 9, 
-      "type": "GlobalVariables", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 9, 
-      "stackdepth": 1, 
-      "nameid": 3, 
-      "type": "Function", 
-      "id": 2, 
-      "name": "main"
-    }, 
-    {
-      "LineNum": 9, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "val": 9, 
-          "data_type": "int *", 
-          "deref_val": "100", 
-          "type": "ptr", 
-          "id": 4, 
           "name": "p"
-        }, 
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 5, 
-          "val": "0", 
-          "name": "a"
         }
       ]
     }, 
@@ -389,19 +388,19 @@
       "type": "StackFrame", 
       "Contents": [
         {
-          "val": 9, 
-          "data_type": "int *", 
-          "deref_val": "100", 
-          "type": "ptr", 
-          "id": 4, 
-          "name": "p"
-        }, 
-        {
           "data_type": "int", 
           "type": "var", 
-          "id": 5, 
+          "id": 4, 
           "val": "10", 
           "name": "a"
+        }, 
+        {
+          "val": 9, 
+          "data_type": "int *", 
+          "deref_val": "10", 
+          "type": "ptr", 
+          "id": 5, 
+          "name": "p"
         }
       ]
     }

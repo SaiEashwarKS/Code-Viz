@@ -68,21 +68,25 @@ p_glob.stdin.write('info variables\n') # info variables -> to get all global var
 op = p_glob.communicate() # .communicate returns (stdout_data, stderr_data)
 glob_list = op[0].split('\n')
 
-
-i = glob_list.index('File '+my_file+':') + 1
+try:
+	i = glob_list.index('File '+my_file+':') + 1
+	while glob_list[i]!='':
+		x = glob_list[i].split(' ')[1].replace(";",'').replace("\n",'')
+		if x[0] == '*':
+			x = x[1:]
+		name = ''
+		for j in range(0,len(x)):
+			if x[j] in sep:
+				break
+			name = name + x[j]
+		global_name_list.append(name)
+		i += 1
+	gn=len(global_name_list)#no of global variables
 #print glob_list
-while glob_list[i]!='':
-	x = glob_list[i].split(' ')[1].replace(";",'').replace("\n",'')
-	if x[0] == '*':
-		x = x[1:]
-	name = ''
-	for j in range(0,len(x)):
-		if x[j] in sep:
-			break
-		name = name + x[j]
-	global_name_list.append(name)
-	i += 1
-gn=len(global_name_list)#no of global variables
+except ValueError:
+	pass
+
+
 p1 = Popen(['gdb', 'a.out'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 flags = fcntl(p1.stdout, F_GETFL) # get current p.stdout flags
 fcntl(p1.stdout, F_SETFL, flags | O_NONBLOCK)
