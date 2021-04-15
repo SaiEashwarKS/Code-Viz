@@ -6,3 +6,5 @@ get list of all pointers in struct, not just struct pointers
 add pointers in struct to ptrObjList
 when node in LL has multiple data fields, not working
 add name of the struct variable in generic visualisation
+we're detecting "struct " to find out if its a struct object (even in stroring the names of structPtrs in storeStructInfo), what if typedef is used
+y coordinates of struct variables and pointers

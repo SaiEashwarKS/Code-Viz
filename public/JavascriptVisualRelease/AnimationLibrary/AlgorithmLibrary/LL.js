@@ -24,18 +24,21 @@ LL.prototype.init = function (am, w, h) {
     this.commands = [];
     this.json = {
         "Structures": {
-            "struct Node": [
-                {
-                    "type": "var",
-                    "name": "data",
-                    "data_type": "int"
-                },
-                {
-                    "type": "ptr",
-                    "name": "next",
-                    "data_type": "struct Node *"
-                }
-            ]
+            "struct Node *": {
+                "fields": [
+                    {
+                        "type": "var",
+                        "name": "data",
+                        "data_type": "int"
+                    },
+                    {
+                        "type": "ptr",
+                        "name": "next",
+                        "data_type": "struct Node *"
+                    }
+                ],
+                "datastructure": null
+            }
         },
         "Lines_Data": [
             {
@@ -64,118 +67,29 @@ LL.prototype.init = function (am, w, h) {
                 "type": "StackFrame",
                 "Contents": [
                     {
-                        "data_type": "struct Node",
-                        "type": "var",
+                        "data_type": "struct Node *",
+                        "type": "ptr",
                         "id": 4,
-                        "val": [
-                            {
-                                "data": "7037248"
-                            },
-                            {
-                                "next": "U"
-                            }
-                        ],
+                        "val": "U",
                         "name": "head"
                     },
                     {
-                        "data_type": "struct Node",
-                        "type": "var",
+                        "data_type": "struct Node *",
+                        "type": "ptr",
                         "id": 5,
-                        "val": [
-                            {
-                                "data": "-8376"
-                            },
-                            {
-                                "next": "U"
-                            }
-                        ],
+                        "val": "U",
                         "name": "second"
                     },
                     {
-                        "data_type": "struct Node",
-                        "type": "var",
+                        "data_type": "struct Node *",
+                        "type": "ptr",
                         "id": 6,
-                        "val": [
-                            {
-                                "data": "4200624"
-                            },
-                            {
-                                "next": "U"
-                            }
-                        ],
+                        "val": "U",
                         "name": "third"
                     }
                 ]
             },
-            {
-                "LineNum": 13,
-                "type": "GlobalVariables",
-                "Contents": [
-                    {
-                        "data_type": "int",
-                        "type": "var",
-                        "id": 1,
-                        "val": "0",
-                        "name": "g"
-                    }
-                ]
-            },
-            {
-                "LineNum": 13,
-                "stackdepth": 1,
-                "nameid": 3,
-                "type": "Function",
-                "id": 2,
-                "name": "main"
-            },
-            {
-                "LineNum": 13,
-                "type": "StackFrame",
-                "Contents": [
-                    {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 4,
-                        "val": [
-                            {
-                                "data": "7037248"
-                            },
-                            {
-                                "next": "U"
-                            }
-                        ],
-                        "name": "head"
-                    },
-                    {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 5,
-                        "val": [
-                            {
-                                "data": "-8376"
-                            },
-                            {
-                                "next": "U"
-                            }
-                        ],
-                        "name": "second"
-                    },
-                    {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 6,
-                        "val": [
-                            {
-                                "data": "4200624"
-                            },
-                            {
-                                "next": "U"
-                            }
-                        ],
-                        "name": "third"
-                    }
-                ]
-            },
+
             {
                 "LineNum": 18,
                 "type": "GlobalVariables",
@@ -202,390 +116,408 @@ LL.prototype.init = function (am, w, h) {
                 "type": "StackFrame",
                 "Contents": [
                     {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 4,
-                        "val": [
+                        "val": 10,
+                        "data_type": "struct Node *",
+                        "deref_val": [
                             {
-                                "data": "1"
-                            },
-                            {
-                                "next": "U"
-                            }
-                        ],
-                        "name": "head"
-                    },
-                    {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 5,
-                        "val": [
-                            {
-                                "data": "-8376"
-                            },
-                            {
-                                "next": "U"
-                            }
-                        ],
-                        "name": "second"
-                    },
-                    {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 6,
-                        "val": [
-                            {
-                                "data": "4200624"
-                            },
-                            {
-                                "next": "U"
-                            }
-                        ],
-                        "name": "third"
-                    }
-                ]
-            },
-            {
-                "LineNum": 19,
-                "type": "GlobalVariables",
-                "Contents": [
-                    {
-                        "data_type": "int",
-                        "type": "var",
-                        "id": 1,
-                        "val": "0",
-                        "name": "g"
-                    }
-                ]
-            },
-            {
-                "LineNum": 19,
-                "stackdepth": 1,
-                "nameid": 3,
-                "type": "Function",
-                "id": 2,
-                "name": "main"
-            },
-            {
-                "LineNum": 19,
-                "type": "StackFrame",
-                "Contents": [
-                    {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 4,
-                        "val": [
-                            {
-                                "data": "1"
-                            },
-                            {
-                                "next": "5"
-                            }
-                        ],
-                        "name": "head"
-                    },
-                    {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 5,
-                        "val": [
-                            {
-                                "data": "-8376"
-                            },
-                            {
-                                "next": "U"
-                            }
-                        ],
-                        "name": "second"
-                    },
-                    {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 6,
-                        "val": [
-                            {
-                                "data": "4200624"
-                            },
-                            {
-                                "next": "U"
-                            }
-                        ],
-                        "name": "third"
-                    }
-                ]
-            },
-            {
-                "LineNum": 21,
-                "type": "GlobalVariables",
-                "Contents": [
-                    {
-                        "data_type": "int",
-                        "type": "var",
-                        "id": 1,
-                        "val": "0",
-                        "name": "g"
-                    }
-                ]
-            },
-            {
-                "LineNum": 21,
-                "stackdepth": 1,
-                "nameid": 3,
-                "type": "Function",
-                "id": 2,
-                "name": "main"
-            },
-            {
-                "LineNum": 21,
-                "type": "StackFrame",
-                "Contents": [
-                    {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 4,
-                        "val": [
-                            {
-                                "data": "1"
-                            },
-                            {
-                                "next": "5"
-                            }
-                        ],
-                        "name": "head"
-                    },
-                    {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 5,
-                        "val": [
-                            {
-                                "data": "2"
-                            },
-                            {
-                                "next": "U"
-                            }
-                        ],
-                        "name": "second"
-                    },
-                    {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 6,
-                        "val": [
-                            {
-                                "data": "4200624"
-                            },
-                            {
-                                "next": "U"
-                            }
-                        ],
-                        "name": "third"
-                    }
-                ]
-            },
-            {
-                "LineNum": 22,
-                "type": "GlobalVariables",
-                "Contents": [
-                    {
-                        "data_type": "int",
-                        "type": "var",
-                        "id": 1,
-                        "val": "0",
-                        "name": "g"
-                    }
-                ]
-            },
-            {
-                "LineNum": 22,
-                "stackdepth": 1,
-                "nameid": 3,
-                "type": "Function",
-                "id": 2,
-                "name": "main"
-            },
-            {
-                "LineNum": 22,
-                "type": "StackFrame",
-                "Contents": [
-                    {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 4,
-                        "val": [
-                            {
-                                "data": "1"
-                            },
-                            {
-                                "next": "5"
-                            }
-                        ],
-                        "name": "head"
-                    },
-                    {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 5,
-                        "val": [
-                            {
-                                "data": "2"
-                            },
-                            {
-                                "next": "6"
-                            }
-                        ],
-                        "name": "second"
-                    },
-                    {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 6,
-                        "val": [
-                            {
-                                "data": "4200624"
-                            },
-                            {
-                                "next": "U"
-                            }
-                        ],
-                        "name": "third"
-                    }
-                ]
-            },
-            {
-                "LineNum": 24,
-                "type": "GlobalVariables",
-                "Contents": [
-                    {
-                        "data_type": "int",
-                        "type": "var",
-                        "id": 1,
-                        "val": "0",
-                        "name": "g"
-                    }
-                ]
-            },
-            {
-                "LineNum": 24,
-                "stackdepth": 1,
-                "nameid": 3,
-                "type": "Function",
-                "id": 2,
-                "name": "main"
-            },
-            {
-                "LineNum": 24,
-                "type": "StackFrame",
-                "Contents": [
-                    {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 4,
-                        "val": [
-                            {
-                                "data": "1"
-                            },
-                            {
-                                "next": "5"
-                            }
-                        ],
-                        "name": "head"
-                    },
-                    {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 5,
-                        "val": [
-                            {
-                                "data": "2"
-                            },
-                            {
-                                "next": "6"
-                            }
-                        ],
-                        "name": "second"
-                    },
-                    {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 6,
-                        "val": [
-                            {
-                                "data": "3"
-                            },
-                            {
-                                "next": "U"
-                            }
-                        ],
-                        "name": "third"
-                    }
-                ]
-            },
-            {
-                "LineNum": 25,
-                "type": "GlobalVariables",
-                "Contents": [
-                    {
-                        "data_type": "int",
-                        "type": "var",
-                        "id": 1,
-                        "val": "0",
-                        "name": "g"
-                    }
-                ]
-            },
-            {
-                "LineNum": 25,
-                "stackdepth": 1,
-                "nameid": 3,
-                "type": "Function",
-                "id": 2,
-                "name": "main"
-            },
-            {
-                "LineNum": 25,
-                "type": "StackFrame",
-                "Contents": [
-                    {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 4,
-                        "val": [
-                            {
-                                "data": "1"
-                            },
-                            {
-                                "next": "5"
-                            }
-                        ],
-                        "name": "head"
-                    },
-                    {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 5,
-                        "val": [
-                            {
-                                "data": "2"
-                            },
-                            {
-                                "next": "6"
-                            }
-                        ],
-                        "name": "second"
-                    },
-                    {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 6,
-                        "val": [
-                            {
-                                "data": "3"
+                                "data": "11"
                             },
                             {
                                 "next": "N"
                             }
                         ],
+                        "type": "ptr",
+                        "id": 4,
+                        "name": "head"
+                    },
+                    {
+                        "val": 11,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "0"
+                            },
+                            {
+                                "next": "N"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 5,
+                        "name": "second"
+                    },
+                    {
+                        "val": 12,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "0"
+                            },
+                            {
+                                "next": "N"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 6,
+                        "name": "third"
+                    }
+                ]
+            },
+            {
+                "LineNum": 19,
+                "type": "GlobalVariables",
+                "Contents": [
+                    {
+                        "data_type": "int",
+                        "type": "var",
+                        "id": 1,
+                        "val": "0",
+                        "name": "g"
+                    }
+                ]
+            },
+            {
+                "LineNum": 19,
+                "stackdepth": 1,
+                "nameid": 3,
+                "type": "Function",
+                "id": 2,
+                "name": "main"
+            },
+            {
+                "LineNum": 19,
+                "type": "StackFrame",
+                "Contents": [
+                    {
+                        "val": 10,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "11"
+                            },
+                            {
+                                "next": "11"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 4,
+                        "name": "head"
+                    },
+                    {
+                        "val": 11,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "0"
+                            },
+                            {
+                                "next": "N"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 5,
+                        "name": "second"
+                    },
+                    {
+                        "val": 12,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "0"
+                            },
+                            {
+                                "next": "N"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 6,
+                        "name": "third"
+                    }
+                ]
+            },
+            {
+                "LineNum": 21,
+                "type": "GlobalVariables",
+                "Contents": [
+                    {
+                        "data_type": "int",
+                        "type": "var",
+                        "id": 1,
+                        "val": "0",
+                        "name": "g"
+                    }
+                ]
+            },
+            {
+                "LineNum": 21,
+                "stackdepth": 1,
+                "nameid": 3,
+                "type": "Function",
+                "id": 2,
+                "name": "main"
+            },
+            {
+                "LineNum": 21,
+                "type": "StackFrame",
+                "Contents": [
+                    {
+                        "val": 10,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "11"
+                            },
+                            {
+                                "next": "11"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 4,
+                        "name": "head"
+                    },
+                    {
+                        "val": 11,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "21"
+                            },
+                            {
+                                "next": "N"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 5,
+                        "name": "second"
+                    },
+                    {
+                        "val": 12,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "0"
+                            },
+                            {
+                                "next": "N"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 6,
+                        "name": "third"
+                    }
+                ]
+            },
+            {
+                "LineNum": 22,
+                "type": "GlobalVariables",
+                "Contents": [
+                    {
+                        "data_type": "int",
+                        "type": "var",
+                        "id": 1,
+                        "val": "0",
+                        "name": "g"
+                    }
+                ]
+            },
+            {
+                "LineNum": 22,
+                "stackdepth": 1,
+                "nameid": 3,
+                "type": "Function",
+                "id": 2,
+                "name": "main"
+            },
+            {
+                "LineNum": 22,
+                "type": "StackFrame",
+                "Contents": [
+                    {
+                        "val": 10,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "11"
+                            },
+                            {
+                                "next": "11"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 4,
+                        "name": "head"
+                    },
+                    {
+                        "val": 11,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "21"
+                            },
+                            {
+                                "next": "12"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 5,
+                        "name": "second"
+                    },
+                    {
+                        "val": 12,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "0"
+                            },
+                            {
+                                "next": "N"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 6,
+                        "name": "third"
+                    }
+                ]
+            },
+            {
+                "LineNum": 24,
+                "type": "GlobalVariables",
+                "Contents": [
+                    {
+                        "data_type": "int",
+                        "type": "var",
+                        "id": 1,
+                        "val": "0",
+                        "name": "g"
+                    }
+                ]
+            },
+            {
+                "LineNum": 24,
+                "stackdepth": 1,
+                "nameid": 3,
+                "type": "Function",
+                "id": 2,
+                "name": "main"
+            },
+            {
+                "LineNum": 24,
+                "type": "StackFrame",
+                "Contents": [
+                    {
+                        "val": 10,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "11"
+                            },
+                            {
+                                "next": "11"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 4,
+                        "name": "head"
+                    },
+                    {
+                        "val": 11,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "21"
+                            },
+                            {
+                                "next": "12"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 5,
+                        "name": "second"
+                    },
+                    {
+                        "val": 12,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "31"
+                            },
+                            {
+                                "next": "N"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 6,
+                        "name": "third"
+                    }
+                ]
+            },
+            {
+                "LineNum": 25,
+                "type": "GlobalVariables",
+                "Contents": [
+                    {
+                        "data_type": "int",
+                        "type": "var",
+                        "id": 1,
+                        "val": "0",
+                        "name": "g"
+                    }
+                ]
+            },
+            {
+                "LineNum": 25,
+                "stackdepth": 1,
+                "nameid": 3,
+                "type": "Function",
+                "id": 2,
+                "name": "main"
+            },
+            {
+                "LineNum": 25,
+                "type": "StackFrame",
+                "Contents": [
+                    {
+                        "val": 10,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "11"
+                            },
+                            {
+                                "next": "11"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 4,
+                        "name": "head"
+                    },
+                    {
+                        "val": 11,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "21"
+                            },
+                            {
+                                "next": "12"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 5,
+                        "name": "second"
+                    },
+                    {
+                        "val": 12,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "31"
+                            },
+                            {
+                                "next": "N"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 6,
                         "name": "third"
                     }
                 ]
@@ -616,45 +548,48 @@ LL.prototype.init = function (am, w, h) {
                 "type": "StackFrame",
                 "Contents": [
                     {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 4,
-                        "val": [
+                        "val": 10,
+                        "data_type": "struct Node *",
+                        "deref_val": [
                             {
-                                "data": "1"
+                                "data": "11"
                             },
                             {
-                                "next": "5"
+                                "next": "11"
                             }
                         ],
+                        "type": "ptr",
+                        "id": 4,
                         "name": "head"
                     },
                     {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 5,
-                        "val": [
+                        "val": 11,
+                        "data_type": "struct Node *",
+                        "deref_val": [
                             {
-                                "data": "2"
+                                "data": "21"
                             },
                             {
-                                "next": "6"
+                                "next": "12"
                             }
                         ],
+                        "type": "ptr",
+                        "id": 5,
                         "name": "second"
                     },
                     {
-                        "data_type": "struct Node",
-                        "type": "var",
-                        "id": 6,
-                        "val": [
+                        "val": 12,
+                        "data_type": "struct Node *",
+                        "deref_val": [
                             {
-                                "data": "3"
+                                "data": "31"
                             },
                             {
                                 "next": "N"
                             }
                         ],
+                        "type": "ptr",
+                        "id": 6,
                         "name": "third"
                     }
                 ]
@@ -675,8 +610,10 @@ LL.prototype.init = function (am, w, h) {
     this.funcList = {}; //dict of key-value pairs which has info about the functions, dimensions of the frame and the object ids in that function
     // format of the key-value that will be inserted in this dict : id : {funcName, funcNameId, funcHeight, funcWidth, objIdList}
     this.structList = {}; //dict conatining the layout of the structs
-    // format of the key-value pair that will be inserted in this dict : name : {structFields: [{type, data_type, name}], structPtr:[ptrs]}
+    // format of the key-value pair that will be inserted in this dict : name : {structFields: [{type, data_type, name}], structPtr:[ptrs], y:{0:y0, 1:y1, 2:y2,...;}}
     // structPtr is the name of the ptr which points to the other struct nodes
+    // y: y coordinates for struct variables and struct pointers
+    // ... 0 represents struct var, 1 represents pointer to struct var, 2 represents pointer to pointer to struct var and so on,
 
     this.storeStructInfo(); //store the layout of the different structs for later use
     this.setup(); //show the initial stack contents
@@ -728,6 +665,7 @@ LL.prototype.storeStructInfo = function () {
                 this.structList[structNames[structIdx]].structPtr.push(ptrName);
             }
         }
+        this.structList[structNames[structIdx]].y = { 1: 0, };
     }
     //console.log(this.structList);
 };
@@ -791,7 +729,7 @@ LL.prototype.setPtrVal = function (object) {
 };
 
 LL.prototype.setStructPtrVal = function (object) {
-    let [fieldVals, numVarFields] = this.extractStructFieldVals(object);
+    let [fieldVals, numVarFields] = this.extractStructVarFieldVals(object);
     let fieldNames = Object.keys(fieldVals);
     let numFields = fieldNames.length;
 
@@ -832,7 +770,7 @@ LL.prototype.createPtr = function (object, width, height, x, y) {
     this.setPtrVal(object);
 };
 
-LL.prototype.extractStructFieldVals = function (object) {
+LL.prototype.extractStructVarFieldVals = function (object) {
     let structName = object.data_type;
     //console.log(structName);
     let structInfo = this.structList[structName];
@@ -868,11 +806,13 @@ LL.prototype.extractStructFieldVals = function (object) {
 }
 
 LL.prototype.createStructVar = function (object, width, height, x, y, isDef) {
-    let [fieldVals, numVarFields] = this.extractStructFieldVals(object);
+    let [fieldVals, numVarFields] = this.extractStructVarFieldVals(object);
+
     //console.log(fieldVals, numVarFields);
     let fieldNames = Object.keys(fieldVals);
     let firstFieldName = fieldNames[0];
     let firstVal = firstFieldName + " : " + fieldVals[firstFieldName];
+    console.log(firstVal);
     //console.log(numVarFields);
     this.cmd(
         "CreateLinkedList",
@@ -898,6 +838,52 @@ LL.prototype.createStructVar = function (object, width, height, x, y, isDef) {
     LL.INSERT_X += this.getWidth(object) + LL.HORI_PADDING;
 };
 
+LL.prototype.createStructPointeeObj = function (ptrObj) {
+    //attributes of an object : data_type, type, id, val, name(name not necessay for temporarily created struct objects), x, y
+    let structObj = {};
+    let dataType = ptrObj.data_type.slice(0, -1); //remove last character
+    structObj.data_type = dataType;
+    if (dataType.includes('*')) {
+        structObj.type = "ptr";
+    } else {
+        structObj.type = "var";
+    }
+    structObj.id = parseInt(ptrObj.val);
+    if (ptrObj.deref_val !== undefined) {
+        structObj.val = ptrObj.deref_val;
+    }
+    structObj.x = ptrObj.x;
+    structObj.y = ptrObj.y + LL.VERT_PADDING + this.getHeight(ptrObj);
+    if (structObj.type === "var") {
+        this.createStructVar(structObj, this.getWidth(structObj), this.getHeight(structObj), structObj.x, structObj.y, isDef);
+    } else {
+        this.createStructPtr(structObj, this.getWidth(structObj), this.getHeight(structObj), structObj.x, structObj.y, isDef);
+    }
+    console.log(structObj);
+    return structObj;
+}
+
+var structPtrY = 0;
+var structPtrX = 0;
+LL.prototype.createStructPtr = function (object, width, height, x, y, isDef) {
+    if (object.deref_val !== undefined) {
+        let pointeeObj = this.createStructPointeeObj(object);
+    }
+    this.cmd(
+        "CreateRectangle",
+        object.id,
+        object.name,
+        width,
+        height,
+        x,
+        y
+    );
+    if (object.deref_val !== undefined) {
+        this.cmd("Connect", object.id, parseInt(object.val));
+    }
+    structPtrX += this.getWidth(object) + LL.HORI_PADDING;
+}
+
 LL.prototype.createObj = function (object, isDef) {
     let object_type = object.type;
     this.objectIdList.push(object.id);
@@ -906,7 +892,6 @@ LL.prototype.createObj = function (object, isDef) {
     LL.VERT_COUNT++;
     object.y = insert_y;
     //console.log(object);
-    this.objectList.push(object);
     switch (object_type) {
         case "var":
             if (object.data_type.includes("struct ")) {
@@ -935,26 +920,42 @@ LL.prototype.createObj = function (object, isDef) {
         case "ptr":
             object.x -= 10;
             let ptrObj = { id: object.id, pointeeId: object.val };
-            this.createPtr(
-                object,
-                this.getWidth(object),
-                this.getHeight(object),
-                object.x,
-                object.y
-            );
+            if (structPtrY == 0) { structPtrY = object.y; }
+            if (structPtrX == 0) { structPtrX = object.x; }
+            object.y = structPtrY;
+            object.x = structPtrX;
+            if (object.data_type.includes("struct ")) {
+                this.createStructPtr(
+                    object,
+                    this.getWidth(object),
+                    this.getHeight(object),
+                    object.x,
+                    object.y,
+                    isDef
+                );
+            } else {
+                this.createPtr(
+                    object,
+                    this.getWidth(object),
+                    this.getHeight(object),
+                    object.x,
+                    object.y
+                );
+            }
             ptrObj.pointeeId = object.val;
             this.ptrList.push(ptrObj);
             //LL.VERT_COUNT++; //because height is 2 times RECT_HEIGHT
             //console.log("inserted " + object.id);
             break;
     }
+    this.objectList.push(object);
     this.insertIntoCol(object);
 };
 
 LL.prototype.modifyStructFields = function (object) {
     let structName = object.data_type;
     let structInfo = this.structList[structName];
-    let [fieldVals, numVarfields] = this.extractStructFieldVals(object);
+    let [fieldVals, numVarfields] = this.extractStructVarFieldVals(object);
     let fields = Object.keys(fieldVals);
     for (let fieldIdx = 0; fieldIdx < fields.length; ++fieldIdx) {
         let fieldName = fields[fieldIdx];
@@ -1189,8 +1190,15 @@ LL.prototype.getWidthVar = function (length) {
 };
 
 LL.prototype.getWidthPtr = function (length) {
-    return 8 * (length + 4); //4 extra chars for " (U)" or " (N)"
+    return 17 * (length + 4); //4 extra chars for " (U)" or " (N)"
 };
+LL.prototype.getWidthStructPtr = function (length) {
+    if (length < 10)
+        return 9 * 10;
+    if (length < 20)
+        return 10 * 20;
+    return 8 * 40;
+}
 
 LL.prototype.getWidthStructVar = function (object) {
     let structName = object.data_type;
@@ -1220,6 +1228,9 @@ LL.prototype.getWidth = function (object) {
             );
             break;
         case "ptr":
+            if (object.data_type.includes("struct ")) {
+                return this.getWidthStructPtr((object.name).length);
+            }
             return this.getWidthPtr((object.type + " " + object.name).length);
             break;
     }
