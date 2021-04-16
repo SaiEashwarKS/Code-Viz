@@ -59,35 +59,35 @@ ret = 0
 scanf = 0
 func = re.compile("\w+ \(((\w+\=\w+), )*(\w+\=\w+)?\)")
 
-my_file = raw_input('Enter C Program Name (with ./ if in local directory): ')
-subprocess.call(["gcc","-c","-Dmalloc=mymalloc","-g",my_file])
-subprocess.call(["gcc","-g","-static",str(my_file)[:-1]+"o","mymalloc.o"])
+my_file = raw_input('Enter Python Program Name : ')
+#subprocess.call(["pdb","-c","-Dmalloc=mymalloc","-g",my_file])
+#subprocess.call(["pdb",my_file])
 
-p_glob = Popen(['gdb', 'a.out'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-p_glob.stdin.write('info variables\n') # info variables -> to get all global variables
-op = p_glob.communicate() # .communicate returns (stdout_data, stderr_data)
-glob_list = op[0].split('\n')
-
-
-i = glob_list.index('File '+my_file+':') + 1
-#print glob_list
-while glob_list[i]!='':
-	x = glob_list[i].split(' ')[1].replace(";",'').replace("\n",'')
-	if x[0] == '*':
-		x = x[1:]
-	name = ''
-	for j in range(0,len(x)):
-		if x[j] in sep:
-			break
-		name = name + x[j]
-	global_name_list.append(name)
-	i += 1
-gn=len(global_name_list)#no of global variables
-p1 = Popen(['gdb', 'a.out'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+p1 = Popen(['pdb',my_file], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+#p1 = Popen(['gdb', 'a.out'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 flags = fcntl(p1.stdout, F_GETFL) # get current p.stdout flags
 fcntl(p1.stdout, F_SETFL, flags | O_NONBLOCK)
 
-print 'Hit Enter to Begin'
+def get_line_number(pipe):
+    p1.stdin.write("l\n".encode())
+    p1.stdin.flush()
+    s=""
+    sleep(0.5)#this time i checked some values from 0.5 to 0.1, 02 gave best results
+    while(True):
+        try:
+            s+=read(p1.stdout.fileno(),1024).decode()
+            #print("s",s)
+        except Exception as E:
+            #print(E)
+            break
+    k=s.find("->")
+    j=k-3
+    while(s[j]!=" "):
+        j-=1
+    global prev_lineno
+    global lnc
+    prev_lineno=lnc
+    lnc = s[j+1:k-2]
 
 def tr():#function name
 	'''
@@ -214,11 +214,8 @@ def get_deref_value(addr, datatype):
 			if fields[i]['type'] == 'ptr':
 				address = l[k]
 				if address in heap:
-					#deref_val = get_deref_value(address, fields[i]['data_type']) 
-					#heap[address]['deref_val'] = deref_val
-					dt = fields[i]['data_type']
-					heap[address]['deref_val'] = get_deref_value(address, dt) 
-					heap[address]['data_type'] = dt[: dt.rfind('*')].strip()
+					deref_val = get_deref_value(address, fields[i]['data_type']) 
+					heap[address]['deref_val'] = deref_val
 				k += 1
 
 		return x
@@ -271,7 +268,6 @@ def maketogether(ln,di,gl,stringnamed):
 					deref_val = get_deref_value(addr, datatype)
 					#f.write("\ndatatype: "+datatype+" deref: "+str(deref_val)+"\n")
 					heap[addr]['deref_val'] = deref_val
-					heap[addr]['data_type'] = datatype[: datatype.rfind('*')].strip()
 					heap[addr]['id'] = val
 					#sepdi['is_heap'] = True
 					#sepdi['deref_val'] = deref_val ### remove this #### in get deref func need to find data_type for further deref
@@ -338,9 +334,7 @@ def maketogether(ln,di,gl,stringnamed):
 				if fields[i]['type'] == 'ptr':
 					address = l[k]
 					if address in heap:
-						dt = fields[i]['data_type']
-						heap[address]['deref_val'] = get_deref_value(address, dt) 
-						heap[address]['data_type'] = dt[: dt.rfind('*')].strip()
+						heap[address]['deref_val'] = get_deref_value(address, fields[i]['data_type']) 
 					k += 1			
 			#
 			#f.write("\n-----\n"+str(l)+"\n")
@@ -374,19 +368,9 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		lines_data.append(di.copy())
 		del di
 	
-	#heap
-	di = {}
-	di["LineNum"] = ln
-	di["type"] = "heap"
-	di['Contents'] = heap.copy()
-	lines_data.append(di.copy())
-	del di
-	
-	
 	#Function
 	if len(fname) > 0:
 		fn = fname[-1]
-	
 	if len(fn) > 1:
 		print "\nFunction Name: ",fn[0],"\nFunction Address: ",fn[1]
 		#ID = int(fn[1][fn[1].rfind(")")+2:fn[1].rfind("<")-1],16)
@@ -424,7 +408,6 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		maketogether(ln,di,gl,"Arguments")
 		lines_data.append(di.copy())
 		del di
-		
 	if len(rv[6])>0:
 		print '\n-Pointers-'
 		heading = ["Line\nNo.","Function\nName/Address\n(Pointer)","Pointer\nName/Address/Value","Variable\nPointed to\nName/Address","Value of\nVariable\nPointed to","Function\nName/Address\n(Variable Pointed to)"]
@@ -603,11 +586,11 @@ def output(p1,flag):#display (stack frame, arguments..)
 			# the os throws an exception if there is no data
 			# print '[No more data]'
 			break
-	if "scanf" in my_out:
-		global scanf
-		scanf = 1
-	if "printf" in my_out:
-		print "Output from printf is:"
+	if "input" in my_out:
+		global inputv
+		inputv = 1
+	if "print" in my_out:
+		print "Output from print is:"
 		op_string = my_out[11:len(my_out)-9].split(",")
 		i = 0
 		i_args = 1
@@ -688,24 +671,6 @@ def output(p1,flag):#display (stack frame, arguments..)
 		my_out = string.replace(my_out,'(gdb)','')
 		my_out = string.replace(my_out,'\n','')
 		sys.stdout.write(my_out)
-
-	elif flag == 2: #for info line
-		# stores current line no in lnc
-		my_out = string.replace(my_out,'(gdb)','') # Line 12 of "./b.c" starts at address 0x400bb6 <foo> and ends at 0x400bc9 <foo+19>.\n(gdb)
-		my_out = my_out.split(' ')
-		my_out = my_out[:2]
-		ln=' '.join(my_out) #Line 28
-		#f.write('\n'+ln)
-
-		#print "\n"
-		#print ln
-		global lnc
-		global prev_lineno
-		try:
-			prev_lineno = int(lnc.split()[1])		
-		except:
-			prev_lineno = 0
-		lnc=ln
 
 	elif flag == 1: # info locals
 		'''
@@ -880,10 +845,10 @@ def get_heap_info(pipe):
 		
 	#f.write(str(heap)+"\n")
 	
-p1.stdin.write('break main\n')
-output(p1,0)
-p1.stdin.write('run\n')
-output(p1,0)
+# p1.stdin.write('break main\n')
+# output(p1,0)
+# p1.stdin.write('run\n')
+# output(p1,0)
 
 
 while True:
@@ -891,39 +856,15 @@ while True:
 	mo=[]
 	mp=[]
 	ml=[]
-	#if(inp=='exit' or inp=='quit' or inp=='q'):
-	#	break
-	
-	
-	#
-	#p1.stdin.write('p resrsasr_i')
-	#get_heap_info()
-	try:
-		get_heap_info(p1)
-	except Exception as e:
-		f.write("\nEXCEPT "+str(e))
-		break
-	#
-	
-	
-	'''
-	p1.stdin.write('step\n')
-	counter+=1
-	hista.append([str(counter)])
-	if scanf == 1:
-		print "Enter input for scanf:\n"
-		p1.stdin.write(str(input())+'\n')
-		scanf = 0
-	output(p1,0)'''
 
 	hista.append([str(counter)])
-	if scanf == 1:
-		print "Enter input for scanf:\n"
+	if inputv == 1:
+		print "INPUT : \n"
 		p1.stdin.write(str(input())+'\n')
-		scanf = 0
+		inputv = 0
 	output(p1,0)
 	
-	p1.stdin.write('info line\n')
+	get_line_number(p1)#gets the next line number to be executed
 	output(p1,2)
 	
 	#print '\n(Global Variables)'
@@ -1016,8 +957,6 @@ while True:
 	if len(avp1)>0:
 		del avp1[0]
 	rv=linkall(gvp1,svp1,avp1,lnc,fname)
-		
-	
 	vdisp(gvp1,svp1,avp1,lnc,fname,rv)
 	pdisp(rv)
 	
