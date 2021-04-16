@@ -4,8 +4,8 @@ from time import sleep
 from fcntl import fcntl, F_GETFL, F_SETFL
 from os import O_NONBLOCK, read
 import json
-
-my_file=input("Enter python3 file ")
+my_file="pythontry.py"
+#my_file=input("Enter python3 file ")
 p1 = Popen(['python3', '-m',"pdb",my_file], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 flags = fcntl(p1.stdout.fileno(), F_GETFL) # get current p.stdout flags
 #print(flags)
@@ -21,13 +21,13 @@ while(True):
     except Exception as E:
         #print(E)
         break
-print(s)
+#print(s)
 
 p1.stdout.flush()
 
 #p1.stdin.write("n\n".encode())
 p1.stdin.flush()
-p1.stdin.write("dir()\n".encode())
+p1.stdin.write("l\n".encode())
 p1.stdin.flush()
 #res = p1.communicate(b'n\n')[0]
 #print(res.decode())
@@ -42,5 +42,13 @@ while(True):
         #print(E)
         break
 print(s)
+#TO GET LINE NUMBER
+k=s.find("->")
 
-#print(res.decode())
+j=k-3
+number=0
+while(s[j]!=" "):
+    print(j,s[j])
+    j-=1
+print("here",s[j+1:k-2])
+print(k,s[k-5]==" ")
