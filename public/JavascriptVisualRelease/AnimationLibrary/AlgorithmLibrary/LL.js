@@ -24,7 +24,7 @@ LL.prototype.init = function (am, w, h) {
     this.commands = [];
     this.json = {
         "Structures": {
-            "struct Node *": {
+            "struct Node": {
                 "fields": [
                     {
                         "type": "var",
@@ -89,7 +89,198 @@ LL.prototype.init = function (am, w, h) {
                     }
                 ]
             },
-
+            {
+                "LineNum": 14,
+                "type": "GlobalVariables",
+                "Contents": [
+                    {
+                        "data_type": "int",
+                        "type": "var",
+                        "id": 1,
+                        "val": "0",
+                        "name": "g"
+                    }
+                ]
+            },
+            {
+                "LineNum": 14,
+                "stackdepth": 1,
+                "nameid": 3,
+                "type": "Function",
+                "id": 2,
+                "name": "main"
+            },
+            {
+                "LineNum": 14,
+                "type": "StackFrame",
+                "Contents": [
+                    {
+                        "val": 10,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "0"
+                            },
+                            {
+                                "next": "N"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 4,
+                        "name": "head"
+                    },
+                    {
+                        "val": "U",
+                        "data_type": "struct Node *",
+                        "type": "ptr",
+                        "id": 5,
+                        "name": "second"
+                    },
+                    {
+                        "val": "U",
+                        "data_type": "struct Node *",
+                        "type": "ptr",
+                        "id": 6,
+                        "name": "third"
+                    }
+                ]
+            },
+            {
+                "LineNum": 15,
+                "type": "GlobalVariables",
+                "Contents": [
+                    {
+                        "data_type": "int",
+                        "type": "var",
+                        "id": 1,
+                        "val": "0",
+                        "name": "g"
+                    }
+                ]
+            },
+            {
+                "LineNum": 15,
+                "stackdepth": 1,
+                "nameid": 3,
+                "type": "Function",
+                "id": 2,
+                "name": "main"
+            },
+            {
+                "LineNum": 15,
+                "type": "StackFrame",
+                "Contents": [
+                    {
+                        "val": 10,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "0"
+                            },
+                            {
+                                "next": "N"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 4,
+                        "name": "head"
+                    },
+                    {
+                        "val": 11,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "0"
+                            },
+                            {
+                                "next": "N"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 5,
+                        "name": "second"
+                    },
+                    {
+                        "val": "U",
+                        "data_type": "struct Node *",
+                        "type": "ptr",
+                        "id": 6,
+                        "name": "third"
+                    }
+                ]
+            },
+            {
+                "LineNum": 16,
+                "type": "GlobalVariables",
+                "Contents": [
+                    {
+                        "data_type": "int",
+                        "type": "var",
+                        "id": 1,
+                        "val": "0",
+                        "name": "g"
+                    }
+                ]
+            },
+            {
+                "LineNum": 16,
+                "stackdepth": 1,
+                "nameid": 3,
+                "type": "Function",
+                "id": 2,
+                "name": "main"
+            },
+            {
+                "LineNum": 16,
+                "type": "StackFrame",
+                "Contents": [
+                    {
+                        "val": 10,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "0"
+                            },
+                            {
+                                "next": "N"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 4,
+                        "name": "head"
+                    },
+                    {
+                        "val": 11,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "0"
+                            },
+                            {
+                                "next": "N"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 5,
+                        "name": "second"
+                    },
+                    {
+                        "val": 12,
+                        "data_type": "struct Node *",
+                        "deref_val": [
+                            {
+                                "data": "0"
+                            },
+                            {
+                                "next": "N"
+                            }
+                        ],
+                        "type": "ptr",
+                        "id": 6,
+                        "name": "third"
+                    }
+                ]
+            },
             {
                 "LineNum": 18,
                 "type": "GlobalVariables",
@@ -610,8 +801,9 @@ LL.prototype.init = function (am, w, h) {
     this.funcList = {}; //dict of key-value pairs which has info about the functions, dimensions of the frame and the object ids in that function
     // format of the key-value that will be inserted in this dict : id : {funcName, funcNameId, funcHeight, funcWidth, objIdList}
     this.structList = {}; //dict conatining the layout of the structs
-    // format of the key-value pair that will be inserted in this dict : name : {structFields: [{type, data_type, name}], structPtr:[ptrs], y:{0:y0, 1:y1, 2:y2,...;}}
+    // format of the key-value pair that will be inserted in this dict : name : {structFields: [{type, data_type, name}], structPtr:[ptrs], width: , y:{0:y0, 1:y1, 2:y2,...;}}
     // structPtr is the name of the ptr which points to the other struct nodes
+    // width is width of each struct variable
     // y: y coordinates for struct variables and struct pointers
     // ... 0 represents struct var, 1 represents pointer to struct var, 2 represents pointer to pointer to struct var and so on,
 
@@ -651,12 +843,14 @@ LL.prototype.setup = function () {
     this.animationManager.clearHistory();
 };
 
+var structPtrGap = 0;
 LL.prototype.storeStructInfo = function () {
     let structs = this.json.Structures;
     structNames = Object.keys(structs);
+    //console.log(structNames);
     for (let structIdx = 0; structIdx < structNames.length; ++structIdx) {
         this.structList[structNames[structIdx]] = {};
-        let structFields = structs[structNames[structIdx]];
+        let structFields = structs[structNames[structIdx]].fields;
         this.structList[structNames[structIdx]].structFields = structFields;
         this.structList[structNames[structIdx]].structPtr = []
         for (let fieldIdx = 0; fieldIdx < structFields.length; ++fieldIdx) {
@@ -665,9 +859,28 @@ LL.prototype.storeStructInfo = function () {
                 this.structList[structNames[structIdx]].structPtr.push(ptrName);
             }
         }
+        this.structList[structNames[structIdx]].width = this.computeWidthStructVar(structNames[structIdx]);
+        structPtrGap = this.structList[structNames[structIdx]].width;
         this.structList[structNames[structIdx]].y = { 1: 0, };
     }
     //console.log(this.structList);
+};
+
+LL.prototype.computeWidthStructVar = function (structName) {
+    let structInfo = this.structList[structName];
+    //console.log(structInfo);
+    let fields = structInfo.structFields;
+    maxFieldNameLen = 0;
+    maxFieldValLen = 0;
+    for (let fieldIdx = 0; fieldIdx < fields.length; ++fieldIdx) {
+        let fieldName = Object.keys(fields[fieldIdx])[0];
+        let fieldVal = fields[fieldIdx][fieldName].toString();
+        maxFieldValLen = Math.max(maxFieldValLen, fieldVal.length);
+        maxFieldNameLen = Math.max(maxFieldNameLen, fieldName.length);
+    }
+    //let width = this.getWidthVar(maxFieldNameLen + 3 + maxFieldValLen); 
+    let width = this.getWidthVar(maxFieldNameLen + 3 + 7)//+3 for " : "; +7 assuming the value can be max 7 chars long
+    return width;
 };
 
 LL.prototype.getInsertY = function () {
@@ -744,6 +957,7 @@ LL.prototype.setStructPtrVal = function (object) {
             let val = field[fieldName];
             if (val === "N") { this.cmd("SetNull", object.id, 1); }
             else if (val !== "U") {
+                this.cmd("SetNull", object.id, 0);
                 val = parseInt(val);
                 if (this.objectIdList.includes(val)) {
                     this.cmd("Connect", object.id, val);
@@ -773,7 +987,7 @@ LL.prototype.createPtr = function (object, width, height, x, y) {
 LL.prototype.extractStructVarFieldVals = function (object) {
     let structName = object.data_type;
     //console.log(structName);
-    let structInfo = this.structList[structName];
+    let structInfo = this.structList[object.data_type];
     let fields = object.val;
     let fieldVals = {};
     let structPtrs = {};
@@ -805,6 +1019,8 @@ LL.prototype.extractStructVarFieldVals = function (object) {
     return [fieldVals, numVarFields];
 }
 
+var structVarX = 0;
+var structVarY = 0;
 LL.prototype.createStructVar = function (object, width, height, x, y, isDef) {
     let [fieldVals, numVarFields] = this.extractStructVarFieldVals(object);
 
@@ -812,7 +1028,6 @@ LL.prototype.createStructVar = function (object, width, height, x, y, isDef) {
     let fieldNames = Object.keys(fieldVals);
     let firstFieldName = fieldNames[0];
     let firstVal = firstFieldName + " : " + fieldVals[firstFieldName];
-    console.log(firstVal);
     //console.log(numVarFields);
     this.cmd(
         "CreateLinkedList",
@@ -835,13 +1050,13 @@ LL.prototype.createStructVar = function (object, width, height, x, y, isDef) {
     this.setStructPtrVal(object);
     //LL.VERT_COUNT += numVarFields;
     LL.VERT_COUNT--; //undo the increment done in createObj
-    LL.INSERT_X += this.getWidth(object) + LL.HORI_PADDING;
+    structVarX += this.getWidth(object) + LL.HORI_PADDING;
 };
 
-LL.prototype.createStructPointeeObj = function (ptrObj) {
+LL.prototype.createStructPointeeObj = function (ptrObj, isDef) {
     //attributes of an object : data_type, type, id, val, name(name not necessay for temporarily created struct objects), x, y
     let structObj = {};
-    let dataType = ptrObj.data_type.slice(0, -1); //remove last character
+    let dataType = ptrObj.data_type.slice(0, -1).trim(); //remove last character
     structObj.data_type = dataType;
     if (dataType.includes('*')) {
         structObj.type = "ptr";
@@ -853,21 +1068,36 @@ LL.prototype.createStructPointeeObj = function (ptrObj) {
         structObj.val = ptrObj.deref_val;
     }
     structObj.x = ptrObj.x;
-    structObj.y = ptrObj.y + LL.VERT_PADDING + this.getHeight(ptrObj);
+    structObj.y = ptrObj.y + LL.VERT_PADDING + this.getHeight(structObj);
     if (structObj.type === "var") {
         this.createStructVar(structObj, this.getWidth(structObj), this.getHeight(structObj), structObj.x, structObj.y, isDef);
+        LL.VERT_COUNT++; //because it is decremented in createStructVar
     } else {
         this.createStructPtr(structObj, this.getWidth(structObj), this.getHeight(structObj), structObj.x, structObj.y, isDef);
     }
-    console.log(structObj);
+    //console.log(structObj);
+    this.objectList.push(structObj);
+    this.objectIdList.push(structObj.id);
     return structObj;
+}
+
+LL.prototype.setDynStructPtrVal = function (object) {
+    let val = object.val;
+    if (val === "N") { this.cmd("SetNull", object.id, 1); }
+    else if (val !== "U") {
+        val = parseInt(val);
+        if (this.objectIdList.includes(val)) {
+            this.cmd("Connect", object.id, val);
+        }
+    }
 }
 
 var structPtrY = 0;
 var structPtrX = 0;
 LL.prototype.createStructPtr = function (object, width, height, x, y, isDef) {
+    let pointeeObj;
     if (object.deref_val !== undefined) {
-        let pointeeObj = this.createStructPointeeObj(object);
+        pointeeObj = this.createStructPointeeObj(object, isDef);
     }
     this.cmd(
         "CreateRectangle",
@@ -878,10 +1108,9 @@ LL.prototype.createStructPtr = function (object, width, height, x, y, isDef) {
         x,
         y
     );
-    if (object.deref_val !== undefined) {
-        this.cmd("Connect", object.id, parseInt(object.val));
-    }
-    structPtrX += this.getWidth(object) + LL.HORI_PADDING;
+    this.setDynStructPtrVal(object);
+    structPtrX += structPtrGap + LL.HORI_PADDING;
+    //console.log(object);
 }
 
 LL.prototype.createObj = function (object, isDef) {
@@ -896,6 +1125,10 @@ LL.prototype.createObj = function (object, isDef) {
         case "var":
             if (object.data_type.includes("struct ")) {
                 object.x -= 10;
+                if (structVarY == 0) { structVarY = object.y; }
+                if (structVarX == 0) { structVarX = object.x; }
+                object.y = structVarY;
+                object.x = structVarX;
                 this.createStructVar(
                     object,
                     this.getWidth(object),
@@ -979,12 +1212,13 @@ LL.prototype.compareFieldVals = function (val1, val2) {
     return true;
 }
 
-LL.prototype.modifyStruct = function (object) {
+LL.prototype.modifyStructVar = function (object) {
     for (let objectIdx = 0; objectIdx < this.objectList.length; ++objectIdx) {
         let insertedObject = this.objectList[objectIdx];
         if (insertedObject.id === object.id) {
-            //console.log(insertedObject.val, object.val);
+            console.log(insertedObject.val, object.val);
             let fieldValsAreSame = this.compareFieldVals(insertedObject.val, object.val);
+            console.log(fieldValsAreSame);
             if (!fieldValsAreSame) {
                 //console.log(insertedObject.val, object.val);
                 insertedObject.val = object.val;
@@ -993,7 +1227,7 @@ LL.prototype.modifyStruct = function (object) {
 
                 //modify all the fields
                 this.modifyStructFields(object);
-                this.cmd("Step");
+                //this.cmd("Step");
 
                 this.cmd("SetHighlight", object.id, 0);
             }
@@ -1004,7 +1238,7 @@ LL.prototype.modifyStruct = function (object) {
 
 LL.prototype.modifyVar = function (object) {
     if (object.data_type.includes("struct ")) {
-        this.modifyStruct(object);
+        this.modifyStructVar(object);
     }
     else {
         for (let objectIdx = 0; objectIdx < this.objectList.length; ++objectIdx) {
@@ -1015,7 +1249,7 @@ LL.prototype.modifyVar = function (object) {
                     this.cmd("SetHighlight", object.id, 1);
                     this.cmd("Step");
                     this.cmd("SetText", object.id, object.val, 1);
-                    this.cmd("Step");
+                    //this.cmd("Step");
                     this.cmd("SetHighlight", object.id, 0);
                 }
             }
@@ -1146,20 +1380,61 @@ LL.prototype.modifyPtrVal = function (object) {
     }
 };
 
-LL.prototype.modifyPtr = function (object) {
-    for (let ptrIdx = 0; ptrIdx < this.ptrList.length; ++ptrIdx) {
-        let insertedPtr = this.ptrList[ptrIdx];
-        if (insertedPtr.id === object.id) {
-            if (insertedPtr.pointeeId !== object.val) {
-                if (insertedPtr.pointeeId !== "U" && insertedPtr.pointeeId !== "N") {
-                    this.cmd("Disconnect", object.id, insertedPtr.pointeeId);
+LL.prototype.modifyStructPtr = function (object) {
+    let ptrObj = this.getObj(object.id);
+    let oldPointeeId = ptrObj.val;
+    let pointeeId = parseInt(object.val);
+    let oldDerefVal = ptrObj.deref_val;
+    let derefVal = object.deref_val;
+    ptrObj.deref_val = derefVal;
+    ptrObj.val = pointeeId;
+    if (derefVal !== undefined) {
+        if (oldDerefVal === undefined) {
+            this.cmd("SetHighlight", object.id, 1);
+            this.cmd("Step");
+            let pointeeObj = this.createStructPointeeObj(ptrObj);
+            this.setDynStructPtrVal(object);
+            //this.cmd("Step");
+            this.cmd("SetHighlight", object.id, 0);
+        }
+        else {
+            if (oldPointeeId === pointeeId) {
+                let fieldValsAreSame = this.compareFieldVals(oldDerefVal, derefVal);
+                if (!fieldValsAreSame) {
+                    let pointeeObj = this.getObj(pointeeId);
+                    pointeeObj.val = derefVal;
+                    this.cmd("SetHighlight", pointeeId, 1);
+                    this.cmd("Step");
+
+                    //modify all the fields
+                    this.modifyStructFields(pointeeObj);
+                    //this.cmd("Step");
+
+                    this.cmd("SetHighlight", pointeeId, 0);
                 }
-                insertedPtr.pointeeId = object.val;
-                this.cmd("SetHighlight", object.id, 1);
-                this.cmd("Step");
-                this.modifyPtrVal(object);
-                this.cmd("Step");
-                this.cmd("SetHighlight", object.id, 0);
+            }
+        }
+    }
+}
+
+LL.prototype.modifyPtr = function (object) {
+    if (object.data_type.includes("struct ")) {
+        this.modifyStructPtr(object);
+    } else {
+        for (let ptrIdx = 0; ptrIdx < this.ptrList.length; ++ptrIdx) {
+            let insertedPtr = this.ptrList[ptrIdx];
+            if (insertedPtr.id === object.id) {
+                if (insertedPtr.pointeeId !== object.val) {
+                    if (insertedPtr.pointeeId !== "U" && insertedPtr.pointeeId !== "N") {
+                        this.cmd("Disconnect", object.id, insertedPtr.pointeeId);
+                    }
+                    insertedPtr.pointeeId = object.val;
+                    this.cmd("SetHighlight", object.id, 1);
+                    this.cmd("Step");
+                    this.modifyPtrVal(object);
+                    //this.cmd("Step");
+                    this.cmd("SetHighlight", object.id, 0);
+                }
             }
         }
     }
@@ -1202,19 +1477,7 @@ LL.prototype.getWidthStructPtr = function (length) {
 
 LL.prototype.getWidthStructVar = function (object) {
     let structName = object.data_type;
-    let fields = object.val;
-    maxFieldNameLen = 0;
-    maxFieldValLen = 0;
-    for (let fieldIdx = 0; fieldIdx < fields.length; ++fieldIdx) {
-        let fieldName = Object.keys(fields[fieldIdx])[0];
-        let fieldVal = fields[fieldIdx][fieldName].toString();
-        maxFieldValLen = Math.max(maxFieldValLen, fieldVal.length);
-        maxFieldNameLen = Math.max(maxFieldNameLen, fieldName.length);
-    }
-    //let width = this.getWidthVar(maxFieldNameLen + 3 + maxFieldValLen); 
-    let width = this.getWidthVar(maxFieldNameLen + 3 + 7)//+3 for " : "; +7 assuming the value can be max 7 chars long
-    //console.log(numVarFields);
-    return width;
+    return this.structList[structName].width;
 }
 
 LL.prototype.getWidth = function (object) {
