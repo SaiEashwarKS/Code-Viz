@@ -32,6 +32,11 @@
     }, 
     {
       "LineNum": 0, 
+      "type": "heap", 
+      "Contents": {}
+    }, 
+    {
+      "LineNum": 0, 
       "stackdepth": 1, 
       "nameid": 3, 
       "type": "Function", 
@@ -77,6 +82,11 @@
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 14, 
+      "type": "heap", 
+      "Contents": {}
     }, 
     {
       "LineNum": 14, 
@@ -127,6 +137,11 @@
     }, 
     {
       "LineNum": 6, 
+      "type": "heap", 
+      "Contents": {}
+    }, 
+    {
+      "LineNum": 6, 
       "stackdepth": 2, 
       "nameid": 8, 
       "type": "Function", 
@@ -171,6 +186,11 @@
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 7, 
+      "type": "heap", 
+      "Contents": {}
     }, 
     {
       "LineNum": 7, 
@@ -218,6 +238,24 @@
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 8, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
     }, 
     {
       "LineNum": 8, 
@@ -265,6 +303,24 @@
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
     }, 
     {
       "LineNum": 9, 
@@ -312,6 +368,24 @@
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 10, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
     }, 
     {
       "LineNum": 10, 
@@ -363,6 +437,24 @@
     }, 
     {
       "LineNum": 15, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
+    }, 
+    {
+      "LineNum": 15, 
       "stackdepth": 2, 
       "nameid": 8, 
       "type": "Function", 
@@ -410,6 +502,24 @@
     }, 
     {
       "LineNum": 6, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
+    }, 
+    {
+      "LineNum": 6, 
       "stackdepth": 2, 
       "nameid": 8, 
       "type": "Function", 
@@ -454,6 +564,24 @@
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 7, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
     }, 
     {
       "LineNum": 7, 
@@ -501,6 +629,36 @@
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 8, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b60": {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "12"
+            }
+          ], 
+          "id": 11, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
     }, 
     {
       "LineNum": 8, 
@@ -548,6 +706,36 @@
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b60": {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "12"
+            }
+          ], 
+          "id": 11, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
     }, 
     {
       "LineNum": 9, 
@@ -595,6 +783,36 @@
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 10, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b60": {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "12"
+            }
+          ], 
+          "id": 11, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
     }, 
     {
       "LineNum": 10, 
@@ -646,6 +864,36 @@
     }, 
     {
       "LineNum": 16, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b60": {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "12"
+            }
+          ], 
+          "id": 11, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
+    }, 
+    {
+      "LineNum": 16, 
       "stackdepth": 2, 
       "nameid": 8, 
       "type": "Function", 
@@ -693,6 +941,36 @@
     }, 
     {
       "LineNum": 6, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b60": {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "12"
+            }
+          ], 
+          "id": 11, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
+    }, 
+    {
+      "LineNum": 6, 
       "stackdepth": 2, 
       "nameid": 8, 
       "type": "Function", 
@@ -737,6 +1015,36 @@
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 7, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b60": {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "12"
+            }
+          ], 
+          "id": 11, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
     }, 
     {
       "LineNum": 7, 
@@ -784,6 +1092,48 @@
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 8, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b80": {
+          "deref_val": [
+            {
+              "data": "31"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "id": 12, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b60": {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "12"
+            }
+          ], 
+          "id": 11, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
     }, 
     {
       "LineNum": 8, 
@@ -831,6 +1181,48 @@
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b80": {
+          "deref_val": [
+            {
+              "data": "31"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "id": 12, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b60": {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "12"
+            }
+          ], 
+          "id": 11, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
     }, 
     {
       "LineNum": 9, 
@@ -878,6 +1270,48 @@
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 10, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b80": {
+          "deref_val": [
+            {
+              "data": "31"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "id": 12, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b60": {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "12"
+            }
+          ], 
+          "id": 11, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
     }, 
     {
       "LineNum": 10, 
@@ -926,6 +1360,48 @@
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 18, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b80": {
+          "deref_val": [
+            {
+              "data": "31"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "id": 12, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b60": {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "12"
+            }
+          ], 
+          "id": 11, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
     }, 
     {
       "LineNum": 18, 
@@ -974,6 +1450,48 @@
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 19, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b80": {
+          "deref_val": [
+            {
+              "data": "31"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "id": 12, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b60": {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "12"
+            }
+          ], 
+          "id": 11, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
     }, 
     {
       "LineNum": 19, 
@@ -1022,6 +1540,48 @@
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 21, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b80": {
+          "deref_val": [
+            {
+              "data": "31"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "id": 12, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b60": {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "12"
+            }
+          ], 
+          "id": 11, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
     }, 
     {
       "LineNum": 21, 
@@ -1070,6 +1630,48 @@
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 22, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b80": {
+          "deref_val": [
+            {
+              "data": "31"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "id": 12, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b60": {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "12"
+            }
+          ], 
+          "id": 11, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
     }, 
     {
       "LineNum": 22, 
@@ -1118,6 +1720,48 @@
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 24, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b80": {
+          "deref_val": [
+            {
+              "data": "31"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "id": 12, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b60": {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "12"
+            }
+          ], 
+          "id": 11, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
     }, 
     {
       "LineNum": 24, 
@@ -1166,6 +1810,48 @@
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 25, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b80": {
+          "deref_val": [
+            {
+              "data": "31"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "id": 12, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b60": {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "12"
+            }
+          ], 
+          "id": 11, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
     }, 
     {
       "LineNum": 25, 
@@ -1214,6 +1900,48 @@
           "name": "g"
         }
       ]
+    }, 
+    {
+      "LineNum": 27, 
+      "type": "heap", 
+      "Contents": {
+        "0x6c0b80": {
+          "deref_val": [
+            {
+              "data": "31"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "id": 12, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b60": {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "12"
+            }
+          ], 
+          "id": 11, 
+          "data_type": "struct Node"
+        }, 
+        "0x6c0b40": {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "11"
+            }
+          ], 
+          "id": 10, 
+          "data_type": "struct Node"
+        }
+      }
     }, 
     {
       "LineNum": 27, 
