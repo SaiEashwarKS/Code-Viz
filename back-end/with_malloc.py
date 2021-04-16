@@ -214,8 +214,11 @@ def get_deref_value(addr, datatype):
 			if fields[i]['type'] == 'ptr':
 				address = l[k]
 				if address in heap:
-					deref_val = get_deref_value(address, fields[i]['data_type']) 
-					heap[address]['deref_val'] = deref_val
+					#deref_val = get_deref_value(address, fields[i]['data_type']) 
+					#heap[address]['deref_val'] = deref_val
+					dt = fields[i]['data_type']
+					heap[address]['deref_val'] = get_deref_value(address, dt) 
+					heap[address]['data_type'] = dt[: dt.rfind('*')].strip()
 				k += 1
 
 		return x
@@ -268,6 +271,7 @@ def maketogether(ln,di,gl,stringnamed):
 					deref_val = get_deref_value(addr, datatype)
 					#f.write("\ndatatype: "+datatype+" deref: "+str(deref_val)+"\n")
 					heap[addr]['deref_val'] = deref_val
+					heap[addr]['data_type'] = datatype[: datatype.rfind('*')].strip()
 					heap[addr]['id'] = val
 					#sepdi['is_heap'] = True
 					#sepdi['deref_val'] = deref_val ### remove this #### in get deref func need to find data_type for further deref
@@ -334,7 +338,9 @@ def maketogether(ln,di,gl,stringnamed):
 				if fields[i]['type'] == 'ptr':
 					address = l[k]
 					if address in heap:
-						heap[address]['deref_val'] = get_deref_value(address, fields[i]['data_type']) 
+						dt = fields[i]['data_type']
+						heap[address]['deref_val'] = get_deref_value(address, dt) 
+						heap[address]['data_type'] = dt[: dt.rfind('*')].strip()
 					k += 1			
 			#
 			#f.write("\n-----\n"+str(l)+"\n")
@@ -368,9 +374,19 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		lines_data.append(di.copy())
 		del di
 	
+	#heap
+	di = {}
+	di["LineNum"] = ln
+	di["type"] = "heap"
+	di['Contents'] = heap.copy()
+	lines_data.append(di.copy())
+	del di
+	
+	
 	#Function
 	if len(fname) > 0:
 		fn = fname[-1]
+	
 	if len(fn) > 1:
 		print "\nFunction Name: ",fn[0],"\nFunction Address: ",fn[1]
 		#ID = int(fn[1][fn[1].rfind(")")+2:fn[1].rfind("<")-1],16)
@@ -408,6 +424,7 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		maketogether(ln,di,gl,"Arguments")
 		lines_data.append(di.copy())
 		del di
+		
 	if len(rv[6])>0:
 		print '\n-Pointers-'
 		heading = ["Line\nNo.","Function\nName/Address\n(Pointer)","Pointer\nName/Address/Value","Variable\nPointed to\nName/Address","Value of\nVariable\nPointed to","Function\nName/Address\n(Variable Pointed to)"]
@@ -878,7 +895,6 @@ while True:
 	#	break
 	
 	
-	
 	#
 	#p1.stdin.write('p resrsasr_i')
 	#get_heap_info()
@@ -888,7 +904,6 @@ while True:
 		f.write("\nEXCEPT "+str(e))
 		break
 	#
-	
 	
 	
 	'''
@@ -1001,6 +1016,8 @@ while True:
 	if len(avp1)>0:
 		del avp1[0]
 	rv=linkall(gvp1,svp1,avp1,lnc,fname)
+		
+	
 	vdisp(gvp1,svp1,avp1,lnc,fname,rv)
 	pdisp(rv)
 	
