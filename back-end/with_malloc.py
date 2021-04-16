@@ -16,7 +16,7 @@ lines_data = []
 structures = [] #set() #to store all structures used in the program
 struct_details = {}
 
-heap = set()
+heap = dict()#set()
 heap_i = 0
 
 stack_depth = 1
@@ -68,25 +68,21 @@ p_glob.stdin.write('info variables\n') # info variables -> to get all global var
 op = p_glob.communicate() # .communicate returns (stdout_data, stderr_data)
 glob_list = op[0].split('\n')
 
-try:
-	i = glob_list.index('File '+my_file+':') + 1
-	while glob_list[i]!='':
-		x = glob_list[i].split(' ')[1].replace(";",'').replace("\n",'')
-		if x[0] == '*':
-			x = x[1:]
-		name = ''
-		for j in range(0,len(x)):
-			if x[j] in sep:
-				break
-			name = name + x[j]
-		global_name_list.append(name)
-		i += 1
-	gn=len(global_name_list)#no of global variables
+
+i = glob_list.index('File '+my_file+':') + 1
 #print glob_list
-except ValueError:
-	pass
-
-
+while glob_list[i]!='':
+	x = glob_list[i].split(' ')[1].replace(";",'').replace("\n",'')
+	if x[0] == '*':
+		x = x[1:]
+	name = ''
+	for j in range(0,len(x)):
+		if x[j] in sep:
+			break
+		name = name + x[j]
+	global_name_list.append(name)
+	i += 1
+gn=len(global_name_list)#no of global variables
 p1 = Popen(['gdb', 'a.out'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 flags = fcntl(p1.stdout, F_GETFL) # get current p.stdout flags
 fcntl(p1.stdout, F_SETFL, flags | O_NONBLOCK)
@@ -172,6 +168,7 @@ def get_deref_value(addr, datatype):
 	my_out = string.replace(my_out,'(gdb)','').strip()
 
 	if 'struct' in datatype:
+		fields = struct_fields_info(p1, datatype);
 		val = my_out[my_out.find('{'):]
 		pat = re.compile(r' <.*?>')
 		val = re.sub(pat, '', val)
@@ -186,7 +183,13 @@ def get_deref_value(addr, datatype):
 			
 			#elif addr in heap:
 			#	ID = 'HEAPVAR -'+addr
-			
+				if addr in heap:
+				#	#val = 'HEAPVAR -'+addr
+				#	deref_val = get_deref_value(addr, datatype)
+				#	heap[addr]['deref_val'] = deref_val
+					heap[addr]['id'] = ID
+
+
 			elif ID == 0:	# hexadecimal 0x0 i.e 0 corresponds to NULL
 				ID = 'N'
 			else:
@@ -205,6 +208,15 @@ def get_deref_value(addr, datatype):
 			k=i.strip("{}")
 			k=k.split(":")
 			x.append({k[0].strip():k[1].strip()})
+		
+		k = 0
+		for i in range(len(fields)):
+			if fields[i]['type'] == 'ptr':
+				address = l[k]
+				if address in heap:
+					deref_val = get_deref_value(address, fields[i]['data_type']) 
+					heap[address]['deref_val'] = deref_val
+				k += 1
 
 		return x
 	else:
@@ -243,7 +255,7 @@ def maketogether(ln,di,gl,stringnamed):
 		ID=addr_to_id[ID]
 		var=""
 		val=""
-		if '*' in datatype:
+		if '*' in datatype and datatype != 'void *':
 			var="ptr"
 			#try:
 			addr = i[1].split()[0]
@@ -254,7 +266,11 @@ def maketogether(ln,di,gl,stringnamed):
 				if addr in heap:
 					#val = 'HEAPVAR -'+addr
 					deref_val = get_deref_value(addr, datatype)
-					sepdi['deref_val'] = deref_val
+					#f.write("\ndatatype: "+datatype+" deref: "+str(deref_val)+"\n")
+					heap[addr]['deref_val'] = deref_val
+					heap[addr]['id'] = val
+					#sepdi['is_heap'] = True
+					#sepdi['deref_val'] = deref_val ### remove this #### in get deref func need to find data_type for further deref
 			else:
 				#f.write("\nHEREE"+str(val)+"\n") ##
 				val = 'U'
@@ -274,6 +290,7 @@ def maketogether(ln,di,gl,stringnamed):
 		sepdi['val']=val
 		
 		if is_struct and '*' not in datatype:
+			fields = struct_fields_info(p1, datatype);
 			pat = re.compile(r' <.*?>')
 			val = re.sub(pat, '', val)
 			reg = re.compile(r'0x[0-9a-f]*[,}]') #pattern to find hexadecimals in val, => they are pointers and we need to replace it with ID
@@ -287,7 +304,12 @@ def maketogether(ln,di,gl,stringnamed):
 				
 	#			elif addr in heap:
 	#				ID = 'HEAPVAR -'+addr
-	
+					if addr in heap:
+					#	#val = 'HEAPVAR -'+addr
+					#	deref_val = get_deref_value(addr, datatype)
+					#	heap[addr]['deref_val'] = deref_val
+						heap[addr]['id'] = ID	
+						
 				elif ID == 0:	# hexadecimal 0x0 i.e 0 corresponds to NULL
 					ID = 'N'
 				else:
@@ -306,7 +328,15 @@ def maketogether(ln,di,gl,stringnamed):
 				k=k.split(":")
 				x.append({k[0].strip():k[1].strip()})
 			sepdi['val'] = x
-			
+			#
+			k = 0
+			for i in range(len(fields)):
+				if fields[i]['type'] == 'ptr':
+					address = l[k]
+					if address in heap:
+						heap[address]['deref_val'] = get_deref_value(address, fields[i]['data_type']) 
+					k += 1			
+			#
 			#f.write("\n-----\n"+str(l)+"\n")
 			#f.write(val + "\n")
 		#di['Global Variables'][ID]=[i[0],i[2][1:i[2].rfind('*')],i[1]] #i[0] will hold the variable name
@@ -828,7 +858,9 @@ def get_heap_info(pipe):
 		if int(loc, 16) not in addr_to_id:
 			addr_to_id[int(loc,16)] = id_counter
 			id_counter+=1
-		heap.add(loc)
+		#heap.add(loc)
+			heap[loc] = {}
+		
 	#f.write(str(heap)+"\n")
 	
 p1.stdin.write('break main\n')
@@ -1003,6 +1035,10 @@ while True:
 	if ret == 1:
 		p1.stdin.write('finish\n')
 		output(p1,3)
+	
+	
+	f.write(str(heap)+"\n\n");
+	
 	
 	#moved step to the end of loop
 	p1.stdin.write('step\n')
