@@ -186,7 +186,7 @@ def get_deref_value(addr, datatype):
 				if addr in heap:
 				#	#val = 'HEAPVAR -'+addr
 				#	deref_val = get_deref_value(addr, datatype)
-				#	heap[addr]['deref_val'] = deref_val
+				#	heap[addr]['val'] = deref_val
 					heap[addr]['id'] = ID
 
 
@@ -215,9 +215,9 @@ def get_deref_value(addr, datatype):
 				address = l[k]
 				if address in heap:
 					#deref_val = get_deref_value(address, fields[i]['data_type']) 
-					#heap[address]['deref_val'] = deref_val
+					#heap[address]['val'] = deref_val
 					dt = fields[i]['data_type']
-					heap[address]['deref_val'] = get_deref_value(address, dt) 
+					heap[address]['val'] = get_deref_value(address, dt) 
 					heap[address]['data_type'] = dt[: dt.rfind('*')].strip()
 				k += 1
 
@@ -270,7 +270,7 @@ def maketogether(ln,di,gl,stringnamed):
 					#val = 'HEAPVAR -'+addr
 					deref_val = get_deref_value(addr, datatype)
 					#f.write("\ndatatype: "+datatype+" deref: "+str(deref_val)+"\n")
-					heap[addr]['deref_val'] = deref_val
+					heap[addr]['val'] = deref_val
 					heap[addr]['data_type'] = datatype[: datatype.rfind('*')].strip()
 					heap[addr]['id'] = val
 					#sepdi['is_heap'] = True
@@ -311,7 +311,7 @@ def maketogether(ln,di,gl,stringnamed):
 					if addr in heap:
 					#	#val = 'HEAPVAR -'+addr
 					#	deref_val = get_deref_value(addr, datatype)
-					#	heap[addr]['deref_val'] = deref_val
+					#	heap[addr]['val'] = deref_val
 						heap[addr]['id'] = ID	
 						
 				elif ID == 0:	# hexadecimal 0x0 i.e 0 corresponds to NULL
@@ -339,7 +339,7 @@ def maketogether(ln,di,gl,stringnamed):
 					address = l[k]
 					if address in heap:
 						dt = fields[i]['data_type']
-						heap[address]['deref_val'] = get_deref_value(address, dt) 
+						heap[address]['val'] = get_deref_value(address, dt) 
 						heap[address]['data_type'] = dt[: dt.rfind('*')].strip()
 					k += 1			
 			#
@@ -377,8 +377,10 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 	#heap
 	di = {}
 	di["LineNum"] = ln
-	di["type"] = "heap"
-	di['Contents'] = heap.copy()
+	di["type"] = "Heap"
+	#di['Contents'] = heap.copy()
+	### made contents a list of dictionaries -> where each dictionary is the value field in heap 
+	di['Contents'] = list(heap.values())
 	lines_data.append(di.copy())
 	del di
 	

@@ -32,8 +32,8 @@
     }, 
     {
       "LineNum": 0, 
-      "type": "heap", 
-      "Contents": {}
+      "type": "Heap", 
+      "Contents": []
     }, 
     {
       "LineNum": 0, 
@@ -53,20 +53,6 @@
           "id": 4, 
           "val": "U", 
           "name": "head"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 5, 
-          "val": "U", 
-          "name": "second"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 6, 
-          "val": "U", 
-          "name": "third"
         }
       ]
     }, 
@@ -85,15 +71,15 @@
     }, 
     {
       "LineNum": 14, 
-      "type": "heap", 
-      "Contents": {}
+      "type": "Heap", 
+      "Contents": []
     }, 
     {
       "LineNum": 14, 
       "stackdepth": 2, 
-      "nameid": 8, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 7, 
+      "id": 5, 
       "name": "mymalloc"
     }, 
     {
@@ -103,8 +89,8 @@
         {
           "data_type": "void *", 
           "type": "var", 
-          "id": 9, 
-          "val": "0x40199c <__libc_csu_init+124>", 
+          "id": 7, 
+          "val": "0x4019ac <__libc_csu_init+124>", 
           "name": "ptr"
         }
       ]
@@ -137,15 +123,15 @@
     }, 
     {
       "LineNum": 6, 
-      "type": "heap", 
-      "Contents": {}
+      "type": "Heap", 
+      "Contents": []
     }, 
     {
       "LineNum": 6, 
       "stackdepth": 2, 
-      "nameid": 8, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 7, 
+      "id": 5, 
       "name": "mymalloc"
     }, 
     {
@@ -155,7 +141,7 @@
         {
           "data_type": "void *", 
           "type": "var", 
-          "id": 9, 
+          "id": 7, 
           "val": "0x6c0b40", 
           "name": "ptr"
         }
@@ -189,15 +175,15 @@
     }, 
     {
       "LineNum": 7, 
-      "type": "heap", 
-      "Contents": {}
+      "type": "Heap", 
+      "Contents": []
     }, 
     {
       "LineNum": 7, 
       "stackdepth": 2, 
-      "nameid": 8, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 7, 
+      "id": 5, 
       "name": "mymalloc"
     }, 
     {
@@ -207,7 +193,7 @@
         {
           "data_type": "void *", 
           "type": "var", 
-          "id": 9, 
+          "id": 7, 
           "val": "0x6c0b40", 
           "name": "ptr"
         }
@@ -241,28 +227,28 @@
     }, 
     {
       "LineNum": 8, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b40": {
-          "deref_val": [
+      "type": "Heap", 
+      "Contents": [
+        {
+          "data_type": "struct Node", 
+          "val": [
             {
               "data": "11"
             }, 
             {
-              "next": "11"
+              "next": "9"
             }
           ], 
-          "id": 10, 
-          "data_type": "struct Node"
+          "id": 8
         }
-      }
+      ]
     }, 
     {
       "LineNum": 8, 
       "stackdepth": 2, 
-      "nameid": 8, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 7, 
+      "id": 5, 
       "name": "mymalloc"
     }, 
     {
@@ -272,7 +258,7 @@
         {
           "data_type": "void *", 
           "type": "var", 
-          "id": 9, 
+          "id": 7, 
           "val": "0x6c0b40", 
           "name": "ptr"
         }
@@ -306,28 +292,28 @@
     }, 
     {
       "LineNum": 9, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b40": {
-          "deref_val": [
+      "type": "Heap", 
+      "Contents": [
+        {
+          "data_type": "struct Node", 
+          "val": [
             {
               "data": "11"
             }, 
             {
-              "next": "11"
+              "next": "9"
             }
           ], 
-          "id": 10, 
-          "data_type": "struct Node"
+          "id": 8
         }
-      }
+      ]
     }, 
     {
       "LineNum": 9, 
       "stackdepth": 2, 
-      "nameid": 8, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 7, 
+      "id": 5, 
       "name": "mymalloc"
     }, 
     {
@@ -337,7 +323,7 @@
         {
           "data_type": "void *", 
           "type": "var", 
-          "id": 9, 
+          "id": 7, 
           "val": "0x6c0b40", 
           "name": "ptr"
         }
@@ -371,21 +357,21 @@
     }, 
     {
       "LineNum": 10, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b40": {
-          "deref_val": [
+      "type": "Heap", 
+      "Contents": [
+        {
+          "data_type": "struct Node", 
+          "val": [
             {
               "data": "11"
             }, 
             {
-              "next": "11"
+              "next": "9"
             }
           ], 
-          "id": 10, 
-          "data_type": "struct Node"
+          "id": 8
         }
-      }
+      ]
     }, 
     {
       "LineNum": 10, 
@@ -403,22 +389,8 @@
           "data_type": "struct Node *", 
           "type": "ptr", 
           "id": 4, 
-          "val": 10, 
+          "val": 8, 
           "name": "head"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 5, 
-          "val": "U", 
-          "name": "second"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 6, 
-          "val": "U", 
-          "name": "third"
         }
       ]
     }, 
@@ -437,45 +409,97 @@
     }, 
     {
       "LineNum": 15, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b40": {
-          "deref_val": [
+      "type": "Heap", 
+      "Contents": [
+        {
+          "data_type": "struct Node", 
+          "val": [
             {
               "data": "11"
             }, 
             {
-              "next": "11"
+              "next": "9"
             }
           ], 
-          "id": 10, 
-          "data_type": "struct Node"
+          "id": 8
         }
-      }
+      ]
     }, 
     {
       "LineNum": 15, 
-      "stackdepth": 2, 
-      "nameid": 8, 
+      "stackdepth": 1, 
+      "nameid": 3, 
       "type": "Function", 
-      "id": 7, 
-      "name": "mymalloc"
+      "id": 2, 
+      "name": "main"
     }, 
     {
       "LineNum": 15, 
       "type": "StackFrame", 
       "Contents": [
         {
+          "data_type": "struct Node *", 
+          "type": "ptr", 
+          "id": 4, 
+          "val": 8, 
+          "name": "head"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 16, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 16, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "data_type": "struct Node", 
+          "val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "9"
+            }
+          ], 
+          "id": 8
+        }
+      ]
+    }, 
+    {
+      "LineNum": 16, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "mymalloc"
+    }, 
+    {
+      "LineNum": 16, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
           "data_type": "void *", 
           "type": "var", 
-          "id": 9, 
+          "id": 7, 
           "val": "0x6c0b40", 
           "name": "ptr"
         }
       ]
     }, 
     {
-      "LineNum": 15, 
+      "LineNum": 16, 
       "type": "Arguments", 
       "Contents": [
         {
@@ -502,28 +526,28 @@
     }, 
     {
       "LineNum": 6, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b40": {
-          "deref_val": [
+      "type": "Heap", 
+      "Contents": [
+        {
+          "data_type": "struct Node", 
+          "val": [
             {
               "data": "11"
             }, 
             {
-              "next": "11"
+              "next": "9"
             }
           ], 
-          "id": 10, 
-          "data_type": "struct Node"
+          "id": 8
         }
-      }
+      ]
     }, 
     {
       "LineNum": 6, 
       "stackdepth": 2, 
-      "nameid": 8, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 7, 
+      "id": 5, 
       "name": "mymalloc"
     }, 
     {
@@ -533,7 +557,7 @@
         {
           "data_type": "void *", 
           "type": "var", 
-          "id": 9, 
+          "id": 7, 
           "val": "0x6c0b60", 
           "name": "ptr"
         }
@@ -567,28 +591,28 @@
     }, 
     {
       "LineNum": 7, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b40": {
-          "deref_val": [
+      "type": "Heap", 
+      "Contents": [
+        {
+          "data_type": "struct Node", 
+          "val": [
             {
               "data": "11"
             }, 
             {
-              "next": "11"
+              "next": "9"
             }
           ], 
-          "id": 10, 
-          "data_type": "struct Node"
+          "id": 8
         }
-      }
+      ]
     }, 
     {
       "LineNum": 7, 
       "stackdepth": 2, 
-      "nameid": 8, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 7, 
+      "id": 5, 
       "name": "mymalloc"
     }, 
     {
@@ -598,7 +622,7 @@
         {
           "data_type": "void *", 
           "type": "var", 
-          "id": 9, 
+          "id": 7, 
           "val": "0x6c0b60", 
           "name": "ptr"
         }
@@ -632,40 +656,40 @@
     }, 
     {
       "LineNum": 8, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b60": {
-          "deref_val": [
+      "type": "Heap", 
+      "Contents": [
+        {
+          "data_type": "struct Node", 
+          "id": 9, 
+          "val": [
             {
               "data": "21"
             }, 
             {
-              "next": "12"
+              "next": "10"
             }
-          ], 
-          "id": 11, 
-          "data_type": "struct Node"
+          ]
         }, 
-        "0x6c0b40": {
-          "deref_val": [
+        {
+          "data_type": "struct Node", 
+          "val": [
             {
               "data": "11"
             }, 
             {
-              "next": "11"
+              "next": "9"
             }
           ], 
-          "id": 10, 
-          "data_type": "struct Node"
+          "id": 8
         }
-      }
+      ]
     }, 
     {
       "LineNum": 8, 
       "stackdepth": 2, 
-      "nameid": 8, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 7, 
+      "id": 5, 
       "name": "mymalloc"
     }, 
     {
@@ -675,7 +699,7 @@
         {
           "data_type": "void *", 
           "type": "var", 
-          "id": 9, 
+          "id": 7, 
           "val": "0x6c0b60", 
           "name": "ptr"
         }
@@ -709,40 +733,40 @@
     }, 
     {
       "LineNum": 9, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b60": {
-          "deref_val": [
+      "type": "Heap", 
+      "Contents": [
+        {
+          "data_type": "struct Node", 
+          "id": 9, 
+          "val": [
             {
               "data": "21"
             }, 
             {
-              "next": "12"
+              "next": "10"
             }
-          ], 
-          "id": 11, 
-          "data_type": "struct Node"
+          ]
         }, 
-        "0x6c0b40": {
-          "deref_val": [
+        {
+          "data_type": "struct Node", 
+          "val": [
             {
               "data": "11"
             }, 
             {
-              "next": "11"
+              "next": "9"
             }
           ], 
-          "id": 10, 
-          "data_type": "struct Node"
+          "id": 8
         }
-      }
+      ]
     }, 
     {
       "LineNum": 9, 
       "stackdepth": 2, 
-      "nameid": 8, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 7, 
+      "id": 5, 
       "name": "mymalloc"
     }, 
     {
@@ -752,7 +776,7 @@
         {
           "data_type": "void *", 
           "type": "var", 
-          "id": 9, 
+          "id": 7, 
           "val": "0x6c0b60", 
           "name": "ptr"
         }
@@ -786,33 +810,33 @@
     }, 
     {
       "LineNum": 10, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b60": {
-          "deref_val": [
+      "type": "Heap", 
+      "Contents": [
+        {
+          "data_type": "struct Node", 
+          "id": 9, 
+          "val": [
             {
               "data": "21"
             }, 
             {
-              "next": "12"
+              "next": "10"
             }
-          ], 
-          "id": 11, 
-          "data_type": "struct Node"
+          ]
         }, 
-        "0x6c0b40": {
-          "deref_val": [
+        {
+          "data_type": "struct Node", 
+          "val": [
             {
               "data": "11"
             }, 
             {
-              "next": "11"
+              "next": "9"
             }
           ], 
-          "id": 10, 
-          "data_type": "struct Node"
+          "id": 8
         }
-      }
+      ]
     }, 
     {
       "LineNum": 10, 
@@ -830,27 +854,13 @@
           "data_type": "struct Node *", 
           "type": "ptr", 
           "id": 4, 
-          "val": 10, 
+          "val": 8, 
           "name": "head"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 5, 
-          "val": 11, 
-          "name": "second"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 6, 
-          "val": "U", 
-          "name": "third"
         }
       ]
     }, 
     {
-      "LineNum": 16, 
+      "LineNum": 18, 
       "type": "GlobalVariables", 
       "Contents": [
         {
@@ -863,58 +873,122 @@
       ]
     }, 
     {
-      "LineNum": 16, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b60": {
-          "deref_val": [
+      "LineNum": 18, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "data_type": "struct Node", 
+          "id": 9, 
+          "val": [
             {
               "data": "21"
             }, 
             {
-              "next": "12"
+              "next": "10"
             }
-          ], 
-          "id": 11, 
-          "data_type": "struct Node"
+          ]
         }, 
-        "0x6c0b40": {
-          "deref_val": [
+        {
+          "data_type": "struct Node", 
+          "val": [
             {
               "data": "11"
             }, 
             {
-              "next": "11"
+              "next": "9"
             }
           ], 
-          "id": 10, 
-          "data_type": "struct Node"
+          "id": 8
         }
-      }
+      ]
     }, 
     {
-      "LineNum": 16, 
-      "stackdepth": 2, 
-      "nameid": 8, 
+      "LineNum": 18, 
+      "stackdepth": 1, 
+      "nameid": 3, 
       "type": "Function", 
-      "id": 7, 
+      "id": 2, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 18, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "struct Node *", 
+          "type": "ptr", 
+          "id": 4, 
+          "val": 8, 
+          "name": "head"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 19, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 19, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "data_type": "struct Node", 
+          "id": 9, 
+          "val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "10"
+            }
+          ]
+        }, 
+        {
+          "data_type": "struct Node", 
+          "val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "9"
+            }
+          ], 
+          "id": 8
+        }
+      ]
+    }, 
+    {
+      "LineNum": 19, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
       "name": "mymalloc"
     }, 
     {
-      "LineNum": 16, 
+      "LineNum": 19, 
       "type": "StackFrame", 
       "Contents": [
         {
           "data_type": "void *", 
           "type": "var", 
-          "id": 9, 
+          "id": 7, 
           "val": "0x6c0b60", 
           "name": "ptr"
         }
       ]
     }, 
     {
-      "LineNum": 16, 
+      "LineNum": 19, 
       "type": "Arguments", 
       "Contents": [
         {
@@ -941,40 +1015,40 @@
     }, 
     {
       "LineNum": 6, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b60": {
-          "deref_val": [
+      "type": "Heap", 
+      "Contents": [
+        {
+          "data_type": "struct Node", 
+          "id": 9, 
+          "val": [
             {
               "data": "21"
             }, 
             {
-              "next": "12"
+              "next": "10"
             }
-          ], 
-          "id": 11, 
-          "data_type": "struct Node"
+          ]
         }, 
-        "0x6c0b40": {
-          "deref_val": [
+        {
+          "data_type": "struct Node", 
+          "val": [
             {
               "data": "11"
             }, 
             {
-              "next": "11"
+              "next": "9"
             }
           ], 
-          "id": 10, 
-          "data_type": "struct Node"
+          "id": 8
         }
-      }
+      ]
     }, 
     {
       "LineNum": 6, 
       "stackdepth": 2, 
-      "nameid": 8, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 7, 
+      "id": 5, 
       "name": "mymalloc"
     }, 
     {
@@ -984,7 +1058,7 @@
         {
           "data_type": "void *", 
           "type": "var", 
-          "id": 9, 
+          "id": 7, 
           "val": "0x6c0b80", 
           "name": "ptr"
         }
@@ -1018,40 +1092,40 @@
     }, 
     {
       "LineNum": 7, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b60": {
-          "deref_val": [
+      "type": "Heap", 
+      "Contents": [
+        {
+          "data_type": "struct Node", 
+          "id": 9, 
+          "val": [
             {
               "data": "21"
             }, 
             {
-              "next": "12"
+              "next": "10"
             }
-          ], 
-          "id": 11, 
-          "data_type": "struct Node"
+          ]
         }, 
-        "0x6c0b40": {
-          "deref_val": [
+        {
+          "data_type": "struct Node", 
+          "val": [
             {
               "data": "11"
             }, 
             {
-              "next": "11"
+              "next": "9"
             }
           ], 
-          "id": 10, 
-          "data_type": "struct Node"
+          "id": 8
         }
-      }
+      ]
     }, 
     {
       "LineNum": 7, 
       "stackdepth": 2, 
-      "nameid": 8, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 7, 
+      "id": 5, 
       "name": "mymalloc"
     }, 
     {
@@ -1061,7 +1135,7 @@
         {
           "data_type": "void *", 
           "type": "var", 
-          "id": 9, 
+          "id": 7, 
           "val": "0x6c0b80", 
           "name": "ptr"
         }
@@ -1095,52 +1169,52 @@
     }, 
     {
       "LineNum": 8, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b80": {
-          "deref_val": [
+      "type": "Heap", 
+      "Contents": [
+        {
+          "data_type": "struct Node", 
+          "id": 10, 
+          "val": [
             {
               "data": "31"
             }, 
             {
               "next": "N"
             }
-          ], 
-          "id": 12, 
-          "data_type": "struct Node"
+          ]
         }, 
-        "0x6c0b60": {
-          "deref_val": [
+        {
+          "data_type": "struct Node", 
+          "id": 9, 
+          "val": [
             {
               "data": "21"
             }, 
             {
-              "next": "12"
+              "next": "10"
             }
-          ], 
-          "id": 11, 
-          "data_type": "struct Node"
+          ]
         }, 
-        "0x6c0b40": {
-          "deref_val": [
+        {
+          "data_type": "struct Node", 
+          "val": [
             {
               "data": "11"
             }, 
             {
-              "next": "11"
+              "next": "9"
             }
           ], 
-          "id": 10, 
-          "data_type": "struct Node"
+          "id": 8
         }
-      }
+      ]
     }, 
     {
       "LineNum": 8, 
       "stackdepth": 2, 
-      "nameid": 8, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 7, 
+      "id": 5, 
       "name": "mymalloc"
     }, 
     {
@@ -1150,7 +1224,7 @@
         {
           "data_type": "void *", 
           "type": "var", 
-          "id": 9, 
+          "id": 7, 
           "val": "0x6c0b80", 
           "name": "ptr"
         }
@@ -1184,52 +1258,52 @@
     }, 
     {
       "LineNum": 9, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b80": {
-          "deref_val": [
+      "type": "Heap", 
+      "Contents": [
+        {
+          "data_type": "struct Node", 
+          "id": 10, 
+          "val": [
             {
               "data": "31"
             }, 
             {
               "next": "N"
             }
-          ], 
-          "id": 12, 
-          "data_type": "struct Node"
+          ]
         }, 
-        "0x6c0b60": {
-          "deref_val": [
+        {
+          "data_type": "struct Node", 
+          "id": 9, 
+          "val": [
             {
               "data": "21"
             }, 
             {
-              "next": "12"
+              "next": "10"
             }
-          ], 
-          "id": 11, 
-          "data_type": "struct Node"
+          ]
         }, 
-        "0x6c0b40": {
-          "deref_val": [
+        {
+          "data_type": "struct Node", 
+          "val": [
             {
               "data": "11"
             }, 
             {
-              "next": "11"
+              "next": "9"
             }
           ], 
-          "id": 10, 
-          "data_type": "struct Node"
+          "id": 8
         }
-      }
+      ]
     }, 
     {
       "LineNum": 9, 
       "stackdepth": 2, 
-      "nameid": 8, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 7, 
+      "id": 5, 
       "name": "mymalloc"
     }, 
     {
@@ -1239,7 +1313,7 @@
         {
           "data_type": "void *", 
           "type": "var", 
-          "id": 9, 
+          "id": 7, 
           "val": "0x6c0b80", 
           "name": "ptr"
         }
@@ -1273,45 +1347,45 @@
     }, 
     {
       "LineNum": 10, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b80": {
-          "deref_val": [
+      "type": "Heap", 
+      "Contents": [
+        {
+          "data_type": "struct Node", 
+          "id": 10, 
+          "val": [
             {
               "data": "31"
             }, 
             {
               "next": "N"
             }
-          ], 
-          "id": 12, 
-          "data_type": "struct Node"
+          ]
         }, 
-        "0x6c0b60": {
-          "deref_val": [
+        {
+          "data_type": "struct Node", 
+          "id": 9, 
+          "val": [
             {
               "data": "21"
             }, 
             {
-              "next": "12"
+              "next": "10"
             }
-          ], 
-          "id": 11, 
-          "data_type": "struct Node"
+          ]
         }, 
-        "0x6c0b40": {
-          "deref_val": [
+        {
+          "data_type": "struct Node", 
+          "val": [
             {
               "data": "11"
             }, 
             {
-              "next": "11"
+              "next": "9"
             }
           ], 
-          "id": 10, 
-          "data_type": "struct Node"
+          "id": 8
         }
-      }
+      ]
     }, 
     {
       "LineNum": 10, 
@@ -1329,202 +1403,8 @@
           "data_type": "struct Node *", 
           "type": "ptr", 
           "id": 4, 
-          "val": 10, 
+          "val": 8, 
           "name": "head"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 5, 
-          "val": 11, 
-          "name": "second"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 6, 
-          "val": 12, 
-          "name": "third"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 18, 
-      "type": "GlobalVariables", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 18, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b80": {
-          "deref_val": [
-            {
-              "data": "31"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "id": 12, 
-          "data_type": "struct Node"
-        }, 
-        "0x6c0b60": {
-          "deref_val": [
-            {
-              "data": "21"
-            }, 
-            {
-              "next": "12"
-            }
-          ], 
-          "id": 11, 
-          "data_type": "struct Node"
-        }, 
-        "0x6c0b40": {
-          "deref_val": [
-            {
-              "data": "11"
-            }, 
-            {
-              "next": "11"
-            }
-          ], 
-          "id": 10, 
-          "data_type": "struct Node"
-        }
-      }
-    }, 
-    {
-      "LineNum": 18, 
-      "stackdepth": 1, 
-      "nameid": 3, 
-      "type": "Function", 
-      "id": 2, 
-      "name": "main"
-    }, 
-    {
-      "LineNum": 18, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": 10, 
-          "name": "head"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 5, 
-          "val": 11, 
-          "name": "second"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 6, 
-          "val": 12, 
-          "name": "third"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 19, 
-      "type": "GlobalVariables", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 19, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b80": {
-          "deref_val": [
-            {
-              "data": "31"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "id": 12, 
-          "data_type": "struct Node"
-        }, 
-        "0x6c0b60": {
-          "deref_val": [
-            {
-              "data": "21"
-            }, 
-            {
-              "next": "12"
-            }
-          ], 
-          "id": 11, 
-          "data_type": "struct Node"
-        }, 
-        "0x6c0b40": {
-          "deref_val": [
-            {
-              "data": "11"
-            }, 
-            {
-              "next": "11"
-            }
-          ], 
-          "id": 10, 
-          "data_type": "struct Node"
-        }
-      }
-    }, 
-    {
-      "LineNum": 19, 
-      "stackdepth": 1, 
-      "nameid": 3, 
-      "type": "Function", 
-      "id": 2, 
-      "name": "main"
-    }, 
-    {
-      "LineNum": 19, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": 10, 
-          "name": "head"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 5, 
-          "val": 11, 
-          "name": "second"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 6, 
-          "val": 12, 
-          "name": "third"
         }
       ]
     }, 
@@ -1543,45 +1423,45 @@
     }, 
     {
       "LineNum": 21, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b80": {
-          "deref_val": [
+      "type": "Heap", 
+      "Contents": [
+        {
+          "data_type": "struct Node", 
+          "id": 10, 
+          "val": [
             {
               "data": "31"
             }, 
             {
               "next": "N"
             }
-          ], 
-          "id": 12, 
-          "data_type": "struct Node"
+          ]
         }, 
-        "0x6c0b60": {
-          "deref_val": [
+        {
+          "data_type": "struct Node", 
+          "id": 9, 
+          "val": [
             {
               "data": "21"
             }, 
             {
-              "next": "12"
+              "next": "10"
             }
-          ], 
-          "id": 11, 
-          "data_type": "struct Node"
+          ]
         }, 
-        "0x6c0b40": {
-          "deref_val": [
+        {
+          "data_type": "struct Node", 
+          "val": [
             {
               "data": "11"
             }, 
             {
-              "next": "11"
+              "next": "9"
             }
           ], 
-          "id": 10, 
-          "data_type": "struct Node"
+          "id": 8
         }
-      }
+      ]
     }, 
     {
       "LineNum": 21, 
@@ -1599,22 +1479,8 @@
           "data_type": "struct Node *", 
           "type": "ptr", 
           "id": 4, 
-          "val": 10, 
+          "val": 8, 
           "name": "head"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 5, 
-          "val": 11, 
-          "name": "second"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 6, 
-          "val": 12, 
-          "name": "third"
         }
       ]
     }, 
@@ -1633,45 +1499,45 @@
     }, 
     {
       "LineNum": 22, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b80": {
-          "deref_val": [
+      "type": "Heap", 
+      "Contents": [
+        {
+          "data_type": "struct Node", 
+          "id": 10, 
+          "val": [
             {
               "data": "31"
             }, 
             {
               "next": "N"
             }
-          ], 
-          "id": 12, 
-          "data_type": "struct Node"
+          ]
         }, 
-        "0x6c0b60": {
-          "deref_val": [
+        {
+          "data_type": "struct Node", 
+          "id": 9, 
+          "val": [
             {
               "data": "21"
             }, 
             {
-              "next": "12"
+              "next": "10"
             }
-          ], 
-          "id": 11, 
-          "data_type": "struct Node"
+          ]
         }, 
-        "0x6c0b40": {
-          "deref_val": [
+        {
+          "data_type": "struct Node", 
+          "val": [
             {
               "data": "11"
             }, 
             {
-              "next": "11"
+              "next": "9"
             }
           ], 
-          "id": 10, 
-          "data_type": "struct Node"
+          "id": 8
         }
-      }
+      ]
     }, 
     {
       "LineNum": 22, 
@@ -1689,22 +1555,8 @@
           "data_type": "struct Node *", 
           "type": "ptr", 
           "id": 4, 
-          "val": 10, 
+          "val": 8, 
           "name": "head"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 5, 
-          "val": 11, 
-          "name": "second"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 6, 
-          "val": 12, 
-          "name": "third"
         }
       ]
     }, 
@@ -1723,45 +1575,45 @@
     }, 
     {
       "LineNum": 24, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b80": {
-          "deref_val": [
+      "type": "Heap", 
+      "Contents": [
+        {
+          "data_type": "struct Node", 
+          "id": 10, 
+          "val": [
             {
               "data": "31"
             }, 
             {
               "next": "N"
             }
-          ], 
-          "id": 12, 
-          "data_type": "struct Node"
+          ]
         }, 
-        "0x6c0b60": {
-          "deref_val": [
+        {
+          "data_type": "struct Node", 
+          "id": 9, 
+          "val": [
             {
               "data": "21"
             }, 
             {
-              "next": "12"
+              "next": "10"
             }
-          ], 
-          "id": 11, 
-          "data_type": "struct Node"
+          ]
         }, 
-        "0x6c0b40": {
-          "deref_val": [
+        {
+          "data_type": "struct Node", 
+          "val": [
             {
               "data": "11"
             }, 
             {
-              "next": "11"
+              "next": "9"
             }
           ], 
-          "id": 10, 
-          "data_type": "struct Node"
+          "id": 8
         }
-      }
+      ]
     }, 
     {
       "LineNum": 24, 
@@ -1779,202 +1631,8 @@
           "data_type": "struct Node *", 
           "type": "ptr", 
           "id": 4, 
-          "val": 10, 
+          "val": 8, 
           "name": "head"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 5, 
-          "val": 11, 
-          "name": "second"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 6, 
-          "val": 12, 
-          "name": "third"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 25, 
-      "type": "GlobalVariables", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 25, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b80": {
-          "deref_val": [
-            {
-              "data": "31"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "id": 12, 
-          "data_type": "struct Node"
-        }, 
-        "0x6c0b60": {
-          "deref_val": [
-            {
-              "data": "21"
-            }, 
-            {
-              "next": "12"
-            }
-          ], 
-          "id": 11, 
-          "data_type": "struct Node"
-        }, 
-        "0x6c0b40": {
-          "deref_val": [
-            {
-              "data": "11"
-            }, 
-            {
-              "next": "11"
-            }
-          ], 
-          "id": 10, 
-          "data_type": "struct Node"
-        }
-      }
-    }, 
-    {
-      "LineNum": 25, 
-      "stackdepth": 1, 
-      "nameid": 3, 
-      "type": "Function", 
-      "id": 2, 
-      "name": "main"
-    }, 
-    {
-      "LineNum": 25, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": 10, 
-          "name": "head"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 5, 
-          "val": 11, 
-          "name": "second"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 6, 
-          "val": 12, 
-          "name": "third"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 27, 
-      "type": "GlobalVariables", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 27, 
-      "type": "heap", 
-      "Contents": {
-        "0x6c0b80": {
-          "deref_val": [
-            {
-              "data": "31"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "id": 12, 
-          "data_type": "struct Node"
-        }, 
-        "0x6c0b60": {
-          "deref_val": [
-            {
-              "data": "21"
-            }, 
-            {
-              "next": "12"
-            }
-          ], 
-          "id": 11, 
-          "data_type": "struct Node"
-        }, 
-        "0x6c0b40": {
-          "deref_val": [
-            {
-              "data": "11"
-            }, 
-            {
-              "next": "11"
-            }
-          ], 
-          "id": 10, 
-          "data_type": "struct Node"
-        }
-      }
-    }, 
-    {
-      "LineNum": 27, 
-      "stackdepth": 1, 
-      "nameid": 3, 
-      "type": "Function", 
-      "id": 2, 
-      "name": "main"
-    }, 
-    {
-      "LineNum": 27, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": 10, 
-          "name": "head"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 5, 
-          "val": 11, 
-          "name": "second"
-        }, 
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 6, 
-          "val": 12, 
-          "name": "third"
         }
       ]
     }
