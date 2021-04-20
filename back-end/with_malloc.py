@@ -364,6 +364,8 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		ln = int(lnc.split()[1]) #next line to execute
 		ln = prev_lineno
 	except:
+		#f.write("\nline: "+str(lnc)+"\n")
+		#ln = prev_lineno
 		return
 	#di["Contents"]={}
 	
@@ -377,6 +379,8 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		lines_data.append(di.copy())
 		del di
 	
+	# keep it after stack variables so that it has updated content
+	'''
 	#heap
 	di = {}
 	di["LineNum"] = ln
@@ -387,7 +391,7 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 	#lines_data.append(di.copy())
 	lines_data.append(copy.deepcopy(di))
 	del di
-	
+	'''
 	
 	#Function
 	if len(fname) > 0:
@@ -418,9 +422,22 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		print(tabulate(sl,headers=heading,tablefmt="psql"))
 		di={}
 		maketogether(ln,di,sl,"StackFrame")
+		
+		#heap
+		h_di = {}
+		h_di["LineNum"] = ln
+		h_di["type"] = "Heap"
+		#di['Contents'] = heap.copy()
+		### made contents a list of dictionaries -> where each dictionary is the value field in heap 
+		h_di['Contents'] = list(heap.values())
+		#lines_data.append(di.copy())
+		lines_data.append(copy.deepcopy(h_di))
+		del h_di
+		
 		lines_data.append(di.copy())
 		del di
-		
+	
+	
 	#Arguments
 	if len(al)>0:
 		print '\n(Arguments)'
@@ -710,6 +727,7 @@ def output(p1,flag):#display (stack frame, arguments..)
 		try:
 			prev_lineno = int(lnc.split()[1])		
 		except:
+			#f.write("\nprev: "+str(lnc)+"\n")
 			prev_lineno = 0
 		lnc=ln
 
@@ -890,7 +908,7 @@ def get_heap_info(pipe):
 		if addr not in l:
 			del heap[addr]
 			# heap.pop(addr)
-			f.write("\nHere: "+str(addr)+"\t"+str(l)+"\n" + "heap: "+str(heap)+"\n")
+			# f.write("\nHere: "+str(addr)+"\t"+str(l)+"\n" + "heap: "+str(heap)+"\n")
 	#f.write(str(heap)+"\n")
 	
 p1.stdin.write('break main\n')
@@ -1093,7 +1111,7 @@ maindic["Structures"] = struct_details
 maindic = json.dumps(maindic,indent=2)
 
 
-f1=open("ll2.json","w")
+f1=open("ll.json","w")
 f1.write(maindic)
 f1.close()
 
