@@ -294,7 +294,7 @@ def maketogether(ln,di,gl,stringnamed):
 		sepdi['val']=val
 		
 		if is_struct and '*' not in datatype:
-			fields = struct_fields_info(p1, datatype);
+			fields = struct_fields_info(p1, datatype)
 			pat = re.compile(r' <.*?>')
 			val = re.sub(pat, '', val)
 			reg = re.compile(r'0x[0-9a-f]*[,}]') #pattern to find hexadecimals in val, => they are pointers and we need to replace it with ID
@@ -1080,7 +1080,7 @@ maindic["Structures"] = struct_details
 maindic = json.dumps(maindic,indent=2)
 
 
-f1=open("ll2.json","w")
+f1=open("ll.json","w")
 f1.write(maindic)
 f1.close()
 

@@ -56,7 +56,7 @@ sep = ['+','-','=','*','/',';','[','.']
 global_name_list = []
 stop = 0
 ret = 0
-scanf = 0
+inputv = 0
 func = re.compile("\w+ \(((\w+\=\w+), )*(\w+\=\w+)?\)")
 
 my_file = raw_input('Enter Python Program Name : ')
@@ -87,7 +87,10 @@ def get_line_number(pipe):
     global prev_lineno
     global lnc
     prev_lineno=lnc
-    lnc = s[j+1:k-2]
+	try:
+		lnc = int(s[j+1:k-2])
+	except:
+		lnc=s[j+1:k-2]
 
 def tr():#function name
 	'''
@@ -154,74 +157,6 @@ def pdisp(rv):#for further display
 	tdisp contains only pointer data if existing; else there would be an empty list or no correspondence
 	'''
 	#print rv
-
-
-def get_deref_value(addr, datatype):
-	p1.stdin.write('p *('+datatype+') '+addr+'\n')
-	my_out = ''
-	sleep(0.1)
-	while True:
-		try:
-			my_out = read(p1.stdout.fileno(), 1024)
-		except OSError:
-			break
-	my_out = string.replace(my_out,'(gdb)','').strip()
-
-	if 'struct' in datatype:
-		fields = struct_fields_info(p1, datatype);
-		val = my_out[my_out.find('{'):]
-		pat = re.compile(r' <.*?>')
-		val = re.sub(pat, '', val)
-		reg = re.compile(r'0x[0-9a-f]*[,}]') #pattern to find hexadecimals in val, => they are pointers and we need to replace it with ID
-		l = reg.findall(val)
-		l = [x[0:-1] for x in l]
-		for addr in l:
-			ID = int(addr,16)
-			if ID in addr_to_id:
-				ID = addr_to_id[ID]
-				#f.write("\n=====\naddr:"+addr+"\nID:"+str(ID)+"\nval:"+val+"\n=====\n\n")
-			
-			#elif addr in heap:
-			#	ID = 'HEAPVAR -'+addr
-				if addr in heap:
-				#	#val = 'HEAPVAR -'+addr
-				#	deref_val = get_deref_value(addr, datatype)
-				#	heap[addr]['deref_val'] = deref_val
-					heap[addr]['id'] = ID
-
-
-			elif ID == 0:	# hexadecimal 0x0 i.e 0 corresponds to NULL
-				ID = 'N'
-			else:
-				ID = addr#'U'
-			val = val.replace(addr, str(ID))
-		#sepdi['val'] = val #val is string -> 'data = 123, next = U'
-		
-		# string processing to make val a list of dictionary(key is variable name value is value)
-		s = val#sepdi["val"]
-		s = s.strip("{}")
-		v = ["{"+x.replace("=",":")+"}" for x in s.split(",")]
-		x = []
-		#f.write(str(s)+"\n")
-		
-		for i in v:
-			k=i.strip("{}")
-			k=k.split(":")
-			x.append({k[0].strip():k[1].strip()})
-		
-		k = 0
-		for i in range(len(fields)):
-			if fields[i]['type'] == 'ptr':
-				address = l[k]
-				if address in heap:
-					deref_val = get_deref_value(address, fields[i]['data_type']) 
-					heap[address]['deref_val'] = deref_val
-				k += 1
-
-		return x
-	else:
-		val = my_out[my_out.find('=')+2:]
-		return val
 		
 def maketogether(ln,di,gl,stringnamed):
 	di["LineNum"]=ln
@@ -290,7 +225,7 @@ def maketogether(ln,di,gl,stringnamed):
 		sepdi['val']=val
 		
 		if is_struct and '*' not in datatype:
-			fields = struct_fields_info(p1, datatype);
+			fields = struct_fields_info(p1, datatype)
 			pat = re.compile(r' <.*?>')
 			val = re.sub(pat, '', val)
 			reg = re.compile(r'0x[0-9a-f]*[,}]') #pattern to find hexadecimals in val, => they are pointers and we need to replace it with ID
@@ -542,38 +477,6 @@ struct example2 b;
 }
 (gdb)
 '''
-
-def struct_fields_info(pipe, structure):
-	pipe.stdin.write('ptype '+structure+'\n')
-	my_out = ''
-	sleep(0.1)
-	while True:
-		try:
-			my_out += read(pipe.stdout.fileno(), 1024)
-		except OSError:
-			break
-	my_out = string.replace(my_out,'(gdb)','')
-	my_out = my_out.strip()
-	fields = my_out[my_out.find('{')+2 : my_out.find('}')-1].split('\n')
-	fields = [i.strip(' ;') for i in fields]
-	fields_info = []
-	for i in fields:
-		info = {}
-		if '*' in i:
-			info['type'] = 'ptr'
-			info['data_type'] = i[0 : i.rfind('*') + 1]
-			info['name'] = i[i.rfind('*') + 1 : ]
-		else:
-			info['type'] = 'var'
-			info['data_type'] = i[0 : i.rfind(' ')]
-			info['name'] = i[i.rfind(' ') + 1 : ]
-		fields_info.append(info.copy())
-	
-	# f.write(str(fields)+"\n")
-	# return fields
-	# f.write(str(fields_info))
-	return fields_info
-
 
 def output(p1,flag):#display (stack frame, arguments..)
 	global stop
@@ -852,7 +755,6 @@ def get_heap_info(pipe):
 
 
 while True:
-	#inp = raw_input()
 	mo=[]
 	mp=[]
 	ml=[]
@@ -1022,4 +924,3 @@ maindic = json.dumps(maindic,indent=2)
 f1=open("ll.json","w")
 f1.write(maindic)
 f1.close()
-
