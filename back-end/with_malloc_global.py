@@ -68,7 +68,6 @@ p_glob.stdin.write('info variables\n') # info variables -> to get all global var
 op = p_glob.communicate() # .communicate returns (stdout_data, stderr_data)
 glob_list = op[0].split('\n')
 
-
 i = glob_list.index('File '+my_file+':') + 1
 #print glob_list
 while glob_list[i]!='':
@@ -373,14 +372,24 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		maketogether(ln,di,gl,"GlobalVariables")
 		lines_data.append(di.copy())
 		del di
-	
-	#heap
-	di = {}
-	di["LineNum"] = ln
-	di["type"] = "heap"
-	di['Contents'] = heap.copy()
-	lines_data.append(di.copy())
-	del di
+	print("DONE")
+	if heap:
+		print("HERE")
+		di = {}
+		di["LineNum"] = ln
+		di["type"] = "GlobalVariables"
+		dicopy=[]
+		for i in list(heap.keys()):
+			dicopy.append({})
+			dicopy[-1]["deref_val"]=heap[i]["deref_val"]
+			dicopy[-1]["data_type"]=heap[i]["data_type"]
+			dicopy[-1]["id"]=heap[i]["id"]
+			dicopy[-1]["name"]=i
+			dicopy[-1]["type"]="var"
+		print(dicopy)
+		di['Contents'] = dicopy.copy()
+		lines_data.append(di.copy())
+		del di
 	
 	
 	#Function
@@ -858,7 +867,14 @@ def get_heap_info(pipe):
 			break
 	my_out = string.replace(my_out,'(gdb)','')
 	my_out = my_out.strip()
-	heap_i = int(my_out[my_out.rfind('=')+2:])
+	if "=" not in my_out:
+		return
+	print("HERE",my_out)
+	try:
+		heap_i = int(my_out[my_out.rfind('=')+2:])
+	except:
+		return
+	print("DONE")
 	for i in range(heap_i):
 		pipe.stdin.write("p resrsasr["+str(i)+"]\n")
 		my_out = ''
@@ -879,7 +895,8 @@ def get_heap_info(pipe):
 			heap[loc] = {}
 		
 	#f.write(str(heap)+"\n")
-	
+
+#print("HERE")
 p1.stdin.write('break main\n')
 output(p1,0)
 p1.stdin.write('run\n')
@@ -901,6 +918,7 @@ while True:
 	try:
 		get_heap_info(p1)
 	except Exception as e:
+		print("EXCEPTION HERE")
 		f.write("\nEXCEPT "+str(e))
 		break
 	#
