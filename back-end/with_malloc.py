@@ -907,6 +907,7 @@ def get_heap_info(pipe):
 	for addr in heap.keys():
 		if addr not in l:
 			del heap[addr]
+			del addr_to_id[int(addr,16)]
 			# heap.pop(addr)
 			# f.write("\nHere: "+str(addr)+"\t"+str(l)+"\n" + "heap: "+str(heap)+"\n")
 	#f.write(str(heap)+"\n")
