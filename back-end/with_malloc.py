@@ -196,7 +196,7 @@ def get_deref_value(addr, datatype):
 			elif ID == 0:	# hexadecimal 0x0 i.e 0 corresponds to NULL
 				ID = 'N'
 			else:
-				ID = addr#'U'
+				ID = 'U'#addr
 			val = val.replace(addr, str(ID))
 		#sepdi['val'] = val #val is string -> 'data = 123, next = U'
 		
@@ -278,6 +278,10 @@ def maketogether(ln,di,gl,stringnamed):
 					heap[addr]['id'] = val
 					#sepdi['is_heap'] = True
 					#sepdi['deref_val'] = deref_val ### remove this #### in get deref func need to find data_type for further deref
+			
+			elif val == 0:
+				val = 'N'
+			
 			else:
 				#f.write("\nHEREE"+str(val)+"\n") ##
 				val = 'U'
@@ -320,7 +324,7 @@ def maketogether(ln,di,gl,stringnamed):
 				elif ID == 0:	# hexadecimal 0x0 i.e 0 corresponds to NULL
 					ID = 'N'
 				else:
-					ID = addr#'U'
+					ID = 'U'#addr
 				val = val.replace(addr, str(ID))
 			sepdi['val'] = val #val is string -> '{data = 123, next = U}'
 			
