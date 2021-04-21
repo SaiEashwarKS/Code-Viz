@@ -26,7 +26,7 @@ void insertatend(struct node* head,int val)
 void deleteatend(struct node* head)
 {
     struct node* parent=NULL;
-    while(head)
+    while(head->next)
     {
         parent=head;
         head=head->next;
