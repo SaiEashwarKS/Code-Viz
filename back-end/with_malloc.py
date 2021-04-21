@@ -11,6 +11,7 @@ import copy
 import string
 import json
 
+
 lines_data = []
 
 structures = [] #set() #to store all structures used in the program
@@ -20,6 +21,10 @@ heap = dict()#set()
 heap_i = 0
 
 stack_depth = 1
+
+skip_fn = ["malloc", "free"]
+use_next = 0
+
 
 mo = [] # [['$i/func_name', 'address'], ['$i/func_name', 'address'], ...]
 mp = [] # [['name', 'value'], ['name', 'value'], ...]
@@ -57,6 +62,7 @@ global_name_list = []
 stop = 0
 ret = 0
 scanf = 0
+
 func = re.compile("\w+ \(((\w+\=\w+), )*(\w+\=\w+)?\)")
 
 my_file = raw_input('Enter C Program Name (with ./ if in local directory): ')
@@ -630,6 +636,16 @@ def output(p1,flag):#display (stack frame, arguments..)
 			# the os throws an exception if there is no data
 			# print '[No more data]'
 			break
+	
+	
+	#if "malloc" in my_out or "free" in my_out:
+	for i in skip_fn:
+		if i in my_out:
+			global use_next
+			use_next = 1
+			break
+	
+	
 	if "scanf" in my_out:
 		global scanf
 		scanf = 1
@@ -931,17 +947,6 @@ while True:
 	#	break
 	
 	
-	#
-	#p1.stdin.write('p resrsasr_i')
-	#get_heap_info()
-	try:
-		get_heap_info(p1)
-	except Exception as e:
-		f.write("\nEXCEPT "+str(e))
-		break
-	#
-	
-	
 	'''
 	p1.stdin.write('step\n')
 	counter+=1
@@ -958,6 +963,18 @@ while True:
 		p1.stdin.write(str(input())+'\n')
 		scanf = 0
 	output(p1,0)
+	
+	
+	#
+	#p1.stdin.write('p resrsasr_i')
+	#get_heap_info()
+	try:
+		get_heap_info(p1)
+	except Exception as e:
+		f.write("\nEXCEPT "+str(e))
+		break
+	#
+	
 	
 	p1.stdin.write('info line\n')
 	output(p1,2)
@@ -1094,7 +1111,11 @@ while True:
 	
 	
 	#moved step to the end of loop
-	p1.stdin.write('step\n')
+	if use_next == 1:
+		use_next = 0
+		p1.stdin.write('next\n')
+	else:
+		p1.stdin.write('step\n')
 	counter+=1
 
 	print '\nHit Enter to Continue, exit/quit to stop\n'
