@@ -11,6 +11,7 @@ import copy
 import string
 import json
 
+
 lines_data = []
 
 structures = [] #set() #to store all structures used in the program
@@ -20,6 +21,10 @@ heap = dict()#set()
 heap_i = 0
 
 stack_depth = 1
+
+skip_fn = ["malloc", "free"]
+use_next = 0
+
 
 mo = [] # [['$i/func_name', 'address'], ['$i/func_name', 'address'], ...]
 mp = [] # [['name', 'value'], ['name', 'value'], ...]
@@ -57,6 +62,7 @@ global_name_list = []
 stop = 0
 ret = 0
 scanf = 0
+
 func = re.compile("\w+ \(((\w+\=\w+), )*(\w+\=\w+)?\)")
 
 my_file = raw_input('Enter C Program Name (with ./ if in local directory): ')
@@ -171,7 +177,7 @@ def get_deref_value(addr, datatype):
 	my_out = string.replace(my_out,'(gdb)','').strip()
 
 	if 'struct' in datatype:
-		fields = struct_fields_info(p1, datatype);
+		fields = struct_fields_info(p1, datatype)
 		val = my_out[my_out.find('{'):]
 		pat = re.compile(r' <.*?>')
 		val = re.sub(pat, '', val)
@@ -196,7 +202,7 @@ def get_deref_value(addr, datatype):
 			elif ID == 0:	# hexadecimal 0x0 i.e 0 corresponds to NULL
 				ID = 'N'
 			else:
-				ID = addr#'U'
+				ID = 'U'#addr
 			val = val.replace(addr, str(ID))
 		#sepdi['val'] = val #val is string -> 'data = 123, next = U'
 		
@@ -278,6 +284,10 @@ def maketogether(ln,di,gl,stringnamed):
 					heap[addr]['id'] = val
 					#sepdi['is_heap'] = True
 					#sepdi['deref_val'] = deref_val ### remove this #### in get deref func need to find data_type for further deref
+			
+			elif val == 0:
+				val = 'N'
+			
 			else:
 				#f.write("\nHEREE"+str(val)+"\n") ##
 				val = 'U'
@@ -320,7 +330,7 @@ def maketogether(ln,di,gl,stringnamed):
 				elif ID == 0:	# hexadecimal 0x0 i.e 0 corresponds to NULL
 					ID = 'N'
 				else:
-					ID = addr#'U'
+					ID = 'U'#addr
 				val = val.replace(addr, str(ID))
 			sepdi['val'] = val #val is string -> '{data = 123, next = U}'
 			
@@ -364,6 +374,8 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		ln = int(lnc.split()[1]) #next line to execute
 		ln = prev_lineno
 	except:
+		#f.write("\nline: "+str(lnc)+"\n")
+		#ln = prev_lineno
 		return
 	#di["Contents"]={}
 	
@@ -377,6 +389,8 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		lines_data.append(di.copy())
 		del di
 	
+	# keep it after stack variables so that it has updated content
+	'''
 	#heap
 	di = {}
 	di["LineNum"] = ln
@@ -387,7 +401,7 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 	#lines_data.append(di.copy())
 	lines_data.append(copy.deepcopy(di))
 	del di
-	
+	'''
 	
 	#Function
 	if len(fname) > 0:
@@ -418,9 +432,22 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		print(tabulate(sl,headers=heading,tablefmt="psql"))
 		di={}
 		maketogether(ln,di,sl,"StackFrame")
+		
+		#heap
+		h_di = {}
+		h_di["LineNum"] = ln
+		h_di["type"] = "Heap"
+		#di['Contents'] = heap.copy()
+		### made contents a list of dictionaries -> where each dictionary is the value field in heap 
+		h_di['Contents'] = list(heap.values())
+		#lines_data.append(di.copy())
+		lines_data.append(copy.deepcopy(h_di))
+		del h_di
+		
 		lines_data.append(di.copy())
 		del di
-		
+	
+	
 	#Arguments
 	if len(al)>0:
 		print '\n(Arguments)'
@@ -609,6 +636,16 @@ def output(p1,flag):#display (stack frame, arguments..)
 			# the os throws an exception if there is no data
 			# print '[No more data]'
 			break
+	
+	
+	#if "malloc" in my_out or "free" in my_out:
+	for i in skip_fn:
+		if i in my_out:
+			global use_next
+			use_next = 1
+			break
+	
+	
 	if "scanf" in my_out:
 		global scanf
 		scanf = 1
@@ -710,6 +747,7 @@ def output(p1,flag):#display (stack frame, arguments..)
 		try:
 			prev_lineno = int(lnc.split()[1])		
 		except:
+			#f.write("\nprev: "+str(lnc)+"\n")
 			prev_lineno = 0
 		lnc=ln
 
@@ -889,8 +927,9 @@ def get_heap_info(pipe):
 	for addr in heap.keys():
 		if addr not in l:
 			del heap[addr]
+			del addr_to_id[int(addr,16)]
 			# heap.pop(addr)
-			f.write("\nHere: "+str(addr)+"\t"+str(l)+"\n" + "heap: "+str(heap)+"\n")
+			# f.write("\nHere: "+str(addr)+"\t"+str(l)+"\n" + "heap: "+str(heap)+"\n")
 	#f.write(str(heap)+"\n")
 	
 p1.stdin.write('break main\n')
@@ -906,17 +945,6 @@ while True:
 	ml=[]
 	#if(inp=='exit' or inp=='quit' or inp=='q'):
 	#	break
-	
-	
-	#
-	#p1.stdin.write('p resrsasr_i')
-	#get_heap_info()
-	try:
-		get_heap_info(p1)
-	except Exception as e:
-		f.write("\nEXCEPT "+str(e))
-		break
-	#
 	
 	
 	'''
@@ -935,6 +963,18 @@ while True:
 		p1.stdin.write(str(input())+'\n')
 		scanf = 0
 	output(p1,0)
+	
+	
+	#
+	#p1.stdin.write('p resrsasr_i')
+	#get_heap_info()
+	try:
+		get_heap_info(p1)
+	except Exception as e:
+		f.write("\nEXCEPT "+str(e))
+		break
+	#
+	
 	
 	p1.stdin.write('info line\n')
 	output(p1,2)
@@ -1071,7 +1111,11 @@ while True:
 	
 	
 	#moved step to the end of loop
-	p1.stdin.write('step\n')
+	if use_next == 1:
+		use_next = 0
+		p1.stdin.write('next\n')
+	else:
+		p1.stdin.write('step\n')
 	counter+=1
 
 	print '\nHit Enter to Continue, exit/quit to stop\n'
@@ -1093,7 +1137,7 @@ maindic["Structures"] = struct_details
 maindic = json.dumps(maindic,indent=2)
 
 
-f1=open("ll2.json","w")
+f1=open("ll.json","w")
 f1.write(maindic)
 f1.close()
 
