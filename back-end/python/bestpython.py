@@ -3,13 +3,8 @@ import subprocess
 from time import sleep
 from fcntl import fcntl, F_GETFL, F_SETFL
 from os import O_NONBLOCK, read
-import string
-import re
-import sys
-# from tabulate import tabulate
-import copy
-import string
 import json
+import re
 
 lines_data = []
 
@@ -63,12 +58,12 @@ func = re.compile("\w+ \(((\w+\=\w+), )*(\w+\=\w+)?\)")
 #subprocess.call(["pdb","-c","-Dmalloc=mymalloc","-g",my_file])
 #subprocess.call(["pdb",my_file])
 my_file="pythontry.py"
-p1 = Popen(['pdb',my_file], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+p1 = Popen(['python3','-m','pdb',my_file], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 #p1 = Popen(['gdb', 'a.out'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 flags = fcntl(p1.stdout, F_GETFL) # get current p.stdout flags
 fcntl(p1.stdout, F_SETFL, flags | O_NONBLOCK)
 
-
+'''
 def get_line_number(pipe):
     p1.stdin.write("l\n".encode())
     p1.stdin.flush()
@@ -92,16 +87,44 @@ def get_line_number(pipe):
         lnc = int(s[j+1:k-2])
     except:
         lnc=s[j+1:k-2]
-flag=10
-while(flag):
-    p1.stdin.write("n\ndir()\n".encode())
+'''
+lnc=1
+myout=""
+while(True):
+    try:
+        myout+=read(p1.stdout.fileno(),1024).decode()
+    except Exception as e:
+        #print(e)
+        break
+
+while(True):
+
+    p1.stdin.write("s\n".encode())
     p1.stdin.flush()
-    sleep(0.1)
+    sleep(0.2)
+    while(True):
+        try:
+            myout+=read(p1.stdout.fileno(),1024).decode()
+        except Exception as e:
+            #print(e)
+            break
+    if "The program finished and will be restarted" in myout:
+        break    
+    parent_index=myout.find("(")
+    endline=myout.find(")")
+    lnc=myout[parent_index+1:endline]#till here works, gives the line number
+
+    
+    p1.stdin.write("dir()\n".encode())
+    p1.stdin.flush()
+    sleep(0.2)
     myout=""
     while(True):
         try:
             myout+=read(p1.stdout.fileno(),1024).decode()
-        except:
+        except Exception as e:
+            #print(e)
             break
-    print(myout)
-    flag-=1
+        
+
+print("DONE")

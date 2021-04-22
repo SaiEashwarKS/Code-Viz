@@ -177,7 +177,7 @@ def get_deref_value(addr, datatype):
 	my_out = string.replace(my_out,'(gdb)','').strip()
 
 	if 'struct' in datatype:
-		fields = struct_fields_info(p1, datatype);
+		fields = struct_fields_info(p1, datatype)
 		val = my_out[my_out.find('{'):]
 		pat = re.compile(r' <.*?>')
 		val = re.sub(pat, '', val)
