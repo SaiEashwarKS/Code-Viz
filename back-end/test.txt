@@ -1,2 +1,48 @@
+{}
 
-EXCEPT invalid literal for int() with base 10: 'NU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1\nCopyright (C) 2018 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\nThis is free software: you are free'
+{}
+
+{}
+
+{}
+
+{'0x6c0b40': {}}
+
+{'0x6c0b40': {}}
+
+{'0x6c0b40': {'deref_val': [{'data': '0'}, {'next': 'N'}], 'id': 8, 'data_type': 'struct Node'}}
+
+{'0x6c0b40': {'deref_val': [{'data': '11'}, {'next': 'N'}], 'id': 8, 'data_type': 'struct Node'}}
+
+{'0x6c0b40': {'deref_val': [{'data': '11'}, {'next': 'N'}], 'id': 8, 'data_type': 'struct Node'}}
+
+{'0x6c0b40': {'deref_val': [{'data': '11'}, {'next': 'N'}], 'id': 8, 'data_type': 'struct Node'}}
+
+{'0x6c0b40': {'deref_val': [{'data': '11'}, {'next': 'N'}], 'id': 8, 'data_type': 'struct Node'}}
+
+{'0x6c0b60': {}, '0x6c0b40': {'deref_val': [{'data': '11'}, {'next': 'N'}], 'id': 8, 'data_type': 'struct Node'}}
+
+{'0x6c0b60': {}, '0x6c0b40': {'deref_val': [{'data': '11'}, {'next': 'N'}], 'id': 8, 'data_type': 'struct Node'}}
+
+{'0x6c0b60': {'deref_val': [{'data': '0'}, {'next': 'N'}], 'id': 9, 'data_type': 'struct Node'}, '0x6c0b40': {'deref_val': [{'data': '11'}, {'next': '9'}], 'id': 8, 'data_type': 'struct Node'}}
+
+{'0x6c0b60': {'deref_val': [{'data': '21'}, {'next': 'N'}], 'id': 9, 'data_type': 'struct Node'}, '0x6c0b40': {'deref_val': [{'data': '11'}, {'next': '9'}], 'id': 8, 'data_type': 'struct Node'}}
+
+{'0x6c0b60': {'deref_val': [{'data': '21'}, {'next': 'N'}], 'id': 9, 'data_type': 'struct Node'}, '0x6c0b40': {'deref_val': [{'data': '11'}, {'next': '9'}], 'id': 8, 'data_type': 'struct Node'}}
+
+{'0x6c0b60': {'deref_val': [{'data': '21'}, {'next': 'N'}], 'id': 9, 'data_type': 'struct Node'}, '0x6c0b40': {'deref_val': [{'data': '11'}, {'next': '9'}], 'id': 8, 'data_type': 'struct Node'}}
+
+{'0x6c0b60': {'deref_val': [{'data': '21'}, {'next': 'N'}], 'id': 9, 'data_type': 'struct Node'}, '0x6c0b40': {'deref_val': [{'data': '11'}, {'next': '9'}], 'id': 8, 'data_type': 'struct Node'}}
+
+{'0x6c0b80': {}, '0x6c0b60': {'deref_val': [{'data': '21'}, {'next': 'N'}], 'id': 9, 'data_type': 'struct Node'}, '0x6c0b40': {'deref_val': [{'data': '11'}, {'next': '9'}], 'id': 8, 'data_type': 'struct Node'}}
+
+{'0x6c0b80': {}, '0x6c0b60': {'deref_val': [{'data': '21'}, {'next': 'N'}], 'id': 9, 'data_type': 'struct Node'}, '0x6c0b40': {'deref_val': [{'data': '11'}, {'next': '9'}], 'id': 8, 'data_type': 'struct Node'}}
+
+{'0x6c0b80': {'deref_val': [{'data': '0'}, {'next': 'N'}], 'id': 10, 'data_type': 'struct Node'}, '0x6c0b60': {'deref_val': [{'data': '21'}, {'next': '10'}], 'id': 9, 'data_type': 'struct Node'}, '0x6c0b40': {'deref_val': [{'data': '11'}, {'next': '9'}], 'id': 8, 'data_type': 'struct Node'}}
+
+{'0x6c0b80': {'deref_val': [{'data': '31'}, {'next': 'N'}], 'id': 10, 'data_type': 'struct Node'}, '0x6c0b60': {'deref_val': [{'data': '21'}, {'next': '10'}], 'id': 9, 'data_type': 'struct Node'}, '0x6c0b40': {'deref_val': [{'data': '11'}, {'next': '9'}], 'id': 8, 'data_type': 'struct Node'}}
+
+{'0x6c0b80': {'deref_val': [{'data': '31'}, {'next': 'N'}], 'id': 10, 'data_type': 'struct Node'}, '0x6c0b60': {'deref_val': [{'data': '21'}, {'next': '10'}], 'id': 9, 'data_type': 'struct Node'}, '0x6c0b40': {'deref_val': [{'data': '11'}, {'next': '9'}], 'id': 8, 'data_type': 'struct Node'}}
+
+{'0x6c0b80': {'deref_val': [{'data': '31'}, {'next': 'N'}], 'id': 10, 'data_type': 'struct Node'}, '0x6c0b60': {'deref_val': [{'data': '21'}, {'next': '10'}], 'id': 9, 'data_type': 'struct Node'}, '0x6c0b40': {'deref_val': [{'data': '11'}, {'next': '9'}], 'id': 8, 'data_type': 'struct Node'}}
+

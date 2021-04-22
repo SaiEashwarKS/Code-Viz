@@ -66,21 +66,271 @@
     }, 
     {
       "LineNum": 14, 
-      "stackdepth": 1, 
-      "nameid": 3, 
+      "stackdepth": 2, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 2, 
-      "name": "main"
+      "id": 5, 
+      "name": "mymalloc"
     }, 
     {
       "LineNum": 14, 
       "type": "StackFrame", 
       "Contents": [
         {
+          "data_type": "void *", 
+          "type": "var", 
+          "id": 7, 
+          "val": "0x401a6c <__libc_csu_init+124>", 
+          "name": "ptr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 14, 
+      "type": "Arguments", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 7, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 7, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "mymalloc"
+    }, 
+    {
+      "LineNum": 7, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "void *", 
+          "type": "var", 
+          "id": 7, 
+          "val": "0x6c0b40", 
+          "name": "ptr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 7, 
+      "type": "Arguments", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 8, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 8, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "mymalloc"
+    }, 
+    {
+      "LineNum": 8, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "void *", 
+          "type": "var", 
+          "id": 7, 
+          "val": "0x6c0b40", 
+          "name": "ptr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 8, 
+      "type": "Arguments", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "GlobalVariables", 
+      "Contents": []
+    }, 
+    {
+      "LineNum": 9, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "mymalloc"
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "void *", 
+          "type": "var", 
+          "id": 7, 
+          "val": "0x6c0b40", 
+          "name": "ptr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "Arguments", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 10, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 10, 
+      "type": "GlobalVariables", 
+      "Contents": []
+    }, 
+    {
+      "LineNum": 10, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "mymalloc"
+    }, 
+    {
+      "LineNum": 10, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "void *", 
+          "type": "var", 
+          "id": 7, 
+          "val": "0x6c0b40", 
+          "name": "ptr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 10, 
+      "type": "Arguments", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 11, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 11, 
+      "type": "GlobalVariables", 
+      "Contents": []
+    }, 
+    {
+      "LineNum": 11, 
+      "stackdepth": 1, 
+      "nameid": 3, 
+      "type": "Function", 
+      "id": 2, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 11, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
           "data_type": "struct Node *", 
           "type": "ptr", 
           "id": 4, 
-          "val": "U", 
+          "val": 8, 
           "name": "head"
         }
       ]
@@ -100,6 +350,26 @@
     }, 
     {
       "LineNum": 15, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "deref_val": [
+            {
+              "data": "0"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b40"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 15, 
       "stackdepth": 1, 
       "nameid": 3, 
       "type": "Function", 
@@ -114,7 +384,7 @@
           "data_type": "struct Node *", 
           "type": "ptr", 
           "id": 4, 
-          "val": "U", 
+          "val": 8, 
           "name": "head"
         }
       ]
@@ -134,21 +404,376 @@
     }, 
     {
       "LineNum": 16, 
-      "stackdepth": 1, 
-      "nameid": 3, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b40"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 16, 
+      "stackdepth": 2, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 2, 
-      "name": "main"
+      "id": 5, 
+      "name": "mymalloc"
     }, 
     {
       "LineNum": 16, 
       "type": "StackFrame", 
       "Contents": [
         {
+          "data_type": "void *", 
+          "type": "var", 
+          "id": 7, 
+          "val": "0x6c0b40", 
+          "name": "ptr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 16, 
+      "type": "Arguments", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 7, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 7, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b40"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 7, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "mymalloc"
+    }, 
+    {
+      "LineNum": 7, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "void *", 
+          "type": "var", 
+          "id": 7, 
+          "val": "0x6c0b60", 
+          "name": "ptr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 7, 
+      "type": "Arguments", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 8, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 8, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b40"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 8, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "mymalloc"
+    }, 
+    {
+      "LineNum": 8, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "void *", 
+          "type": "var", 
+          "id": 7, 
+          "val": "0x6c0b60", 
+          "name": "ptr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 8, 
+      "type": "Arguments", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b40"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "mymalloc"
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "void *", 
+          "type": "var", 
+          "id": 7, 
+          "val": "0x6c0b60", 
+          "name": "ptr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "Arguments", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 10, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 10, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b40"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 10, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "mymalloc"
+    }, 
+    {
+      "LineNum": 10, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "void *", 
+          "type": "var", 
+          "id": 7, 
+          "val": "0x6c0b60", 
+          "name": "ptr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 10, 
+      "type": "Arguments", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 11, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 11, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b40"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 11, 
+      "stackdepth": 1, 
+      "nameid": 3, 
+      "type": "Function", 
+      "id": 2, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 11, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
           "data_type": "struct Node *", 
           "type": "ptr", 
           "id": 4, 
-          "val": "U", 
+          "val": 8, 
           "name": "head"
         }
       ]
@@ -168,6 +793,40 @@
     }, 
     {
       "LineNum": 18, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "deref_val": [
+            {
+              "data": "0"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "type": "var", 
+          "id": 9, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b60"
+        }, 
+        {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "9"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b40"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 18, 
       "stackdepth": 1, 
       "nameid": 3, 
       "type": "Function", 
@@ -182,7 +841,7 @@
           "data_type": "struct Node *", 
           "type": "ptr", 
           "id": 4, 
-          "val": "U", 
+          "val": 8, 
           "name": "head"
         }
       ]
@@ -202,21 +861,460 @@
     }, 
     {
       "LineNum": 19, 
-      "stackdepth": 1, 
-      "nameid": 3, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "type": "var", 
+          "id": 9, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b60"
+        }, 
+        {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "9"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b40"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 19, 
+      "stackdepth": 2, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 2, 
-      "name": "main"
+      "id": 5, 
+      "name": "mymalloc"
     }, 
     {
       "LineNum": 19, 
       "type": "StackFrame", 
       "Contents": [
         {
+          "data_type": "void *", 
+          "type": "var", 
+          "id": 7, 
+          "val": "0x6c0b60", 
+          "name": "ptr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 19, 
+      "type": "Arguments", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 7, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 7, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "type": "var", 
+          "id": 9, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b60"
+        }, 
+        {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "9"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b40"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 7, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "mymalloc"
+    }, 
+    {
+      "LineNum": 7, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "void *", 
+          "type": "var", 
+          "id": 7, 
+          "val": "0x6c0b80", 
+          "name": "ptr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 7, 
+      "type": "Arguments", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 8, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 8, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "type": "var", 
+          "id": 9, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b60"
+        }, 
+        {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "9"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b40"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 8, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "mymalloc"
+    }, 
+    {
+      "LineNum": 8, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "void *", 
+          "type": "var", 
+          "id": 7, 
+          "val": "0x6c0b80", 
+          "name": "ptr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 8, 
+      "type": "Arguments", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "type": "var", 
+          "id": 9, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b60"
+        }, 
+        {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "9"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b40"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "mymalloc"
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "void *", 
+          "type": "var", 
+          "id": 7, 
+          "val": "0x6c0b80", 
+          "name": "ptr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 9, 
+      "type": "Arguments", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 10, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 10, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "type": "var", 
+          "id": 9, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b60"
+        }, 
+        {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "9"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b40"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 10, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "mymalloc"
+    }, 
+    {
+      "LineNum": 10, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "void *", 
+          "type": "var", 
+          "id": 7, 
+          "val": "0x6c0b80", 
+          "name": "ptr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 10, 
+      "type": "Arguments", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 11, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 11, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "type": "var", 
+          "id": 9, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b60"
+        }, 
+        {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "9"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b40"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 11, 
+      "stackdepth": 1, 
+      "nameid": 3, 
+      "type": "Function", 
+      "id": 2, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 11, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
           "data_type": "struct Node *", 
           "type": "ptr", 
           "id": 4, 
-          "val": "U", 
+          "val": 8, 
           "name": "head"
         }
       ]
@@ -236,6 +1334,54 @@
     }, 
     {
       "LineNum": 21, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "deref_val": [
+            {
+              "data": "0"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "type": "var", 
+          "id": 10, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b80"
+        }, 
+        {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "10"
+            }
+          ], 
+          "type": "var", 
+          "id": 9, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b60"
+        }, 
+        {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "9"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b40"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 21, 
       "stackdepth": 1, 
       "nameid": 3, 
       "type": "Function", 
@@ -250,7 +1396,7 @@
           "data_type": "struct Node *", 
           "type": "ptr", 
           "id": 4, 
-          "val": "U", 
+          "val": 8, 
           "name": "head"
         }
       ]
@@ -270,6 +1416,54 @@
     }, 
     {
       "LineNum": 22, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "deref_val": [
+            {
+              "data": "31"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "type": "var", 
+          "id": 10, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b80"
+        }, 
+        {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "10"
+            }
+          ], 
+          "type": "var", 
+          "id": 9, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b60"
+        }, 
+        {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "9"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b40"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 22, 
       "stackdepth": 1, 
       "nameid": 3, 
       "type": "Function", 
@@ -284,7 +1478,7 @@
           "data_type": "struct Node *", 
           "type": "ptr", 
           "id": 4, 
-          "val": "U", 
+          "val": 8, 
           "name": "head"
         }
       ]
@@ -304,6 +1498,54 @@
     }, 
     {
       "LineNum": 24, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "deref_val": [
+            {
+              "data": "31"
+            }, 
+            {
+              "next": "N"
+            }
+          ], 
+          "type": "var", 
+          "id": 10, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b80"
+        }, 
+        {
+          "deref_val": [
+            {
+              "data": "21"
+            }, 
+            {
+              "next": "10"
+            }
+          ], 
+          "type": "var", 
+          "id": 9, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b60"
+        }, 
+        {
+          "deref_val": [
+            {
+              "data": "11"
+            }, 
+            {
+              "next": "9"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct Node", 
+          "name": "0x6c0b40"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 24, 
       "stackdepth": 1, 
       "nameid": 3, 
       "type": "Function", 
@@ -318,7 +1560,7 @@
           "data_type": "struct Node *", 
           "type": "ptr", 
           "id": 4, 
-          "val": "U", 
+          "val": 8, 
           "name": "head"
         }
       ]

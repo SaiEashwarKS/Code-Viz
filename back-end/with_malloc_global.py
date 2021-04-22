@@ -380,14 +380,18 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		di["type"] = "GlobalVariables"
 		dicopy=[]
 		for i in list(heap.keys()):
-			dicopy.append({})
-			dicopy[-1]["deref_val"]=heap[i]["deref_val"]
-			dicopy[-1]["data_type"]=heap[i]["data_type"]
-			dicopy[-1]["id"]=heap[i]["id"]
-			dicopy[-1]["name"]=i
-			dicopy[-1]["type"]="var"
+			try:
+				dicopy.append({})
+				dicopy[-1]["deref_val"]=heap[i]["deref_val"]
+				dicopy[-1]["data_type"]=heap[i]["data_type"]
+				dicopy[-1]["id"]=heap[i]["id"]
+				dicopy[-1]["name"]=i
+				dicopy[-1]["type"]="var"
+			except:
+				dicopy.pop()
+				continue
 		print(dicopy)
-		di['Contents'] = dicopy.copy()
+		di['Contents'] = copy.copy(dicopy)
 		lines_data.append(di.copy())
 		del di
 	
@@ -874,7 +878,7 @@ def get_heap_info(pipe):
 		heap_i = int(my_out[my_out.rfind('=')+2:])
 	except:
 		return
-	print("DONE")
+	print("HEAP DONE")
 	for i in range(heap_i):
 		pipe.stdin.write("p resrsasr["+str(i)+"]\n")
 		my_out = ''
@@ -1047,7 +1051,7 @@ while True:
 	hista=[]
 	fname=[]
 	if stop == 1:
-		#for i in structures:
+		#for i in structures:info
 		#	#p1.stdin.write('ptype '+i+'\n')
 		#	fields_list = struct_fields_info(p1, i.strip())
 		#	struct_details[i.strip()] = fields_list
