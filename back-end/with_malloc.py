@@ -454,7 +454,7 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		heading = ["VARIABLE","VALUE","ADDRESS"]
 		print(tabulate(al,headers=heading,tablefmt="psql"))
 		di={}
-		maketogether(ln,di,gl,"Arguments")
+		maketogether(ln,di,al,"Arguments")
 		lines_data.append(di.copy())
 		del di
 		

@@ -78,74 +78,6 @@
       "name": "main"
     }, 
     {
-      "LineNum": 18, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "struct Node *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": 8, 
-          "name": "head"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 19, 
-      "type": "GlobalVariables", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 19, 
-      "type": "GlobalVariables", 
-      "Contents": [
-        {
-          "deref_val": [
-            {
-              "data": "21"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "type": "var", 
-          "id": 9, 
-          "data_type": "struct Node", 
-          "name": "0x6c0b60"
-        }, 
-        {
-          "deref_val": [
-            {
-              "data": "11"
-            }, 
-            {
-              "next": "9"
-            }
-          ], 
-          "type": "var", 
-          "id": 8, 
-          "data_type": "struct Node", 
-          "name": "0x6c0b40"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 19, 
-      "stackdepth": 2, 
-      "nameid": 6, 
-      "type": "Function", 
-      "id": 5, 
-      "name": "mymalloc"
-    }, 
-    {
       "LineNum": 40, 
       "type": "Heap", 
       "Contents": [
@@ -194,8 +126,8 @@
       "stackdepth": 1, 
       "nameid": 3, 
       "type": "Function", 
-      "id": 5, 
-      "name": "mymalloc"
+      "id": 2, 
+      "name": "main"
     }, 
     {
       "LineNum": 41, 
@@ -246,8 +178,8 @@
       "stackdepth": 1, 
       "nameid": 3, 
       "type": "Function", 
-      "id": 5, 
-      "name": "mymalloc"
+      "id": 2, 
+      "name": "main"
     }, 
     {
       "LineNum": 42, 
@@ -310,8 +242,8 @@
       "stackdepth": 1, 
       "nameid": 3, 
       "type": "Function", 
-      "id": 5, 
-      "name": "mymalloc"
+      "id": 2, 
+      "name": "main"
     }, 
     {
       "LineNum": 43, 
@@ -489,11 +421,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": 5, 
+          "name": "head"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 11, 
+          "val": "7", 
+          "name": "val"
         }
       ]
     }, 
@@ -566,11 +505,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": 5, 
+          "name": "head"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 11, 
+          "val": "7", 
+          "name": "val"
         }
       ]
     }, 
@@ -643,11 +589,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": 5, 
+          "name": "head"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 11, 
+          "val": "7", 
+          "name": "val"
         }
       ]
     }, 
@@ -720,11 +673,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": 5, 
+          "name": "head"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 11, 
+          "val": "7", 
+          "name": "val"
         }
       ]
     }, 
@@ -797,11 +757,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": 6, 
+          "name": "head"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 11, 
+          "val": "7", 
+          "name": "val"
         }
       ]
     }, 
@@ -874,11 +841,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": 6, 
+          "name": "head"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 11, 
+          "val": "7", 
+          "name": "val"
         }
       ]
     }, 
@@ -951,11 +925,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": 6, 
+          "name": "head"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 11, 
+          "val": "7", 
+          "name": "val"
         }
       ]
     }, 
@@ -1028,11 +1009,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": "N", 
+          "name": "head"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 11, 
+          "val": "7", 
+          "name": "val"
         }
       ]
     }, 
@@ -1105,11 +1093,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": "N", 
+          "name": "head"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 11, 
+          "val": "7", 
+          "name": "val"
         }
       ]
     }, 
@@ -1147,7 +1142,7 @@
               "next": "N"
             }
           ], 
-          "id": 10, 
+          "id": 12, 
           "data_type": "struct node"
         }, 
         {
@@ -1156,7 +1151,7 @@
               "val": "6"
             }, 
             {
-              "next": "10"
+              "next": "12"
             }
           ], 
           "id": 6, 
@@ -1194,11 +1189,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": "N", 
+          "name": "head"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 11, 
+          "val": "7", 
+          "name": "val"
         }
       ]
     }, 
@@ -1236,7 +1238,7 @@
               "next": "N"
             }
           ], 
-          "id": 10, 
+          "id": 12, 
           "data_type": "struct node"
         }, 
         {
@@ -1245,7 +1247,7 @@
               "val": "6"
             }, 
             {
-              "next": "10"
+              "next": "12"
             }
           ], 
           "id": 6, 
@@ -1283,11 +1285,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": "N", 
+          "name": "head"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 11, 
+          "val": "7", 
+          "name": "val"
         }
       ]
     }, 
@@ -1325,7 +1334,7 @@
               "next": "N"
             }
           ], 
-          "id": 10, 
+          "id": 12, 
           "data_type": "struct node"
         }, 
         {
@@ -1334,7 +1343,7 @@
               "val": "6"
             }, 
             {
-              "next": "10"
+              "next": "12"
             }
           ], 
           "id": 6, 
@@ -1372,11 +1381,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": "N", 
+          "name": "head"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 11, 
+          "val": "7", 
+          "name": "val"
         }
       ]
     }, 
@@ -1414,7 +1430,7 @@
               "next": "N"
             }
           ], 
-          "id": 10, 
+          "id": 12, 
           "data_type": "struct node"
         }, 
         {
@@ -1423,7 +1439,7 @@
               "val": "6"
             }, 
             {
-              "next": "10"
+              "next": "12"
             }
           ], 
           "id": 6, 
@@ -1472,9 +1488,9 @@
     {
       "LineNum": 46, 
       "stackdepth": 2, 
-      "nameid": 12, 
+      "nameid": 14, 
       "type": "Function", 
-      "id": 11, 
+      "id": 13, 
       "name": "deleteatend"
     }, 
     {
@@ -1490,7 +1506,7 @@
               "next": "N"
             }
           ], 
-          "id": 10, 
+          "id": 12, 
           "data_type": "struct node"
         }, 
         {
@@ -1499,7 +1515,7 @@
               "val": "6"
             }, 
             {
-              "next": "10"
+              "next": "12"
             }
           ], 
           "id": 6, 
@@ -1537,11 +1553,11 @@
       "type": "Arguments", 
       "Contents": [
         {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": 5, 
+          "name": "head"
         }
       ]
     }, 
@@ -1561,9 +1577,9 @@
     {
       "LineNum": 28, 
       "stackdepth": 2, 
-      "nameid": 12, 
+      "nameid": 14, 
       "type": "Function", 
-      "id": 11, 
+      "id": 13, 
       "name": "deleteatend"
     }, 
     {
@@ -1579,7 +1595,7 @@
               "next": "N"
             }
           ], 
-          "id": 10, 
+          "id": 12, 
           "data_type": "struct node"
         }, 
         {
@@ -1588,7 +1604,7 @@
               "val": "6"
             }, 
             {
-              "next": "10"
+              "next": "12"
             }
           ], 
           "id": 6, 
@@ -1626,11 +1642,11 @@
       "type": "Arguments", 
       "Contents": [
         {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": 5, 
+          "name": "head"
         }
       ]
     }, 
@@ -1650,9 +1666,9 @@
     {
       "LineNum": 29, 
       "stackdepth": 2, 
-      "nameid": 12, 
+      "nameid": 14, 
       "type": "Function", 
-      "id": 11, 
+      "id": 13, 
       "name": "deleteatend"
     }, 
     {
@@ -1668,7 +1684,7 @@
               "next": "N"
             }
           ], 
-          "id": 10, 
+          "id": 12, 
           "data_type": "struct node"
         }, 
         {
@@ -1677,7 +1693,7 @@
               "val": "6"
             }, 
             {
-              "next": "10"
+              "next": "12"
             }
           ], 
           "id": 6, 
@@ -1715,11 +1731,11 @@
       "type": "Arguments", 
       "Contents": [
         {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": 5, 
+          "name": "head"
         }
       ]
     }, 
@@ -1739,9 +1755,9 @@
     {
       "LineNum": 31, 
       "stackdepth": 2, 
-      "nameid": 12, 
+      "nameid": 14, 
       "type": "Function", 
-      "id": 11, 
+      "id": 13, 
       "name": "deleteatend"
     }, 
     {
@@ -1757,7 +1773,7 @@
               "next": "N"
             }
           ], 
-          "id": 10, 
+          "id": 12, 
           "data_type": "struct node"
         }, 
         {
@@ -1766,7 +1782,7 @@
               "val": "6"
             }, 
             {
-              "next": "10"
+              "next": "12"
             }
           ], 
           "id": 6, 
@@ -1804,11 +1820,11 @@
       "type": "Arguments", 
       "Contents": [
         {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": 5, 
+          "name": "head"
         }
       ]
     }, 
@@ -1828,9 +1844,9 @@
     {
       "LineNum": 32, 
       "stackdepth": 2, 
-      "nameid": 12, 
+      "nameid": 14, 
       "type": "Function", 
-      "id": 11, 
+      "id": 13, 
       "name": "deleteatend"
     }, 
     {
@@ -1846,7 +1862,7 @@
               "next": "N"
             }
           ], 
-          "id": 10, 
+          "id": 12, 
           "data_type": "struct node"
         }, 
         {
@@ -1855,7 +1871,7 @@
               "val": "6"
             }, 
             {
-              "next": "10"
+              "next": "12"
             }
           ], 
           "id": 6, 
@@ -1893,11 +1909,11 @@
       "type": "Arguments", 
       "Contents": [
         {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": 6, 
+          "name": "head"
         }
       ]
     }, 
@@ -1917,9 +1933,9 @@
     {
       "LineNum": 29, 
       "stackdepth": 2, 
-      "nameid": 12, 
+      "nameid": 14, 
       "type": "Function", 
-      "id": 11, 
+      "id": 13, 
       "name": "deleteatend"
     }, 
     {
@@ -1935,7 +1951,7 @@
               "next": "N"
             }
           ], 
-          "id": 10, 
+          "id": 12, 
           "data_type": "struct node"
         }, 
         {
@@ -1944,7 +1960,7 @@
               "val": "6"
             }, 
             {
-              "next": "10"
+              "next": "12"
             }
           ], 
           "id": 6, 
@@ -1982,11 +1998,11 @@
       "type": "Arguments", 
       "Contents": [
         {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": 6, 
+          "name": "head"
         }
       ]
     }, 
@@ -2006,9 +2022,9 @@
     {
       "LineNum": 31, 
       "stackdepth": 2, 
-      "nameid": 12, 
+      "nameid": 14, 
       "type": "Function", 
-      "id": 11, 
+      "id": 13, 
       "name": "deleteatend"
     }, 
     {
@@ -2024,7 +2040,7 @@
               "next": "N"
             }
           ], 
-          "id": 10, 
+          "id": 12, 
           "data_type": "struct node"
         }, 
         {
@@ -2033,7 +2049,7 @@
               "val": "6"
             }, 
             {
-              "next": "10"
+              "next": "12"
             }
           ], 
           "id": 6, 
@@ -2071,11 +2087,11 @@
       "type": "Arguments", 
       "Contents": [
         {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": 6, 
+          "name": "head"
         }
       ]
     }, 
@@ -2095,9 +2111,9 @@
     {
       "LineNum": 32, 
       "stackdepth": 2, 
-      "nameid": 12, 
+      "nameid": 14, 
       "type": "Function", 
-      "id": 11, 
+      "id": 13, 
       "name": "deleteatend"
     }, 
     {
@@ -2113,7 +2129,7 @@
               "next": "N"
             }
           ], 
-          "id": 10, 
+          "id": 12, 
           "data_type": "struct node"
         }, 
         {
@@ -2122,7 +2138,7 @@
               "val": "6"
             }, 
             {
-              "next": "10"
+              "next": "12"
             }
           ], 
           "id": 6, 
@@ -2160,11 +2176,11 @@
       "type": "Arguments", 
       "Contents": [
         {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": 12, 
+          "name": "head"
         }
       ]
     }, 
@@ -2184,9 +2200,9 @@
     {
       "LineNum": 29, 
       "stackdepth": 2, 
-      "nameid": 12, 
+      "nameid": 14, 
       "type": "Function", 
-      "id": 11, 
+      "id": 13, 
       "name": "deleteatend"
     }, 
     {
@@ -2202,7 +2218,7 @@
               "next": "N"
             }
           ], 
-          "id": 10, 
+          "id": 12, 
           "data_type": "struct node"
         }, 
         {
@@ -2211,7 +2227,7 @@
               "val": "6"
             }, 
             {
-              "next": "10"
+              "next": "12"
             }
           ], 
           "id": 6, 
@@ -2249,11 +2265,11 @@
       "type": "Arguments", 
       "Contents": [
         {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": 12, 
+          "name": "head"
         }
       ]
     }, 
@@ -2273,9 +2289,9 @@
     {
       "LineNum": 34, 
       "stackdepth": 2, 
-      "nameid": 12, 
+      "nameid": 14, 
       "type": "Function", 
-      "id": 11, 
+      "id": 13, 
       "name": "deleteatend"
     }, 
     {
@@ -2326,11 +2342,11 @@
       "type": "Arguments", 
       "Contents": [
         {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": "U", 
+          "name": "head"
         }
       ]
     }, 
@@ -2350,9 +2366,9 @@
     {
       "LineNum": 35, 
       "stackdepth": 2, 
-      "nameid": 12, 
+      "nameid": 14, 
       "type": "Function", 
-      "id": 11, 
+      "id": 13, 
       "name": "deleteatend"
     }, 
     {
@@ -2403,11 +2419,11 @@
       "type": "Arguments", 
       "Contents": [
         {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 10, 
+          "val": "U", 
+          "name": "head"
         }
       ]
     }, 
