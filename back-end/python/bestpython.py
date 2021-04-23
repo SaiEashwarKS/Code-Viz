@@ -97,6 +97,23 @@ def process_output(cur_str,typegl):
                 start=j
             else:
                 break
+        start=1
+        end=len(cur_str)
+        while(start<=end):
+            k=cur_str.find("[",start)
+            total=1
+            if k!=-1:
+                j=k+1
+                while(total):
+                    if cur_str[j]=='[':
+                        total+=1
+                    elif cur_str[j]==']':
+                        total-=1
+                    j+=1
+                cur_str=cur_str[:k+1]+cur_str[k+1:j].replace("'",'"')+cur_str[j:]
+                start=j
+            else:
+                break
         z=ast.literal_eval(cur_str)
         all_variables=[]
         for i in list(z.keys()):
@@ -123,7 +140,6 @@ def process_output(cur_str,typegl):
                 vartoptrmapper[i]=vartoptrmapper[z[i]]
             all_variables.append({"type":"var","id":values[z[i]],"name":"","val":val,"data_type":""})
             all_variables.append({"type":"ptr","id":idele,"name":i,"val":values[z[i]],"data_type":""})
-            
             
         return all_variables
     

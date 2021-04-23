@@ -8,7 +8,7 @@
           "type": "var",
           "id": 2,
           "name": "",
-          "val": "5",
+          "val": "[1\",2\",3]",
           "data_type": ""
         },
         {
@@ -28,7 +28,7 @@
           "type": "var",
           "id": 2,
           "name": "",
-          "val": "5",
+          "val": "[1\",2\",3]",
           "data_type": ""
         },
         {
@@ -48,7 +48,7 @@
           "type": "var",
           "id": 2,
           "name": "",
-          "val": "5",
+          "val": "[1\",2\",3]",
           "data_type": ""
         },
         {
@@ -62,7 +62,7 @@
           "type": "var",
           "id": 4,
           "name": "",
-          "val": "10",
+          "val": "6",
           "data_type": ""
         },
         {
@@ -82,7 +82,7 @@
           "type": "var",
           "id": 2,
           "name": "",
-          "val": "5",
+          "val": "[1\",2\",3]",
           "data_type": ""
         },
         {
@@ -96,7 +96,7 @@
           "type": "var",
           "id": 4,
           "name": "",
-          "val": "10",
+          "val": "6",
           "data_type": ""
         },
         {
@@ -108,16 +108,16 @@
         },
         {
           "type": "var",
-          "id": 2,
+          "id": 6,
           "name": "",
-          "val": "5",
+          "val": "14",
           "data_type": ""
         },
         {
           "type": "ptr",
           "id": 5,
           "name": "d",
-          "val": 2,
+          "val": 6,
           "data_type": ""
         }
       ]
@@ -130,7 +130,7 @@
           "type": "var",
           "id": 2,
           "name": "",
-          "val": "5",
+          "val": "[1\",2\",3]",
           "data_type": ""
         },
         {
@@ -144,7 +144,7 @@
           "type": "var",
           "id": 4,
           "name": "",
-          "val": "10",
+          "val": "6",
           "data_type": ""
         },
         {
@@ -156,30 +156,30 @@
         },
         {
           "type": "var",
-          "id": 2,
+          "id": 6,
           "name": "",
-          "val": "5",
+          "val": "14",
           "data_type": ""
         },
         {
           "type": "ptr",
           "id": 5,
           "name": "d",
-          "val": 2,
+          "val": 6,
           "data_type": ""
         },
         {
           "type": "var",
-          "id": 7,
+          "id": 8,
           "name": "",
           "val": "{4: \"6\",7: \"5\"}",
           "data_type": ""
         },
         {
           "type": "ptr",
-          "id": 6,
+          "id": 7,
           "name": "di",
-          "val": 7,
+          "val": 8,
           "data_type": ""
         }
       ]
