@@ -6,9 +6,16 @@
       "Contents": [
         {
           "type": "var",
+          "id": 2,
+          "name": "",
+          "val": "5",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
           "id": 1,
           "name": "a",
-          "value": "5",
+          "val": 2,
           "data_type": ""
         }
       ]
@@ -19,9 +26,16 @@
       "Contents": [
         {
           "type": "var",
+          "id": 2,
+          "name": "",
+          "val": "5",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
           "id": 1,
           "name": "a",
-          "value": "5",
+          "val": 2,
           "data_type": ""
         }
       ]
@@ -32,16 +46,30 @@
       "Contents": [
         {
           "type": "var",
+          "id": 2,
+          "name": "",
+          "val": "5",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
           "id": 1,
           "name": "a",
-          "value": "5",
+          "val": 2,
           "data_type": ""
         },
         {
           "type": "var",
-          "id": 2,
+          "id": 4,
+          "name": "",
+          "val": "10",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 3,
           "name": "S",
-          "value": "10",
+          "val": 4,
           "data_type": ""
         }
       ]
@@ -52,23 +80,44 @@
       "Contents": [
         {
           "type": "var",
+          "id": 2,
+          "name": "",
+          "val": "5",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
           "id": 1,
           "name": "a",
-          "value": "5",
+          "val": 2,
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 4,
+          "name": "",
+          "val": "10",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 3,
+          "name": "S",
+          "val": 4,
           "data_type": ""
         },
         {
           "type": "var",
           "id": 2,
-          "name": "S",
-          "value": "10",
+          "name": "",
+          "val": "5",
           "data_type": ""
         },
         {
-          "type": "var",
-          "id": 3,
+          "type": "ptr",
+          "id": 5,
           "name": "d",
-          "value": "10",
+          "val": 2,
           "data_type": ""
         }
       ]
@@ -79,30 +128,58 @@
       "Contents": [
         {
           "type": "var",
+          "id": 2,
+          "name": "",
+          "val": "5",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
           "id": 1,
           "name": "a",
-          "value": "5",
-          "data_type": ""
-        },
-        {
-          "type": "var",
-          "id": 2,
-          "name": "S",
-          "value": "10",
-          "data_type": ""
-        },
-        {
-          "type": "var",
-          "id": 3,
-          "name": "d",
-          "value": "10",
+          "val": 2,
           "data_type": ""
         },
         {
           "type": "var",
           "id": 4,
+          "name": "",
+          "val": "10",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 3,
+          "name": "S",
+          "val": 4,
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 2,
+          "name": "",
+          "val": "5",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 5,
+          "name": "d",
+          "val": 2,
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 7,
+          "name": "",
+          "val": "{4: \"6\",7: \"5\"}",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 6,
           "name": "di",
-          "value": "{4: \"6\",7: \"5\"}",
+          "val": 7,
           "data_type": ""
         }
       ]

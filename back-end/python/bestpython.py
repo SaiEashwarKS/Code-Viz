@@ -67,6 +67,8 @@ fcntl(p1.stdout, F_SETFL, flags | O_NONBLOCK)
 global_vars={}
 individual_id=1
 local_vars={}
+vartoptrmapper={}
+values={}
 sleep(0.2)
 
 def process_output(cur_str,typegl):
@@ -107,11 +109,22 @@ def process_output(cur_str,typegl):
                     individual_id+=1
                 idele=global_vars[i]
             else:
-                if i not in global_vars:
+                if i not in local_vars:
                     local_vars[i]=individual_id
                     individual_id+=1
                 idele=local_vars[i]
-            all_variables.append({"type":"var","id":idele,"name":i,"value":z[i],"data_type":""})
+            val=z[i]
+            if z[i] not in values and z[i] not in vartoptrmapper:
+                values[z[i]]=individual_id
+                individual_id+=1
+                vartoptrmapper[i]=values[z[i]]
+            elif z[i] in vartoptrmapper:
+                val=vartoptrmapper[z[i]]
+                vartoptrmapper[i]=vartoptrmapper[z[i]]
+            all_variables.append({"type":"var","id":values[z[i]],"name":"","val":val,"data_type":""})
+            all_variables.append({"type":"ptr","id":idele,"name":i,"val":values[z[i]],"data_type":""})
+            
+            
         return all_variables
     
 lnc=1
