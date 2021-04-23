@@ -1,6 +1,5 @@
-if __name__=="__main__":
-    a = 5
-    import math
-    c=10
-    print(a+c)
-    d=10
+a = 5
+import math
+S=10
+d=10
+di={4:6,7:5}

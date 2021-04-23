@@ -1,0 +1,111 @@
+{
+  "Lines_Data": [
+    {
+      "LineNum": 1,
+      "type": "GlobalVariables",
+      "Contents": [
+        {
+          "type": "var",
+          "id": 1,
+          "name": "a",
+          "value": "5",
+          "data_type": ""
+        }
+      ]
+    },
+    {
+      "LineNum": "2",
+      "type": "GlobalVariables",
+      "Contents": [
+        {
+          "type": "var",
+          "id": 1,
+          "name": "a",
+          "value": "5",
+          "data_type": ""
+        }
+      ]
+    },
+    {
+      "LineNum": "3",
+      "type": "GlobalVariables",
+      "Contents": [
+        {
+          "type": "var",
+          "id": 1,
+          "name": "a",
+          "value": "5",
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 2,
+          "name": "S",
+          "value": "10",
+          "data_type": ""
+        }
+      ]
+    },
+    {
+      "LineNum": "4",
+      "type": "GlobalVariables",
+      "Contents": [
+        {
+          "type": "var",
+          "id": 1,
+          "name": "a",
+          "value": "5",
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 2,
+          "name": "S",
+          "value": "10",
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 3,
+          "name": "d",
+          "value": "10",
+          "data_type": ""
+        }
+      ]
+    },
+    {
+      "LineNum": "5",
+      "type": "GlobalVariables",
+      "Contents": [
+        {
+          "type": "var",
+          "id": 1,
+          "name": "a",
+          "value": "5",
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 2,
+          "name": "S",
+          "value": "10",
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 3,
+          "name": "d",
+          "value": "10",
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 4,
+          "name": "di",
+          "value": "{4: \"6\",7: \"5\"}",
+          "data_type": ""
+        }
+      ]
+    }
+  ]
+}
