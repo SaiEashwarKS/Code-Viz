@@ -248,8 +248,8 @@ def maketogether(ln,di,gl,stringnamed):
 		
 		if 'struct' in datatype:
 			is_struct = True
-			if datatype not in structures:
-				structures.append(datatype)#structures.add(datatype)
+			if datatype[:datatype.find('*')] not in structures:
+				structures.append(datatype[:datatype.find('*')])#structures.add(datatype)
 		
 		if stringnamed=="GlobalVariables":
 			ID=int(i[2][i[2].rfind(")")+2:-4],16)#hexadecimal to int conversion
@@ -972,7 +972,7 @@ while True:
 		get_heap_info(p1)
 	except Exception as e:
 		f.write("\nEXCEPT "+str(e))
-		break
+		#break
 	#
 	
 	
