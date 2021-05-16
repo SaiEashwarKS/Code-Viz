@@ -1,6 +1,6 @@
 {
   "Structures": {
-    "struct node *": {
+    "struct node": {
       "fields": [
         {
           "type": "var", 
@@ -13,7 +13,7 @@
           "data_type": "struct node *"
         }
       ], 
-      "datastructure": null
+      "datastructure": "linkedlist"
     }
   }, 
   "Lines_Data": [
@@ -716,11 +716,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 14, 
+          "val": 7, 
+          "name": "ptr"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 15, 
+          "val": "11", 
+          "name": "value"
         }
       ]
     }, 
@@ -759,7 +766,7 @@
             }
           ], 
           "data_type": "struct node", 
-          "id": 14
+          "id": 16
         }, 
         {
           "val": [
@@ -795,7 +802,7 @@
           "data_type": "struct node *", 
           "type": "ptr", 
           "id": 11, 
-          "val": 14, 
+          "val": 16, 
           "name": "temp"
         }, 
         {
@@ -819,11 +826,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 14, 
+          "val": 7, 
+          "name": "ptr"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 15, 
+          "val": "11", 
+          "name": "value"
         }
       ]
     }, 
@@ -862,7 +876,7 @@
             }
           ], 
           "data_type": "struct node", 
-          "id": 14
+          "id": 16
         }, 
         {
           "val": [
@@ -898,7 +912,7 @@
           "data_type": "struct node *", 
           "type": "ptr", 
           "id": 11, 
-          "val": 14, 
+          "val": 16, 
           "name": "temp"
         }, 
         {
@@ -922,11 +936,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 14, 
+          "val": 7, 
+          "name": "ptr"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 15, 
+          "val": "11", 
+          "name": "value"
         }
       ]
     }, 
@@ -965,7 +986,7 @@
             }
           ], 
           "data_type": "struct node", 
-          "id": 14
+          "id": 16
         }, 
         {
           "val": [
@@ -1001,7 +1022,7 @@
           "data_type": "struct node *", 
           "type": "ptr", 
           "id": 11, 
-          "val": 14, 
+          "val": 16, 
           "name": "temp"
         }, 
         {
@@ -1025,11 +1046,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 14, 
+          "val": 7, 
+          "name": "ptr"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 15, 
+          "val": "11", 
+          "name": "value"
         }
       ]
     }, 
@@ -1068,7 +1096,7 @@
             }
           ], 
           "data_type": "struct node", 
-          "id": 14
+          "id": 16
         }, 
         {
           "val": [
@@ -1104,7 +1132,7 @@
           "data_type": "struct node *", 
           "type": "ptr", 
           "id": 11, 
-          "val": 14, 
+          "val": 16, 
           "name": "temp"
         }, 
         {
@@ -1128,11 +1156,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 14, 
+          "val": 7, 
+          "name": "ptr"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 15, 
+          "val": "11", 
+          "name": "value"
         }
       ]
     }, 
@@ -1171,7 +1206,7 @@
             }
           ], 
           "data_type": "struct node", 
-          "id": 14
+          "id": 16
         }, 
         {
           "val": [
@@ -1207,7 +1242,7 @@
           "data_type": "struct node *", 
           "type": "ptr", 
           "id": 11, 
-          "val": 14, 
+          "val": 16, 
           "name": "temp"
         }, 
         {
@@ -1231,11 +1266,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 14, 
+          "val": 7, 
+          "name": "ptr"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 15, 
+          "val": "11", 
+          "name": "value"
         }
       ]
     }, 
@@ -1274,7 +1316,7 @@
             }
           ], 
           "data_type": "struct node", 
-          "id": 14
+          "id": 16
         }, 
         {
           "val": [
@@ -1310,7 +1352,7 @@
           "data_type": "struct node *", 
           "type": "ptr", 
           "id": 11, 
-          "val": 14, 
+          "val": 16, 
           "name": "temp"
         }, 
         {
@@ -1334,11 +1376,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 14, 
+          "val": 7, 
+          "name": "ptr"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 15, 
+          "val": "11", 
+          "name": "value"
         }
       ]
     }, 
@@ -1377,7 +1426,7 @@
             }
           ], 
           "data_type": "struct node", 
-          "id": 14
+          "id": 16
         }, 
         {
           "val": [
@@ -1413,7 +1462,7 @@
           "data_type": "struct node *", 
           "type": "ptr", 
           "id": 11, 
-          "val": 14, 
+          "val": 16, 
           "name": "temp"
         }, 
         {
@@ -1437,11 +1486,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 14, 
+          "val": 7, 
+          "name": "ptr"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 15, 
+          "val": "11", 
+          "name": "value"
         }
       ]
     }, 
@@ -1480,7 +1536,7 @@
             }
           ], 
           "data_type": "struct node", 
-          "id": 14
+          "id": 16
         }, 
         {
           "val": [
@@ -1516,7 +1572,7 @@
           "data_type": "struct node *", 
           "type": "ptr", 
           "id": 11, 
-          "val": 14, 
+          "val": 16, 
           "name": "temp"
         }, 
         {
@@ -1540,11 +1596,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 14, 
+          "val": 7, 
+          "name": "ptr"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 15, 
+          "val": "11", 
+          "name": "value"
         }
       ]
     }, 
@@ -1583,7 +1646,7 @@
             }
           ], 
           "data_type": "struct node", 
-          "id": 14
+          "id": 16
         }, 
         {
           "val": [
@@ -1619,7 +1682,7 @@
           "data_type": "struct node *", 
           "type": "ptr", 
           "id": 11, 
-          "val": 14, 
+          "val": 16, 
           "name": "temp"
         }, 
         {
@@ -1643,11 +1706,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 14, 
+          "val": 8, 
+          "name": "ptr"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 15, 
+          "val": "11", 
+          "name": "value"
         }
       ]
     }, 
@@ -1686,7 +1756,7 @@
             }
           ], 
           "data_type": "struct node", 
-          "id": 14
+          "id": 16
         }, 
         {
           "val": [
@@ -1722,7 +1792,7 @@
           "data_type": "struct node *", 
           "type": "ptr", 
           "id": 11, 
-          "val": 14, 
+          "val": 16, 
           "name": "temp"
         }, 
         {
@@ -1746,11 +1816,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 14, 
+          "val": 8, 
+          "name": "ptr"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 15, 
+          "val": "11", 
+          "name": "value"
         }
       ]
     }, 
@@ -1789,7 +1866,7 @@
             }
           ], 
           "data_type": "struct node", 
-          "id": 14
+          "id": 16
         }, 
         {
           "val": [
@@ -1825,7 +1902,7 @@
           "data_type": "struct node *", 
           "type": "ptr", 
           "id": 11, 
-          "val": 14, 
+          "val": 16, 
           "name": "temp"
         }, 
         {
@@ -1849,11 +1926,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 14, 
+          "val": 8, 
+          "name": "ptr"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 15, 
+          "val": "11", 
+          "name": "value"
         }
       ]
     }, 
@@ -1892,7 +1976,7 @@
             }
           ], 
           "data_type": "struct node", 
-          "id": 14
+          "id": 16
         }, 
         {
           "val": [
@@ -1912,7 +1996,7 @@
               "value": "10"
             }, 
             {
-              "next": "14"
+              "next": "16"
             }
           ], 
           "data_type": "struct node", 
@@ -1928,7 +2012,7 @@
           "data_type": "struct node *", 
           "type": "ptr", 
           "id": 11, 
-          "val": 14, 
+          "val": 16, 
           "name": "temp"
         }, 
         {
@@ -1952,11 +2036,18 @@
       "type": "Arguments", 
       "Contents": [
         {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 14, 
+          "val": 8, 
+          "name": "ptr"
+        }, 
+        {
           "data_type": "int", 
           "type": "var", 
-          "id": 1, 
-          "val": "0", 
-          "name": "g"
+          "id": 15, 
+          "val": "11", 
+          "name": "value"
         }
       ]
     }, 
@@ -1995,7 +2086,7 @@
             }
           ], 
           "data_type": "struct node", 
-          "id": 14
+          "id": 16
         }, 
         {
           "val": [
@@ -2015,7 +2106,7 @@
               "value": "10"
             }, 
             {
-              "next": "14"
+              "next": "16"
             }
           ], 
           "data_type": "struct node", 

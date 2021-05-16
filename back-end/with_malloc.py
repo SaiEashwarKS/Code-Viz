@@ -248,8 +248,8 @@ def maketogether(ln,di,gl,stringnamed):
 		
 		if 'struct' in datatype:
 			is_struct = True
-			if datatype not in structures:
-				structures.append(datatype)#structures.add(datatype)
+			if datatype[:datatype.find('*')] not in structures:
+				structures.append(datatype[:datatype.find('*')])#structures.add(datatype)
 		
 		if stringnamed=="GlobalVariables":
 			ID=int(i[2][i[2].rfind(")")+2:-4],16)#hexadecimal to int conversion
@@ -454,7 +454,7 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		heading = ["VARIABLE","VALUE","ADDRESS"]
 		print(tabulate(al,headers=heading,tablefmt="psql"))
 		di={}
-		maketogether(ln,di,gl,"Arguments")
+		maketogether(ln,di,al,"Arguments")
 		lines_data.append(di.copy())
 		del di
 		
@@ -972,6 +972,7 @@ while True:
 		get_heap_info(p1)
 	except Exception as e:
 		f.write("\nEXCEPT "+str(e))
+		#break
 	#
 	
 	
