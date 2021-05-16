@@ -229,6 +229,10 @@ def get_deref_value(addr, datatype):
 					dt = fields[i]['data_type']
 					heap[address]['val'] = get_deref_value(address, dt) 
 					heap[address]['data_type'] = dt[: dt.rfind('*')].strip()
+					if '*' in heap[address]['data_type']:
+						heap[address]['type'] = "ptr"
+					else:
+						heap[address]['type'] = "var"
 				k += 1
 
 		return x
@@ -283,6 +287,12 @@ def maketogether(ln,di,gl,stringnamed):
 					heap[addr]['val'] = deref_val
 					heap[addr]['data_type'] = datatype[: datatype.rfind('*')].strip()
 					heap[addr]['id'] = val
+					
+					if '*' in heap[addr]['data_type']:
+						heap[addr]['type'] = "ptr"
+					else:
+						heap[addr]['type'] = "var"
+					
 					#sepdi['is_heap'] = True
 					#sepdi['deref_val'] = deref_val ### remove this #### in get deref func need to find data_type for further deref
 			
@@ -355,6 +365,11 @@ def maketogether(ln,di,gl,stringnamed):
 						dt = fields[i]['data_type']
 						heap[address]['val'] = get_deref_value(address, dt) 
 						heap[address]['data_type'] = dt[: dt.rfind('*')].strip()
+						
+						if '*' in heap[address]['data_type']:
+							heap[address]['type'] = "ptr"
+						else:
+							heap[address]['type'] = "var"
 					k += 1			
 			#
 			#f.write("\n-----\n"+str(l)+"\n")
