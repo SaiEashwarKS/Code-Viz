@@ -183,6 +183,310 @@
           "data_type": ""
         }
       ]
+    },
+    {
+      "LineNum": "6",
+      "type": "GlobalVariables",
+      "Contents": [
+        {
+          "type": "var",
+          "id": 2,
+          "name": "",
+          "val": "[1\",2\",3]",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 1,
+          "name": "a",
+          "val": 2,
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 4,
+          "name": "",
+          "val": "6",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 3,
+          "name": "S",
+          "val": 4,
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 6,
+          "name": "",
+          "val": "14",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 5,
+          "name": "d",
+          "val": 6,
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 8,
+          "name": "",
+          "val": "{4: \"6\",7: \"5\"}",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 7,
+          "name": "di",
+          "val": 8,
+          "data_type": ""
+        }
+      ]
+    },
+    {
+      "LineNum": "7",
+      "type": "GlobalVariables",
+      "Contents": [
+        {
+          "type": "var",
+          "id": 2,
+          "name": "",
+          "val": "[1\",2\",3]",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 1,
+          "name": "a",
+          "val": 2,
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 4,
+          "name": "",
+          "val": "6",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 3,
+          "name": "S",
+          "val": 4,
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 6,
+          "name": "",
+          "val": "14",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 5,
+          "name": "d",
+          "val": 6,
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 8,
+          "name": "",
+          "val": "{4: \"6\",7: \"5\"}",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 7,
+          "name": "di",
+          "val": 8,
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 10,
+          "name": "",
+          "val": "7",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 9,
+          "name": "k",
+          "val": 10,
+          "data_type": ""
+        }
+      ]
+    },
+    {
+      "LineNum": "10",
+      "type": "GlobalVariables",
+      "Contents": [
+        {
+          "type": "var",
+          "id": 2,
+          "name": "",
+          "val": "[1\",2\",3]",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 1,
+          "name": "a",
+          "val": 2,
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 4,
+          "name": "",
+          "val": "6",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 3,
+          "name": "S",
+          "val": 4,
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 6,
+          "name": "",
+          "val": "14",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 5,
+          "name": "d",
+          "val": 6,
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 8,
+          "name": "",
+          "val": "{4: \"6\",7: \"5\"}",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 7,
+          "name": "di",
+          "val": 8,
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 10,
+          "name": "",
+          "val": "7",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 9,
+          "name": "k",
+          "val": 10,
+          "data_type": ""
+        }
+      ]
+    },
+    {
+      "LineNum": "13",
+      "type": "GlobalVariables",
+      "Contents": [
+        {
+          "type": "var",
+          "id": 2,
+          "name": "",
+          "val": "[1\",2\",3]",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 1,
+          "name": "a",
+          "val": 2,
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 4,
+          "name": "",
+          "val": "6",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 3,
+          "name": "S",
+          "val": 4,
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 6,
+          "name": "",
+          "val": "14",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 5,
+          "name": "d",
+          "val": 6,
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 8,
+          "name": "",
+          "val": "{4: \"6\",7: \"5\"}",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 7,
+          "name": "di",
+          "val": 8,
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 10,
+          "name": "",
+          "val": "7",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 9,
+          "name": "k",
+          "val": 10,
+          "data_type": ""
+        },
+        {
+          "type": "var",
+          "id": 12,
+          "name": "",
+          "val": "10",
+          "data_type": ""
+        },
+        {
+          "type": "ptr",
+          "id": 11,
+          "name": "j",
+          "val": 12,
+          "data_type": ""
+        }
+      ]
     }
   ]
 }

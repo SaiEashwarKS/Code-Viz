@@ -972,7 +972,6 @@ while True:
 		get_heap_info(p1)
 	except Exception as e:
 		f.write("\nEXCEPT "+str(e))
-		break
 	#
 	
 	
