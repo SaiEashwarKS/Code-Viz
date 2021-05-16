@@ -89,9 +89,10 @@ try:
 		global_name_list.append(name)
 		i += 1
 except:
+	global_name_list = []
 	pass
 
-gn=len(global_name_list)#no of global variables
+gn=len(global_name_list)# no of global variables
 p1 = Popen(['gdb', 'a.out'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 flags = fcntl(p1.stdout, F_GETFL) # get current p.stdout flags
 fcntl(p1.stdout, F_SETFL, flags | O_NONBLOCK)
