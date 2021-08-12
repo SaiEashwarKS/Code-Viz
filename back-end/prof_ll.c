@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int g=0;
 
 struct node
 {

@@ -89,9 +89,10 @@ try:
 		global_name_list.append(name)
 		i += 1
 except:
+	global_name_list = []
 	pass
 
-gn=len(global_name_list)#no of global variables
+gn=len(global_name_list)# no of global variables
 p1 = Popen(['gdb', 'a.out'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 flags = fcntl(p1.stdout, F_GETFL) # get current p.stdout flags
 fcntl(p1.stdout, F_SETFL, flags | O_NONBLOCK)
@@ -228,6 +229,10 @@ def get_deref_value(addr, datatype):
 					dt = fields[i]['data_type']
 					heap[address]['val'] = get_deref_value(address, dt) 
 					heap[address]['data_type'] = dt[: dt.rfind('*')].strip()
+					if '*' in heap[address]['data_type']:
+						heap[address]['type'] = "ptr"
+					else:
+						heap[address]['type'] = "var"
 				k += 1
 
 		return x
@@ -282,6 +287,12 @@ def maketogether(ln,di,gl,stringnamed):
 					heap[addr]['val'] = deref_val
 					heap[addr]['data_type'] = datatype[: datatype.rfind('*')].strip()
 					heap[addr]['id'] = val
+					
+					if '*' in heap[addr]['data_type']:
+						heap[addr]['type'] = "ptr"
+					else:
+						heap[addr]['type'] = "var"
+					
 					#sepdi['is_heap'] = True
 					#sepdi['deref_val'] = deref_val ### remove this #### in get deref func need to find data_type for further deref
 			
@@ -354,6 +365,11 @@ def maketogether(ln,di,gl,stringnamed):
 						dt = fields[i]['data_type']
 						heap[address]['val'] = get_deref_value(address, dt) 
 						heap[address]['data_type'] = dt[: dt.rfind('*')].strip()
+						
+						if '*' in heap[address]['data_type']:
+							heap[address]['type'] = "ptr"
+						else:
+							heap[address]['type'] = "var"
 					k += 1			
 			#
 			#f.write("\n-----\n"+str(l)+"\n")
@@ -426,12 +442,13 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		del di
 	
 	#Stack variables
-	if len(sl)>0:
+	if len(sl)+len(al)>0:
+		temp=copy.copy(sl)+copy.copy(al)
 		print '\n(Stack Frame)'
 		heading = ["VARIABLE","VALUE","ADDRESS"]
 		print(tabulate(sl,headers=heading,tablefmt="psql"))
 		di={}
-		maketogether(ln,di,sl,"StackFrame")
+		maketogether(ln,di,temp,"StackFrame")
 		
 		#heap
 		h_di = {}
@@ -449,14 +466,14 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 	
 	
 	#Arguments
-	if len(al)>0:
-		print '\n(Arguments)'
-		heading = ["VARIABLE","VALUE","ADDRESS"]
-		print(tabulate(al,headers=heading,tablefmt="psql"))
-		di={}
-		maketogether(ln,di,al,"Arguments")
-		lines_data.append(di.copy())
-		del di
+	# if len(al)>0:
+	# 	print '\n(Arguments)'
+	# 	heading = ["VARIABLE","VALUE","ADDRESS"]
+	# 	print(tabulate(al,headers=heading,tablefmt="psql"))
+	# 	di={}
+	# 	maketogether(ln,di,al,"Arguments")
+	# 	lines_data.append(di.copy())
+	# 	del di
 		
 	if len(rv[6])>0:
 		print '\n-Pointers-'
