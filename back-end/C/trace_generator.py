@@ -897,14 +897,60 @@ def output(p1,flag):#display (stack frame, arguments..)
 
 
 # dictionary of structure containing its fields, the structure name 
+# recognize only if we are using standard ways to determine the data structures
 def identify_datastructure(structure, structure_name):
+	count_of_same_pointers=0
+	count_of_diff_pointers=0
+	name_of_same_pointers=[]
+	name_of_diff_pointers=[]
+
+	a=structure_name.lower()
+
+	if "tree" in a or "binary" in a:
+		return "tree"
+	if "dll" in a or "doubl" in a:
+		return "doubly_linked_list"
+	
 	for field in structure['fields']:
 		dt = field['data_type']
-		if field['type'] == 'ptr' and structure_name == dt[ : dt.rfind('*') - 1]:
+		if field['type'] == 'ptr':
+			if structure_name == dt[ : dt.rfind('*') - 1]:
 			#struct_details[structure].append({'datastructure':'linkedlist'})
 			#struct_details[structure]['datastructure'] ='linkedlist'
+				count_of_same_pointers+=1
+				name_of_same_pointers.append(field['name'].lower())
+			else:
+				count_of_diff_pointer
+				name_of_diff_pointers.append(field['name'].lower())
+
+	if count_of_same_pointer==1:
 			return 'linkedlist'
-			#break
+	elif count_of_same_pointers==2:#by default we send a dou
+
+			#can be a doubly linked list or a binary tree
+			#difference between doubly linked list and binary tree :
+			#a node in a doubly linked list is pointed at twice: by it's previous' next and next's previous
+			#a node in a binary tree is pointed at once: by it's parent
+			#also from what we have learnt: binary trees have a separate structure called tree to store the head
+			#EDGE CASE: What if binary trees' node has a parent field? => count_of_same_pointers = 3
+			#tree is a connected graph with no cycles
+			#attempt1: based on name of the pointers
+			#assuming left and right are in binary trees
+			#next and prev are in doubly linked lists
+			if 'next' in name_of_same_pointers and 'prev' in name_of_same_pointers:
+				return 'doubly_linked_list'
+			return 'tree'			
+	else:
+		return 'tree'
+		'''
+		if name_of_diff_pointers:
+			return 
+		'''
+		
+			
+			
+
+			
 
 
 def get_heap_info(pipe):
