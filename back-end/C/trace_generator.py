@@ -791,7 +791,8 @@ def output(p1,flag):#display (stack frame, arguments..)
 				my_out[x] = [ y.strip() for y in my_out[x] ] # [['p', '0x401a50 <__libc_csu_fini>'], ['l', '0x0'], ...]
 			#f.write(str(my_out)+'\n')
 			prev = 0
-			if len(my_out)==2 and len(my_out[0])==1:
+			print("MYOUT",my_out)
+			if len(my_out)==2 and len(my_out[0])==1 or my_out[0][0]=="No locals.":
 				print "\nNo Locals.\n"
 			else:	
 				for x in range(len(my_out)):
@@ -920,10 +921,10 @@ def identify_datastructure(structure, structure_name):
 				count_of_same_pointers+=1
 				name_of_same_pointers.append(field['name'].lower())
 			else:
-				count_of_diff_pointer
+				count_of_diff_pointer+=1
 				name_of_diff_pointers.append(field['name'].lower())
 
-	if count_of_same_pointer==1:
+	if count_of_same_pointers==1:
 			return 'linkedlist'
 	elif count_of_same_pointers==2:#by default we send a dou
 
