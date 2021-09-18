@@ -8,7 +8,7 @@ import "ace-builds/src-noconflict/ext-language_tools";
 const Visualiser = () => {
   return (
     <>
-      <Iframe src="../LL.html" width="100%" height="800px"></Iframe>
+      <Iframe src="../viz.js/viz.html" width="100%" height="800px"></Iframe>
     </>
   );
 };

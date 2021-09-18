@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <script type="module">
+        import Viz from './viz.es.js';
+        import { input } from './input.js'
+        import { getDigraphs } from './utils.js';
+
+        // getDigraphs(input)
+        let digraphs = [`
+        digraph g {
+        graph [
+        rankdir = "LR"
+        ];
+        node [
+        fontsize = "16"
+        shape = "ellipse"
+        ];
+        edge [
+        ];
+        "node0" [
+        label = "<f0> head"
+        shape = "record"
+        ];
+        "node1" [
+        label = "<f0> second"
+        shape = "record"
+        ];
+        "node2" [
+        label = "<f0> third"
+        shape = "record"
+        ];
+        "node3" [
+        label = "<f0> data: 11| <f1> next"
+        shape = "record"
+        ];
+        "node4" [
+        label = "<f0> data: 21 | <f1> next"
+        shape = "record"
+        ];
+
+        "node5" [
+        label = "<f0> data: 31 | <f1> next"
+        shape = "record"
+        ];
+
+        "node0":f0 -> "node3":f0 [
+        id = 0
+        ];
+        "node1":f0 -> "node4":f0 [
+        id = 1
+        ];
+        "node2":f0 -> "node5":f0 [
+        id = 2
+        ];
+        "node3":f1 -> "node4":f0 [
+        id = 3
+        ];
+
+        "node4":f1 -> "node5":f0 [
+        id = 3
+        ];
+
+        }
+
+        `, `
+
+        digraph g {
+        graph [
+        rankdir = "TB"
+        ];
+        node [
+        fontsize = "16"
+        shape = "ellipse"
+        ];
+        edge [
+        ];
+        "node0" [
+        label = "<f0> head"
+        shape = "record"
+        ];
+        "node1" [
+        label = "<f0> second"
+        shape = "record"
+        ];
+        "node2" [
+        label = "<f0> third"
+        shape = "record"
+        ];
+        "node3" [
+        label = "data: 11| next"
+        shape = "record"
+        ];
+        "node4" [
+        label = "<f0> data: 21 | <f1> next"
+        shape = "record"
+        ];
+
+        "node5" [
+        label = "<f0> data: 31 | <f1> next"
+        shape = "record"
+        ];
+
+        "node0":f0 -> "node3":f0 [
+        id = 0
+        ];
+        "node1":f0 -> "node4":f0 [
+        id = 1
+        ];
+        "node2":f0 -> "node5":f0 [
+        id = 2
+        ];
+        "node3":f1 -> "node4":f0 [
+        id = 3
+        ];
+
+        "node4":f1 -> "node5":f0 [
+        id = 3
+        ];
+
+        }
+
+        `]
+        // const digraphs = getDigraphs(input)
+        // console.log(digraphs)
+        var viz = new Viz({ workerURL: './full.render.js' });
+        // digraphs.map((digraph) => {
+        //     // console.log(digraph)
+        //     viz.renderSVGElement(digraph)
+        //         .then(function (element) {
+        //             document.body.appendChild(element);
+        //         })
+        // })
+        digraphs = getDigraphs(input);
+        console.log(digraphs.length)
+        digraphs.map((digraph) => {
+            // console.log(digraph)
+            viz.renderSVGElement(digraph)
+                .then(function (element) {
+                    document.body.appendChild(element);
+                    document.body.appendChild(document.createElement("hr"))
+                })
+        })
+
+    </script>
+
+</body>
+
+</html>
