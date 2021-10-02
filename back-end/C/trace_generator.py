@@ -166,7 +166,10 @@ def pdisp(rv):#for further display
 	#print rv
 
 
-def get_deref_value(addr, datatype):
+def get_deref_value(addr, datatype,visited=set()):
+	if addr in visited:
+		return
+	visited.add(addr)
 	p1.stdin.write('p *('+datatype+') '+addr+'\n')
 	my_out = ''
 	sleep(0.1)
@@ -227,7 +230,7 @@ def get_deref_value(addr, datatype):
 					#deref_val = get_deref_value(address, fields[i]['data_type']) 
 					#heap[address]['val'] = deref_val
 					dt = fields[i]['data_type']
-					heap[address]['val'] = get_deref_value(address, dt) 
+					heap[address]['val'] = get_deref_value(address, dt,visited)
 					heap[address]['data_type'] = dt[: dt.rfind('*')].strip()
 					if '*' in heap[address]['data_type']:
 						heap[address]['type'] = "ptr"
