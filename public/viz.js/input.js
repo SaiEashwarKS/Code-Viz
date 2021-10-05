@@ -3,26 +3,44 @@ export const input = `{
     "struct node": {
       "fields": [
         {
+          "type": "ptr", 
+          "name": "left", 
+          "data_type": "struct node *"
+        }, 
+        {
           "type": "var", 
-          "name": "value", 
+          "name": "data", 
           "data_type": "int"
         }, 
         {
           "type": "ptr", 
-          "name": "next", 
+          "name": "right", 
           "data_type": "struct node *"
         }
       ], 
-      "datastructure": "linkedlist"
+      "datastructure": "tree"
     }
   }, 
   "Lines_Data": [
     {
       "LineNum": 0, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 0, 
       "stackdepth": 1, 
-      "nameid": 2, 
+      "nameid": 3, 
       "type": "Function", 
-      "id": 1, 
+      "id": 2, 
       "name": "main"
     }, 
     {
@@ -37,794 +55,98 @@ export const input = `{
         {
           "data_type": "struct node *", 
           "type": "ptr", 
-          "id": 3, 
-          "val": "N", 
-          "name": "head"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
           "id": 4, 
           "val": "U", 
-          "name": "nhead"
+          "name": "head"
         }
       ]
     }, 
     {
-      "LineNum": 35, 
-      "stackdepth": 1, 
-      "nameid": 2, 
-      "type": "Function", 
-      "id": 1, 
-      "name": "main"
+      "LineNum": 26, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
     }, 
     {
-      "LineNum": 35, 
+      "LineNum": 26, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "createnode"
+    }, 
+    {
+      "LineNum": 26, 
       "type": "Heap", 
       "Contents": []
     }, 
     {
-      "LineNum": 35, 
+      "LineNum": 26, 
       "type": "StackFrame", 
       "Contents": [
         {
           "data_type": "struct node *", 
           "type": "ptr", 
-          "id": 3, 
-          "val": "N", 
-          "name": "head"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 4, 
+          "id": 7, 
           "val": "U", 
-          "name": "nhead"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 36, 
-      "stackdepth": 1, 
-      "nameid": 2, 
-      "type": "Function", 
-      "id": 1, 
-      "name": "main"
-    }, 
-    {
-      "LineNum": 36, 
-      "type": "Heap", 
-      "Contents": [
+          "name": "temp"
+        }, 
         {
+          "data_type": "int", 
           "type": "var", 
-          "val": [
-            {
-              "value": "0"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 5
+          "id": 8, 
+          "val": "50", 
+          "name": "data"
         }
       ]
     }, 
     {
-      "LineNum": 36, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 3, 
-          "val": 5, 
-          "name": "head"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "nhead"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 37, 
-      "stackdepth": 1, 
-      "nameid": 2, 
-      "type": "Function", 
-      "id": 1, 
-      "name": "main"
-    }, 
-    {
-      "LineNum": 37, 
-      "type": "Heap", 
-      "Contents": [
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "10"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 5
-        }
-      ]
-    }, 
-    {
-      "LineNum": 37, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 3, 
-          "val": 5, 
-          "name": "head"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "nhead"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 38, 
-      "stackdepth": 1, 
-      "nameid": 2, 
-      "type": "Function", 
-      "id": 1, 
-      "name": "main"
-    }, 
-    {
-      "LineNum": 38, 
-      "type": "Heap", 
-      "Contents": [
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "10"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 5
-        }
-      ]
-    }, 
-    {
-      "LineNum": 38, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 3, 
-          "val": 5, 
-          "name": "head"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": "U", 
-          "name": "nhead"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 39, 
-      "stackdepth": 1, 
-      "nameid": 2, 
-      "type": "Function", 
-      "id": 1, 
-      "name": "main"
-    }, 
-    {
-      "LineNum": 39, 
-      "type": "Heap", 
-      "Contents": [
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "0"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 6
-        }, 
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "10"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 5
-        }
-      ]
-    }, 
-    {
-      "LineNum": 39, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 3, 
-          "val": 5, 
-          "name": "head"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": 6, 
-          "name": "nhead"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 40, 
-      "stackdepth": 1, 
-      "nameid": 2, 
-      "type": "Function", 
-      "id": 1, 
-      "name": "main"
-    }, 
-    {
-      "LineNum": 40, 
-      "type": "Heap", 
-      "Contents": [
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "12"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 6
-        }, 
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "10"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 5
-        }
-      ]
-    }, 
-    {
-      "LineNum": 40, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 3, 
-          "val": 5, 
-          "name": "head"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": 6, 
-          "name": "nhead"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 41, 
-      "stackdepth": 1, 
-      "nameid": 2, 
-      "type": "Function", 
-      "id": 1, 
-      "name": "main"
-    }, 
-    {
-      "LineNum": 41, 
-      "type": "Heap", 
-      "Contents": [
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "12"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 6
-        }, 
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "10"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 5
-        }
-      ]
-    }, 
-    {
-      "LineNum": 41, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 3, 
-          "val": 5, 
-          "name": "head"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": 6, 
-          "name": "nhead"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 42, 
-      "stackdepth": 1, 
-      "nameid": 2, 
-      "type": "Function", 
-      "id": 1, 
-      "name": "main"
-    }, 
-    {
-      "LineNum": 42, 
-      "type": "Heap", 
-      "Contents": [
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "12"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 6
-        }, 
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "10"
-            }, 
-            {
-              "next": "6"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 5
-        }
-      ]
-    }, 
-    {
-      "LineNum": 42, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 3, 
-          "val": 5, 
-          "name": "head"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 4, 
-          "val": 6, 
-          "name": "nhead"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 43, 
-      "stackdepth": 2, 
-      "nameid": 8, 
-      "type": "Function", 
-      "id": 7, 
-      "name": "insertorder"
-    }, 
-    {
-      "LineNum": 43, 
-      "type": "Heap", 
-      "Contents": [
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "12"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 6
-        }, 
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "10"
-            }, 
-            {
-              "next": "6"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 5
-        }
-      ]
-    }, 
-    {
-      "LineNum": 43, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 9, 
-          "val": 6, 
-          "name": "tempi"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 10, 
-          "val": "U", 
-          "name": "parent"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 11, 
-          "val": 5, 
-          "name": "ptr"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 43, 
-      "type": "Arguments", 
+      "LineNum": 16, 
+      "type": "GlobalVariables", 
       "Contents": [
         {
           "data_type": "int", 
           "type": "var", 
-          "id": 12, 
-          "val": "11", 
-          "name": "value"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 13, 
-      "stackdepth": 2, 
-      "nameid": 8, 
-      "type": "Function", 
-      "id": 7, 
-      "name": "insertorder"
-    }, 
-    {
-      "LineNum": 13, 
-      "type": "Heap", 
-      "Contents": [
-        {}, 
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "12"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 6
-        }, 
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "10"
-            }, 
-            {
-              "next": "6"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 5
-        }
-      ]
-    }, 
-    {
-      "LineNum": 13, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 9, 
-          "val": 6, 
-          "name": "tempi"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 10, 
-          "val": "U", 
-          "name": "parent"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 11, 
-          "val": 5, 
-          "name": "ptr"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 13, 
-      "type": "Arguments", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 12, 
-          "val": "11", 
-          "name": "value"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 14, 
-      "stackdepth": 2, 
-      "nameid": 8, 
-      "type": "Function", 
-      "id": 7, 
-      "name": "insertorder"
-    }, 
-    {
-      "LineNum": 14, 
-      "type": "Heap", 
-      "Contents": [
-        {}, 
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "12"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 6
-        }, 
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "10"
-            }, 
-            {
-              "next": "6"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 5
-        }
-      ]
-    }, 
-    {
-      "LineNum": 14, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 9, 
-          "val": 6, 
-          "name": "tempi"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 10, 
-          "val": "U", 
-          "name": "parent"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 11, 
-          "val": 5, 
-          "name": "ptr"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 14, 
-      "type": "Arguments", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 12, 
-          "val": "11", 
-          "name": "value"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 15, 
-      "stackdepth": 2, 
-      "nameid": 8, 
-      "type": "Function", 
-      "id": 7, 
-      "name": "insertorder"
-    }, 
-    {
-      "LineNum": 15, 
-      "type": "Heap", 
-      "Contents": [
-        {}, 
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "12"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 6
-        }, 
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "10"
-            }, 
-            {
-              "next": "6"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 5
-        }
-      ]
-    }, 
-    {
-      "LineNum": 15, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 9, 
-          "val": 6, 
-          "name": "tempi"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 10, 
-          "val": "U", 
-          "name": "parent"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 11, 
-          "val": 5, 
-          "name": "ptr"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 15, 
-      "type": "Arguments", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 12, 
-          "val": "11", 
-          "name": "value"
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
         }
       ]
     }, 
     {
       "LineNum": 16, 
       "stackdepth": 2, 
-      "nameid": 8, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 7, 
-      "name": "insertorder"
+      "id": 5, 
+      "name": "createnode"
     }, 
     {
       "LineNum": 16, 
       "type": "Heap", 
       "Contents": [
-        {}, 
         {
           "type": "var", 
           "val": [
             {
-              "value": "12"
+              "left": "N"
             }, 
             {
-              "next": "N"
+              "data": "0"
+            }, 
+            {
+              "right": "N"
             }
           ], 
           "data_type": "struct node", 
-          "id": 6
-        }, 
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "10"
-            }, 
-            {
-              "next": "6"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 5
+          "id": 9
         }
       ]
     }, 
@@ -835,563 +157,771 @@ export const input = `{
         {
           "data_type": "struct node *", 
           "type": "ptr", 
-          "id": 9, 
-          "val": 6, 
-          "name": "tempi"
+          "id": 7, 
+          "val": 9, 
+          "name": "temp"
         }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "50", 
+          "name": "data"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 17, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 17, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "createnode"
+    }, 
+    {
+      "LineNum": 17, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "0"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
+        }
+      ]
+    }, 
+    {
+      "LineNum": 17, 
+      "type": "StackFrame", 
+      "Contents": [
         {
           "data_type": "struct node *", 
           "type": "ptr", 
-          "id": 10, 
-          "val": "U", 
-          "name": "parent"
+          "id": 7, 
+          "val": 9, 
+          "name": "temp"
         }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "50", 
+          "name": "data"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 18, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 18, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "createnode"
+    }, 
+    {
+      "LineNum": 18, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "0"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
+        }
+      ]
+    }, 
+    {
+      "LineNum": 18, 
+      "type": "StackFrame", 
+      "Contents": [
         {
           "data_type": "struct node *", 
           "type": "ptr", 
-          "id": 11, 
-          "val": 5, 
-          "name": "ptr"
+          "id": 7, 
+          "val": 9, 
+          "name": "temp"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "50", 
+          "name": "data"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 19, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 19, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "createnode"
+    }, 
+    {
+      "LineNum": 19, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "50"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
+        }
+      ]
+    }, 
+    {
+      "LineNum": 19, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 7, 
+          "val": 9, 
+          "name": "temp"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "50", 
+          "name": "data"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 20, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 20, 
+      "stackdepth": 1, 
+      "nameid": 3, 
+      "type": "Function", 
+      "id": 2, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 20, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "50"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
+        }
+      ]
+    }, 
+    {
+      "LineNum": 20, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 4, 
+          "val": 9, 
+          "name": "head"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 27, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 27, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "createnode"
+    }, 
+    {
+      "LineNum": 27, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "50"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
+        }
+      ]
+    }, 
+    {
+      "LineNum": 27, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 7, 
+          "val": 9, 
+          "name": "temp"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "25", 
+          "name": "data"
         }
       ]
     }, 
     {
       "LineNum": 16, 
-      "type": "Arguments", 
+      "type": "GlobalVariables", 
       "Contents": [
         {
           "data_type": "int", 
           "type": "var", 
-          "id": 12, 
-          "val": "11", 
-          "name": "value"
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
         }
       ]
     }, 
     {
-      "LineNum": 21, 
+      "LineNum": 16, 
       "stackdepth": 2, 
-      "nameid": 8, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 7, 
-      "name": "insertorder"
+      "id": 5, 
+      "name": "createnode"
     }, 
     {
-      "LineNum": 21, 
+      "LineNum": 16, 
       "type": "Heap", 
       "Contents": [
-        {}, 
         {
           "type": "var", 
           "val": [
             {
-              "value": "12"
+              "left": "N"
             }, 
             {
-              "next": "N"
+              "data": "0"
+            }, 
+            {
+              "right": "N"
             }
           ], 
           "data_type": "struct node", 
-          "id": 6
+          "id": 10
         }, 
         {
           "type": "var", 
           "val": [
             {
-              "value": "10"
+              "left": "N"
             }, 
             {
-              "next": "6"
+              "data": "50"
+            }, 
+            {
+              "right": "N"
             }
           ], 
           "data_type": "struct node", 
-          "id": 5
+          "id": 9
         }
       ]
     }, 
     {
-      "LineNum": 21, 
+      "LineNum": 16, 
       "type": "StackFrame", 
       "Contents": [
         {
           "data_type": "struct node *", 
           "type": "ptr", 
-          "id": 9, 
-          "val": 5, 
-          "name": "tempi"
+          "id": 7, 
+          "val": 10, 
+          "name": "temp"
         }, 
         {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 10, 
-          "val": "U", 
-          "name": "parent"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 11, 
-          "val": 5, 
-          "name": "ptr"
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "25", 
+          "name": "data"
         }
       ]
     }, 
     {
-      "LineNum": 21, 
-      "type": "Arguments", 
+      "LineNum": 17, 
+      "type": "GlobalVariables", 
       "Contents": [
         {
           "data_type": "int", 
           "type": "var", 
-          "id": 12, 
-          "val": "11", 
-          "name": "value"
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
         }
       ]
     }, 
     {
-      "LineNum": 22, 
+      "LineNum": 17, 
       "stackdepth": 2, 
-      "nameid": 8, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 7, 
-      "name": "insertorder"
+      "id": 5, 
+      "name": "createnode"
     }, 
     {
-      "LineNum": 22, 
+      "LineNum": 17, 
       "type": "Heap", 
       "Contents": [
-        {}, 
         {
           "type": "var", 
           "val": [
             {
-              "value": "12"
+              "left": "N"
             }, 
             {
-              "next": "N"
+              "data": "0"
+            }, 
+            {
+              "right": "N"
             }
           ], 
           "data_type": "struct node", 
-          "id": 6
+          "id": 10
         }, 
         {
           "type": "var", 
           "val": [
             {
-              "value": "10"
+              "left": "N"
             }, 
             {
-              "next": "6"
+              "data": "50"
+            }, 
+            {
+              "right": "N"
             }
           ], 
           "data_type": "struct node", 
-          "id": 5
+          "id": 9
         }
       ]
     }, 
     {
-      "LineNum": 22, 
+      "LineNum": 17, 
       "type": "StackFrame", 
       "Contents": [
         {
           "data_type": "struct node *", 
           "type": "ptr", 
-          "id": 9, 
-          "val": 5, 
-          "name": "tempi"
+          "id": 7, 
+          "val": 10, 
+          "name": "temp"
         }, 
         {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 10, 
-          "val": "N", 
-          "name": "parent"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 11, 
-          "val": 5, 
-          "name": "ptr"
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "25", 
+          "name": "data"
         }
       ]
     }, 
     {
-      "LineNum": 22, 
-      "type": "Arguments", 
+      "LineNum": 18, 
+      "type": "GlobalVariables", 
       "Contents": [
         {
           "data_type": "int", 
           "type": "var", 
-          "id": 12, 
-          "val": "11", 
-          "name": "value"
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
         }
       ]
     }, 
     {
-      "LineNum": 23, 
+      "LineNum": 18, 
       "stackdepth": 2, 
-      "nameid": 8, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 7, 
-      "name": "insertorder"
+      "id": 5, 
+      "name": "createnode"
     }, 
     {
-      "LineNum": 23, 
+      "LineNum": 18, 
       "type": "Heap", 
       "Contents": [
-        {}, 
         {
           "type": "var", 
           "val": [
             {
-              "value": "12"
+              "left": "N"
             }, 
             {
-              "next": "N"
+              "data": "0"
+            }, 
+            {
+              "right": "N"
             }
           ], 
           "data_type": "struct node", 
-          "id": 6
+          "id": 10
         }, 
         {
           "type": "var", 
           "val": [
             {
-              "value": "10"
+              "left": "N"
             }, 
             {
-              "next": "6"
+              "data": "50"
+            }, 
+            {
+              "right": "N"
             }
           ], 
           "data_type": "struct node", 
-          "id": 5
+          "id": 9
         }
       ]
     }, 
     {
-      "LineNum": 23, 
+      "LineNum": 18, 
       "type": "StackFrame", 
       "Contents": [
         {
           "data_type": "struct node *", 
           "type": "ptr", 
-          "id": 9, 
-          "val": 5, 
-          "name": "tempi"
+          "id": 7, 
+          "val": 10, 
+          "name": "temp"
         }, 
         {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 10, 
-          "val": "N", 
-          "name": "parent"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 11, 
-          "val": 5, 
-          "name": "ptr"
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "25", 
+          "name": "data"
         }
       ]
     }, 
     {
-      "LineNum": 23, 
-      "type": "Arguments", 
+      "LineNum": 19, 
+      "type": "GlobalVariables", 
       "Contents": [
         {
           "data_type": "int", 
           "type": "var", 
-          "id": 12, 
-          "val": "11", 
-          "name": "value"
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
         }
       ]
     }, 
     {
-      "LineNum": 25, 
+      "LineNum": 19, 
       "stackdepth": 2, 
-      "nameid": 8, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 7, 
-      "name": "insertorder"
+      "id": 5, 
+      "name": "createnode"
     }, 
     {
-      "LineNum": 25, 
+      "LineNum": 19, 
       "type": "Heap", 
       "Contents": [
-        {}, 
         {
           "type": "var", 
           "val": [
             {
-              "value": "12"
+              "left": "N"
             }, 
             {
-              "next": "N"
+              "data": "25"
+            }, 
+            {
+              "right": "N"
             }
           ], 
           "data_type": "struct node", 
-          "id": 6
+          "id": 10
         }, 
         {
           "type": "var", 
           "val": [
             {
-              "value": "10"
+              "left": "N"
             }, 
             {
-              "next": "6"
+              "data": "50"
+            }, 
+            {
+              "right": "N"
             }
           ], 
           "data_type": "struct node", 
-          "id": 5
+          "id": 9
         }
       ]
     }, 
     {
-      "LineNum": 25, 
+      "LineNum": 19, 
       "type": "StackFrame", 
       "Contents": [
         {
           "data_type": "struct node *", 
           "type": "ptr", 
-          "id": 9, 
-          "val": 5, 
-          "name": "tempi"
+          "id": 7, 
+          "val": 10, 
+          "name": "temp"
         }, 
         {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 10, 
-          "val": 5, 
-          "name": "parent"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 11, 
-          "val": 5, 
-          "name": "ptr"
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "25", 
+          "name": "data"
         }
       ]
     }, 
     {
-      "LineNum": 25, 
-      "type": "Arguments", 
+      "LineNum": 20, 
+      "type": "GlobalVariables", 
       "Contents": [
         {
           "data_type": "int", 
           "type": "var", 
-          "id": 12, 
-          "val": "11", 
-          "name": "value"
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
         }
       ]
     }, 
     {
-      "LineNum": 26, 
-      "stackdepth": 2, 
-      "nameid": 8, 
+      "LineNum": 20, 
+      "stackdepth": 1, 
+      "nameid": 3, 
       "type": "Function", 
-      "id": 7, 
-      "name": "insertorder"
+      "id": 2, 
+      "name": "main"
     }, 
     {
-      "LineNum": 26, 
+      "LineNum": 20, 
       "type": "Heap", 
       "Contents": [
-        {}, 
         {
           "type": "var", 
           "val": [
             {
-              "value": "12"
+              "left": "N"
             }, 
             {
-              "next": "N"
+              "data": "25"
+            }, 
+            {
+              "right": "N"
             }
           ], 
           "data_type": "struct node", 
-          "id": 6
+          "id": 10
         }, 
         {
           "type": "var", 
           "val": [
             {
-              "value": "10"
+              "left": "10"
             }, 
             {
-              "next": "6"
+              "data": "50"
+            }, 
+            {
+              "right": "N"
             }
           ], 
           "data_type": "struct node", 
-          "id": 5
+          "id": 9
         }
       ]
     }, 
     {
-      "LineNum": 26, 
+      "LineNum": 20, 
       "type": "StackFrame", 
       "Contents": [
         {
           "data_type": "struct node *", 
           "type": "ptr", 
-          "id": 9, 
-          "val": 5, 
-          "name": "tempi"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 10, 
-          "val": 5, 
-          "name": "parent"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 11, 
-          "val": 6, 
-          "name": "ptr"
+          "id": 4, 
+          "val": 9, 
+          "name": "head"
         }
       ]
     }, 
     {
-      "LineNum": 26, 
-      "type": "Arguments", 
+      "LineNum": 28, 
+      "type": "GlobalVariables", 
       "Contents": [
         {
           "data_type": "int", 
           "type": "var", 
-          "id": 12, 
-          "val": "11", 
-          "name": "value"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 23, 
-      "stackdepth": 2, 
-      "nameid": 8, 
-      "type": "Function", 
-      "id": 7, 
-      "name": "insertorder"
-    }, 
-    {
-      "LineNum": 23, 
-      "type": "Heap", 
-      "Contents": [
-        {}, 
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "12"
-            }, 
-            {
-              "next": "N"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 6
-        }, 
-        {
-          "type": "var", 
-          "val": [
-            {
-              "value": "10"
-            }, 
-            {
-              "next": "6"
-            }
-          ], 
-          "data_type": "struct node", 
-          "id": 5
-        }
-      ]
-    }, 
-    {
-      "LineNum": 23, 
-      "type": "StackFrame", 
-      "Contents": [
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 9, 
-          "val": 5, 
-          "name": "tempi"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 10, 
-          "val": 5, 
-          "name": "parent"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 11, 
-          "val": 6, 
-          "name": "ptr"
-        }
-      ]
-    }, 
-    {
-      "LineNum": 23, 
-      "type": "Arguments", 
-      "Contents": [
-        {
-          "data_type": "int", 
-          "type": "var", 
-          "id": 12, 
-          "val": "11", 
-          "name": "value"
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
         }
       ]
     }, 
     {
       "LineNum": 28, 
       "stackdepth": 2, 
-      "nameid": 8, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 7, 
-      "name": "insertorder"
+      "id": 5, 
+      "name": "createnode"
     }, 
     {
       "LineNum": 28, 
       "type": "Heap", 
       "Contents": [
-        {}, 
         {
           "type": "var", 
           "val": [
             {
-              "value": "12"
+              "left": "N"
             }, 
             {
-              "next": "N"
+              "data": "25"
+            }, 
+            {
+              "right": "N"
             }
           ], 
           "data_type": "struct node", 
-          "id": 6
+          "id": 10
         }, 
         {
           "type": "var", 
           "val": [
             {
-              "value": "10"
+              "left": "10"
             }, 
             {
-              "next": "6"
+              "data": "50"
+            }, 
+            {
+              "right": "N"
             }
           ], 
           "data_type": "struct node", 
-          "id": 5
+          "id": 9
         }
       ]
     }, 
@@ -1402,89 +932,559 @@ export const input = `{
         {
           "data_type": "struct node *", 
           "type": "ptr", 
-          "id": 9, 
-          "val": 5, 
-          "name": "tempi"
+          "id": 7, 
+          "val": 10, 
+          "name": "temp"
         }, 
         {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 10, 
-          "val": 5, 
-          "name": "parent"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 11, 
-          "val": 6, 
-          "name": "ptr"
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "75", 
+          "name": "data"
         }
       ]
     }, 
     {
-      "LineNum": 28, 
-      "type": "Arguments", 
+      "LineNum": 16, 
+      "type": "GlobalVariables", 
       "Contents": [
         {
           "data_type": "int", 
           "type": "var", 
-          "id": 12, 
-          "val": "11", 
-          "name": "value"
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 16, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "createnode"
+    }, 
+    {
+      "LineNum": 16, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "0"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 11
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "25"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 10
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "10"
+            }, 
+            {
+              "data": "50"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
+        }
+      ]
+    }, 
+    {
+      "LineNum": 16, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 7, 
+          "val": 11, 
+          "name": "temp"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "75", 
+          "name": "data"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 17, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 17, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "createnode"
+    }, 
+    {
+      "LineNum": 17, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "0"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 11
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "25"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 10
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "10"
+            }, 
+            {
+              "data": "50"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
+        }
+      ]
+    }, 
+    {
+      "LineNum": 17, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 7, 
+          "val": 11, 
+          "name": "temp"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "75", 
+          "name": "data"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 18, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 18, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "createnode"
+    }, 
+    {
+      "LineNum": 18, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "0"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 11
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "25"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 10
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "10"
+            }, 
+            {
+              "data": "50"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
+        }
+      ]
+    }, 
+    {
+      "LineNum": 18, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 7, 
+          "val": 11, 
+          "name": "temp"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "75", 
+          "name": "data"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 19, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 19, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "createnode"
+    }, 
+    {
+      "LineNum": 19, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "75"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 11
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "25"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 10
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "10"
+            }, 
+            {
+              "data": "50"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
+        }
+      ]
+    }, 
+    {
+      "LineNum": 19, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 7, 
+          "val": 11, 
+          "name": "temp"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "75", 
+          "name": "data"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 20, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 20, 
+      "stackdepth": 1, 
+      "nameid": 3, 
+      "type": "Function", 
+      "id": 2, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 20, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "75"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 11
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "25"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 10
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "10"
+            }, 
+            {
+              "data": "50"
+            }, 
+            {
+              "right": "11"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
+        }
+      ]
+    }, 
+    {
+      "LineNum": 20, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 4, 
+          "val": 9, 
+          "name": "head"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 29, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
         }
       ]
     }, 
     {
       "LineNum": 29, 
       "stackdepth": 2, 
-      "nameid": 8, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 7, 
-      "name": "insertorder"
+      "id": 5, 
+      "name": "createnode"
     }, 
     {
       "LineNum": 29, 
       "type": "Heap", 
       "Contents": [
         {
+          "type": "var", 
           "val": [
             {
-              "value": "11"
+              "left": "N"
             }, 
             {
-              "next": "6"
+              "data": "75"
+            }, 
+            {
+              "right": "N"
             }
           ], 
-          "type": "var", 
-          "id": 13, 
-          "data_type": "struct node"
+          "data_type": "struct node", 
+          "id": 11
         }, 
         {
           "type": "var", 
           "val": [
             {
-              "value": "12"
+              "left": "N"
             }, 
             {
-              "next": "N"
+              "data": "25"
+            }, 
+            {
+              "right": "N"
             }
           ], 
           "data_type": "struct node", 
-          "id": 6
+          "id": 10
         }, 
         {
           "type": "var", 
           "val": [
             {
-              "value": "10"
+              "left": "10"
             }, 
             {
-              "next": "13"
+              "data": "50"
+            }, 
+            {
+              "right": "11"
             }
           ], 
           "data_type": "struct node", 
-          "id": 5
+          "id": 9
         }
       ]
     }, 
@@ -1495,89 +1495,655 @@ export const input = `{
         {
           "data_type": "struct node *", 
           "type": "ptr", 
-          "id": 9, 
-          "val": 5, 
-          "name": "tempi"
+          "id": 7, 
+          "val": 11, 
+          "name": "temp"
         }, 
         {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 10, 
-          "val": 5, 
-          "name": "parent"
-        }, 
-        {
-          "data_type": "struct node *", 
-          "type": "ptr", 
-          "id": 11, 
-          "val": 6, 
-          "name": "ptr"
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "10", 
+          "name": "data"
         }
       ]
     }, 
     {
-      "LineNum": 29, 
-      "type": "Arguments", 
+      "LineNum": 16, 
+      "type": "GlobalVariables", 
       "Contents": [
         {
           "data_type": "int", 
           "type": "var", 
-          "id": 12, 
-          "val": "11", 
-          "name": "value"
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 16, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "createnode"
+    }, 
+    {
+      "LineNum": 16, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "0"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 12
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "75"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 11
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "25"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 10
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "10"
+            }, 
+            {
+              "data": "50"
+            }, 
+            {
+              "right": "11"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
+        }
+      ]
+    }, 
+    {
+      "LineNum": 16, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 7, 
+          "val": 12, 
+          "name": "temp"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "10", 
+          "name": "data"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 17, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 17, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "createnode"
+    }, 
+    {
+      "LineNum": 17, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "0"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 12
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "75"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 11
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "25"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 10
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "10"
+            }, 
+            {
+              "data": "50"
+            }, 
+            {
+              "right": "11"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
+        }
+      ]
+    }, 
+    {
+      "LineNum": 17, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 7, 
+          "val": 12, 
+          "name": "temp"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "10", 
+          "name": "data"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 18, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 18, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "createnode"
+    }, 
+    {
+      "LineNum": 18, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "0"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 12
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "75"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 11
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "25"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 10
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "10"
+            }, 
+            {
+              "data": "50"
+            }, 
+            {
+              "right": "11"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
+        }
+      ]
+    }, 
+    {
+      "LineNum": 18, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 7, 
+          "val": 12, 
+          "name": "temp"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "10", 
+          "name": "data"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 19, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 19, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "createnode"
+    }, 
+    {
+      "LineNum": 19, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "10"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 12
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "75"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 11
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "25"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 10
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "10"
+            }, 
+            {
+              "data": "50"
+            }, 
+            {
+              "right": "11"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
+        }
+      ]
+    }, 
+    {
+      "LineNum": 19, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 7, 
+          "val": 12, 
+          "name": "temp"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "10", 
+          "name": "data"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 20, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 20, 
+      "stackdepth": 1, 
+      "nameid": 3, 
+      "type": "Function", 
+      "id": 2, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 20, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "10"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 12
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "75"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 11
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "12"
+            }, 
+            {
+              "data": "25"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 10
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "10"
+            }, 
+            {
+              "data": "50"
+            }, 
+            {
+              "right": "11"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
+        }
+      ]
+    }, 
+    {
+      "LineNum": 20, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 4, 
+          "val": 9, 
+          "name": "head"
         }
       ]
     }, 
     {
       "LineNum": 30, 
-      "stackdepth": 1, 
-      "nameid": 2, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 30, 
+      "stackdepth": 2, 
+      "nameid": 6, 
       "type": "Function", 
-      "id": 1, 
-      "name": "main"
+      "id": 5, 
+      "name": "createnode"
     }, 
     {
       "LineNum": 30, 
       "type": "Heap", 
       "Contents": [
         {
+          "type": "var", 
           "val": [
             {
-              "value": "11"
+              "left": "N"
             }, 
             {
-              "next": "6"
+              "data": "10"
+            }, 
+            {
+              "right": "N"
             }
           ], 
-          "type": "var", 
-          "id": 13, 
-          "data_type": "struct node"
+          "data_type": "struct node", 
+          "id": 12
         }, 
         {
           "type": "var", 
           "val": [
             {
-              "value": "12"
+              "left": "N"
             }, 
             {
-              "next": "N"
+              "data": "75"
+            }, 
+            {
+              "right": "N"
             }
           ], 
           "data_type": "struct node", 
-          "id": 6
+          "id": 11
         }, 
         {
           "type": "var", 
           "val": [
             {
-              "value": "10"
+              "left": "12"
             }, 
             {
-              "next": "13"
+              "data": "25"
+            }, 
+            {
+              "right": "N"
             }
           ], 
           "data_type": "struct node", 
-          "id": 5
+          "id": 10
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "10"
+            }, 
+            {
+              "data": "50"
+            }, 
+            {
+              "right": "11"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
         }
       ]
     }, 
@@ -1588,16 +2154,644 @@ export const input = `{
         {
           "data_type": "struct node *", 
           "type": "ptr", 
-          "id": 3, 
-          "val": 5, 
-          "name": "head"
+          "id": 7, 
+          "val": 12, 
+          "name": "temp"
         }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "40", 
+          "name": "data"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 16, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 16, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "createnode"
+    }, 
+    {
+      "LineNum": 16, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "10"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 12
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "75"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 11
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "12"
+            }, 
+            {
+              "data": "25"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 10
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "0"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 13
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "10"
+            }, 
+            {
+              "data": "50"
+            }, 
+            {
+              "right": "11"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
+        }
+      ]
+    }, 
+    {
+      "LineNum": 16, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 7, 
+          "val": 13, 
+          "name": "temp"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "40", 
+          "name": "data"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 17, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 17, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "createnode"
+    }, 
+    {
+      "LineNum": 17, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "10"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 12
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "75"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 11
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "12"
+            }, 
+            {
+              "data": "25"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 10
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "0"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 13
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "10"
+            }, 
+            {
+              "data": "50"
+            }, 
+            {
+              "right": "11"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
+        }
+      ]
+    }, 
+    {
+      "LineNum": 17, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 7, 
+          "val": 13, 
+          "name": "temp"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "40", 
+          "name": "data"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 18, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 18, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "createnode"
+    }, 
+    {
+      "LineNum": 18, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "10"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 12
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "75"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 11
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "12"
+            }, 
+            {
+              "data": "25"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 10
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "0"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 13
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "10"
+            }, 
+            {
+              "data": "50"
+            }, 
+            {
+              "right": "11"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
+        }
+      ]
+    }, 
+    {
+      "LineNum": 18, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 7, 
+          "val": 13, 
+          "name": "temp"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "40", 
+          "name": "data"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 19, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 19, 
+      "stackdepth": 2, 
+      "nameid": 6, 
+      "type": "Function", 
+      "id": 5, 
+      "name": "createnode"
+    }, 
+    {
+      "LineNum": 19, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "10"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 12
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "75"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 11
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "12"
+            }, 
+            {
+              "data": "25"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 10
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "40"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 13
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "10"
+            }, 
+            {
+              "data": "50"
+            }, 
+            {
+              "right": "11"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
+        }
+      ]
+    }, 
+    {
+      "LineNum": 19, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 7, 
+          "val": 13, 
+          "name": "temp"
+        }, 
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 8, 
+          "val": "40", 
+          "name": "data"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 20, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 1, 
+          "val": "0", 
+          "name": "g"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 20, 
+      "stackdepth": 1, 
+      "nameid": 3, 
+      "type": "Function", 
+      "id": 2, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 20, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "10"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 12
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "75"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 11
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "12"
+            }, 
+            {
+              "data": "25"
+            }, 
+            {
+              "right": "13"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 10
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "N"
+            }, 
+            {
+              "data": "40"
+            }, 
+            {
+              "right": "N"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 13
+        }, 
+        {
+          "type": "var", 
+          "val": [
+            {
+              "left": "10"
+            }, 
+            {
+              "data": "50"
+            }, 
+            {
+              "right": "11"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 9
+        }
+      ]
+    }, 
+    {
+      "LineNum": 20, 
+      "type": "StackFrame", 
+      "Contents": [
         {
           "data_type": "struct node *", 
           "type": "ptr", 
           "id": 4, 
-          "val": 6, 
-          "name": "nhead"
+          "val": 9, 
+          "name": "head"
         }
       ]
     }

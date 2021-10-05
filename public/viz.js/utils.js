@@ -9,6 +9,8 @@
 //   return structs;
 // };
 
+// import ace from "react-ace";
+
 const getStructsInfo = (structures) => {
   let structs = {};
   for (let struct in structures) {
@@ -45,24 +47,30 @@ const createStructNode = (variable) => {
     let field = variable.val[fieldIdx];
     let fieldName = structs[structName][fieldIdx].name;
     let fieldType = structs[structName][fieldIdx].type;
-    label += `<f${fieldIdx}> ${fieldName}`;
+    // label += `<f${fieldIdx}> ${fieldName}`;
+    label += `<f${fieldIdx}>`;
     // let ptrConnection = ``;
     switch (fieldType) {
       case "var":
-        label += `: ${field[fieldName]}`;
+        // label += `: ${field[fieldName]}`;
+        label += `${field[fieldName]}`;
         break;
       case "ptr":
         switch (field[fieldName]) {
           case "N":
-            label += `: NULL`;
+            // label += `: NULL`;
+            label += `Null`;
             break;
           case "U":
-            label += `: Undefined`;
+            // label += `: Undefined`;
+            label += `Undef`;
             break;
           default:
             ptrConnection += makePtrConnection(
               `${nodeName}:f${fieldIdx}`,
-              `node${field[fieldName]}:f0
+              // `${nodeName}:f0`,
+              // `node${field[fieldName]}:f0
+              `node${field[fieldName]}:f${fieldIdx}
               `
             );
         }
@@ -151,45 +159,105 @@ const getHeapNode = (data) => {
   return nodes;
 };
 
+const nodesAreDifferent = (nodeA, nodeB) => {
+  // console.log(JSON.stringify(nodeA), JSON.stringify(nodeB));
+  // console.log(JSON.stringify(nodeA) !== JSON.stringify(nodeB));
+  return JSON.stringify(nodeA) !== JSON.stringify(nodeB);
+};
+
+/**
+ * @description compares contents (On^2) and returns an array of ids of changing nodes
+ */
+const addChangingContentNodes = (prevContents, currContents) => {
+  let changingIds = [];
+  for (let prevIdx in prevContents) {
+    var prevNode = prevContents[prevIdx];
+    for (let currIdx in currContents) {
+      var currNode = currContents[currIdx];
+      if (prevNode?.id === currNode?.id) {
+        if (nodesAreDifferent(prevNode, currNode)) {
+          didHighlightNode = true;
+          changingIds.push(prevNode.id);
+        }
+      }
+    }
+  }
+  if (changingIds.length) {
+    // console.log(changingIds);
+    highlightNodes.push(changingIds);
+  }
+};
+
+const addChangingNodes = (prevLineData, lineData) => {
+  for (let i = 0; i < prevLineData.length; ++i) {
+    // if (prevLineData.type !== lineData.type) {
+    //   return null;
+    // }
+    addChangingContentNodes(prevLineData[i]?.Contents, lineData[i]?.Contents);
+  }
+};
+
 var structs;
+
+const initialDigraph = `digraph g {
+graph [
+rankdir = "TB"
+];
+node [
+fontsize = "16"
+shape = "ellipse"
+];
+edge [
+];
+`;
+
+var editor = ace.edit("editor");
+var Range = ace.require("ace/range").Range;
+var range;
+var prevMarkerId = 0;
+export const highlightLine = (lineNo) => {
+  range = new Range(lineNo - 1, 0, lineNo - 1, 1);
+  prevMarkerId = editor.session.addMarker(range, "ace-marker", "fullLine");
+};
+export const dehighlightLine = () => {
+  editor.session.removeMarker(prevMarkerId);
+};
+
+var highlightNodes = []; //each elelment of the array is an array of ids of nodes whose values are changing from one line to another
+var didHighlightNode = false;
 
 export const getDigraphs = (input) => {
   const json = JSON.parse(input);
   structs = getStructsInfo(json.Structures);
   let digraphs = [];
+  let lineNos = [];
   let prevLineNo = 0;
-  let prevDigraph = `digraph g {
-graph [
-rankdir = "LR"
-];
-node [
-fontsize = "16"
-shape = "ellipse"
-];
-edge [
-];
-`;
+  let prevDigraph = initialDigraph;
+  let prevLineDatas = [];
+  let currLineDatas = [];
   for (let lineDataIdx in json.Lines_Data) {
+    didHighlightNode = false;
     let lineData = json.Lines_Data[lineDataIdx];
+    // console.log("linedata", lineData);
     let currLineNo = parseInt(lineData.LineNum);
     if (currLineNo !== prevLineNo) {
+      if (prevLineDatas.length) {
+        addChangingNodes(prevLineDatas, currLineDatas);
+        if (didHighlightNode) {
+          digraphs.push("highlightNode");
+        }
+      }
+      dehighlightLine();
       prevDigraph += `}`;
       digraphs.push(prevDigraph);
+      lineNos.push(prevLineNo);
       prevLineNo = currLineNo;
-      prevDigraph = `digraph g {
-graph [
-rankdir = "LR"
-];
-node [
-fontsize = "16"
-shape = "ellipse"
-];
-edge [
-];
-`;
+      prevDigraph = initialDigraph;
+      prevLineDatas = currLineDatas;
+      currLineDatas = [];
     } else {
+      currLineDatas.push(lineData);
       let node;
-      console.log(lineData);
       switch (lineData.type) {
         case "StackFrame":
           node = getStackFrameNode(lineData);
@@ -203,10 +271,16 @@ edge [
       if (node) {
         prevDigraph += node;
       }
-      console.log("prevDG", prevDigraph);
     }
+    // console.log("prevDG", prevDigraph);
   }
-
-  //   console.log(digraphs);
-  return digraphs;
+  prevDigraph += `}`;
+  digraphs.push(prevDigraph);
+  lineNos.push(prevLineNo);
+  // console.log(digraphs);
+  return {
+    digraphs: digraphs,
+    lineNos: lineNos,
+    highlightNodes: highlightNodes,
+  };
 };

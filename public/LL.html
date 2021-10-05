@@ -11,15 +11,34 @@
 
 
     <!-- jqueury stuff.  Only used for the animation speed slider. -->
-    <link rel="stylesheet" href="JavascriptVisualRelease/ThirdParty/jquery-ui-1.8.11.custom.css">
+    <!-- <link rel="stylesheet" href="JavascriptVisualRelease/ThirdParty/jquery-ui-1.8.11.custom.css"> -->
 
     <style type="text/css" media="screen">
+        #canvas-editor-row {
+            display: flex;
+            /* justify-content: space-between; */
+            /* flex-direction: row; */
+        }
+
+        #canvass {
+            /* width: 50%; */
+            flex: 1;
+            padding: 20px;
+            align-self: center;
+            height: 700px;
+            overflow: scroll;
+        }
+
         #editor {
-            position: absolute;
+            /* position: absolute;
             top: 87;
             right: 0;
             bottom: 100;
-            left: 750;
+            left: 750; */
+            height: 700px;
+            /* width: 100%; */
+            flex: 1;
+            overflow-y: auto;
         }
 
         .ace-marker {
@@ -40,7 +59,7 @@
     <script src="JavascriptVisualRelease/ThirdParty/jquery-ui-1.8.11.custom.min.js"></script>
 
     <!-- Javascript for the actual visualization code -->
-    <script type="application/javascript" src="JavascriptVisualRelease/AnimationLibrary/CustomEvents.js"> </script>
+    <!-- <script type="application/javascript" src="JavascriptVisualRelease/AnimationLibrary/CustomEvents.js"> </script>
     <script type="application/javascript" src="JavascriptVisualRelease/AnimationLibrary/UndoFunctions.js"> </script>
     <script type="application/javascript" src="JavascriptVisualRelease/AnimationLibrary/AnimatedObject.js"> </script>
     <script type="application/javascript" src="JavascriptVisualRelease/AnimationLibrary/AnimatedLabel.js"> </script>
@@ -53,12 +72,15 @@
     <script type="application/javascript" src="JavascriptVisualRelease/AnimationLibrary/ObjectManager.js"> </script>
     <script type="application/javascript" src="JavascriptVisualRelease/AnimationLibrary/AnimationMain.js"> </script>
     <script type="application/javascript"
-        src="JavascriptVisualRelease/AnimationLibrary/AlgorithmLibrary/Algorithm.js"> </script>
+        src="JavascriptVisualRelease/AnimationLibrary/AlgorithmLibrary/Algorithm.js"> </script> -->
 
 
 </head>
 
-<body onload="init();" class="VisualizationMainPage">
+
+<!-- <body onload="init();" class="VisualizationMainPage"> -->
+
+<body class="VisualizationMainPage">
 
     <div class="container" id="container">
         <div class="row">
@@ -72,90 +94,84 @@
             </div>
             <!-- </div>container -->
         </div>
-        <div class="row" id="mainContent">
+        <!-- <div class="row" id="mainContent">
             <div id="algoControlSection">
-                <!-- Table for buttons to control specific animation (insert/find/etc) -->
-                <!-- (filled in by javascript code specific to the animtion) -->
                 <table id="AlgorithmSpecificControls"> </table>
             </div>
-        </div>
+        </div> -->
         <div class="row">
-            <div class="col-12 col-sm-6">
-                <div id="editor">
-                </div>
+            <button type="button" id="start-vis-btn">Start visualisation</button>
+        </div>
+        <div class="row" id="canvas-editor-row">
+            <div class="col-12 col-sm-6" id="canvass">
+                <!-- <div id="canvass"></div> -->
             </div>
-            <div class="col-12 col-sm-6">
+            <div class="col-12 col-sm-6" id="editor">
+                <!-- <div id="editor">
+                </div> -->
+            </div>
+            <!-- <div class="col-12 col-sm-6">
                 <canvas id="canvas"></canvas>
-            </div>
+            </div> -->
         </div>
-        <div class="row" id="generalAnimationControlSection">
+        <!-- <div class="row" id="generalAnimationControlSection">
             <table id="GeneralAnimationControls"> </table>
-        </div>
+        </div> -->
 
-        <div class="row" id="footer">
+        <!-- <div class="row" id="footer">
             <p><a href="Algorithms.html">Algorithm Visualizations</a></p>
-        </div>
+        </div> -->
     </div>
 
 
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="application/javascript"
-        src="JavascriptVisualRelease/AnimationLibrary/AlgorithmLibrary/LL.js"> </script>
+    <!-- <script type="application/javascript"
+        src="JavascriptVisualRelease/AnimationLibrary/AlgorithmLibrary/LL.js"> </script> -->
     <script type="text/javascript" src="./js/ace_setup.js"></script>
+    <script type="module" src="./visualiseUtils.js"></script>
 
 </body>
+<script type="module">
+    import { startVisualisation } from './visualiseUtils.js';
+    const button = document.getElementById('start-vis-btn');
+    button.onclick = startVisualisation
+</script>
 <script>
     let code = `#include<stdio.h>
 #include<stdlib.h>
 
+int g=0;
 
 struct node
 {
-    int value;
-    struct node* next;
+    struct node* left;
+    int data;
+    struct node* right;
+
 };
 
-struct node* insertorder(struct node* ptr,int value)
+struct node* createnode(int data)
 {
     struct node* temp=malloc(sizeof(struct node));
-    temp->value=value;
-    temp->next=NULL;
-    if (value<ptr->value)
-    {
-        temp->next=ptr;
-        return temp;
-    }
-    struct node* tempi=ptr;
-    struct node* parent=NULL;
-    while(ptr && ptr->value<value)
-    {
-        parent=ptr;
-        ptr=ptr->next;
-    }
-    temp->next = parent->next;
-    parent->next=temp;
-    return tempi;
+    temp->left=NULL;
+    temp->right=NULL;
+    temp->data=data;
+    return temp;
 }
+
 
 int main()
 {
-    int a=5;
-    struct node* head = malloc(sizeof(struct node));
-    head->value=10;
-    head->next=NULL;
-    struct node* nhead = malloc(sizeof(struct node));
-    nhead->value=12;
-    nhead->next=NULL;
-    head->next=nhead;
-    head=insertorder(head,11);
+    struct node* head=createnode(50);
+    head->left=createnode(25);
+    head->right=createnode(75);
+    head->left->left=createnode(10);
+    head->left->right=createnode(40);
 }`;
 
     var editor = ace.edit("editor");
     editor.session.setValue(code);//move cursor to the end
 
 </script>
-
-
-</html>
