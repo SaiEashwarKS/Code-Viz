@@ -220,7 +220,11 @@ def get_deref_value(addr, datatype,visited=set()):
 		for i in v:
 			k=i.strip("{}")
 			k=k.split(":")
-			x.append({k[0].strip():k[1].strip()})
+			print("HERE",k)
+			try:
+				x.append({k[0].strip():k[1].strip()})
+			except:
+				pass
 		
 		k = 0
 		for i in range(len(fields)):
@@ -314,6 +318,8 @@ def maketogether(ln,di,gl,stringnamed):
 		if val==0:
 			val=1005
 
+		#print("HEREv",val)
+
 		sepdi['id']=ID
 		sepdi['type']=var
 		sepdi['data_type']=datatype.strip()
@@ -346,19 +352,65 @@ def maketogether(ln,di,gl,stringnamed):
 				else:
 					ID = 'U'#addr
 				val = val.replace(addr, str(ID))
+			#print("HEREv1",val)
 			sepdi['val'] = val #val is string -> '{data = 123, next = U}'
 			
 			
 			# string processing to make val a list of dictionary(key is variable name value is value)
 			s = sepdi["val"]
-			s = s.strip("{}")
-			v = ["{"+x.replace("=",":")+"}" for x in s.split(",")]
+			print("before",s)
+			s = s.strip()[1:-1] #s.strip("{}")
+			print("after",s)
+			#v = ["{"+x.replace("=",":")+"}" for x in s.split(",")]
+			'''
+			ISSUE:
+			('before', '{g = {{1804289383, 846930886}, {1681692777, 0}}}')
+			('after', 'g = {{1804289383, 846930886}, {1681692777, 0')
+			The problem is that split doesn't work for arrays, we need to find a new way to do stuff
+			'''
+			v=[]
+			n=len(s)
+			index=0
+			curstack=0
+			curword=""
+			while(index<n):
+				i=s[index]
+				if i==",":
+					curword=curword.replace("=",":")
+					v.append("{"+curword+"}")
+					curword=""
+					index+=1
+				elif i=="{":
+					curstack+=1
+					while(index<n and curstack):
+						curword+=s[index]
+						if s[index]=="{":
+							curstack+=1
+						elif s[index]=="}":
+							curstack-=1
+						index+=1
+				else:
+					curword+=s[index]
+					index+=1
+			if curword:
+				curword=curword.replace("=",":")
+				v.append("{"+curword+"}")
+				curword=""
+
+
 			x = []
+			print("HEREv",v)
 			for i in v:
-				k=i.strip("{}")
+				print(i)
+				k=i.strip()[1:-1]
 				k=k.split(":")
-				x.append({k[0].strip():k[1].strip()})
+				try:
+					x.append({k[0].strip():k[1].strip()})
+				except:
+					pass
+			print("HEREv2",val)
 			sepdi['val'] = x
+			print("HEREv3",sepdi['val'])
 			#
 			k = 0
 			for i in range(len(fields)):
@@ -380,6 +432,7 @@ def maketogether(ln,di,gl,stringnamed):
 		#di['Global Variables'][ID]=[i[0],i[2][1:i[2].rfind('*')],i[1]] #i[0] will hold the variable name
 		#i[1] will hold its value and we have assumed that the address is uinque
 		di['Contents'].append(sepdi.copy())
+		print("SEPDI",sepdi)
 		del sepdi
 
 def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
@@ -910,12 +963,15 @@ def identify_datastructure(structure, structure_name):
 
 	a=structure_name.lower()
 
+	if "graph" in a:
+		return "graph"
 	if "tree" in a or "binary" in a:
 		return "tree"
 	if "dll" in a or "doubl" in a:
 		return "doubly_linked_list"
 	
 	for field in structure['fields']:
+		#print("tpye",field)
 		dt = field['data_type']
 		if field['type'] == 'ptr':
 			if structure_name == dt[ : dt.rfind('*') - 1]:
@@ -1199,6 +1255,8 @@ for structure in struct_details:
 			struct_details[structure]['datastructure'] ='linkedlist'
 			break
 '''
+
+#print("\nLINES DATA",lines_data,"\n")
 maindic = {"Lines_Data":lines_data}
 maindic["Structures"] = struct_details
 maindic = json.dumps(maindic,indent=2)
