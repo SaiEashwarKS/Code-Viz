@@ -12,7 +12,7 @@ let line_idx = 1;
 const visualise = async () => {
   let i = 1;
   let lineIdx = 1;
-  console.log(digraphs)
+//   console.log(digraphs)
   while (i < digraphs.length) {
     canvas.innerHTML = "";
     let digraph = digraphs[i];
@@ -40,27 +40,27 @@ const visualise = async () => {
 
 const visualise_1 = async () => {
 	console.log("visualise1 idx=",idx," line_idx=",line_idx);
-  canvas.innerHTML = "";
-  let digraph = digraphs[idx];
-  dehighlightLine();
-  highlightLine(lineNos[line_idx]);
-  viz.renderSVGElement(digraph).then(async function (element) {
-    canvas.appendChild(element);
-  });
-  await new Promise((resolve) => setTimeout(resolve, 2500));
-  if (digraphs[idx + 1] === "highlightNode") {
-    canvas.innerHTML = "";
-    let coloredDigraph = colorNodes(digraph);
-    dehighlightLine();
-    highlightLine(lineNos[line_idx + 1]);
-    viz.renderSVGElement(coloredDigraph).then(async function (element) {
-      canvas.appendChild(element);
-    });
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    idx++;
-  }
-  idx++;
-  line_idx++;
+	canvas.innerHTML = "";
+	let digraph = digraphs[idx];
+	dehighlightLine();
+	highlightLine(lineNos[line_idx]);
+	viz.renderSVGElement(digraph).then(async function (element) {
+	canvas.appendChild(element);
+	});
+	await new Promise((resolve) => setTimeout(resolve, 2500));
+	if (digraphs[idx + 1] === "highlightNode") {
+	canvas.innerHTML = "";
+	let coloredDigraph = colorNodes(digraph);
+	dehighlightLine();
+	highlightLine(lineNos[line_idx + 1]);
+	viz.renderSVGElement(coloredDigraph).then(async function (element) {
+		canvas.appendChild(element);
+	});
+	await new Promise((resolve) => setTimeout(resolve, 1500));
+	idx++;
+	}
+	idx++;
+	line_idx++;
 };
 
 export const vis_forward = async () =>{
@@ -138,6 +138,37 @@ export const vis_backward = async () =>{
 	// }
 };
 
+let play = 1
+export const vis_play = async() =>{
+	if(play === 0)
+		play = 1; 
+	while (idx < digraphs.length && play) {
+		canvas.innerHTML = "";
+		let digraph = digraphs[idx];
+		dehighlightLine();
+		highlightLine(lineNos[line_idx]);
+		viz.renderSVGElement(digraph).then(async function (element) {
+		  canvas.appendChild(element);
+		});
+		await new Promise((resolve) => setTimeout(resolve, 2500));
+		if (digraphs[idx + 1] === "highlightNode") {
+		  canvas.innerHTML = "";
+		  let coloredDigraph = colorNodes(digraph);
+		  dehighlightLine();
+		  highlightLine(lineNos[line_idx + 1]);
+		  viz.renderSVGElement(coloredDigraph).then(async function (element) {
+			canvas.appendChild(element);
+		  });
+		  await new Promise((resolve) => setTimeout(resolve, 1500));
+		  idx++;
+		}
+		idx++;
+		line_idx++;
+	  }
+};
+export const vis_pause = async () =>{
+	play = 0;
+};
 const addHighlightedNodes = (nodeIds) => {
   let res = ``;
   console.log(nodeIds);

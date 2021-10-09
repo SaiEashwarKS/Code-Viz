@@ -103,6 +103,8 @@
             <button type="button" id="start-vis-btn">Start visualisation</button>
             <button type="button" id="forward-vis-btn">Step Forward</button>
             <button type="button" id="backward-vis-btn">Step Back</button>
+            <button type="button" id="play-vis-btn">Play</button>
+            <button type="button" id="pause-vis-btn">Pause</button>
         </div>
 
         <div class="row" id="canvas-editor-row">
@@ -137,13 +139,18 @@
 
 </body>
 <script type="module">
-    import { startVisualisation,vis_forward,vis_backward } from './visualiseUtils.js';
+    import { startVisualisation,vis_forward,vis_backward,vis_play,vis_pause} from './visualiseUtils.js';
     const button1 = document.getElementById('start-vis-btn');
     button1.onclick = startVisualisation;
     const button2 = document.getElementById('forward-vis-btn');
     button2.onclick = vis_forward;
     const button3 = document.getElementById('backward-vis-btn');
     button3.onclick = vis_backward;
+    const button4 = document.getElementById('play-vis-btn');
+    button4.onclick = vis_play;
+    const button5= document.getElementById('pause-vis-btn');
+    button5.onclick = vis_pause;
+
 </script>
 <script>
     let code = `#include<stdio.h>
