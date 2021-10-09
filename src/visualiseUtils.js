@@ -1,10 +1,12 @@
 import Viz from "./viz.js/viz.es.js";
 import { input } from "./viz.js/input.js";
-import { getDigraphs, highlightLine, dehighlightLine } from "./viz.js/utils.js";
+// import { getDigraphs, highlightLine, dehighlightLine } from "./viz.js/utils.js";
+import { getDigraphs } from "./viz.js/utils.js";
 
 var viz = new Viz({ workerURL: "./viz.js/full.render.js" });
 const { digraphs, lineNos, highlightNodes } = getDigraphs(input);
-const canvas = document.getElementById("canvass");
+// const canvas = document.getElementById("canvas");
+var canvas;
 
 const visualise = async () => {
   let i = 1;
@@ -12,8 +14,8 @@ const visualise = async () => {
   while (i < digraphs.length) {
     canvas.innerHTML = "";
     let digraph = digraphs[i];
-    dehighlightLine();
-    highlightLine(lineNos[lineIdx]);
+    // dehighlightLine();
+    // highlightLine(lineNos[lineIdx]);
     viz.renderSVGElement(digraph).then(async function (element) {
       canvas.appendChild(element);
     });
@@ -21,8 +23,8 @@ const visualise = async () => {
     if (digraphs[i + 1] === "highlightNode") {
       canvas.innerHTML = "";
       let coloredDigraph = colorNodes(digraph);
-      dehighlightLine();
-      highlightLine(lineNos[lineIdx + 1]);
+      // dehighlightLine();
+      // highlightLine(lineNos[lineIdx + 1]);
       viz.renderSVGElement(coloredDigraph).then(async function (element) {
         canvas.appendChild(element);
       });
@@ -63,8 +65,10 @@ const visualiseInitialStack = () => {
 };
 visualiseInitialStack();
 
-export const startVisualisation = () => {
+export const startVisualisation = (canvasRef) => {
   // console.log("highlightNodes", highlightNodes);
+  canvas = canvasRef.current;
+  if (!canvas) return;
   visualise();
 };
 
