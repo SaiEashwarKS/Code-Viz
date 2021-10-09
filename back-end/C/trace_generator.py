@@ -368,6 +368,9 @@ def maketogether(ln,di,gl,stringnamed):
 			('after', 'g = {{1804289383, 846930886}, {1681692777, 0')
 			The problem is that split doesn't work for arrays, we need to find a new way to do stuff
 			'''
+
+			#REGEX SPLITTING assuming that a variable name doesn't start with
+			#a number
 			v=[]
 			n=len(s)
 			index=0
@@ -376,8 +379,11 @@ def maketogether(ln,di,gl,stringnamed):
 			while(index<n):
 				i=s[index]
 				if i==",":
-					curword=curword.replace("=",":")
-					v.append("{"+curword+"}")
+					curwordi=curword.replace("=",":")
+					for word in re.findall("[a-zA-Z_][a-zA-Z_0-9]*",curword):
+						curwordi=curwordi.replace(word,'"'+word+'"')
+					
+					v.append("{"+curwordi+"}")
 					curword=""
 					index+=1
 				elif i=="{":
@@ -393,8 +399,10 @@ def maketogether(ln,di,gl,stringnamed):
 					curword+=s[index]
 					index+=1
 			if curword:
-				curword=curword.replace("=",":")
-				v.append("{"+curword+"}")
+				curwordi=curword.replace("=",":")
+				for word in re.findall("[a-zA-Z_][a-zA-Z_0-9]*",curword):
+					curwordi=curwordi.replace(word,'"'+word+'"')
+				v.append("{"+curwordi+"}")
 				curword=""
 
 
@@ -403,11 +411,30 @@ def maketogether(ln,di,gl,stringnamed):
 			for i in v:
 				print(i)
 				k=i.strip()[1:-1]
-				k=k.split(":")
-				try:
-					x.append({k[0].strip():k[1].strip()})
-				except:
-					pass
+				count_of_colons=k.count(":")
+				if count_of_colons>1:#represents that it is an object of a structure
+					#the structure is of the form
+					#{edge_weights : {{17, 28}, {24, 26}}, vertex_weights : {4, 4}}
+					#so we split by '},' : WRONG
+					dicttobedumped={}
+					for field in k.split(', "'):
+						if field[0]=="{":
+							field=field[1:]
+						else:
+							field='"'+field
+						field=field.replace('"',"").split(":")
+						try:
+							dicttobedumped[field[0].strip()]=field[1].strip()
+						except:
+							pass
+					x.append(dicttobedumped)
+					
+				else:
+					k=k.split(":")
+					try:
+						x.append({k[0].strip():k[1].strip()})
+					except:
+						pass
 			print("HEREv2",val)
 			sepdi['val'] = x
 			print("HEREv3",sepdi['val'])
@@ -955,16 +982,20 @@ def output(p1,flag):#display (stack frame, arguments..)
 
 # dictionary of structure containing its fields, the structure name 
 # recognize only if we are using standard ways to determine the data structures
+#assumed that graph is represented as a 2D matrix
 def identify_datastructure(structure, structure_name):
 	count_of_same_pointers=0
 	count_of_diff_pointers=0
 	name_of_same_pointers=[]
 	name_of_diff_pointers=[]
 
-	a=structure_name.lower()
+	print("IDENTIFY",structure)
 
+	a=structure_name.lower()
+	
 	if "graph" in a:
 		return "graph"
+
 	if "tree" in a or "binary" in a:
 		return "tree"
 	if "dll" in a or "doubl" in a:
@@ -980,8 +1011,10 @@ def identify_datastructure(structure, structure_name):
 				count_of_same_pointers+=1
 				name_of_same_pointers.append(field['name'].lower())
 			else:
-				count_of_diff_pointer+=1
+				count_of_diff_pointers+=1
 				name_of_diff_pointers.append(field['name'].lower())
+		if re.findall(r"\[[0-9]+\]\[[0-9]+\]",field["name"]):
+			return "graph"
 
 	if count_of_same_pointers==1:
 			return 'linkedlist'
