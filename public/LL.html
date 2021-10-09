@@ -101,7 +101,10 @@
         </div> -->
         <div class="row">
             <button type="button" id="start-vis-btn">Start visualisation</button>
+            <button type="button" id="forward-vis-btn">Step Forward</button>
+            <button type="button" id="backward-vis-btn">Step Back</button>
         </div>
+
         <div class="row" id="canvas-editor-row">
             <div class="col-12 col-sm-6" id="canvass">
                 <!-- <div id="canvass"></div> -->
@@ -134,9 +137,13 @@
 
 </body>
 <script type="module">
-    import { startVisualisation } from './visualiseUtils.js';
-    const button = document.getElementById('start-vis-btn');
-    button.onclick = startVisualisation
+    import { startVisualisation,vis_forward,vis_backward } from './visualiseUtils.js';
+    const button1 = document.getElementById('start-vis-btn');
+    button1.onclick = startVisualisation;
+    const button2 = document.getElementById('forward-vis-btn');
+    button2.onclick = vis_forward;
+    const button3 = document.getElementById('backward-vis-btn');
+    button3.onclick = vis_backward;
 </script>
 <script>
     let code = `#include<stdio.h>
