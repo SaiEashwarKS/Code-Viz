@@ -194,7 +194,7 @@ class ObjectEncoder:
       temp = {}
       temp['data_type'] = self.encoded_heap_objects[_][0]
       temp['id'] = _ 
-      Contents = self.encoded_heap_objects[_].copy()
+      Contents = self.encoded_heap_objects[_]
       temp['val'] = Contents[1:]
       cviz_encoded_heap_objects.append(temp)
     return cviz_encoded_heap_objects

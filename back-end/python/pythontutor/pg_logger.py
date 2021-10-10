@@ -900,7 +900,7 @@ class PGLogger(bdb.Bdb):
           
           cviz_encoded_locals = []
           for _ in encoded_locals:
-            temp = encoded_locals[_].copy()
+            temp = encoded_locals[_]
             temp['name'] = _
             cviz_encoded_locals.append(temp)
           
@@ -1048,7 +1048,7 @@ class PGLogger(bdb.Bdb):
 
 		#cviz
         for _ in encoded_globals:
-          temp = encoded_globals[_].copy()
+          temp = encoded_globals[_]
           temp['name'] = _
           cviz_globals.append(temp)
 		

@@ -6,7 +6,7 @@ id_counter = 1000
 
 
 '''
-CURRENT FORMAT
+Input format
 
 "GlobalVariables": [
         {
@@ -49,7 +49,7 @@ def handle_stack_frame():
 
 
 '''
-CURRENT FORMAT
+Input format
 
 "Heap": 
 [
@@ -115,18 +115,21 @@ CURRENT FORMAT
 '''
 def handle_heap_var(variables:list):
 	cviz_hvar = []
+	global classes
 	for var in variables:
 		if var['data_type'] == 'CLASS':
-			classes.add(var['data_type'])
+			classes.add(var['val'][0])
 		elif var['data_type'] == 'INSTANCE':
 			new = dict(id=var['id'], data_type=var['val'][0])
 			new['val'] = []
 			for i in var['val'][1:]:
-				temp={i[0]['val']:i[1]['val']}
+				temp={'type':i[1]['type'], 'name':i[0]['val'], 'val':i[1]['val']}
+				if 'data_type' in i[1]:
+					temp['data_type'] = i[1]['data_type']
 				new['val'].append(temp)
 			cviz_hvar.append(new)
 	return cviz_hvar
-			
+
 
 def format_trace(trace:list):
 	new_trace = []
