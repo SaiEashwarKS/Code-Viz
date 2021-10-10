@@ -1,4 +1,3 @@
-import React from "react";
 import { Colors } from "../colors";
 import { Link } from "react-router-dom";
 import pesLogo from "../images/pes.jpg";

@@ -1,16 +1,10 @@
-import React, { useEffect, useRef } from "react";
-import { startVisualisation, visualiseInitialStack } from "../visualiseUtils";
+import { useEffect, useRef } from "react";
 
-const Canvas = ({ setMarker }) => {
+const Canvas = ({ setCanvasRef }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    visualiseInitialStack(canvasRef);
-    setTimeout(() => startVisualisation(canvasRef, setMarker), 3000);
-    return () => {
-      //TODO
-      //STOP VISUALISATION
-    };
+    setCanvasRef(canvasRef);
   }, []);
 
   return (
@@ -24,7 +18,6 @@ const styles = {
   container: {
     display: "flex",
     flex: 1,
-    // backgroundColor: "#edeff2",
     margin: 16,
     justifyContent: "center",
     boxShadow: "4px 4px 4xp 4px black",
