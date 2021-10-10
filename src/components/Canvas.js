@@ -1,11 +1,16 @@
 import React, { useEffect, useRef } from "react";
-import { startVisualisation } from "../visualiseUtils";
+import { startVisualisation, visualiseInitialStack } from "../visualiseUtils";
 
 const Canvas = ({ setMarker }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    startVisualisation(canvasRef, setMarker);
+    visualiseInitialStack(canvasRef);
+    setTimeout(() => startVisualisation(canvasRef, setMarker), 3000);
+    return () => {
+      //TODO
+      //STOP VISUALISATION
+    };
   }, []);
 
   return (

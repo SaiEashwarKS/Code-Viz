@@ -1,21 +1,27 @@
 import React from "react";
 import { Colors } from "../colors";
+import { Link } from "react-router-dom";
 import pesLogo from "../images/pes.jpg";
 
 const TitleBar = () => {
   return (
     <>
-      <div style={styles.container}>
-        <div style={styles.titleText}>Code-Viz</div>
-        <div style={styles.logoContainer}>
-          <img src={pesLogo} alt="PES University" style={styles.pesLogo} />
+      <Link to="/" style={styles.link}>
+        <div style={styles.container}>
+          <div style={styles.titleText}>
+            <strong>Code-Viz</strong>
+          </div>
+          <div style={styles.logoContainer}>
+            <img src={pesLogo} alt="PES University" style={styles.pesLogo} />
+          </div>
         </div>
-      </div>
+      </Link>
     </>
   );
 };
 
 const styles = {
+  link: { textDecoration: "none", color: "black" },
   container: {
     margin: 16,
     display: "flex",

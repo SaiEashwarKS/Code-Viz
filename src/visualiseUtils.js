@@ -11,6 +11,7 @@ var canvas;
 var highlightLine;
 
 const visualise = async () => {
+  if (!canvas) return;
   let i = 1;
   let lineIdx = 1;
   while (i < digraphs.length) {
@@ -60,14 +61,15 @@ const colorNodes = (digraph) => {
   return digraph;
 };
 
-const visualiseInitialStack = () => {
+export const visualiseInitialStack = (canvasRef) => {
+  canvas = canvasRef.current;
+  if (!canvas) return;
   if (lineNos[0] === 0) {
     viz.renderSVGElement(digraphs[0]).then(async function (element) {
       canvas.appendChild(element);
     });
   }
 };
-visualiseInitialStack();
 
 export const startVisualisation = (canvasRef, setMarker) => {
   // console.log("highlightNodes", highlightNodes);

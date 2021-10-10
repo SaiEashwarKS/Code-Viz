@@ -4,17 +4,13 @@
 // import "ace-builds/src-noconflict/mode-c_cpp";
 // import "ace-builds/src-noconflict/theme-xcode";
 // import "ace-builds/src-noconflict/ext-language_tools";
-import React, { useState } from "react";
+import { useState } from "react";
 import AceEditor from "react-ace";
 import { Canvas, TitleBar } from "./components";
 
 const Visualiser = ({ code, mode }) => {
   const [aceMarker, setAceMarker] = useState([
     {
-      startRow: 0,
-      startCol: 0,
-      endRow: 1,
-      endCol: 0,
       className: "aceMarker",
       type: "line",
     },
@@ -37,10 +33,7 @@ const Visualiser = ({ code, mode }) => {
       {/* <Iframe src="../LL.html" width="100%" height="900"></Iframe> */}
       <TitleBar />
       <div style={styles.container}>
-        <div style={styles.canvas}>
-          <Canvas setMarker={setMarker} />
-        </div>
-        <div style={styles.canvas}>
+        <div style={{ ...styles.canvas, marginRight: 0 }}>
           <AceEditor
             value={code}
             mode={mode}
@@ -50,6 +43,9 @@ const Visualiser = ({ code, mode }) => {
             width={"100%"}
             height={"100%"}
           />
+        </div>
+        <div style={styles.canvas}>
+          <Canvas setMarker={setMarker} />
         </div>
       </div>
     </div>

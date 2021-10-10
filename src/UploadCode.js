@@ -9,6 +9,7 @@ import "ace-builds/src-noconflict/theme-xcode";
 import "ace-builds/src-noconflict/ext-language_tools";
 import { useHistory } from "react-router-dom";
 import logo from "./pes.jpg";
+import { Colors } from "./colors";
 
 let fileReader;
 
@@ -51,9 +52,7 @@ const UploadCode = () => {
     if (file) {
       return (
         <>
-          <h3>Code :</h3>
-          {/* <p>File name : {file.name}</p>
-          <p>File type : {file.type}</p> */}
+          <h4>Code :</h4>
           <AceEditor
             mode="c_cpp"
             theme="xcode"
@@ -79,14 +78,10 @@ const UploadCode = () => {
     }
   };
 
-  var jumboStyle = {
-    padding: "25px",
-  };
-
   return (
     <>
       <Container className="pt-3">
-        <Jumbotron style={jumboStyle}>
+        <Jumbotron style={styles.jumbotron}>
           <div className="container">
             <div className="row align-items-center">
               <div className="col-12 col-sm-6">
@@ -109,15 +104,21 @@ const UploadCode = () => {
       <Container>
         <div className="row">
           <div className="col-12 offset-sm-2 col-sm-8">
-            <div className="card">
-              <h3 className="card-header">Upload your code!</h3>
+            <div className="card" style={styles.card}>
+              <h3 className="card-header">Upload your code</h3>
               <div className="card-body">
                 <div className="row">
                   <div className="col-12 offset-sm-3 col-sm-3 pt-3">
                     <input type="file" onChange={onFileChange} />
                   </div>
                   <div className="col-12 col-sm-4 pt-3">
-                    <Button onClick={onFileUpload}>Upload</Button>
+                    <Button
+                      onClick={onFileUpload}
+                      disabled={!file}
+                      style={styles.button}
+                    >
+                      Upload
+                    </Button>
                   </div>
                 </div>
                 {fileData()}
@@ -129,6 +130,19 @@ const UploadCode = () => {
       </Container>
     </>
   );
+};
+
+const styles = {
+  jumbotron: {
+    padding: "25px",
+    backgroundColor: Colors.green_1,
+    boxShadow: "0 3px 10px rgb(0 0 0 / 0.5)",
+  },
+  card: {
+    boxShadow: "0 3px 10px rgb(0 0 0 / 0.3)",
+    marginBottom: 16,
+  },
+  button: { backgroundColor: Colors.green_1, borderColor: Colors.green_1 },
 };
 
 export default UploadCode;
