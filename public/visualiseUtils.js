@@ -9,6 +9,15 @@ const canvas = document.getElementById("canvass");
 let idx = 1;
 let line_idx = 1;
 
+// console.log("digraphs before ",digraphs)
+let max_line_idx = 0;
+for(let t=0;t<digraphs.length;t++)
+{
+	if(digraphs[t] !== "highlightNode")
+		++max_line_idx;
+}
+// console.log("max_line_idx = ",max_line_idx);
+
 const visualise = async () => {
   let i = 1;
   let lineIdx = 1;
@@ -39,6 +48,7 @@ const visualise = async () => {
 };
 
 const visualise_1 = async () => {
+	// console.log("digraphs after",digraphs)
 	console.log("visualise1 idx=",idx," line_idx=",line_idx);
 	canvas.innerHTML = "";
 	let digraph = digraphs[idx];
@@ -85,34 +95,6 @@ export const vis_forward = async () =>{
 		});
 		await new Promise((resolve) => setTimeout(resolve, 1500));
 		idx++;
-	}
-	idx++;
-	line_idx++;
-  }
-};
-
-export const vis_forward_discard = async () =>{
-  if(idx<digraphs.length)
-  {
-	
-	let digraph = digraphs[idx];
-	if (digraphs[idx] === "highlightNode") {
-		console.log("vis forward idx=",idx," line_idx=",line_idx);
-		canvas.innerHTML = "";
-		let coloredDigraph = colorNodes(digraph);
-		dehighlightLine();
-		highlightLine(lineNos[line_idx]);
-		viz.renderSVGElement(coloredDigraph).then(async function (element) {canvas.appendChild(element);});
-		await new Promise((resolve) => setTimeout(resolve, 1500));
-		// idx++;
-	}
-	else
-	{
-		canvas.innerHTML = "";
-		dehighlightLine();
-		highlightLine(lineNos[line_idx]);
-		viz.renderSVGElement(digraph).then(async function (element) {canvas.appendChild(element); });
-		await new Promise((resolve) => setTimeout(resolve, 2500));
 	}
 	idx++;
 	line_idx++;
@@ -169,6 +151,19 @@ export const vis_play = async() =>{
 export const vis_pause = async () =>{
 	play = 0;
 };
+
+export const skip_backward = async () =>{
+	idx = 1;
+	line_idx = 1;
+	startVisualisation();
+}; 
+
+export const skip_forward = async () =>{
+	idx = digraphs.length-1;
+	line_idx = max_line_idx;
+	vis_forward();
+};
+
 const addHighlightedNodes = (nodeIds) => {
   let res = ``;
   console.log(nodeIds);
@@ -180,6 +175,8 @@ const addHighlightedNodes = (nodeIds) => {
   });
   return res;
 };
+
+
 
 var highlightNodesIdx = 0;
 const colorNodes = (digraph) => {
