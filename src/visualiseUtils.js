@@ -2,11 +2,13 @@ import Viz from "./viz.js/viz.es.js";
 import { input } from "./viz.js/input.js";
 // import { getDigraphs, highlightLine, dehighlightLine } from "./viz.js/utils.js";
 import { getDigraphs } from "./viz.js/utils.js";
+import { Colors } from "./colors.js";
 
 var viz = new Viz({ workerURL: "./viz.js/full.render.js" });
 const { digraphs, lineNos, highlightNodes } = getDigraphs(input);
 // const canvas = document.getElementById("canvas");
 var canvas;
+var highlightLine;
 
 const visualise = async () => {
   let i = 1;
@@ -16,6 +18,7 @@ const visualise = async () => {
     let digraph = digraphs[i];
     // dehighlightLine();
     // highlightLine(lineNos[lineIdx]);
+    highlightLine?.(lineNos[lineIdx]);
     viz.renderSVGElement(digraph).then(async function (element) {
       canvas.appendChild(element);
     });
@@ -25,6 +28,7 @@ const visualise = async () => {
       let coloredDigraph = colorNodes(digraph);
       // dehighlightLine();
       // highlightLine(lineNos[lineIdx + 1]);
+      highlightLine?.(lineNos[lineIdx + 1]);
       viz.renderSVGElement(coloredDigraph).then(async function (element) {
         canvas.appendChild(element);
       });
@@ -40,7 +44,7 @@ const addHighlightedNodes = (nodeIds) => {
   let res = ``;
   nodeIds.forEach((nodeId) => {
     res += `node${nodeId}[
-  color="green"
+  color="${Colors.green_1}"
 ]
 `;
   });
@@ -65,9 +69,10 @@ const visualiseInitialStack = () => {
 };
 visualiseInitialStack();
 
-export const startVisualisation = (canvasRef) => {
+export const startVisualisation = (canvasRef, setMarker) => {
   // console.log("highlightNodes", highlightNodes);
   canvas = canvasRef.current;
+  highlightLine = setMarker;
   if (!canvas) return;
   visualise();
 };

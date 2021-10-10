@@ -25,6 +25,7 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
+    "bootstrap": "npm install && cd src/viz.js && npm install && cd ..",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

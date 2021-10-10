@@ -1,4 +1,5 @@
 import React from "react";
+import { Colors } from "../colors";
 import pesLogo from "../images/pes.jpg";
 
 const TitleBar = () => {
@@ -19,7 +20,7 @@ const styles = {
     margin: 16,
     display: "flex",
     flex: 1,
-    backgroundColor: "#4de85a",
+    backgroundColor: Colors.green_1,
     flexDirection: "row" as "row", //workaround for TS error
     boxShadow: "0 5px 10px rgb(0 0 0 / 0.4)",
   },

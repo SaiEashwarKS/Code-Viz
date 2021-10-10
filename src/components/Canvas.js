@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { startVisualisation } from "../visualiseUtils";
 
-const Canvas = ({ visualise }) => {
+const Canvas = ({ setMarker }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    startVisualisation(canvasRef);
+    startVisualisation(canvasRef, setMarker);
   }, []);
 
   return (

@@ -92,12 +92,18 @@ const UploadCode = () => {
               <div className="col-12 col-sm-6">
                 <h1 className="header">Welcome to Code-Viz!</h1>
               </div>
-              <div className="d-flex col-12 col-sm-6 justify-content-center justify-content-sm-end" style={{ width: "100px", height: "100px" }}>
-                <img src={logo} className="img-fluid"></img>
+              <div
+                className="d-flex col-12 col-sm-6 justify-content-center justify-content-sm-end"
+                style={{ width: "100px", height: "100px" }}
+              >
+                <img
+                  src={logo}
+                  className="img-fluid"
+                  alt="PES University"
+                ></img>
               </div>
             </div>
           </div>
-
         </Jumbotron>
       </Container>
       <Container>
