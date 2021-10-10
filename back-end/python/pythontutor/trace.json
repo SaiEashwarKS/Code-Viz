@@ -1,0 +1,1419 @@
+{
+  "code": "class A:\n  def __init__(self):\n    self.x = 10\n    self.y = 20\n\n\na = A()\na.x = 100\na.y = 200\n\nb = A()\nb.x = 1000\nb.y = 2000\n",
+  "trace": [
+    {
+      "LineNum": 1,
+      "event": "step_line",
+      "func_name": "<module>",
+      "GlobalVariables": [],
+      "StackFrame": [],
+      "stackdepth": 0,
+      "Heap": [],
+      "stdout": ""
+    },
+    {
+      "LineNum": 7,
+      "event": "step_line",
+      "func_name": "<module>",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "A"
+        }
+      ],
+      "StackFrame": [],
+      "stackdepth": 0,
+      "Heap": [
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "A",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 2,
+      "event": "call",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "A"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 1,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "ptr",
+              "val": 3,
+              "name": "self"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f1"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 3,
+          "val": [
+            "A"
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "A",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 3,
+      "event": "step_line",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "A"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 1,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "ptr",
+              "val": 3,
+              "name": "self"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f1"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 3,
+          "val": [
+            "A"
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "A",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 4,
+      "event": "step_line",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "A"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 1,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "ptr",
+              "val": 3,
+              "name": "self"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f1"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 3,
+          "val": [
+            "A",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "x"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 10
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "A",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 4,
+      "event": "return",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "A"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 1,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "ptr",
+              "val": 3,
+              "name": "self"
+            },
+            {
+              "type": "var",
+              "data_type": "NoneType",
+              "val": null,
+              "name": "__return__"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f1"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 3,
+          "val": [
+            "A",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "x"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 10
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "y"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 20
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "A",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 8,
+      "event": "step_line",
+      "func_name": "<module>",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "A"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "a"
+        }
+      ],
+      "StackFrame": [],
+      "stackdepth": 0,
+      "Heap": [
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "A",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 3,
+          "val": [
+            "A",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "x"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 10
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "y"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 20
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 9,
+      "event": "step_line",
+      "func_name": "<module>",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "A"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "a"
+        }
+      ],
+      "StackFrame": [],
+      "stackdepth": 0,
+      "Heap": [
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "A",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 3,
+          "val": [
+            "A",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "x"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 100
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "y"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 20
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 11,
+      "event": "step_line",
+      "func_name": "<module>",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "A"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "a"
+        }
+      ],
+      "StackFrame": [],
+      "stackdepth": 0,
+      "Heap": [
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "A",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 3,
+          "val": [
+            "A",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "x"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 100
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "y"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 200
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 2,
+      "event": "call",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "A"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "a"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 2,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "ptr",
+              "val": 4,
+              "name": "self"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f2"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 4,
+          "val": [
+            "A"
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "A",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 3,
+          "val": [
+            "A",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "x"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 100
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "y"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 200
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 3,
+      "event": "step_line",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "A"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "a"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 2,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "ptr",
+              "val": 4,
+              "name": "self"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f2"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 4,
+          "val": [
+            "A"
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "A",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 3,
+          "val": [
+            "A",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "x"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 100
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "y"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 200
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 4,
+      "event": "step_line",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "A"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "a"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 2,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "ptr",
+              "val": 4,
+              "name": "self"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f2"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 4,
+          "val": [
+            "A",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "x"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 10
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "A",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 3,
+          "val": [
+            "A",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "x"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 100
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "y"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 200
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 4,
+      "event": "return",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "A"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "a"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 2,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "ptr",
+              "val": 4,
+              "name": "self"
+            },
+            {
+              "type": "var",
+              "data_type": "NoneType",
+              "val": null,
+              "name": "__return__"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f2"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 4,
+          "val": [
+            "A",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "x"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 10
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "y"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 20
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "A",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 3,
+          "val": [
+            "A",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "x"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 100
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "y"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 200
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 12,
+      "event": "step_line",
+      "func_name": "<module>",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "A"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "a"
+        },
+        {
+          "type": "ptr",
+          "val": 4,
+          "name": "b"
+        }
+      ],
+      "StackFrame": [],
+      "stackdepth": 0,
+      "Heap": [
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "A",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 3,
+          "val": [
+            "A",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "x"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 100
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "y"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 200
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 4,
+          "val": [
+            "A",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "x"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 10
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "y"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 20
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 13,
+      "event": "step_line",
+      "func_name": "<module>",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "A"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "a"
+        },
+        {
+          "type": "ptr",
+          "val": 4,
+          "name": "b"
+        }
+      ],
+      "StackFrame": [],
+      "stackdepth": 0,
+      "Heap": [
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "A",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 3,
+          "val": [
+            "A",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "x"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 100
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "y"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 200
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 4,
+          "val": [
+            "A",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "x"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 1000
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "y"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 20
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 13,
+      "event": "return",
+      "func_name": "<module>",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "A"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "a"
+        },
+        {
+          "type": "ptr",
+          "val": 4,
+          "name": "b"
+        }
+      ],
+      "StackFrame": [],
+      "stackdepth": 0,
+      "Heap": [
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "A",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 3,
+          "val": [
+            "A",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "x"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 100
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "y"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 200
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 4,
+          "val": [
+            "A",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "x"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 1000
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "y"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 2000
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    }
+  ]
+}

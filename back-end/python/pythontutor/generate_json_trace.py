@@ -41,18 +41,35 @@ parser.add_option("--code", dest="usercode", default=None,
 (options, args) = parser.parse_args()
 INDENT_LEVEL = None if options.compact else 2
 
+#cviz
+f = open('trace.json','w')
+
 if options.usercode:
   INDENT_LEVEL = None
-  print(pg_logger.exec_script_str_local(options.usercode,
-                                        options.raw_input_lst_json,
-                                        options.cumulative,
-                                        options.heapPrimitives,
-                                        json_finalizer))
+  #print(pg_logger.exec_script_str_local(options.usercode,
+   #                                     options.raw_input_lst_json,
+    #                                    options.cumulative,
+     #                                   options.heapPrimitives,
+      #                                  json_finalizer))
+  out_trace = pg_logger.exec_script_str_local(options.usercode,
+                                  options.raw_input_lst_json,
+                                  options.cumulative,
+                                  options.heapPrimitives,
+                                  json_finalizer)
+  print(out_trace)
+  
 else:
   fin = sys.stdin if args[0] == "-" else open(args[0])
   if options.js_varname:
     JS_VARNAME = options.js_varname
-    print(pg_logger.exec_script_str_local(fin.read(), options.raw_input_lst_json, options.cumulative, options.heapPrimitives, js_var_finalizer))
+    #print(pg_logger.exec_script_str_local(fin.read(), options.raw_input_lst_json, options.cumulative, options.heapPrimitives, js_var_finalizer))
+    out_trace = pg_logger.exec_script_str_local(fin.read(), options.raw_input_lst_json, options.cumulative, options.heapPrimitives, js_var_finalizer)
+    print(out_trace)
   else:
-    print(pg_logger.exec_script_str_local(fin.read(), options.raw_input_lst_json, options.cumulative, options.heapPrimitives, json_finalizer))
+    #print(pg_logger.exec_script_str_local(fin.read(), options.raw_input_lst_json, options.cumulative, options.heapPrimitives, json_finalizer))
+    out_trace = pg_logger.exec_script_str_local(fin.read(), options.raw_input_lst_json, options.cumulative, options.heapPrimitives, json_finalizer)
+    print(out_trace)
+    
+    
+f.write(out_trace)
 
