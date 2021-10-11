@@ -1,0 +1,1776 @@
+[
+  {
+    "LineNum": 20,
+    "type": "GlobalVariables",
+    "Contents": []
+  },
+  {
+    "LineNum": 20,
+    "stackdepth": 0,
+    "type": "Function"
+  },
+  {
+    "LineNum": 20,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 20,
+    "type": "StackFrame",
+    "Contents": []
+  },
+  {
+    "LineNum": 32,
+    "type": "GlobalVariables",
+    "Contents": []
+  },
+  {
+    "LineNum": 32,
+    "stackdepth": 0,
+    "type": "Function"
+  },
+  {
+    "LineNum": 32,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 32,
+    "type": "StackFrame",
+    "Contents": []
+  },
+  {
+    "LineNum": 37,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 37,
+    "stackdepth": 0,
+    "type": "Function"
+  },
+  {
+    "LineNum": 37,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 37,
+    "type": "StackFrame",
+    "Contents": []
+  },
+  {
+    "LineNum": 32,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "stackdepth": 1,
+    "type": "Function"
+  },
+  {
+    "LineNum": 32,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 32,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 1024,
+        "name": "a",
+        "id": 1001,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "stackdepth": 1,
+    "type": "Function"
+  },
+  {
+    "LineNum": 33,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 33,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 1024,
+        "name": "a",
+        "id": 1001,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 1,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 1024,
+        "name": "a",
+        "id": 1001,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "stackdepth": 2,
+    "type": "Function"
+  },
+  {
+    "LineNum": 32,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 32,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 512,
+        "name": "a",
+        "id": 1002,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "stackdepth": 2,
+    "type": "Function"
+  },
+  {
+    "LineNum": 33,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 33,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 512,
+        "name": "a",
+        "id": 1002,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 2,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 512,
+        "name": "a",
+        "id": 1002,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "stackdepth": 3,
+    "type": "Function"
+  },
+  {
+    "LineNum": 32,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 32,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 256,
+        "name": "a",
+        "id": 1003,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "stackdepth": 3,
+    "type": "Function"
+  },
+  {
+    "LineNum": 33,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 33,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 256,
+        "name": "a",
+        "id": 1003,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 3,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 256,
+        "name": "a",
+        "id": 1003,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "stackdepth": 4,
+    "type": "Function"
+  },
+  {
+    "LineNum": 32,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 32,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 128,
+        "name": "a",
+        "id": 1004,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "stackdepth": 4,
+    "type": "Function"
+  },
+  {
+    "LineNum": 33,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 33,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 128,
+        "name": "a",
+        "id": 1004,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 4,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 128,
+        "name": "a",
+        "id": 1004,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "stackdepth": 5,
+    "type": "Function"
+  },
+  {
+    "LineNum": 32,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 32,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 64,
+        "name": "a",
+        "id": 1005,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "stackdepth": 5,
+    "type": "Function"
+  },
+  {
+    "LineNum": 33,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 33,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 64,
+        "name": "a",
+        "id": 1005,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 5,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 64,
+        "name": "a",
+        "id": 1005,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "stackdepth": 6,
+    "type": "Function"
+  },
+  {
+    "LineNum": 32,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 32,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 32,
+        "name": "a",
+        "id": 1006,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "stackdepth": 6,
+    "type": "Function"
+  },
+  {
+    "LineNum": 33,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 33,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 32,
+        "name": "a",
+        "id": 1006,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 6,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 32,
+        "name": "a",
+        "id": 1006,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "stackdepth": 7,
+    "type": "Function"
+  },
+  {
+    "LineNum": 32,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 32,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 16,
+        "name": "a",
+        "id": 1007,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "stackdepth": 7,
+    "type": "Function"
+  },
+  {
+    "LineNum": 33,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 33,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 16,
+        "name": "a",
+        "id": 1007,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 7,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 16,
+        "name": "a",
+        "id": 1007,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "stackdepth": 8,
+    "type": "Function"
+  },
+  {
+    "LineNum": 32,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 32,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 8,
+        "name": "a",
+        "id": 1008,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "stackdepth": 8,
+    "type": "Function"
+  },
+  {
+    "LineNum": 33,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 33,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 8,
+        "name": "a",
+        "id": 1008,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 8,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 8,
+        "name": "a",
+        "id": 1008,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "stackdepth": 9,
+    "type": "Function"
+  },
+  {
+    "LineNum": 32,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 32,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 4,
+        "name": "a",
+        "id": 1009,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "stackdepth": 9,
+    "type": "Function"
+  },
+  {
+    "LineNum": 33,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 33,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 4,
+        "name": "a",
+        "id": 1009,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 9,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 4,
+        "name": "a",
+        "id": 1009,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "stackdepth": 10,
+    "type": "Function"
+  },
+  {
+    "LineNum": 32,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 32,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 2,
+        "name": "a",
+        "id": 1010,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "stackdepth": 10,
+    "type": "Function"
+  },
+  {
+    "LineNum": 33,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 33,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 2,
+        "name": "a",
+        "id": 1010,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 10,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 2,
+        "name": "a",
+        "id": 1010,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "stackdepth": 11,
+    "type": "Function"
+  },
+  {
+    "LineNum": 32,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 32,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 1,
+        "name": "a",
+        "id": 1011,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "stackdepth": 11,
+    "type": "Function"
+  },
+  {
+    "LineNum": 33,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 33,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 1,
+        "name": "a",
+        "id": 1011,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 11,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 1,
+        "name": "a",
+        "id": 1011,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 32,
+    "stackdepth": 12,
+    "type": "Function"
+  },
+  {
+    "LineNum": 32,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 32,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 0,
+        "name": "a",
+        "id": 1012,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 33,
+    "stackdepth": 12,
+    "type": "Function"
+  },
+  {
+    "LineNum": 33,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 33,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 0,
+        "name": "a",
+        "id": 1012,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 34,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 34,
+    "stackdepth": 12,
+    "type": "Function"
+  },
+  {
+    "LineNum": 34,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 34,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 0,
+        "name": "a",
+        "id": 1012,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 34,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 34,
+    "stackdepth": 12,
+    "type": "Function"
+  },
+  {
+    "LineNum": 34,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 34,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 0,
+        "name": "a",
+        "id": 1012,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 11,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 1,
+        "name": "a",
+        "id": 1011,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 10,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 2,
+        "name": "a",
+        "id": 1010,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 9,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 4,
+        "name": "a",
+        "id": 1009,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 8,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 8,
+        "name": "a",
+        "id": 1008,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 7,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 16,
+        "name": "a",
+        "id": 1007,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 6,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 32,
+        "name": "a",
+        "id": 1006,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 5,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 64,
+        "name": "a",
+        "id": 1005,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 4,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 128,
+        "name": "a",
+        "id": 1004,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 3,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 256,
+        "name": "a",
+        "id": 1003,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 2,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 512,
+        "name": "a",
+        "id": 1002,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 35,
+    "stackdepth": 1,
+    "type": "Function"
+  },
+  {
+    "LineNum": 35,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 35,
+    "type": "StackFrame",
+    "Contents": [
+      {
+        "type": "var",
+        "val": 1024,
+        "name": "a",
+        "id": 1001,
+        "data_type": "int"
+      }
+    ]
+  },
+  {
+    "LineNum": 37,
+    "type": "GlobalVariables",
+    "Contents": [
+      {
+        "type": "ptr",
+        "id": "1000",
+        "val": 1,
+        "name": "recurse"
+      }
+    ]
+  },
+  {
+    "LineNum": 37,
+    "stackdepth": 0,
+    "type": "Function"
+  },
+  {
+    "LineNum": 37,
+    "type": "Heap",
+    "Contents": []
+  },
+  {
+    "LineNum": 37,
+    "type": "StackFrame",
+    "Contents": []
+  }
+]

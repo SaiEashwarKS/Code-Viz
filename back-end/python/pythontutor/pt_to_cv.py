@@ -1,4 +1,5 @@
 import json
+from typing import *
 
 global_ids = dict()
 classes = set()
@@ -43,10 +44,61 @@ def handle_global_var(variables:list, classes:list):
 			cviz_gvar.append(new)
 	return cviz_gvar
 	
+'''
+INPUT FOR STACK FRAME: 
+"StackFrame": [
+        {
+          "func_name": "recurse",
+          "is_parent": false,
+          "frame_id": 1,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 27,
+              "name": "a"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "recurse_f1"
+        }
+      ]
 
-def handle_stack_frame():
-    pass
+'''
+def handle_stack_frame(functions:List) -> List:
 
+	global id_counter
+	global global_ids
+
+	while(functions and functions[-1]["func_name"].startswith("__") and functions[-1]["func_name"].endswith("__")):
+		functions.pop()
+	
+	#print(functions)
+
+	locals = []
+
+	if functions:
+
+		current_function = functions[-1]
+		fn_name = current_function["unique_hash"]
+		for local_var in current_function["encoded_locals"]:
+			if local_var["name"].startswith("__") and local_var["name"].endswith("__"):
+				continue
+
+			curdic = dict(type = local_var["type"],val = local_var["val"],name = local_var["name"])
+
+			local_unique_name = fn_name + local_var["name"]
+			if local_unique_name not in global_ids:
+				global_ids[local_unique_name] = id_counter
+				id_counter += 1
+			curdic["id"] = global_ids[local_unique_name]
+			if "data_type" in local_var:
+				curdic["data_type"] = local_var["data_type"]
+			locals.append(curdic.copy())
+		
+	return locals
 
 '''
 Input format
@@ -117,32 +169,31 @@ def handle_heap_var(variables:list):
 	cviz_hvar = []
 	global classes
 	for var in variables:
-		if var['data_type'] == 'CLASS':
-			classes.add(var['val'][0])
-		elif var['data_type'] == 'INSTANCE':
-			new = dict(id=var['id'], data_type=var['val'][0])
-			new['val'] = []
-			for i in var['val'][1:]:
-				temp={'type':i[1]['type'], 'name':i[0]['val'], 'val':i[1]['val']}
-				if 'data_type' in i[1]:
-					temp['data_type'] = i[1]['data_type']
-				new['val'].append(temp)
-			cviz_hvar.append(new)
+		if "data_type" in var:
+			if var['data_type'] == 'CLASS':
+				classes.add(var['val'][0])
+			elif var['data_type'] == 'INSTANCE':
+				new = dict(id=var['id'], data_type=var['val'][0])
+				new['val'] = []
+				for i in var['val'][1:]:
+					temp={'type':i[1]['type'], 'name':i[0]['val'], 'val':i[1]['val']}
+					if 'data_type' in i[1]:
+						temp['data_type'] = i[1]['data_type']
+					new['val'].append(temp)
+				cviz_hvar.append(new)
 	return cviz_hvar
 
 
-def format_trace(trace:list):
+def format_trace(trace:List[Dict]):
 	new_trace = []
 	global classes
 	
 	for entry in trace:
 		lineno = entry['LineNum']
 		stackdepth = entry['stackdepth']
-		
+
 		# StackFrame
-		# cviz_stack_frame = dict(LineNum=lineno, type='StackFrame', Contents=handle_stack_frame(trace['StackFrame']))
-		# not complete
-		Contents=[]
+		Contents = handle_stack_frame(entry['StackFrame'])
 		cviz_stack_frame = dict(LineNum=lineno, type='StackFrame', Contents=Contents)
 		
 		# Heap
@@ -167,7 +218,8 @@ if __name__ == '__main__':
 	tr = f.read()
 	tr = json.loads(tr)['trace']
 	new_tr = format_trace(tr)
-	print(json.dumps(new_tr,indent=2))
+	newf=open("cv.json","w")
+	newf.write(json.dumps(new_tr,indent=2))
 	
 	
 	s = '''[{
