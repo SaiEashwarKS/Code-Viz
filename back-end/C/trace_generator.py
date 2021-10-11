@@ -65,7 +65,8 @@ scanf = 0
 
 func = re.compile("\w+ \(((\w+\=\w+), )*(\w+\=\w+)?\)")
 
-my_file = raw_input('Enter C Program Name (with ./ if in local directory): ')
+# my_file = raw_input('Enter C Program Name (with ./ if in local directory): ')
+my_file = sys.argv[1]
 subprocess.call(["gcc","-c","-Dmalloc=mymalloc", "-Dfree=myfree","-g",my_file])
 subprocess.call(["gcc","-g","-static",str(my_file)[:-1]+"o","mymalloc.o"])
 
