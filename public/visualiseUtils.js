@@ -9,7 +9,7 @@ const canvas = document.getElementById("canvass");
 let idx = 1;
 let line_idx = 1;
 
-// console.log("digraphs before ",digraphs)
+// console.log(digrsaphs)
 let max_line_idx = 0;
 for(let t=0;t<digraphs.length;t++)
 {
@@ -58,6 +58,7 @@ const visualise_1 = async () => {
 	canvas.appendChild(element);
 	});
 	await new Promise((resolve) => setTimeout(resolve, 2500));
+	console.log("middle");
 	if (digraphs[idx + 1] === "highlightNode") {
 	canvas.innerHTML = "";
 	let coloredDigraph = colorNodes(digraph);
@@ -66,7 +67,7 @@ const visualise_1 = async () => {
 	viz.renderSVGElement(coloredDigraph).then(async function (element) {
 		canvas.appendChild(element);
 	});
-	await new Promise((resolve) => setTimeout(resolve, 1500));
+	await new Promise((resolve) => setTimeout(resolve, 500));
 	idx++;
 	}
 	idx++;
@@ -122,6 +123,7 @@ export const vis_backward = async () =>{
 
 let play = 1
 export const vis_play = async() =>{
+	console.log("vis play idx=",idx," line_idx=",line_idx);
 	if(play === 0)
 		play = 1; 
 	while (idx < digraphs.length && play) {
@@ -149,19 +151,27 @@ export const vis_play = async() =>{
 	  }
 };
 export const vis_pause = async () =>{
+	console.log("vis pause idx=",idx," line_idx=",line_idx);
 	play = 0;
 };
 
 export const skip_backward = async () =>{
 	idx = 1;
 	line_idx = 1;
-	startVisualisation();
+	console.log("vis skip backward before idx=",idx," line_idx=",line_idx);
+	// visualiseInitialStack();
+	// vis_forward();
+	// startVisualisation();
+	visualise_1();
+	console.log("vis skip backward after idx=",idx," line_idx=",line_idx);
 }; 
 
 export const skip_forward = async () =>{
+	console.log("vis skip forward before idx=",idx," line_idx=",line_idx);
 	idx = digraphs.length-1;
 	line_idx = max_line_idx;
 	vis_forward();
+	console.log("vis skip forward after idx=",idx," line_idx=",line_idx);
 };
 
 const addHighlightedNodes = (nodeIds) => {
