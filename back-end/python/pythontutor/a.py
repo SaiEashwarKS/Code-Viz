@@ -29,9 +29,19 @@ def recurse(a):
 
 z=A()
 '''
+def foo():
+	def bar():
+		print("hello")
+	bar()
+
 def recurse(a):
   if a==0:
     return 0
   return a%2 + recurse(a//2)
 
 print(recurse(1024))
+
+foo()
+
+while True:
+	print()

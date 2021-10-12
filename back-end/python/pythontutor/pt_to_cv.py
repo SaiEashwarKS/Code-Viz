@@ -2,7 +2,8 @@ import json
 from typing import *
 
 global_ids = dict()
-classes = set()
+classes_functions = set()
+class_function_ids = set()
 id_counter = 1000
 
 
@@ -30,9 +31,13 @@ Input format
 
 def handle_global_var(variables:List, classes:List) -> List:
 	global id_counter
+	global global_ids
+	
 	cviz_gvar = []
 	for var in variables:
-		if var['name'] not in classes:
+		if var['type'] == 'ptr' and var['val'] in class_function_ids:
+			continue
+		if var['name'] not in classes_functions:
 			if var['name'] in global_ids:
 				ID = global_ids[var['name']]
 			else:
@@ -69,37 +74,39 @@ INPUT FOR STACK FRAME:
 
 '''
 def handle_stack_frame(functions:List) -> List:
-
 	global id_counter
 	global global_ids
 
 	while(functions and functions[-1]["func_name"].startswith("__") and functions[-1]["func_name"].endswith("__")):
 		functions.pop()
-	
-	#print(functions)
 
-	locals = []
+	cviz_svar = []
 
 	if functions:
-
 		current_function = functions[-1]
 		fn_name = current_function["unique_hash"]
-		for local_var in current_function["encoded_locals"]:
-			if local_var["name"].startswith("__") and local_var["name"].endswith("__"):
+		for var in current_function["encoded_locals"]:
+			if var["name"].startswith("__") and var["name"].endswith("__"):
 				continue
+			
+			if var['type'] == 'ptr' and var['val'] in class_function_ids:
+				continue
+			
+			curdic = dict(type=var["type"], val=var["val"], name=var["name"])
 
-			curdic = dict(type = local_var["type"],val = local_var["val"],name = local_var["name"])
-
-			local_unique_name = fn_name + local_var["name"]
+			local_unique_name = fn_name + var["name"]
+			
 			if local_unique_name not in global_ids:
 				global_ids[local_unique_name] = id_counter
 				id_counter += 1
+				
 			curdic["id"] = global_ids[local_unique_name]
-			if "data_type" in local_var:
-				curdic["data_type"] = local_var["data_type"]
-			locals.append(curdic.copy())
+			
+			if "data_type" in var:
+				curdic["data_type"] = var["data_type"]
+			cviz_svar.append(curdic.copy())
 		
-	return locals
+	return cviz_svar
 
 '''
 Input format
@@ -171,8 +178,9 @@ def handle_heap_var(variables:List) -> List:
 	global classes
 	for var in variables:
 		if "data_type" in var:
-			if var['data_type'] == 'CLASS':
-				classes.add(var['val'][0])
+			if var['data_type'] in ['CLASS', 'FUNCTION']:
+				classes_functions.add(var['val'][0])
+				class_function_ids.add(var['id'])
 			elif var['data_type'] == 'INSTANCE':
 				new = dict(id=var['id'], data_type=var['val'][0])
 				new['val'] = []
@@ -190,27 +198,30 @@ def format_trace(trace:List[Dict]):
 	global classes
 	
 	for entry in trace:
+		if 'exception_msg' in entry:
+			new_trace.append(dict(exception_msg=entry['exception_msg']))
+			break
+	
 		lineno = entry['LineNum']
 		stackdepth = entry['stackdepth']
-
-		# StackFrame
-		Contents = handle_stack_frame(entry['StackFrame'])
-		cviz_stack_frame = dict(LineNum=lineno, type='StackFrame', Contents=Contents)
+		
+		# Function
+		cviz_function = dict(LineNum=lineno, stackdepth=stackdepth, type='Function')
+		if len(entry['StackFrame']) != 0:
+			name=entry['StackFrame'][-1]['func_name']
+			cviz_function['name'] = name
 		
 		# Heap
 		Contents = handle_heap_var(entry['Heap'])
 		cviz_heap = dict(LineNum=lineno, type='Heap', Contents=Contents)
 		
 		# Global
-		Contents = handle_global_var(entry['GlobalVariables'], classes)
+		Contents = handle_global_var(entry['GlobalVariables'], classes_functions)
 		cviz_gvar = dict(LineNum=lineno, type='GlobalVariables', Contents=Contents)
 		
-		# Function
-		# not complete
-		cviz_function = dict(LineNum=lineno, stackdepth=stackdepth, type='Function')
-		if len(entry['StackFrame']) != 0:
-			name=entry['StackFrame'][-1]['func_name']
-			cviz_function['name'] = name
+		# StackFrame
+		Contents = handle_stack_frame(entry['StackFrame'])
+		cviz_stack_frame = dict(LineNum=lineno, type='StackFrame', Contents=Contents)
 		
 		new_trace.extend([cviz_gvar, cviz_function, cviz_heap, cviz_stack_frame])
 		
