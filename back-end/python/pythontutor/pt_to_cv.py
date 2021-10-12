@@ -27,7 +27,8 @@ Input format
         }
       ]
 '''
-def handle_global_var(variables:list, classes:list):
+
+def handle_global_var(variables:List, classes:List) -> List:
 	global id_counter
 	cviz_gvar = []
 	for var in variables:
@@ -165,7 +166,7 @@ Input format
     }
 ]
 '''
-def handle_heap_var(variables:list):
+def handle_heap_var(variables:List) -> List:
 	cviz_hvar = []
 	global classes
 	for var in variables:
@@ -207,6 +208,9 @@ def format_trace(trace:List[Dict]):
 		# Function
 		# not complete
 		cviz_function = dict(LineNum=lineno, stackdepth=stackdepth, type='Function')
+		if len(entry['StackFrame']) != 0:
+			name=entry['StackFrame'][-1]['func_name']
+			cviz_function['name'] = name
 		
 		new_trace.extend([cviz_gvar, cviz_function, cviz_heap, cviz_stack_frame])
 		
@@ -217,9 +221,10 @@ if __name__ == '__main__':
 	f = open('trace.json','r')
 	tr = f.read()
 	tr = json.loads(tr)['trace']
-	new_tr = format_trace(tr)
+	new_tr = json.dumps(format_trace(tr), indent=2)
 	newf=open("cv.json","w")
-	newf.write(json.dumps(new_tr,indent=2))
+	print(new_tr)
+	newf.write(new_tr)
 	
 	
 	s = '''[{
