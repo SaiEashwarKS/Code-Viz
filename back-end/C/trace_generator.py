@@ -10,7 +10,7 @@ from tabulate import tabulate
 import copy
 import string
 import json
-
+import timeit
 
 lines_data = []
 
@@ -1117,8 +1117,9 @@ output(p1,0)
 p1.stdin.write('run\n')
 output(p1,0)
 
+starttime = curtime = timeit.default_timer()
 
-while True:
+while (curtime-starttime < 200): #150 Seconds
 	#inp = raw_input()
 	mo=[]
 	mp=[]
@@ -1299,6 +1300,7 @@ while True:
 	counter+=1
 
 	print '\nHit Enter to Continue, exit/quit to stop\n'
+	curtime=timeit.default_timer()
 
 
 # adding possible data structure type in struct_details
