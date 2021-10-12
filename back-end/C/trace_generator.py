@@ -67,8 +67,31 @@ func = re.compile("\w+ \(((\w+\=\w+), )*(\w+\=\w+)?\)")
 
 # my_file = raw_input('Enter C Program Name (with ./ if in local directory): ')
 my_file = sys.argv[1]
+
+if len(sys.argv)>2:
+	skip_fn += sys.argv[2:]
+#log variables
+logb = 1
+
+
 subprocess.call(["gcc","-c","-Dmalloc=mymalloc", "-Dfree=myfree","-g",my_file])
-subprocess.call(["gcc","-g","-static",str(my_file)[:-1]+"o","mymalloc.o"])
+logb = subprocess.call(["gcc","-g","-static",str(my_file)[:-1]+"o","mymalloc.o"])
+
+if logb:
+	p_glob = Popen(["gcc","-c",my_file], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+	op = p_glob.communicate()
+	f = open("ll.json","w")
+	#print("HERE",op[1])
+	f.write(json.dumps("COMPILE TIME ERROR\n" + op[1]))
+	f.close()
+	#had to do all this bullshitery to remove left and right quotes which appear as unknown unicode characters in the file
+	f = open("ll.json","r")
+	new = (f.read().replace(my_file,"").replace("\u2018","'").replace("\u2019","'"))
+	f.close()
+	f = open("ll.json","w")
+	f.write(new)
+	f.close()
+	sys.exit()
 
 p_glob = Popen(['gdb', 'a.out'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 p_glob.stdin.write('info variables\n') # info variables -> to get all global variables
