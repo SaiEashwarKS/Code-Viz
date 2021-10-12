@@ -1414,8 +1414,9 @@ class PGLogger(bdb.Bdb):
       #self.finalize()
       raise bdb.BdbQuit # need to forceably STOP execution
 
-
+    
     def finalize(self):
+    #def finalize(self,id_count):
       sys.stdout = self.GAE_STDOUT # very important!
       sys.stderr = self.ORIGINAL_STDERR
 
@@ -1443,6 +1444,9 @@ class PGLogger(bdb.Bdb):
         res.pop()
 
       self.trace = res
+      
+      #cviz 
+      #self.trace.append({['id_count']:id_count})
 
       return self.finalizer_func(self.executed_script, self.trace)
 
@@ -1474,6 +1478,8 @@ def exec_script_str(script_str, raw_input_lst_json, options_json, finalizer_func
     pass
   finally:
     logger.finalize()
+    #cviz
+    #logger.finalise(logger.cur_small_ID)
 
 
 # disables security check and returns the result of finalizer_func
