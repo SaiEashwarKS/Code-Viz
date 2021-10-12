@@ -54,18 +54,7 @@
           "val": "0", 
           "name": "k"
         }, 
-        {
-          "data_type": "struct graph", 
-          "type": "var", 
-          "id": 5, 
-          "val": [
-            {
-              "edge_weights": "{{4200992, 0}, {4201152, 0}}", 
-              "vertex_weights": "{0, 0}"
-            }
-          ], 
-          "name": "gr"
-        }
+        "type"
       ]
     }, 
     {
