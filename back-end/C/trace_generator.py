@@ -11,6 +11,8 @@ import copy
 import string
 import json
 import timeit
+from os import remove
+import argparse
 
 lines_data = []
 
@@ -65,12 +67,29 @@ scanf = 0
 
 func = re.compile("\w+ \(((\w+\=\w+), )*(\w+\=\w+)?\)")
 
+parser = argparse.ArgumentParser()
+parser.add_argument("-f","--file",type=str,required=True)
+parser.add_argument("-t","--time",type=int,required=False)
+parser.add_argument('functions', type=str, nargs='*')
+args = parser.parse_args()
+
+my_file = args.file
+
+time_limit = 200
+if args.time:
+	time_limit = min(args.time, 1000)
+
+if args.functions:
+	skip_fn += args.functions
+
 # my_file = raw_input('Enter C Program Name (with ./ if in local directory): ')
+'''
 my_file = sys.argv[1]
 
 if len(sys.argv)>2:
 	skip_fn += sys.argv[2:]
 #log variables
+'''
 logb = 1
 
 
@@ -1119,7 +1138,7 @@ output(p1,0)
 
 starttime = curtime = timeit.default_timer()
 
-while (curtime-starttime < 200): #150 Seconds
+while (curtime-starttime < time_limit): 
 	#inp = raw_input()
 	mo=[]
 	mp=[]
@@ -1324,4 +1343,5 @@ maindic = json.dumps(maindic,indent=2)
 f1=open("ll.json","w")
 f1.write(maindic)
 f1.close()
+remove(my_file[:-1]+"o")
 
