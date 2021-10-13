@@ -210,9 +210,6 @@ def pdisp(rv):#for further display
 
 
 def get_deref_value(addr, datatype,visited=set()):
-	if addr in visited:
-		return
-	visited.add(addr)
 	p1.stdin.write('p *('+datatype+') '+addr+'\n')
 	my_out = ''
 	sleep(0.1)
@@ -222,6 +219,8 @@ def get_deref_value(addr, datatype,visited=set()):
 		except OSError:
 			break
 	my_out = string.replace(my_out,'(gdb)','').strip()
+
+	visited.add(addr)
 
 	if 'struct' in datatype:
 		fields = struct_fields_info(p1, datatype)
@@ -260,6 +259,7 @@ def get_deref_value(addr, datatype,visited=set()):
 		x = []
 		#f.write(str(s)+"\n")
 		
+		print("VISITED",visited,addr)
 		for i in v:
 			k=i.strip("{}")
 			k=k.split(":")
@@ -273,7 +273,7 @@ def get_deref_value(addr, datatype,visited=set()):
 		for i in range(len(fields)):
 			if fields[i]['type'] == 'ptr':
 				address = l[k]
-				if address in heap:
+				if address in heap and address not in visited:
 					#deref_val = get_deref_value(address, fields[i]['data_type']) 
 					#heap[address]['val'] = deref_val
 					dt = fields[i]['data_type']
@@ -284,10 +284,11 @@ def get_deref_value(addr, datatype,visited=set()):
 					else:
 						heap[address]['type'] = "var"
 				k += 1
-
+		
 		return x
 	else:
 		val = my_out[my_out.find('=')+2:]
+		
 		return val
 		
 def maketogether(ln,di,gl,stringnamed):
@@ -332,7 +333,7 @@ def maketogether(ln,di,gl,stringnamed):
 			#elif addr in heap:
 				if addr in heap:
 					#val = 'HEAPVAR -'+addr
-					deref_val = get_deref_value(addr, datatype)
+					deref_val = get_deref_value(addr, datatype,set())
 					#f.write("\ndatatype: "+datatype+" deref: "+str(deref_val)+"\n")
 					heap[addr]['val'] = deref_val
 					heap[addr]['data_type'] = datatype[: datatype.rfind('*')].strip()

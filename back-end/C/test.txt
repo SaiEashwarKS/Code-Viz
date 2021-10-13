@@ -1,36 +1,52 @@
 {}
 
-{}
+{'0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': 'N'}, {'data': '0'}], 'id': 5}}
 
-{}
+{'0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': 'N'}, {'data': '45'}], 'id': 5}}
 
-{}
+{'0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': 'N'}, {'data': '0'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': '6'}, {'data': '45'}], 'id': 5}}
 
-{}
+{'0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': 'N'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': '6'}, {'data': '45'}], 'id': 5}}
 
-{}
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': 'N'}, {'data': '0'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '7'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': '6'}, {'data': '45'}], 'id': 5}}
 
-{}
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': 'N'}, {'data': '55'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '7'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': '6'}, {'data': '45'}], 'id': 5}}
 
-{}
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': 'N'}, {'data': '55'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '7'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': '6'}, {'data': '45'}], 'id': 5}}
 
-{}
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': 'N'}, {'data': '55'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '7'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': '6'}, {'data': '45'}], 'id': 5}}
 
-{}
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': 'N'}, {'data': '55'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '7'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': '6'}, {'data': '45'}], 'id': 5}}
 
-{}
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': 'N'}, {'data': '55'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '7'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': '6'}, {'data': '45'}], 'id': 5}}
 
-{}
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': 'N'}, {'data': '55'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '7'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': 'N'}, {'data': '45'}], 'id': 5}}
 
-{}
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': 'N'}, {'data': '55'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '7'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': 'N'}, {'data': '45'}], 'id': 5}}
 
-{}
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': 'N'}, {'data': '55'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '7'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': 'N'}, {'data': '45'}], 'id': 5}}
 
-{}
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': 'N'}, {'data': '55'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '7'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': 'N'}, {'data': '45'}], 'id': 5}}
 
-{}
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': 'N'}, {'data': '55'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '7'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': 'N'}, {'data': '45'}], 'id': 5}}
 
-{}
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': 'N'}, {'data': '55'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '5'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': 'N'}, {'data': '45'}], 'id': 5}}
 
-{}
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': 'N'}, {'data': '55'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '5'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': 'N'}, {'data': '45'}], 'id': 5}}
+
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': 'N'}, {'data': '55'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '5'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': 'N'}, {'data': '45'}], 'id': 5}}
+
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': 'N'}, {'data': '55'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '5'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': 'N'}, {'data': '45'}], 'id': 5}}
+
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': 'N'}, {'data': '55'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '5'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': 'N'}, {'data': '45'}], 'id': 5}}
+
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': '6'}, {'data': '55'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '5'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': 'N'}, {'data': '45'}], 'id': 5}}
+
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': '6'}, {'data': '55'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '5'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': 'N'}, {'data': '45'}], 'id': 5}}
+
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': '6'}, {'data': '55'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '5'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': 'N'}, {'data': '45'}], 'id': 5}}
+
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': '6'}, {'data': '55'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '5'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': 'N'}, {'data': '45'}], 'id': 5}}
+
+{'0x6c0b80': {'data_type': 'struct node', 'type': 'var', 'id': 7, 'val': [{'next': '6'}, {'data': '55'}]}, '0x6c0b60': {'data_type': 'struct node', 'type': 'var', 'id': 6, 'val': [{'next': '5'}, {'data': '50'}]}, '0x6c0b40': {'type': 'var', 'data_type': 'struct node', 'val': [{'next': 'N'}, {'data': '45'}], 'id': 5}}
 
