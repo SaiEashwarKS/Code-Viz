@@ -30,5 +30,7 @@ int main()
     head->next->data = 50;
     head->next->next = malloc(sizeof(struct node));
     head->next->next->data = 55;
+    head->next->next->next = malloc(sizeof(struct node));
+    head->next->next->next->data = 60;
     head = reverse_node(head);
 }
