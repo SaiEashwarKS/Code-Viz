@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 /public/viz.js/node_modules
+/src/viz.js/node_modules
 
 # testing
 /coverage
