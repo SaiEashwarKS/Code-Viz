@@ -7,7 +7,7 @@
 import { useEffect, useState } from "react";
 import AceEditor from "react-ace";
 import { Canvas, TitleBar, ControlBar } from "./components";
-import { startVisualisation, visualiseInitialStack } from "./visualiseUtils";
+import { init_variables, skip_backward, skip_forward, startVisualisation, visualiseInitialStack, vis_backward, vis_forward, vis_pause, vis_play } from "./visualiseUtils";
 
 const Visualiser = ({ code, mode }) => {
   const [canvasRef, setCanvasRef] = useState(null);
@@ -20,6 +20,7 @@ const Visualiser = ({ code, mode }) => {
 
   useEffect(() => {
     if (canvasRef) {
+      init_variables(canvasRef, setMarker);
       visualiseInitialStack(canvasRef);
     }
     return () => {
@@ -64,14 +65,13 @@ const Visualiser = ({ code, mode }) => {
       </div>
       <div style={styles.controlBarContainer}>
         <ControlBar
-          onStart={() => {
-            startVisualisation(canvasRef, setMarker);
-          }}
-          onStop={() => {}}
-          onStepForward={() => {}}
-          onStepBackWard={() => {}}
-          onSkipToBeginning={() => {}}
-          onSkipToEnd={() => {}}
+          onStart={startVisualisation}
+          onPause={vis_pause}
+          onPlay={vis_play}
+          onStepForward={vis_forward}
+          onStepBackWard={vis_backward}
+          onSkipToBeginning={skip_backward}
+          onSkipToEnd={skip_forward}
         />
       </div>
     </div>
