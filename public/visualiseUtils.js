@@ -176,7 +176,6 @@ export const skip_forward = async () =>{
 
 const addHighlightedNodes = (nodeIds) => {
   let res = ``;
-  console.log(nodeIds);
   nodeIds.forEach((nodeId) => {
     res += `node${nodeId}[
   color="green"
