@@ -101,7 +101,15 @@
         </div> -->
         <div class="row">
             <button type="button" id="start-vis-btn">Start visualisation</button>
+            <button type="button" id="skip-backward-vis-btn">Skip backward</button>
+            <button type="button" id="backward-vis-btn">Step Back</button>
+            <button type="button" id="forward-vis-btn">Step Forward</button>
+            <button type="button" id="skip-forward-btn">Skip Forward</button>
+            <button type="button" id="play-vis-btn">Play</button>
+            <button type="button" id="pause-vis-btn">Pause</button>
+
         </div>
+
         <div class="row" id="canvas-editor-row">
             <div class="col-12 col-sm-6" id="canvass">
                 <!-- <div id="canvass"></div> -->
@@ -134,9 +142,22 @@
 
 </body>
 <script type="module">
-    import { startVisualisation } from './visualiseUtils.js';
-    const button = document.getElementById('start-vis-btn');
-    button.onclick = startVisualisation
+    import { startVisualisation,vis_forward,vis_backward,vis_play,vis_pause,skip_backward,skip_forward} from './visualiseUtils.js';
+    const button1 = document.getElementById('start-vis-btn');
+    button1.onclick = startVisualisation;
+    const button2 = document.getElementById('forward-vis-btn');
+    button2.onclick = vis_forward;
+    const button3 = document.getElementById('backward-vis-btn');
+    button3.onclick = vis_backward;
+    const button4 = document.getElementById('play-vis-btn');
+    button4.onclick = vis_play;
+    const button5= document.getElementById('pause-vis-btn');
+    button5.onclick = vis_pause;
+    const button6 = document.getElementById('skip-backward-vis-btn');
+    button6.onclick = skip_backward;
+    const button7 = document.getElementById("skip-forward-btn");
+    button7.onclick = skip_forward;
+
 </script>
 <script>
     let code = `#include<stdio.h>
