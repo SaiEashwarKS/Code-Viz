@@ -189,11 +189,33 @@ def handle_heap_var(variables:List) -> List:
 					if 'data_type' in i[1]:
 						temp['data_type'] = i[1]['data_type']
 					new['val'].append(temp)
+				new['type'] = 'var'
+				cviz_hvar.append(new)
+			elif var['data_type'] == 'DICT':
+				new = dict(id=var['id'], data_type=var['data_type'])
+				new['val'] = []
+				for i in var['val']:
+					temp={'type':i[1]['type'], 'name':i[0]['val'], 'val':i[1]['val']}
+					if 'data_type' in i[1]:
+						temp['data_type'] = i[1]['data_type']
+					new['val'].append(temp)
+				new['type'] = 'var'
+				cviz_hvar.append(new)
+			elif var['data_type'] == 'HEAP_PRIMITIVE':
+				new = dict(id=var['id'], data_type=var['val'][0], type='var')
+				new['val'] = var['val'][1]
+				new['type'] = 'var'
+				cviz_hvar.append(new)
+			else:
+				new = dict(id=var['id'], data_type=var['data_type'])
+				new['val'] = var['val']
+				new['type'] = 'var'
 				cviz_hvar.append(new)
 	return cviz_hvar
 
 
 def format_trace(trace:List[Dict]):
+	cv_lineno = 0
 	new_trace = []
 	global classes
 	
@@ -202,28 +224,30 @@ def format_trace(trace:List[Dict]):
 			new_trace.append(dict(exception_msg=entry['exception_msg']))
 			break
 	
-		lineno = entry['LineNum']
+		pt_lineno = entry['LineNum']
 		stackdepth = entry['stackdepth']
 		
 		# Function
-		cviz_function = dict(LineNum=lineno, stackdepth=stackdepth, type='Function')
+		cviz_function = dict(LineNum=cv_lineno, stackdepth=stackdepth, type='Function')
 		if len(entry['StackFrame']) != 0:
 			name=entry['StackFrame'][-1]['func_name']
 			cviz_function['name'] = name
 		
 		# Heap
 		Contents = handle_heap_var(entry['Heap'])
-		cviz_heap = dict(LineNum=lineno, type='Heap', Contents=Contents)
+		cviz_heap = dict(LineNum=cv_lineno, type='Heap', Contents=Contents)
 		
 		# Global
 		Contents = handle_global_var(entry['GlobalVariables'], classes_functions)
-		cviz_gvar = dict(LineNum=lineno, type='GlobalVariables', Contents=Contents)
+		cviz_gvar = dict(LineNum=cv_lineno, type='GlobalVariables', Contents=Contents)
 		
 		# StackFrame
 		Contents = handle_stack_frame(entry['StackFrame'])
-		cviz_stack_frame = dict(LineNum=lineno, type='StackFrame', Contents=Contents)
+		cviz_stack_frame = dict(LineNum=cv_lineno, type='StackFrame', Contents=Contents)
 		
-		new_trace.extend([cviz_gvar, cviz_function, cviz_heap, cviz_stack_frame])
+		new_trace.extend([cviz_function, cviz_heap, cviz_gvar, cviz_stack_frame])
+		
+		cv_lineno = pt_lineno
 		
 	return new_trace
 	
@@ -232,10 +256,12 @@ if __name__ == '__main__':
 	f = open('trace.json','r')
 	tr = f.read()
 	tr = json.loads(tr)['trace']
-	new_tr = json.dumps(format_trace(tr), indent=2)
+	new_tr = format_trace(tr)
+	Lines_Data = dict(Lines_Data=new_tr)
+	trace_json = json.dumps(Lines_Data, indent=2)
 	newf=open("cv.json","w")
-	print(new_tr)
-	newf.write(new_tr)
+	print(trace_json)
+	newf.write(trace_json)
 	
 	
 	s = '''[{

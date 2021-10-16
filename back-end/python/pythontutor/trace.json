@@ -1,0 +1,3598 @@
+{
+  "code": "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\nif __name__=='__main__':\n    llist = LinkedList()\n    llist.head = Node(1)\n    second = Node(2)\n    third = Node(3)\n \n    llist.head.next = second;\n    second.next = third;\n",
+  "trace": [
+    {
+      "LineNum": 1,
+      "event": "step_line",
+      "func_name": "<module>",
+      "GlobalVariables": [],
+      "StackFrame": [],
+      "stackdepth": 0,
+      "Heap": [],
+      "stdout": ""
+    },
+    {
+      "LineNum": 6,
+      "event": "step_line",
+      "func_name": "<module>",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        }
+      ],
+      "StackFrame": [],
+      "stackdepth": 0,
+      "Heap": [
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 10,
+      "event": "step_line",
+      "func_name": "<module>",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        }
+      ],
+      "StackFrame": [],
+      "stackdepth": 0,
+      "Heap": [
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 11,
+      "event": "step_line",
+      "func_name": "<module>",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        }
+      ],
+      "StackFrame": [],
+      "stackdepth": 0,
+      "Heap": [
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 7,
+      "event": "call",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 1,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "ptr",
+              "val": 5,
+              "name": "self"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f1"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList"
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 8,
+      "event": "step_line",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 1,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "ptr",
+              "val": 5,
+              "name": "self"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f1"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList"
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 8,
+      "event": "return",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 1,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "ptr",
+              "val": 5,
+              "name": "self"
+            },
+            {
+              "type": "var",
+              "data_type": "NoneType",
+              "val": null,
+              "name": "__return__"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f1"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "head"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 12,
+      "event": "step_line",
+      "func_name": "<module>",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        },
+        {
+          "type": "ptr",
+          "val": 5,
+          "name": "llist"
+        }
+      ],
+      "StackFrame": [],
+      "stackdepth": 0,
+      "Heap": [
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "head"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 2,
+      "event": "call",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        },
+        {
+          "type": "ptr",
+          "val": 5,
+          "name": "llist"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 2,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 1,
+              "name": "data"
+            },
+            {
+              "type": "ptr",
+              "val": 6,
+              "name": "self"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f2"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 6,
+          "val": [
+            "Node"
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "head"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 3,
+      "event": "step_line",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        },
+        {
+          "type": "ptr",
+          "val": 5,
+          "name": "llist"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 2,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 1,
+              "name": "data"
+            },
+            {
+              "type": "ptr",
+              "val": 6,
+              "name": "self"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f2"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 6,
+          "val": [
+            "Node"
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "head"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 4,
+      "event": "step_line",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        },
+        {
+          "type": "ptr",
+          "val": 5,
+          "name": "llist"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 2,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 1,
+              "name": "data"
+            },
+            {
+              "type": "ptr",
+              "val": 6,
+              "name": "self"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f2"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 6,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 1
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "head"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 4,
+      "event": "return",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        },
+        {
+          "type": "ptr",
+          "val": 5,
+          "name": "llist"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 2,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 1,
+              "name": "data"
+            },
+            {
+              "type": "ptr",
+              "val": 6,
+              "name": "self"
+            },
+            {
+              "type": "var",
+              "data_type": "NoneType",
+              "val": null,
+              "name": "__return__"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f2"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 6,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 1
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "head"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 13,
+      "event": "step_line",
+      "func_name": "<module>",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        },
+        {
+          "type": "ptr",
+          "val": 5,
+          "name": "llist"
+        }
+      ],
+      "StackFrame": [],
+      "stackdepth": 0,
+      "Heap": [
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "head"
+              },
+              {
+                "type": "ptr",
+                "val": 6
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 6,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 1
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 2,
+      "event": "call",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        },
+        {
+          "type": "ptr",
+          "val": 5,
+          "name": "llist"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 3,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 2,
+              "name": "data"
+            },
+            {
+              "type": "ptr",
+              "val": 7,
+              "name": "self"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f3"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 7,
+          "val": [
+            "Node"
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "head"
+              },
+              {
+                "type": "ptr",
+                "val": 6
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 6,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 1
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 3,
+      "event": "step_line",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        },
+        {
+          "type": "ptr",
+          "val": 5,
+          "name": "llist"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 3,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 2,
+              "name": "data"
+            },
+            {
+              "type": "ptr",
+              "val": 7,
+              "name": "self"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f3"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 7,
+          "val": [
+            "Node"
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "head"
+              },
+              {
+                "type": "ptr",
+                "val": 6
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 6,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 1
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 4,
+      "event": "step_line",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        },
+        {
+          "type": "ptr",
+          "val": 5,
+          "name": "llist"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 3,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 2,
+              "name": "data"
+            },
+            {
+              "type": "ptr",
+              "val": 7,
+              "name": "self"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f3"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 7,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "head"
+              },
+              {
+                "type": "ptr",
+                "val": 6
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 6,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 1
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 4,
+      "event": "return",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        },
+        {
+          "type": "ptr",
+          "val": 5,
+          "name": "llist"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 3,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 2,
+              "name": "data"
+            },
+            {
+              "type": "ptr",
+              "val": 7,
+              "name": "self"
+            },
+            {
+              "type": "var",
+              "data_type": "NoneType",
+              "val": null,
+              "name": "__return__"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f3"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 7,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 2
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "head"
+              },
+              {
+                "type": "ptr",
+                "val": 6
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 6,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 1
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 14,
+      "event": "step_line",
+      "func_name": "<module>",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        },
+        {
+          "type": "ptr",
+          "val": 5,
+          "name": "llist"
+        },
+        {
+          "type": "ptr",
+          "val": 7,
+          "name": "second"
+        }
+      ],
+      "StackFrame": [],
+      "stackdepth": 0,
+      "Heap": [
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "head"
+              },
+              {
+                "type": "ptr",
+                "val": 6
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 6,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 1
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 7,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 2
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 2,
+      "event": "call",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        },
+        {
+          "type": "ptr",
+          "val": 5,
+          "name": "llist"
+        },
+        {
+          "type": "ptr",
+          "val": 7,
+          "name": "second"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 4,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 3,
+              "name": "data"
+            },
+            {
+              "type": "ptr",
+              "val": 8,
+              "name": "self"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f4"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 8,
+          "val": [
+            "Node"
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "head"
+              },
+              {
+                "type": "ptr",
+                "val": 6
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 6,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 1
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 7,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 2
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 3,
+      "event": "step_line",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        },
+        {
+          "type": "ptr",
+          "val": 5,
+          "name": "llist"
+        },
+        {
+          "type": "ptr",
+          "val": 7,
+          "name": "second"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 4,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 3,
+              "name": "data"
+            },
+            {
+              "type": "ptr",
+              "val": 8,
+              "name": "self"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f4"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 8,
+          "val": [
+            "Node"
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "head"
+              },
+              {
+                "type": "ptr",
+                "val": 6
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 6,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 1
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 7,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 2
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 4,
+      "event": "step_line",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        },
+        {
+          "type": "ptr",
+          "val": 5,
+          "name": "llist"
+        },
+        {
+          "type": "ptr",
+          "val": 7,
+          "name": "second"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 4,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 3,
+              "name": "data"
+            },
+            {
+              "type": "ptr",
+              "val": 8,
+              "name": "self"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f4"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 8,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 3
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "head"
+              },
+              {
+                "type": "ptr",
+                "val": 6
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 6,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 1
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 7,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 2
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 4,
+      "event": "return",
+      "func_name": "__init__",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        },
+        {
+          "type": "ptr",
+          "val": 5,
+          "name": "llist"
+        },
+        {
+          "type": "ptr",
+          "val": 7,
+          "name": "second"
+        }
+      ],
+      "StackFrame": [
+        {
+          "func_name": "__init__",
+          "is_parent": false,
+          "frame_id": 4,
+          "parent_frame_id_list": [],
+          "encoded_locals": [
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 3,
+              "name": "data"
+            },
+            {
+              "type": "ptr",
+              "val": 8,
+              "name": "self"
+            },
+            {
+              "type": "var",
+              "data_type": "NoneType",
+              "val": null,
+              "name": "__return__"
+            }
+          ],
+          "is_zombie": false,
+          "is_highlighted": true,
+          "unique_hash": "__init___f4"
+        }
+      ],
+      "stackdepth": 1,
+      "Heap": [
+        {
+          "data_type": "INSTANCE",
+          "id": 8,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 3
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "head"
+              },
+              {
+                "type": "ptr",
+                "val": 6
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 6,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 1
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 7,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 2
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 16,
+      "event": "step_line",
+      "func_name": "<module>",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        },
+        {
+          "type": "ptr",
+          "val": 5,
+          "name": "llist"
+        },
+        {
+          "type": "ptr",
+          "val": 7,
+          "name": "second"
+        },
+        {
+          "type": "ptr",
+          "val": 8,
+          "name": "third"
+        }
+      ],
+      "StackFrame": [],
+      "stackdepth": 0,
+      "Heap": [
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "head"
+              },
+              {
+                "type": "ptr",
+                "val": 6
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 6,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 1
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 7,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 2
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 8,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 3
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 17,
+      "event": "step_line",
+      "func_name": "<module>",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        },
+        {
+          "type": "ptr",
+          "val": 5,
+          "name": "llist"
+        },
+        {
+          "type": "ptr",
+          "val": 7,
+          "name": "second"
+        },
+        {
+          "type": "ptr",
+          "val": 8,
+          "name": "third"
+        }
+      ],
+      "StackFrame": [],
+      "stackdepth": 0,
+      "Heap": [
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "head"
+              },
+              {
+                "type": "ptr",
+                "val": 6
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 6,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 1
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "ptr",
+                "val": 7
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 7,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 2
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 8,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 3
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    },
+    {
+      "LineNum": 17,
+      "event": "return",
+      "func_name": "<module>",
+      "GlobalVariables": [
+        {
+          "type": "ptr",
+          "val": 1,
+          "name": "Node"
+        },
+        {
+          "type": "ptr",
+          "val": 3,
+          "name": "LinkedList"
+        },
+        {
+          "type": "ptr",
+          "val": 5,
+          "name": "llist"
+        },
+        {
+          "type": "ptr",
+          "val": 7,
+          "name": "second"
+        },
+        {
+          "type": "ptr",
+          "val": 8,
+          "name": "third"
+        }
+      ],
+      "StackFrame": [],
+      "stackdepth": 0,
+      "Heap": [
+        {
+          "data_type": "CLASS",
+          "id": 1,
+          "val": [
+            "Node",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 2
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 2,
+          "val": [
+            "__init__(self, data)",
+            null
+          ]
+        },
+        {
+          "data_type": "CLASS",
+          "id": 3,
+          "val": [
+            "LinkedList",
+            [],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "__init__"
+              },
+              {
+                "type": "ptr",
+                "val": 4
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "FUNCTION",
+          "id": 4,
+          "val": [
+            "__init__(self)",
+            null
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 5,
+          "val": [
+            "LinkedList",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "head"
+              },
+              {
+                "type": "ptr",
+                "val": 6
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 6,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 1
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "ptr",
+                "val": 7
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 7,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 2
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "ptr",
+                "val": 8
+              }
+            ]
+          ]
+        },
+        {
+          "data_type": "INSTANCE",
+          "id": 8,
+          "val": [
+            "Node",
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "data"
+              },
+              {
+                "type": "var",
+                "data_type": "int",
+                "val": 3
+              }
+            ],
+            [
+              {
+                "type": "var",
+                "data_type": "str",
+                "val": "next"
+              },
+              {
+                "type": "var",
+                "data_type": "NoneType",
+                "val": null
+              }
+            ]
+          ]
+        }
+      ],
+      "stdout": ""
+    }
+  ]
+}
