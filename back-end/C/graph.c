@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-int g=0;
+
 #define MAX 2
 
 typedef struct graph
