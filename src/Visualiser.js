@@ -6,6 +6,8 @@
 // import "ace-builds/src-noconflict/ext-language_tools";
 import { useEffect, useState } from "react";
 import AceEditor from "react-ace";
+import "ace-builds/src-noconflict/mode-python";
+import "ace-builds/src-noconflict/mode-c_cpp"
 import { Canvas, TitleBar, ControlBar } from "./components";
 import { init_variables, skip_backward, skip_forward, startVisualisation, visualiseInitialStack, vis_backward, vis_forward, vis_pause, vis_play } from "./visualiseUtils";
 
@@ -65,7 +67,6 @@ const Visualiser = ({ code, mode }) => {
       </div>
       <div style={styles.controlBarContainer}>
         <ControlBar
-          onStart={startVisualisation}
           onPause={vis_pause}
           onPlay={vis_play}
           onStepForward={vis_forward}

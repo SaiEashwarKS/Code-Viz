@@ -87,7 +87,10 @@ const createStackvar = (variable) => {
     return createStructNode(variable);
   }
   const nodeName = `node${variable.id}`;
-  const label = `<f0> ${variable.name}: ${variable.val}`;
+  const label =
+    variable.name !== undefined
+      ? `<f0> ${variable.name}: ${variable.val}`
+      : `${variable.val}`;
   return createNode(nodeName, label);
 };
 
@@ -133,7 +136,6 @@ const getStackFrameNode = (data) => {
 const getHeapNode = (data) => {
   let nodes = ``;
   for (let contentsIdx in data.Contents) {
-    let structName = "struct node";
     let variable = data.Contents[contentsIdx];
     if (!variable.id) {
       continue;
@@ -201,7 +203,7 @@ var structs;
 
 const initialDigraph = `digraph g {
 graph [
-rankdir = "TB"
+rankdir = "LR"
 ];
 node [
 fontsize = "16"
@@ -235,42 +237,37 @@ export const getDigraphs = (input) => {
   let prevDigraph = initialDigraph;
   let prevLineDatas = [];
   let currLineDatas = [];
-  for (let lineDataIdx in json.Lines_Data) {
+  let lineDataIdx = 0;
+  while (lineDataIdx <  json.Lines_Data.length) {
     didHighlightNode = false;
     let lineData = json.Lines_Data[lineDataIdx];
-    // console.log("linedata", lineData);
+    // console.log(lineData)
     let currLineNo = parseInt(lineData.LineNum);
     if (currLineNo !== prevLineNo) {
-      if (prevLineDatas.length) {
+      console.log(lineData)
+      // if (prevLineDatas.length) {
         addChangingNodes(prevLineDatas, currLineDatas);
         if (didHighlightNode) {
           digraphs.push("highlightNode");
         }
-      }
-      // dehighlightLine();
-      prevDigraph += `}`;
-      digraphs.push(prevDigraph);
-      lineNos.push(prevLineNo);
-      prevLineNo = currLineNo;
-      prevDigraph = initialDigraph;
-      prevLineDatas = currLineDatas;
-      currLineDatas = [];
-    } else {
+        // dehighlightLine();
+        prevDigraph += `}`;
+        digraphs.push(prevDigraph);
+        lineNos.push(prevLineNo);
+        prevLineNo = currLineNo;
+        prevDigraph = initialDigraph;
+        prevLineDatas = currLineDatas;
+        currLineDatas = [];
+      // }
+    } 
+    else {
       currLineDatas.push(lineData);
-      let node;
-      switch (lineData.type) {
-        case "StackFrame":
-          node = getStackFrameNode(lineData);
-          break;
-        case "Heap":
-          node = getStackFrameNode(lineData);
-          break;
-        default:
-          node = "";
-      }
+      const node = getStackFrameNode(lineData);
+      // console.log(lineData, node)
       if (node) {
         prevDigraph += node;
       }
+      ++lineDataIdx
     }
     // console.log("prevDG", prevDigraph);
   }

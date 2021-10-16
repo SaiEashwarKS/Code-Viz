@@ -3,37 +3,17 @@ import "./App.css";
 import UploadCode from "./UploadCode";
 import Visualiser from "./Visualiser";
 
-const code = `#include<stdio.h>
-#include<stdlib.h>
+const code = `a = 10
 
-int g=0;
+S=6
+d=14
 
-struct node
-{
-    struct node* left;
-    int data;
-    struct node* right;
+b = a
 
-};
-
-struct node* createnode(int data)
-{
-    struct node* temp=malloc(sizeof(struct node));
-    temp->left=NULL;
-    temp->right=NULL;
-    temp->data=data;
-    return temp;
-}
-
-
-int main()
-{
-    struct node* head=createnode(50);
-    head->left=createnode(25);
-    head->right=createnode(75);
-    head->left->left=createnode(10);
-    head->left->right=createnode(40);
-}`;
+if S==6:
+    k=7
+else:
+    k=8`;
 
 function App() {
   return (
@@ -46,7 +26,7 @@ function App() {
             </div>
           </Route>
           <Route path="/visualise">
-            <Visualiser code={code} mode={"c_cpp"} />
+            <Visualiser code={code} mode={"python"} />
           </Route>
         </Switch>
       </Router>

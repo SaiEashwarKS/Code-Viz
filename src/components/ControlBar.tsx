@@ -10,9 +10,8 @@ type propsType = {
 
 const ControlBar = (props: propsType) => {
   const {
-    onStart,
-    onPause,
     onPlay,
+    onPause,
     onStepForward,
     onStepBackWard,
     onSkipToBeginning,
@@ -20,19 +19,14 @@ const ControlBar = (props: propsType) => {
   } = props;
   return (
     <div style={styles.container}>
-      {onStart && (
-        <button onClick={onStart} style={styles.button}>
-          Start Visualisation
+      {onPlay && (
+        <button onClick={onPlay} style={styles.button}>
+          Play
         </button>
       )}
       {onPause && (
         <button onClick={onPause} style={styles.button}>
           Pause
-        </button>
-      )}
-      {onPlay && (
-        <button onClick={onPlay} style={styles.button}>
-          Play
         </button>
       )}
       {onStepForward && (
