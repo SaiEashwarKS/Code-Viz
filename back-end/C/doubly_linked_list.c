@@ -5,8 +5,8 @@ int g=0;
 
 struct node
 {
-    struct node* next;
     struct node* prev;
+    struct node* next;
     int data;
 };
 
@@ -47,6 +47,6 @@ int main()
 {
     struct node* head = createnode(45);
     head = insert_inorder(head,50);
-    head = insert_inorder(head,60);
     head = insert_inorder(head,55);
+    head = insert_inorder(head,60);
 }
