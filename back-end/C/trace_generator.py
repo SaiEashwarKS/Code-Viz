@@ -284,8 +284,19 @@ def get_deref_value(addr, datatype,visited=set()):
 					else:
 						heap[address]['type'] = "var"
 				k += 1
+		#print("\nHEREE\n", fields)
+		#print("\nVALUE\n",x)
 		
-		return x
+		
+		new_x = []
+		for i in range(len(fields)):
+			new_d = fields[i].copy()
+			new_d['val'] = x[i][fields[i]['name']]
+			new_x.append(new_d)
+		#print("\nNEW\n", new_x)
+		#sys.exit(0)
+		return new_x
+		#return x
 	else:
 		val = my_out[my_out.find('=')+2:]
 		
