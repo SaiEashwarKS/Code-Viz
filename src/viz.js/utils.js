@@ -11,10 +11,15 @@
 
 // import ace from "react-ace";
 
+var graphs = [];
+var graphIds = {};
 const getStructsInfo = (structures) => {
   let structs = {};
   for (let struct in structures) {
     structs[struct] = structures[struct].fields;
+    if (structures[struct]["datastructure"] === "graph") {
+      graphs.push(struct);
+    }
   }
   return structs;
 };
@@ -28,14 +33,17 @@ const createNode = (nodeName, label, shape = `record`, connection = "") => {
         `;
 };
 
-const makePtrConnection = (from, to) => {
+const makePtrConnection = (from, to, label = "") => {
   if (from && to) {
-    return `${from} -> ${to}`;
+    return `${from} -> ${to}[label="${label}"]`;
   }
   return "";
 };
 
 const createStructNode = (variable) => {
+  if (graphs.includes(variable.data_type)) {
+    return createGraphNode(variable);
+  }
   const structName = variable.data_type;
   let nodeName = `node${variable.id}`;
   let label = ``;
@@ -53,6 +61,7 @@ const createStructNode = (variable) => {
     switch (fieldType) {
       case "var":
         // label += `: ${field[fieldName]}`;
+        console.log(field)
         label += `${field[fieldName]}`;
         break;
       case "ptr":
@@ -82,6 +91,41 @@ const createStructNode = (variable) => {
   return createNode(nodeName, label, `record`, ptrConnection);
 };
 
+const createGraphNode = (variable) => {
+  const graphName = variable.data_type;
+  graphIds[Number.parseInt(variable.id)] = graphName;
+  const graphNameNoSpace = graphName.replace(" ", "");
+  let graph = `subgraph cluster_${graphNameNoSpace}{\ncolor=black\n`;
+  for (let valIdx in variable.val) {
+    const vals = variable.val[valIdx];
+    const vertexWeights = vals["vertex_weights"];
+    // console.log('vertexWeights', vertexWeights);
+    const edgeWeights = vals["edge_weights"];
+    // console.log('edgeWeights', edgeWeights)
+    for (const vertexIdx in vertexWeights) {
+      const nodeId = `${graphNameNoSpace}${vertexIdx}`;
+      const nodeName = `node_${nodeId}`;
+      // console.log(nodeName);
+        graph += `${nodeName}[label="${vertexWeights[vertexIdx]}"];\n`;
+        const edges = edgeWeights[vertexIdx];
+        for (const edgeIdx in edges) {
+          const weight = `${edges[edgeIdx]}`;
+          if (weightIsNonEmpty(Number.parseFloat(weight))) {
+            const toNode = `node_${graphNameNoSpace}${edgeIdx}`;
+            graph += makePtrConnection(nodeName, toNode, weight);
+            graph += `;\n`;
+          }
+        }
+    }
+  }
+  graph += `}\n`;
+  return graph;
+};
+
+const weightIsNonEmpty = (weight) => {
+  return weight > 0;
+};
+
 const createStackvar = (variable) => {
   if (variable.data_type.includes("struct")) {
     return createStructNode(variable);
@@ -100,10 +144,10 @@ const createStackPtr = (variable) => {
   let ptrConnection = ``;
   switch (variable.val) {
     case "N":
-      label += `: NULL`;
+      label += `: Null`;
       break;
     case "U":
-      label += `: Undefined`;
+      label += `: Undef`;
       break;
     default:
       ptrConnection = makePtrConnection(
@@ -133,38 +177,13 @@ const getStackFrameNode = (data) => {
   return nodes;
 };
 
-const getHeapNode = (data) => {
-  let nodes = ``;
-  for (let contentsIdx in data.Contents) {
-    let variable = data.Contents[contentsIdx];
-    if (!variable.id) {
-      continue;
-    }
-    let nodeName = `node${variable.id}`;
-    let label = ``;
-    for (let fieldNameIdx in variable.val) {
-      for (let fieldName in variable.val[fieldNameIdx]) {
-        if (label !== ``) {
-          label += `|`;
-        }
-        label += `${fieldName}: ${variable.val[fieldNameIdx][fieldName]}`;
-      }
-    }
-    let shape = `record`;
-    let node = `"${nodeName}" [
-            label = "${label}"
-            shape = "${shape}"
-        ];
-        `;
-    nodes += node;
-  }
-  return nodes;
+const nodesAreDifferent = (nodeA, nodeB) => {
+  return JSON.stringify(nodeA) !== JSON.stringify(nodeB);
 };
 
-const nodesAreDifferent = (nodeA, nodeB) => {
-  // console.log(JSON.stringify(nodeA), JSON.stringify(nodeB));
-  // console.log(JSON.stringify(nodeA) !== JSON.stringify(nodeB));
-  return JSON.stringify(nodeA) !== JSON.stringify(nodeB);
+const graphChangingId = (nodeA, nodeB) => {
+  if (nodeA.id !== nodeB.id) return null;
+  return null;
 };
 
 /**
@@ -178,8 +197,17 @@ const addChangingContentNodes = (prevContents, currContents) => {
       var currNode = currContents[currIdx];
       if (prevNode?.id === currNode?.id) {
         if (nodesAreDifferent(prevNode, currNode)) {
-          didHighlightNode = true;
-          changingIds.push(prevNode.id);
+          let changingId = prevNode.id;
+          if (
+            Object.keys(graphIds).includes(prevNode.id) ||
+            Object.keys(graphIds).includes(prevNode.id.toString())
+          ) {
+            changingId = graphChangingId(prevNode, currNode);
+          }
+          if (changingId !== null) {
+            didHighlightNode = true;
+            changingIds.push(changingId);
+          }
         }
       }
     }
@@ -192,16 +220,13 @@ const addChangingContentNodes = (prevContents, currContents) => {
 
 const addChangingNodes = (prevLineData, lineData) => {
   for (let i = 0; i < prevLineData.length; ++i) {
-    // if (prevLineData.type !== lineData.type) {
-    //   return null;
-    // }
     addChangingContentNodes(prevLineData[i]?.Contents, lineData[i]?.Contents);
   }
 };
 
 var structs;
 
-const initialDigraph = `digraph g {
+const initialDigraph = `digraph code_viz {
 graph [
 rankdir = "LR"
 ];
@@ -212,18 +237,6 @@ shape = "ellipse"
 edge [
 ];
 `;
-
-// var editor = ace.edit("editor");
-// var Range = ace.require("ace/range").Range;
-// var range;
-// var prevMarkerId = 0;
-// export const highlightLine = (lineNo) => {
-//   range = new Range(lineNo - 1, 0, lineNo - 1, 1);
-//   prevMarkerId = editor.session.addMarker(range, "ace-marker", "fullLine");
-// };
-// export const dehighlightLine = () => {
-//   editor.session.removeMarker(prevMarkerId);
-// };
 
 var highlightNodes = []; //each elelment of the array is an array of ids of nodes whose values are changing from one line to another
 var didHighlightNode = false;
@@ -238,40 +251,39 @@ export const getDigraphs = (input) => {
   let prevLineDatas = [];
   let currLineDatas = [];
   let lineDataIdx = 0;
-  while (lineDataIdx <  json.Lines_Data.length) {
+  while (lineDataIdx < json.Lines_Data.length) {
     didHighlightNode = false;
     let lineData = json.Lines_Data[lineDataIdx];
     // console.log(lineData)
     let currLineNo = parseInt(lineData.LineNum);
     if (currLineNo !== prevLineNo) {
-      console.log(lineData)
       // if (prevLineDatas.length) {
-        addChangingNodes(prevLineDatas, currLineDatas);
-        if (didHighlightNode) {
-          digraphs.push("highlightNode");
-        }
-        // dehighlightLine();
-        prevDigraph += `}`;
-        digraphs.push(prevDigraph);
-        lineNos.push(prevLineNo);
-        prevLineNo = currLineNo;
-        prevDigraph = initialDigraph;
-        prevLineDatas = currLineDatas;
-        currLineDatas = [];
+      addChangingNodes(prevLineDatas, currLineDatas);
+      if (didHighlightNode) {
+        digraphs.push("highlightNode");
+      }
+      // dehighlightLine();
+      prevDigraph += `}`;
+      digraphs.push(prevDigraph);
+      lineNos.push(prevLineNo);
+      prevLineNo = currLineNo;
+      prevDigraph = initialDigraph;
+      prevLineDatas = currLineDatas;
+      currLineDatas = [];
       // }
-    } 
-    else {
+    } else {
       currLineDatas.push(lineData);
       const node = getStackFrameNode(lineData);
       // console.log(lineData, node)
       if (node) {
         prevDigraph += node;
       }
-      ++lineDataIdx
+      ++lineDataIdx;
     }
     // console.log("prevDG", prevDigraph);
   }
   prevDigraph += `}`;
+  // console.log(prevDigraph);
   digraphs.push(prevDigraph);
   lineNos.push(prevLineNo);
   // console.log(digraphs);
