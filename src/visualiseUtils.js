@@ -136,6 +136,7 @@ export const vis_play = async () => {
     if (digraphs[idx + 1] === "highlightNode") {
       canvas.innerHTML = "";
       let coloredDigraph = colorNodes(digraph);
+      // console.log('prev\n', digraphs[idx], 'curr\n',  digraphs[idx+2], 'color\n', coloredDigraph)
       // dehighlightLine();
       highlightLine(lineNos[line_idx + 1]);
       viz.renderSVGElement(coloredDigraph).then(async function (element) {
@@ -176,7 +177,7 @@ export const skip_forward = async () => {
 const addHighlightedNodes = (nodeIds) => {
   let res = ``;
   nodeIds?.forEach((nodeId) => {
-    res += `node${nodeId}[
+    res += `${nodeId}[
   color="${Colors.green_1}"
 ]
 `;

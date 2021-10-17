@@ -1,16 +1,3 @@
-// const getStructsInfo = (structures) => {
-//   let structs = [];
-//   for (let struct in structures) {
-//     let structObj = {};
-//     structObj["structName"] = struct;
-//     structObj["fields"] = structures[struct].fields;
-//     structs.push(structObj);
-//   }
-//   return structs;
-// };
-
-// import ace from "react-ace";
-
 var graphs = [];
 var graphIds = {};
 const getStructsInfo = (structures) => {
@@ -61,7 +48,6 @@ const createStructNode = (variable) => {
     switch (fieldType) {
       case "var":
         // label += `: ${field[fieldName]}`;
-        console.log(field)
         label += `${field[fieldName]}`;
         break;
       case "ptr":
@@ -94,32 +80,32 @@ const createStructNode = (variable) => {
 const createGraphNode = (variable) => {
   const graphName = variable.data_type;
   graphIds[Number.parseInt(variable.id)] = graphName;
-  const graphNameNoSpace = graphName.replace(" ", "");
-  let graph = `subgraph cluster_${graphNameNoSpace}{\ncolor=black\n`;
+  let graph = `subgraph cluster_${graphName.replace(" ", "")}{\ncolor=black;\nlabel="${graphName}";\n`;
   for (let valIdx in variable.val) {
     const vals = variable.val[valIdx];
     const vertexWeights = vals["vertex_weights"];
-    // console.log('vertexWeights', vertexWeights);
     const edgeWeights = vals["edge_weights"];
-    // console.log('edgeWeights', edgeWeights)
     for (const vertexIdx in vertexWeights) {
-      const nodeId = `${graphNameNoSpace}${vertexIdx}`;
-      const nodeName = `node_${nodeId}`;
-      // console.log(nodeName);
-        graph += `${nodeName}[label="${vertexWeights[vertexIdx]}"];\n`;
-        const edges = edgeWeights[vertexIdx];
-        for (const edgeIdx in edges) {
-          const weight = `${edges[edgeIdx]}`;
-          if (weightIsNonEmpty(Number.parseFloat(weight))) {
-            const toNode = `node_${graphNameNoSpace}${edgeIdx}`;
-            graph += makePtrConnection(nodeName, toNode, weight);
-            graph += `;\n`;
-          }
+      const nodeName = getGraphNodeName(graphName, vertexIdx);
+      graph += `${nodeName}[label="${vertexWeights[vertexIdx]}"];\n`;
+      const edges = edgeWeights[vertexIdx];
+      for (const edgeIdx in edges) {
+        const weight = `${edges[edgeIdx]}`;
+        if (weightIsNonEmpty(Number.parseFloat(weight))) {
+          const toNode = getGraphNodeName(graphName, edgeIdx);
+          graph += makePtrConnection(nodeName, toNode, weight);
+          graph += `;\n`;
         }
+      }
     }
   }
   graph += `}\n`;
   return graph;
+};
+
+const getGraphNodeName = (graphName, id) => {
+  const graphNameNoSpace = graphName.replace(" ", "");
+  return `node_${graphNameNoSpace}_${id}`;
 };
 
 const weightIsNonEmpty = (weight) => {
@@ -181,9 +167,41 @@ const nodesAreDifferent = (nodeA, nodeB) => {
   return JSON.stringify(nodeA) !== JSON.stringify(nodeB);
 };
 
-const graphChangingId = (nodeA, nodeB) => {
-  if (nodeA.id !== nodeB.id) return null;
-  return null;
+const getChangingVerticesIds = (nodeA, nodeB) => {
+  const graphName = nodeA.data_type;
+  const vertexWeightsA = nodeA.val[0].vertex_weights;
+  const vertexWeightsB = nodeB.val[0].vertex_weights;
+  let res = [];
+  for (const vertexIdx in vertexWeightsA) {
+    if (vertexWeightsA[vertexIdx] !== vertexWeightsB[vertexIdx]) {
+      res.push(getGraphNodeName(graphName, vertexIdx));
+    }
+  }
+  return res;
+};
+
+const getChangingEdgeWeightsIds = (nodeA, nodeB) => {
+  const graphName = nodeA.data_type;
+  const edgeWeightsA = nodeA.val[0].edge_weights;
+  const edgeWeightsB = nodeB.val[0].edge_weights;
+  let res = [];
+  for(const fromId in edgeWeightsA) {
+    for(const toId in edgeWeightsA[fromId]) {
+      if(edgeWeightsA[fromId][toId] !== edgeWeightsB[fromId][toId]) {
+        res.push(getGraphNodeName(graphName, fromId))
+        res.push(getGraphNodeName(graphName, toId))
+      }
+    }
+  }
+  return res;
+};
+
+const graphChangingIds = (nodeA, nodeB) => {
+  if (nodeA.data_type !== nodeB.data_type || nodeA.id !== nodeB.id) return null;
+  let res = [];
+  res = [...res, ...getChangingVerticesIds(nodeA, nodeB)];
+  res = [...res, ...getChangingEdgeWeightsIds(nodeA, nodeB)];
+  return res;
 };
 
 /**
@@ -197,16 +215,16 @@ const addChangingContentNodes = (prevContents, currContents) => {
       var currNode = currContents[currIdx];
       if (prevNode?.id === currNode?.id) {
         if (nodesAreDifferent(prevNode, currNode)) {
-          let changingId = prevNode.id;
+          let changingIdsInLine = [`node${prevNode.id}`];
           if (
             Object.keys(graphIds).includes(prevNode.id) ||
             Object.keys(graphIds).includes(prevNode.id.toString())
           ) {
-            changingId = graphChangingId(prevNode, currNode);
+            changingIdsInLine = graphChangingIds(prevNode, currNode);
           }
-          if (changingId !== null) {
+          if (changingIdsInLine?.length) {
             didHighlightNode = true;
-            changingIds.push(changingId);
+            changingIds = [...changingIds, ...changingIdsInLine];
           }
         }
       }
@@ -214,6 +232,7 @@ const addChangingContentNodes = (prevContents, currContents) => {
   }
   if (changingIds.length) {
     // console.log(changingIds);
+    // console.log(prevContents, currContents, changingIds);
     highlightNodes.push(changingIds);
   }
 };
