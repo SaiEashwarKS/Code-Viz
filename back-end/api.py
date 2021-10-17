@@ -13,6 +13,7 @@ app = Flask(__name__)
 cors = CORS(app)
 api = Api(app)
 
+import time
 
 @app.route('/api/tracegenerator', methods=['POST'])
 def get_trace():
@@ -21,13 +22,14 @@ def get_trace():
 		lang = data['language']
 		usercode = data['code']
 		if lang == 'PY':
-			f = open("usercode.py", "w")
-			f.write(usercode)
+			with open("usercode.py", "w") as f:
+				f.write(usercode)
+			
 			os.system('python python\\pythontutor\\generate_json_trace.py usercode.py')
 			os.system('python python\\pythontutor\\pt_to_cv.py')
-			f.close()
-			f = open("cv.json", "r")
-			trace = f.read()
+			
+			with open("cv.json", "r") as f:
+				trace = f.read()
 			#os.system('rm usercode.py cv.json trace.json')
 			return Response(trace, status=200, mimetype="application/json")
 		elif lang == 'C':
@@ -37,7 +39,7 @@ def get_trace():
 			f.close()
 			f = open("ll.json", "r")
 			trace = f.read()
-			#os.system('rm usercode.py cv.json trace.json')
+			
 			return Response(trace, status=200, mimetype="application/json")
 
 if __name__ == '__main__':
