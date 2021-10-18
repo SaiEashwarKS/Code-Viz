@@ -27,7 +27,7 @@ stack_depth = 1
 skip_fn = ["malloc", "free"]
 use_next = 0
 
-time_to_sleep = 0.1
+time_to_sleep = 0.05
 
 mo = [] # [['$i/func_name', 'address'], ['$i/func_name', 'address'], ...]
 mp = [] # [['name', 'value'], ['name', 'value'], ...]
