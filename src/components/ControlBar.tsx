@@ -1,16 +1,17 @@
 type propsType = {
-  onStart: () => void;
-  onStop: () => void;
-  onStepForward: () => void;
-  onStepBackWard: () => void;
-  onSkipToEnd: () => void;
-  onSkipToBeginning: () => void;
+  onStart?: () => void;
+  onPause?: () => void;
+  onPlay?: ()=>void;
+  onStepForward?: () => void;
+  onStepBackWard?: () => void;
+  onSkipToEnd?: () => void;
+  onSkipToBeginning?: () => void;
 };
 
 const ControlBar = (props: propsType) => {
   const {
-    onStart,
-    onStop,
+    onPlay,
+    onPause,
     onStepForward,
     onStepBackWard,
     onSkipToBeginning,
@@ -18,14 +19,14 @@ const ControlBar = (props: propsType) => {
   } = props;
   return (
     <div style={styles.container}>
-      {onStart && (
-        <button onClick={onStart} style={styles.button}>
-          Start Visualisation
+      {onPlay && (
+        <button onClick={onPlay} style={styles.button}>
+          Play
         </button>
       )}
-      {onStop && (
-        <button onClick={onStop} style={styles.button}>
-          Pause Visualisation
+      {onPause && (
+        <button onClick={onPause} style={styles.button}>
+          Pause
         </button>
       )}
       {onStepForward && (

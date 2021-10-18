@@ -5,34 +5,27 @@ import Visualiser from "./Visualiser";
 
 const code = `#include<stdio.h>
 #include<stdlib.h>
-
 int g=0;
+#define MAX 2
 
-struct node
+typedef struct graph
 {
-    struct node* left;
-    int data;
-    struct node* right;
-
-};
-
-struct node* createnode(int data)
-{
-    struct node* temp=malloc(sizeof(struct node));
-    temp->left=NULL;
-    temp->right=NULL;
-    temp->data=data;
-    return temp;
-}
-
+    int edge_weights[MAX][MAX];
+    int vertex_weights[MAX];
+}graph;
 
 int main()
 {
-    struct node* head=createnode(50);
-    head->left=createnode(25);
-    head->right=createnode(75);
-    head->left->left=createnode(10);
-    head->left->right=createnode(40);
+    int k=0;
+    struct graph gr;
+    for(int r=0;r<MAX;++r)
+    {
+        gr.vertex_weights[r]=rand()%4 + 1;
+        for(int c=0;c<MAX;++c)
+        {
+            gr.edge_weights[r][c]=rand()%45 + 1;
+        }
+    }
 }`;
 
 function App() {
