@@ -382,7 +382,7 @@ def maketogether(ln,di,gl,stringnamed):
 		sepdi['val']=val
 		
 		if is_struct and '*' not in datatype:
-			fields = struct_fields_info(p1, datatype);
+			fields = struct_fields_info(p1, datatype)
 			pat = re.compile(r' <.*?>')
 			val = re.sub(pat, '', val)
 			reg = re.compile(r'0x[0-9a-f]*[,}]') #pattern to find hexadecimals in val, => they are pointers and we need to replace it with ID
@@ -479,7 +479,7 @@ def maketogether(ln,di,gl,stringnamed):
 							field='"'+field
 						field=field.replace('"',"").split(":")
 						try:
-							dicttobedumped[field[0].strip()]=field[1].strip()
+							dicttobedumped[field[0].strip()]=json.loads(field[1].strip().replace(" ","").replace("{","[").replace("}","]"))
 						except:
 							pass
 					x.append(dicttobedumped)
@@ -487,12 +487,12 @@ def maketogether(ln,di,gl,stringnamed):
 				else:
 					k=k.split(":")
 					try:
-						x.append({k[0].strip():k[1].strip()})
+						x.append({k[0].strip():k[1].strip().replace(" ","")})
 					except:
 						pass
 			print("HEREv2",val)
 			sepdi['val'] = x
-			print("HEREv3",sepdi['val'])
+			print("HEREv3",sepdi['val'],x)
 			#
 			k = 0
 			for i in range(len(fields)):

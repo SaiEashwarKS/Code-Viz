@@ -41,74 +41,6 @@
       "Contents": []
     },
     {
-      "LineNum": 6,
-      "stackdepth": 0,
-      "type": "Function"
-    },
-    {
-      "LineNum": 6,
-      "type": "Heap",
-      "Contents": []
-    },
-    {
-      "LineNum": 6,
-      "type": "GlobalVariables",
-      "Contents": []
-    },
-    {
-      "LineNum": 6,
-      "type": "StackFrame",
-      "Contents": []
-    },
-    {
-      "LineNum": 10,
-      "stackdepth": 0,
-      "type": "Function"
-    },
-    {
-      "LineNum": 10,
-      "type": "Heap",
-      "Contents": []
-    },
-    {
-      "LineNum": 10,
-      "type": "GlobalVariables",
-      "Contents": []
-    },
-    {
-      "LineNum": 10,
-      "type": "StackFrame",
-      "Contents": []
-    },
-    {
-      "LineNum": 11,
-      "stackdepth": 1,
-      "type": "Function",
-      "name": "__init__"
-    },
-    {
-      "LineNum": 11,
-      "type": "Heap",
-      "Contents": [
-        {
-          "id": 5,
-          "data_type": "LinkedList",
-          "val": [],
-          "type": "var"
-        }
-      ]
-    },
-    {
-      "LineNum": 11,
-      "type": "GlobalVariables",
-      "Contents": []
-    },
-    {
-      "LineNum": 11,
-      "type": "StackFrame",
-      "Contents": []
-    },
-    {
       "LineNum": 7,
       "stackdepth": 1,
       "type": "Function",
@@ -119,8 +51,8 @@
       "type": "Heap",
       "Contents": [
         {
-          "id": 5,
-          "data_type": "LinkedList",
+          "id": 4,
+          "data_type": "D",
           "val": [],
           "type": "var"
         }
@@ -137,171 +69,27 @@
       "Contents": []
     },
     {
-      "LineNum": 8,
+      "LineNum": 2,
       "stackdepth": 1,
       "type": "Function",
       "name": "__init__"
     },
     {
-      "LineNum": 8,
+      "LineNum": 2,
       "type": "Heap",
       "Contents": [
         {
-          "id": 5,
-          "data_type": "LinkedList",
-          "val": [
-            {
-              "type": "var",
-              "name": "head",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        }
-      ]
-    },
-    {
-      "LineNum": 8,
-      "type": "GlobalVariables",
-      "Contents": []
-    },
-    {
-      "LineNum": 8,
-      "type": "StackFrame",
-      "Contents": []
-    },
-    {
-      "LineNum": 8,
-      "stackdepth": 0,
-      "type": "Function"
-    },
-    {
-      "LineNum": 8,
-      "type": "Heap",
-      "Contents": [
-        {
-          "id": 5,
-          "data_type": "LinkedList",
-          "val": [
-            {
-              "type": "var",
-              "name": "head",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        }
-      ]
-    },
-    {
-      "LineNum": 8,
-      "type": "GlobalVariables",
-      "Contents": [
-        {
-          "type": "ptr",
-          "id": "1000",
-          "val": 5,
-          "name": "llist"
-        }
-      ]
-    },
-    {
-      "LineNum": 8,
-      "type": "StackFrame",
-      "Contents": []
-    },
-    {
-      "LineNum": 12,
-      "stackdepth": 1,
-      "type": "Function",
-      "name": "__init__"
-    },
-    {
-      "LineNum": 12,
-      "type": "Heap",
-      "Contents": [
-        {
-          "id": 6,
-          "data_type": "Node",
+          "id": 4,
+          "data_type": "D",
           "val": [],
           "type": "var"
-        },
-        {
-          "id": 5,
-          "data_type": "LinkedList",
-          "val": [
-            {
-              "type": "var",
-              "name": "head",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
         }
       ]
     },
     {
-      "LineNum": 12,
+      "LineNum": 2,
       "type": "GlobalVariables",
-      "Contents": [
-        {
-          "type": "ptr",
-          "id": "1000",
-          "val": 5,
-          "name": "llist"
-        }
-      ]
-    },
-    {
-      "LineNum": 12,
-      "type": "StackFrame",
       "Contents": []
-    },
-    {
-      "LineNum": 2,
-      "stackdepth": 1,
-      "type": "Function",
-      "name": "__init__"
-    },
-    {
-      "LineNum": 2,
-      "type": "Heap",
-      "Contents": [
-        {
-          "id": 6,
-          "data_type": "Node",
-          "val": [],
-          "type": "var"
-        },
-        {
-          "id": 5,
-          "data_type": "LinkedList",
-          "val": [
-            {
-              "type": "var",
-              "name": "head",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        }
-      ]
-    },
-    {
-      "LineNum": 2,
-      "type": "GlobalVariables",
-      "Contents": [
-        {
-          "type": "ptr",
-          "id": "1000",
-          "val": 5,
-          "name": "llist"
-        }
-      ]
     },
     {
       "LineNum": 2,
@@ -319,44 +107,24 @@
       "type": "Heap",
       "Contents": [
         {
-          "id": 6,
-          "data_type": "Node",
+          "id": 4,
+          "data_type": "D",
           "val": [
             {
               "type": "var",
-              "name": "data",
-              "val": 1,
+              "name": "a",
+              "val": 5,
               "data_type": "int"
             }
           ],
           "type": "var"
-        },
-        {
-          "id": 5,
-          "data_type": "LinkedList",
-          "val": [
-            {
-              "type": "var",
-              "name": "head",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
         }
       ]
     },
     {
       "LineNum": 3,
       "type": "GlobalVariables",
-      "Contents": [
-        {
-          "type": "ptr",
-          "id": "1000",
-          "val": 5,
-          "name": "llist"
-        }
-      ]
+      "Contents": []
     },
     {
       "LineNum": 3,
@@ -374,33 +142,20 @@
       "type": "Heap",
       "Contents": [
         {
-          "id": 6,
-          "data_type": "Node",
+          "id": 4,
+          "data_type": "D",
           "val": [
             {
               "type": "var",
-              "name": "data",
-              "val": 1,
+              "name": "a",
+              "val": 5,
               "data_type": "int"
             },
             {
               "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 5,
-          "data_type": "LinkedList",
-          "val": [
-            {
-              "type": "var",
-              "name": "head",
-              "val": null,
-              "data_type": "NoneType"
+              "name": "b",
+              "val": 6,
+              "data_type": "int"
             }
           ],
           "type": "var"
@@ -410,14 +165,7 @@
     {
       "LineNum": 4,
       "type": "GlobalVariables",
-      "Contents": [
-        {
-          "type": "ptr",
-          "id": "1000",
-          "val": 5,
-          "name": "llist"
-        }
-      ]
+      "Contents": []
     },
     {
       "LineNum": 4,
@@ -434,32 +182,20 @@
       "type": "Heap",
       "Contents": [
         {
-          "id": 5,
-          "data_type": "LinkedList",
-          "val": [
-            {
-              "type": "ptr",
-              "name": "head",
-              "val": 6
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 6,
-          "data_type": "Node",
+          "id": 4,
+          "data_type": "D",
           "val": [
             {
               "type": "var",
-              "name": "data",
-              "val": 1,
+              "name": "a",
+              "val": 5,
               "data_type": "int"
             },
             {
               "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
+              "name": "b",
+              "val": 6,
+              "data_type": "int"
             }
           ],
           "type": "var"
@@ -473,8 +209,8 @@
         {
           "type": "ptr",
           "id": "1000",
-          "val": 5,
-          "name": "llist"
+          "val": 4,
+          "name": "f"
         }
       ]
     },
@@ -484,573 +220,28 @@
       "Contents": []
     },
     {
-      "LineNum": 13,
-      "stackdepth": 1,
-      "type": "Function",
-      "name": "__init__"
-    },
-    {
-      "LineNum": 13,
-      "type": "Heap",
-      "Contents": [
-        {
-          "id": 7,
-          "data_type": "Node",
-          "val": [],
-          "type": "var"
-        },
-        {
-          "id": 5,
-          "data_type": "LinkedList",
-          "val": [
-            {
-              "type": "ptr",
-              "name": "head",
-              "val": 6
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 6,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 1,
-              "data_type": "int"
-            },
-            {
-              "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        }
-      ]
-    },
-    {
-      "LineNum": 13,
-      "type": "GlobalVariables",
-      "Contents": [
-        {
-          "type": "ptr",
-          "id": "1000",
-          "val": 5,
-          "name": "llist"
-        }
-      ]
-    },
-    {
-      "LineNum": 13,
-      "type": "StackFrame",
-      "Contents": []
-    },
-    {
-      "LineNum": 2,
-      "stackdepth": 1,
-      "type": "Function",
-      "name": "__init__"
-    },
-    {
-      "LineNum": 2,
-      "type": "Heap",
-      "Contents": [
-        {
-          "id": 7,
-          "data_type": "Node",
-          "val": [],
-          "type": "var"
-        },
-        {
-          "id": 5,
-          "data_type": "LinkedList",
-          "val": [
-            {
-              "type": "ptr",
-              "name": "head",
-              "val": 6
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 6,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 1,
-              "data_type": "int"
-            },
-            {
-              "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        }
-      ]
-    },
-    {
-      "LineNum": 2,
-      "type": "GlobalVariables",
-      "Contents": [
-        {
-          "type": "ptr",
-          "id": "1000",
-          "val": 5,
-          "name": "llist"
-        }
-      ]
-    },
-    {
-      "LineNum": 2,
-      "type": "StackFrame",
-      "Contents": []
-    },
-    {
-      "LineNum": 3,
-      "stackdepth": 1,
-      "type": "Function",
-      "name": "__init__"
-    },
-    {
-      "LineNum": 3,
-      "type": "Heap",
-      "Contents": [
-        {
-          "id": 7,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 2,
-              "data_type": "int"
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 5,
-          "data_type": "LinkedList",
-          "val": [
-            {
-              "type": "ptr",
-              "name": "head",
-              "val": 6
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 6,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 1,
-              "data_type": "int"
-            },
-            {
-              "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        }
-      ]
-    },
-    {
-      "LineNum": 3,
-      "type": "GlobalVariables",
-      "Contents": [
-        {
-          "type": "ptr",
-          "id": "1000",
-          "val": 5,
-          "name": "llist"
-        }
-      ]
-    },
-    {
-      "LineNum": 3,
-      "type": "StackFrame",
-      "Contents": []
-    },
-    {
-      "LineNum": 4,
-      "stackdepth": 1,
-      "type": "Function",
-      "name": "__init__"
-    },
-    {
-      "LineNum": 4,
-      "type": "Heap",
-      "Contents": [
-        {
-          "id": 7,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 2,
-              "data_type": "int"
-            },
-            {
-              "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 5,
-          "data_type": "LinkedList",
-          "val": [
-            {
-              "type": "ptr",
-              "name": "head",
-              "val": 6
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 6,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 1,
-              "data_type": "int"
-            },
-            {
-              "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        }
-      ]
-    },
-    {
-      "LineNum": 4,
-      "type": "GlobalVariables",
-      "Contents": [
-        {
-          "type": "ptr",
-          "id": "1000",
-          "val": 5,
-          "name": "llist"
-        }
-      ]
-    },
-    {
-      "LineNum": 4,
-      "type": "StackFrame",
-      "Contents": []
-    },
-    {
-      "LineNum": 4,
+      "LineNum": 8,
       "stackdepth": 0,
       "type": "Function"
     },
     {
-      "LineNum": 4,
+      "LineNum": 8,
       "type": "Heap",
       "Contents": [
         {
-          "id": 5,
-          "data_type": "LinkedList",
-          "val": [
-            {
-              "type": "ptr",
-              "name": "head",
-              "val": 6
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 6,
-          "data_type": "Node",
+          "id": 4,
+          "data_type": "D",
           "val": [
             {
               "type": "var",
-              "name": "data",
-              "val": 1,
+              "name": "a",
+              "val": 5,
               "data_type": "int"
             },
             {
               "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 7,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 2,
-              "data_type": "int"
-            },
-            {
-              "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        }
-      ]
-    },
-    {
-      "LineNum": 4,
-      "type": "GlobalVariables",
-      "Contents": [
-        {
-          "type": "ptr",
-          "id": "1000",
-          "val": 5,
-          "name": "llist"
-        },
-        {
-          "type": "ptr",
-          "id": "1001",
-          "val": 7,
-          "name": "second"
-        }
-      ]
-    },
-    {
-      "LineNum": 4,
-      "type": "StackFrame",
-      "Contents": []
-    },
-    {
-      "LineNum": 14,
-      "stackdepth": 1,
-      "type": "Function",
-      "name": "__init__"
-    },
-    {
-      "LineNum": 14,
-      "type": "Heap",
-      "Contents": [
-        {
-          "id": 8,
-          "data_type": "Node",
-          "val": [],
-          "type": "var"
-        },
-        {
-          "id": 5,
-          "data_type": "LinkedList",
-          "val": [
-            {
-              "type": "ptr",
-              "name": "head",
-              "val": 6
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 6,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 1,
-              "data_type": "int"
-            },
-            {
-              "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 7,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 2,
-              "data_type": "int"
-            },
-            {
-              "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        }
-      ]
-    },
-    {
-      "LineNum": 14,
-      "type": "GlobalVariables",
-      "Contents": [
-        {
-          "type": "ptr",
-          "id": "1000",
-          "val": 5,
-          "name": "llist"
-        },
-        {
-          "type": "ptr",
-          "id": "1001",
-          "val": 7,
-          "name": "second"
-        }
-      ]
-    },
-    {
-      "LineNum": 14,
-      "type": "StackFrame",
-      "Contents": []
-    },
-    {
-      "LineNum": 2,
-      "stackdepth": 1,
-      "type": "Function",
-      "name": "__init__"
-    },
-    {
-      "LineNum": 2,
-      "type": "Heap",
-      "Contents": [
-        {
-          "id": 8,
-          "data_type": "Node",
-          "val": [],
-          "type": "var"
-        },
-        {
-          "id": 5,
-          "data_type": "LinkedList",
-          "val": [
-            {
-              "type": "ptr",
-              "name": "head",
-              "val": 6
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 6,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 1,
-              "data_type": "int"
-            },
-            {
-              "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 7,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 2,
-              "data_type": "int"
-            },
-            {
-              "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        }
-      ]
-    },
-    {
-      "LineNum": 2,
-      "type": "GlobalVariables",
-      "Contents": [
-        {
-          "type": "ptr",
-          "id": "1000",
-          "val": 5,
-          "name": "llist"
-        },
-        {
-          "type": "ptr",
-          "id": "1001",
-          "val": 7,
-          "name": "second"
-        }
-      ]
-    },
-    {
-      "LineNum": 2,
-      "type": "StackFrame",
-      "Contents": []
-    },
-    {
-      "LineNum": 3,
-      "stackdepth": 1,
-      "type": "Function",
-      "name": "__init__"
-    },
-    {
-      "LineNum": 3,
-      "type": "Heap",
-      "Contents": [
-        {
-          "id": 8,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 3,
+              "name": "b",
+              "val": 6,
               "data_type": "int"
             }
           ],
@@ -1058,50 +249,31 @@
         },
         {
           "id": 5,
-          "data_type": "LinkedList",
+          "data_type": "LIST",
           "val": [
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 1
+            },
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 2
+            },
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 3
+            },
+            {
+              "type": "var",
+              "data_type": "str",
+              "val": "saminamina"
+            },
             {
               "type": "ptr",
-              "name": "head",
-              "val": 6
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 6,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 1,
-              "data_type": "int"
-            },
-            {
-              "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 7,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 2,
-              "data_type": "int"
-            },
-            {
-              "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
+              "val": 4
             }
           ],
           "type": "var"
@@ -1109,206 +281,102 @@
       ]
     },
     {
-      "LineNum": 3,
+      "LineNum": 8,
       "type": "GlobalVariables",
       "Contents": [
         {
           "type": "ptr",
           "id": "1000",
-          "val": 5,
-          "name": "llist"
+          "val": 4,
+          "name": "f"
         },
         {
           "type": "ptr",
           "id": "1001",
-          "val": 7,
-          "name": "second"
-        }
-      ]
-    },
-    {
-      "LineNum": 3,
-      "type": "StackFrame",
-      "Contents": []
-    },
-    {
-      "LineNum": 4,
-      "stackdepth": 1,
-      "type": "Function",
-      "name": "__init__"
-    },
-    {
-      "LineNum": 4,
-      "type": "Heap",
-      "Contents": [
-        {
-          "id": 8,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 3,
-              "data_type": "int"
-            },
-            {
-              "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 5,
-          "data_type": "LinkedList",
-          "val": [
-            {
-              "type": "ptr",
-              "name": "head",
-              "val": 6
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 6,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 1,
-              "data_type": "int"
-            },
-            {
-              "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 7,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 2,
-              "data_type": "int"
-            },
-            {
-              "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        }
-      ]
-    },
-    {
-      "LineNum": 4,
-      "type": "GlobalVariables",
-      "Contents": [
-        {
-          "type": "ptr",
-          "id": "1000",
           "val": 5,
-          "name": "llist"
-        },
-        {
-          "type": "ptr",
-          "id": "1001",
-          "val": 7,
-          "name": "second"
+          "name": "a"
         }
       ]
     },
     {
-      "LineNum": 4,
+      "LineNum": 8,
       "type": "StackFrame",
       "Contents": []
     },
     {
-      "LineNum": 4,
+      "LineNum": 9,
       "stackdepth": 0,
       "type": "Function"
     },
     {
-      "LineNum": 4,
+      "LineNum": 9,
       "type": "Heap",
       "Contents": [
         {
-          "id": 5,
-          "data_type": "LinkedList",
+          "id": 4,
+          "data_type": "D",
           "val": [
             {
+              "type": "var",
+              "name": "a",
+              "val": 5,
+              "data_type": "int"
+            },
+            {
+              "type": "var",
+              "name": "b",
+              "val": 6,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        },
+        {
+          "id": 5,
+          "data_type": "LIST",
+          "val": [
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 1
+            },
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 2
+            },
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 3
+            },
+            {
+              "type": "var",
+              "data_type": "str",
+              "val": "saminamina"
+            },
+            {
               "type": "ptr",
-              "name": "head",
-              "val": 6
+              "val": 4
             }
           ],
           "type": "var"
         },
         {
           "id": 6,
-          "data_type": "Node",
+          "data_type": "DICT",
           "val": [
             {
               "type": "var",
-              "name": "data",
+              "name": "a",
               "val": 1,
               "data_type": "int"
             },
             {
               "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 7,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
+              "name": "b",
               "val": 2,
               "data_type": "int"
-            },
-            {
-              "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 8,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 3,
-              "data_type": "int"
-            },
-            {
-              "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
             }
           ],
           "type": "var"
@@ -1316,31 +384,520 @@
       ]
     },
     {
-      "LineNum": 4,
+      "LineNum": 9,
       "type": "GlobalVariables",
       "Contents": [
         {
           "type": "ptr",
           "id": "1000",
-          "val": 5,
-          "name": "llist"
+          "val": 4,
+          "name": "f"
         },
         {
           "type": "ptr",
           "id": "1001",
-          "val": 7,
-          "name": "second"
+          "val": 5,
+          "name": "a"
         },
         {
           "type": "ptr",
           "id": "1002",
-          "val": 8,
-          "name": "third"
+          "val": 6,
+          "name": "d"
         }
       ]
     },
     {
-      "LineNum": 4,
+      "LineNum": 9,
+      "type": "StackFrame",
+      "Contents": []
+    },
+    {
+      "LineNum": 11,
+      "stackdepth": 0,
+      "type": "Function"
+    },
+    {
+      "LineNum": 11,
+      "type": "Heap",
+      "Contents": [
+        {
+          "id": 4,
+          "data_type": "D",
+          "val": [
+            {
+              "type": "var",
+              "name": "a",
+              "val": 5,
+              "data_type": "int"
+            },
+            {
+              "type": "var",
+              "name": "b",
+              "val": 6,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        },
+        {
+          "id": 5,
+          "data_type": "LIST",
+          "val": [
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 1
+            },
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 2
+            },
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 3
+            },
+            {
+              "type": "var",
+              "data_type": "str",
+              "val": "saminamina"
+            },
+            {
+              "type": "ptr",
+              "val": 4
+            }
+          ],
+          "type": "var"
+        },
+        {
+          "id": 6,
+          "data_type": "DICT",
+          "val": [
+            {
+              "type": "var",
+              "name": "a",
+              "val": 1,
+              "data_type": "int"
+            },
+            {
+              "type": "var",
+              "name": "b",
+              "val": 2,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        }
+      ]
+    },
+    {
+      "LineNum": 11,
+      "type": "GlobalVariables",
+      "Contents": [
+        {
+          "type": "ptr",
+          "id": "1000",
+          "val": 4,
+          "name": "f"
+        },
+        {
+          "type": "ptr",
+          "id": "1001",
+          "val": 5,
+          "name": "a"
+        },
+        {
+          "type": "ptr",
+          "id": "1002",
+          "val": 6,
+          "name": "d"
+        },
+        {
+          "type": "var",
+          "id": "1003",
+          "val": 6,
+          "name": "S",
+          "data_type": "int"
+        }
+      ]
+    },
+    {
+      "LineNum": 11,
+      "type": "StackFrame",
+      "Contents": []
+    },
+    {
+      "LineNum": 12,
+      "stackdepth": 0,
+      "type": "Function"
+    },
+    {
+      "LineNum": 12,
+      "type": "Heap",
+      "Contents": [
+        {
+          "id": 4,
+          "data_type": "D",
+          "val": [
+            {
+              "type": "var",
+              "name": "a",
+              "val": 5,
+              "data_type": "int"
+            },
+            {
+              "type": "var",
+              "name": "b",
+              "val": 6,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        },
+        {
+          "id": 5,
+          "data_type": "LIST",
+          "val": [
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 1
+            },
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 2
+            },
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 3
+            },
+            {
+              "type": "var",
+              "data_type": "str",
+              "val": "saminamina"
+            },
+            {
+              "type": "ptr",
+              "val": 4
+            }
+          ],
+          "type": "var"
+        },
+        {
+          "id": 6,
+          "data_type": "DICT",
+          "val": [
+            {
+              "type": "var",
+              "name": "a",
+              "val": 1,
+              "data_type": "int"
+            },
+            {
+              "type": "var",
+              "name": "b",
+              "val": 2,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        }
+      ]
+    },
+    {
+      "LineNum": 12,
+      "type": "GlobalVariables",
+      "Contents": [
+        {
+          "type": "ptr",
+          "id": "1000",
+          "val": 4,
+          "name": "f"
+        },
+        {
+          "type": "ptr",
+          "id": "1001",
+          "val": 5,
+          "name": "a"
+        },
+        {
+          "type": "ptr",
+          "id": "1002",
+          "val": 6,
+          "name": "d"
+        },
+        {
+          "type": "var",
+          "id": "1003",
+          "val": 6,
+          "name": "S",
+          "data_type": "int"
+        },
+        {
+          "type": "ptr",
+          "id": "1004",
+          "val": 5,
+          "name": "b"
+        }
+      ]
+    },
+    {
+      "LineNum": 12,
+      "type": "StackFrame",
+      "Contents": []
+    },
+    {
+      "LineNum": 14,
+      "stackdepth": 0,
+      "type": "Function"
+    },
+    {
+      "LineNum": 14,
+      "type": "Heap",
+      "Contents": [
+        {
+          "id": 4,
+          "data_type": "D",
+          "val": [
+            {
+              "type": "var",
+              "name": "a",
+              "val": 5,
+              "data_type": "int"
+            },
+            {
+              "type": "var",
+              "name": "b",
+              "val": 6,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        },
+        {
+          "id": 5,
+          "data_type": "LIST",
+          "val": [
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 1
+            },
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 2
+            },
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 3
+            },
+            {
+              "type": "var",
+              "data_type": "str",
+              "val": "saminamina"
+            },
+            {
+              "type": "ptr",
+              "val": 4
+            }
+          ],
+          "type": "var"
+        },
+        {
+          "id": 6,
+          "data_type": "DICT",
+          "val": [
+            {
+              "type": "var",
+              "name": "a",
+              "val": 1,
+              "data_type": "int"
+            },
+            {
+              "type": "var",
+              "name": "b",
+              "val": 2,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        }
+      ]
+    },
+    {
+      "LineNum": 14,
+      "type": "GlobalVariables",
+      "Contents": [
+        {
+          "type": "ptr",
+          "id": "1000",
+          "val": 4,
+          "name": "f"
+        },
+        {
+          "type": "ptr",
+          "id": "1001",
+          "val": 5,
+          "name": "a"
+        },
+        {
+          "type": "ptr",
+          "id": "1002",
+          "val": 6,
+          "name": "d"
+        },
+        {
+          "type": "var",
+          "id": "1003",
+          "val": 6,
+          "name": "S",
+          "data_type": "int"
+        },
+        {
+          "type": "ptr",
+          "id": "1004",
+          "val": 5,
+          "name": "b"
+        }
+      ]
+    },
+    {
+      "LineNum": 14,
+      "type": "StackFrame",
+      "Contents": []
+    },
+    {
+      "LineNum": 15,
+      "stackdepth": 0,
+      "type": "Function"
+    },
+    {
+      "LineNum": 15,
+      "type": "Heap",
+      "Contents": [
+        {
+          "id": 4,
+          "data_type": "D",
+          "val": [
+            {
+              "type": "var",
+              "name": "a",
+              "val": 5,
+              "data_type": "int"
+            },
+            {
+              "type": "var",
+              "name": "b",
+              "val": 6,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        },
+        {
+          "id": 5,
+          "data_type": "LIST",
+          "val": [
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 1
+            },
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 2
+            },
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 3
+            },
+            {
+              "type": "var",
+              "data_type": "str",
+              "val": "saminamina"
+            },
+            {
+              "type": "ptr",
+              "val": 4
+            }
+          ],
+          "type": "var"
+        },
+        {
+          "id": 6,
+          "data_type": "DICT",
+          "val": [
+            {
+              "type": "var",
+              "name": "a",
+              "val": 1,
+              "data_type": "int"
+            },
+            {
+              "type": "var",
+              "name": "b",
+              "val": 2,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        }
+      ]
+    },
+    {
+      "LineNum": 15,
+      "type": "GlobalVariables",
+      "Contents": [
+        {
+          "type": "ptr",
+          "id": "1000",
+          "val": 4,
+          "name": "f"
+        },
+        {
+          "type": "ptr",
+          "id": "1001",
+          "val": 5,
+          "name": "a"
+        },
+        {
+          "type": "ptr",
+          "id": "1002",
+          "val": 6,
+          "name": "d"
+        },
+        {
+          "type": "var",
+          "id": "1003",
+          "val": 6,
+          "name": "S",
+          "data_type": "int"
+        },
+        {
+          "type": "ptr",
+          "id": "1004",
+          "val": 5,
+          "name": "b"
+        },
+        {
+          "type": "var",
+          "id": "1005",
+          "val": 7,
+          "name": "k",
+          "data_type": "int"
+        }
+      ]
+    },
+    {
+      "LineNum": 15,
       "type": "StackFrame",
       "Contents": []
     },
@@ -1354,176 +911,75 @@
       "type": "Heap",
       "Contents": [
         {
-          "id": 5,
-          "data_type": "LinkedList",
+          "id": 4,
+          "data_type": "D",
           "val": [
             {
-              "type": "ptr",
-              "name": "head",
-              "val": 6
+              "type": "var",
+              "name": "a",
+              "val": 5,
+              "data_type": "int"
+            },
+            {
+              "type": "var",
+              "name": "b",
+              "val": 6,
+              "data_type": "int"
             }
           ],
           "type": "var"
         },
         {
-          "id": 6,
-          "data_type": "Node",
+          "id": 5,
+          "data_type": "LIST",
           "val": [
             {
               "type": "var",
-              "name": "data",
-              "val": 1,
-              "data_type": "int"
+              "data_type": "int",
+              "val": 1
+            },
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 2
+            },
+            {
+              "type": "var",
+              "data_type": "int",
+              "val": 3
+            },
+            {
+              "type": "var",
+              "data_type": "str",
+              "val": "saminamina"
             },
             {
               "type": "ptr",
-              "name": "next",
+              "val": 4
+            },
+            {
+              "type": "var",
+              "data_type": "int",
               "val": 7
             }
           ],
           "type": "var"
         },
         {
-          "id": 7,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 2,
-              "data_type": "int"
-            },
-            {
-              "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 8,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 3,
-              "data_type": "int"
-            },
-            {
-              "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        }
-      ]
-    },
-    {
-      "LineNum": 16,
-      "type": "GlobalVariables",
-      "Contents": [
-        {
-          "type": "ptr",
-          "id": "1000",
-          "val": 5,
-          "name": "llist"
-        },
-        {
-          "type": "ptr",
-          "id": "1001",
-          "val": 7,
-          "name": "second"
-        },
-        {
-          "type": "ptr",
-          "id": "1002",
-          "val": 8,
-          "name": "third"
-        }
-      ]
-    },
-    {
-      "LineNum": 16,
-      "type": "StackFrame",
-      "Contents": []
-    },
-    {
-      "LineNum": 17,
-      "stackdepth": 0,
-      "type": "Function"
-    },
-    {
-      "LineNum": 17,
-      "type": "Heap",
-      "Contents": [
-        {
-          "id": 5,
-          "data_type": "LinkedList",
-          "val": [
-            {
-              "type": "ptr",
-              "name": "head",
-              "val": 6
-            }
-          ],
-          "type": "var"
-        },
-        {
           "id": 6,
-          "data_type": "Node",
+          "data_type": "DICT",
           "val": [
             {
               "type": "var",
-              "name": "data",
+              "name": "a",
               "val": 1,
               "data_type": "int"
             },
             {
-              "type": "ptr",
-              "name": "next",
-              "val": 7
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 7,
-          "data_type": "Node",
-          "val": [
-            {
               "type": "var",
-              "name": "data",
+              "name": "b",
               "val": 2,
               "data_type": "int"
-            },
-            {
-              "type": "ptr",
-              "name": "next",
-              "val": 8
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 8,
-          "data_type": "Node",
-          "val": [
-            {
-              "type": "var",
-              "name": "data",
-              "val": 3,
-              "data_type": "int"
-            },
-            {
-              "type": "var",
-              "name": "next",
-              "val": null,
-              "data_type": "NoneType"
             }
           ],
           "type": "var"
@@ -1531,31 +987,51 @@
       ]
     },
     {
-      "LineNum": 17,
+      "LineNum": 16,
       "type": "GlobalVariables",
       "Contents": [
         {
           "type": "ptr",
           "id": "1000",
-          "val": 5,
-          "name": "llist"
+          "val": 4,
+          "name": "f"
         },
         {
           "type": "ptr",
           "id": "1001",
-          "val": 7,
-          "name": "second"
+          "val": 5,
+          "name": "a"
         },
         {
           "type": "ptr",
           "id": "1002",
-          "val": 8,
-          "name": "third"
+          "val": 6,
+          "name": "d"
+        },
+        {
+          "type": "var",
+          "id": "1003",
+          "val": 6,
+          "name": "S",
+          "data_type": "int"
+        },
+        {
+          "type": "ptr",
+          "id": "1004",
+          "val": 5,
+          "name": "b"
+        },
+        {
+          "type": "var",
+          "id": "1005",
+          "val": 7,
+          "name": "k",
+          "data_type": "int"
         }
       ]
     },
     {
-      "LineNum": 17,
+      "LineNum": 16,
       "type": "StackFrame",
       "Contents": []
     }
