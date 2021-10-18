@@ -223,6 +223,8 @@ def format_trace(trace:List[Dict]):
 	step = 0
 	for entry in trace:
 		step += 1
+		if entry['LineNum'] == cv_lineno:
+			continue
 		if entry['event'] == 'return' and step < steps_count - 2:
 			continue
 		if 'exception_msg' in entry:
