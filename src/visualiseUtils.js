@@ -20,6 +20,7 @@ for(let t=0;t<digraphs.length;t++)
 		++max_line_idx;
 	else
 		max_line_idx_h += 1;
+
 }
 
 // const visualise = async () => {
@@ -140,6 +141,7 @@ export const vis_play = async () => {
   while (idx < digraphs.length && play) {
     canvas.innerHTML = "";
     let digraph = digraphs[idx];
+    console.log(idx, digraph);
     // dehighlightLine();
     highlightLine(lineNos[line_idx]);
     viz.renderSVGElement(digraph).then(async function (element) {
@@ -235,5 +237,5 @@ export const startVisualisation = () => {
 export const init_variables = (canvasRef, setMarker) => {
   canvas = canvasRef.current;
   highlightLine = setMarker;
-}
+};
 
