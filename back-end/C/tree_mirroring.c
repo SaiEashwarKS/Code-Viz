@@ -8,6 +8,18 @@ struct node
     struct node* right;
 };
 
+struct node* tree_mirroring(struct node* root)
+{
+    if (root)
+    {
+        struct node* lr = tree_mirroring(root->left);
+        struct node* rr = tree_mirroring(root->right);
+        root->left = rr;
+        root->right = lr;
+    }
+    return root;
+}
+
 struct node* createnode(int data)
 {
     struct node* temp=malloc(sizeof(struct node));
@@ -26,5 +38,6 @@ int main()
     head->left->left=createnode(8500);
     head->left->right=createnode(9500);
     head->right->left=createnode(10500);
-    head->right->right=createnode(11500);   
+    head->right->right=createnode(11500);  
+    head = tree_mirroring(head); 
 }

@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-int g=0;
+
 #define MAX 2
 
 typedef struct graph
@@ -21,4 +21,4 @@ int main()
             gr.edge_weights[r][c]=rand()%45 + 1;
         }
     }
-}
+}int rsrsaser=0;
