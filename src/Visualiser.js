@@ -9,7 +9,8 @@ import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/mode-c_cpp"
 import { Canvas, TitleBar, ControlBar } from "./components";
-import { init_variables, skip_backward, skip_forward, startVisualisation, visualiseInitialStack, vis_backward, vis_forward, vis_pause, vis_play } from "./visualiseUtils";
+// import { init_variables, skip_backward, skip_forward, startVisualisation, visualiseInitialStack, vis_backward, vis_forward, vis_pause, vis_play } from "./visualiseUtils";
+import {init_variables, step_backward, step_forward,startVisualisation,visualiseInitialStack, skip_to_end , skip_to_beginning , vis_pause, vis_play } from "./visualiseUtils";
 
 const Visualiser = ({ code, mode }) => {
   const [canvasRef, setCanvasRef] = useState(null);
@@ -69,10 +70,10 @@ const Visualiser = ({ code, mode }) => {
         <ControlBar
           onPause={vis_pause}
           onPlay={vis_play}
-          onStepForward={vis_forward}
-          onStepBackWard={vis_backward}
-          onSkipToBeginning={skip_backward}
-          onSkipToEnd={skip_forward}
+          onStepForward={step_forward}
+          onStepBackWard={step_backward}
+          onSkipToBeginning={skip_to_beginning}
+          onSkipToEnd={skip_to_end}
         />
       </div>
     </div>
