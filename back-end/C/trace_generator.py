@@ -27,6 +27,7 @@ stack_depth = 1
 skip_fn = ["malloc", "free"]
 use_next = 0
 
+time_to_sleep = 0.1
 
 mo = [] # [['$i/func_name', 'address'], ['$i/func_name', 'address'], ...]
 mp = [] # [['name', 'value'], ['name', 'value'], ...]
@@ -148,7 +149,7 @@ def tr():#function name
 	'''
 	p1.stdin.write('bt\n')
 	my_out1 = ''
-	sleep(0.1)
+	sleep(time_to_sleep)
 	while True:
 		try:
 			my_out1 = read(p1.stdout.fileno(), 1024)
@@ -168,7 +169,7 @@ def tr():#function name
 	s = "p &"+my_out2[2]+"\n" # my_out2[2]-> function_name-> foo
 	p1.stdin.write(s)
 	my_out = ''
-	sleep(0.1)
+	sleep(time_to_sleep)
 	while True:
 		try:
 			my_out = read(p1.stdout.fileno(), 1024) # $11 = (int (*)(int, int *, int *)) 0x400bb6 <foo>\n(gdb)
@@ -212,7 +213,7 @@ def pdisp(rv):#for further display
 def get_deref_value(addr, datatype,visited=set()):
 	p1.stdin.write('p *('+datatype+') '+addr+'\n')
 	my_out = ''
-	sleep(0.1)
+	sleep(time_to_sleep)
 	while True:
 		try:
 			my_out = read(p1.stdout.fileno(), 1024)
@@ -287,8 +288,8 @@ def get_deref_value(addr, datatype,visited=set()):
 		#print("\nHEREE\n", fields)
 		#print("\nVALUE\n",x)
 		
-		return x
-		'''
+		#return x
+		
 		new_x = []
 		print("FIELDS",fields,"x",x)
 		for i in range(len(fields)):
@@ -299,7 +300,6 @@ def get_deref_value(addr, datatype,visited=set()):
 		#sys.exit(0)
 		return new_x
 		#return x
-		'''
 	else:
 		val = my_out[my_out.find('=')+2:]
 		
@@ -754,7 +754,7 @@ struct example2 b;
 def struct_fields_info(pipe, structure):
 	pipe.stdin.write('ptype '+structure+'\n')
 	my_out = ''
-	sleep(0.1)
+	sleep(time_to_sleep)
 	while True:
 		try:
 			my_out += read(pipe.stdout.fileno(), 1024)
@@ -786,7 +786,7 @@ def struct_fields_info(pipe, structure):
 def output(p1,flag):#display (stack frame, arguments..)
 	global stop
 	my_out = ''
-	sleep(0.1)
+	sleep(time_to_sleep)
 	while True:
 		try:
 			my_out+= read(p1.stdout.fileno(), 1024)
@@ -847,7 +847,7 @@ def output(p1,flag):#display (stack frame, arguments..)
 		s = "p &"+func_name+"\n"
 		p1.stdin.write(s)	# p &foo\n
 		my_out = ''
-		sleep(0.1)
+		sleep(time_to_sleep)
 		while True:
 			try:
 				my_out += read(p1.stdout.fileno(), 1024) #p &foo-> $1 = (int (*)(int, int *, int *)) 0x400bb6 <foo>\n(gdb) 			
@@ -959,7 +959,7 @@ def output(p1,flag):#display (stack frame, arguments..)
 					s = "p &"+j[0]+"\n"
 					p1.stdin.write(s)	
 				my_out = ''
-				sleep(0.1)
+				sleep(time_to_sleep)
 				while True:
 					try:
 						my_out += read(p1.stdout.fileno(), 1024)
@@ -1014,7 +1014,7 @@ def output(p1,flag):#display (stack frame, arguments..)
 				s = "p &"+j[0]+"\n"
 				p1.stdin.write(s)	
 			my_out = ''
-			sleep(0.1)
+			sleep(time_to_sleep)
 			while True:
 				try:
 					my_out = read(p1.stdout.fileno(), 1024)
@@ -1109,7 +1109,7 @@ def get_heap_info(pipe):
 	global id_counter 
 	pipe.stdin.write('p resrsasr_i\n')
 	my_out = ''
-	sleep(0.1)
+	sleep(time_to_sleep)
 	while True:
 		try:
 			my_out += read(pipe.stdout.fileno(), 1024)
@@ -1121,7 +1121,7 @@ def get_heap_info(pipe):
 	for i in range(heap_i):
 		pipe.stdin.write("p resrsasr["+str(i)+"]\n")
 		my_out = ''
-		sleep(0.1)
+		sleep(time_to_sleep)
 		while True:
 			try:
 				my_out += read(pipe.stdout.fileno(), 1024)
@@ -1198,6 +1198,8 @@ while (curtime-starttime < time_limit):
 	var_tab=[]
 	#heading = ["VARIABLE","VALUE"]
 	for i in global_name_list:
+		if "rsrsaser" in i:
+			continue
 		p1.stdin.write('print '+i+'\n')
 		var_tab.append([i,output(p1,6)]) # [['name','value'],['name','value'],...] for all global variables
 	#print(tabulate(var_tab,headers=heading,tablefmt="psql"))
@@ -1211,7 +1213,7 @@ while (curtime-starttime < time_limit):
 		s = "p &"+j[0]+"\n"
 		p1.stdin.write(s)
 	my_out = ''
-	sleep(0.1)
+	sleep(time_to_sleep)
 	while True:
 		try:
 			my_out += read(p1.stdout.fileno(), 1024) # $3 = (int *) 0x6bc3a0 <g>\n(gdb)

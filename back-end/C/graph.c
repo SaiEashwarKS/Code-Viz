@@ -21,4 +21,4 @@ int main()
             gr.edge_weights[r][c]=rand()%45 + 1;
         }
     }
-}
+}int rsrsaser=0;
