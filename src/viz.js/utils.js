@@ -27,60 +27,63 @@ const makePtrConnection = (from, to, label = "") => {
   return "";
 };
 
-const createStructNode = (variable) => {
-  if (graphs.includes(variable.data_type)) {
-    return createGraphNode(variable);
-  }
-  const structName = variable.data_type;
-  let nodeName = `node${variable.id}`;
-  let label = ``;
-  let ptrConnection = ``;
-  for (let fieldIdx in structs[structName]) {
-    if (label !== ``) {
-      label += `|`;
-    }
-    let field = variable.val[fieldIdx];
-    let fieldName = structs[structName][fieldIdx].name;
-    let fieldType = structs[structName][fieldIdx].type;
-    // label += `<f${fieldIdx}> ${fieldName}`;
-    label += `<f${fieldIdx}>`;
-    // let ptrConnection = ``;
-    switch (fieldType) {
-      case "var":
-        // label += `: ${field[fieldName]}`;
-        label += `${field[fieldName]}`;
-        break;
-      case "ptr":
-        switch (field[fieldName]) {
-          case "N":
-            // label += `: NULL`;
-            label += `Null`;
-            break;
-          case "U":
-            // label += `: Undefined`;
-            label += `Undef`;
-            break;
-          default:
-            ptrConnection += makePtrConnection(
-              `${nodeName}:f${fieldIdx}`,
-              // `${nodeName}:f0`,
-              // `node${field[fieldName]}:f0
-              `node${field[fieldName]}:f${fieldIdx}
-              `
-            );
-        }
-        break;
-      default:
-        break;
-    }
-  }
-  return createNode(nodeName, label, `record`, ptrConnection);
-};
+// const createStructNode = (variable) => {
+//   if (graphs.includes(variable.data_type)) {
+//     return createGraphNode(variable);
+//   }
+//   const structName = variable.data_type;
+//   let nodeName = `node${variable.id}`;
+//   let label = ``;
+//   let ptrConnection = ``;
+//   for (let fieldIdx in structs[structName]) {
+//     if (label !== ``) {
+//       label += `|`;
+//     }
+//     let field = variable.val[fieldIdx];
+//     let fieldName = structs[structName][fieldIdx].name;
+//     let fieldType = structs[structName][fieldIdx].type;
+//     // label += `<f${fieldIdx}> ${fieldName}`;
+//     label += `<f${fieldIdx}>`;
+//     // let ptrConnection = ``;
+//     switch (fieldType) {
+//       case "var":
+//         // label += `: ${field[fieldName]}`;
+//         label += `${field[fieldName]}`;
+//         break;
+//       case "ptr":
+//         switch (field[fieldName]) {
+//           case "N":
+//             // label += `: NULL`;
+//             label += `Null`;
+//             break;
+//           case "U":
+//             // label += `: Undefined`;
+//             label += `Undef`;
+//             break;
+//           default:
+//             ptrConnection += makePtrConnection(
+//               `${nodeName}:f${fieldIdx}`,
+//               // `${nodeName}:f0`,
+//               // `node${field[fieldName]}:f0
+//               `node${field[fieldName]}:f${fieldIdx}
+//               `
+//             );
+//         }
+//         break;
+//       default:
+//         break;
+//     }
+//   }
+//   return createNode(nodeName, label, `record`, ptrConnection);
+// };
 
 const createGraphNode = (variable) => {
   const graphName = variable.data_type;
   graphIds[Number.parseInt(variable.id)] = graphName;
-  let graph = `subgraph cluster_${graphName.replace(" ", "")}{\ncolor=black;\nlabel="${graphName}";\n`;
+  let graph = `subgraph cluster_${graphName.replace(
+    " ",
+    ""
+  )}{\ncolor=black;\nlabel="${graphName}";\n`;
   for (let valIdx in variable.val) {
     const vals = variable.val[valIdx];
     const vertexWeights = vals["vertex_weights"];
@@ -112,15 +115,89 @@ const weightIsNonEmpty = (weight) => {
   return weight > 0;
 };
 
+// const createStackvar = (variable) => {
+//   if (variable.data_type.includes("struct")) {
+//     return createStructNode(variable);
+//   }
+//   const nodeName = `node${variable.id}`;
+//   const label =
+//     variable.name !== undefined
+//       ? `<f0> ${variable.name}: ${variable.val}`
+//       : `${variable.val}`;
+//   return createNode(nodeName, label);
+// };
+
+const createStructNode = (variable) => {
+  //const structName = variable.data_type;
+  if (graphs.includes(variable.data_type)) {
+    return createGraphNode(variable);
+  }
+  let nodeName = `node${variable.id}`;
+  let label = ``;
+  let ptrConnection = ``;
+
+  for (let fieldIdx in variable.val) {
+    if (label !== ``) {
+      label += `|`;
+    }
+    let field = variable.val[fieldIdx];
+
+    let fieldName = "";
+    if ("name" in variable.val[fieldIdx]) {
+      fieldName = variable.val[fieldIdx].name;
+    }
+
+    let fieldType = variable.val[fieldIdx].type;
+    // label += `<f${fieldIdx}> ${fieldName}`;
+
+    label += `<f${fieldIdx}>`;
+    // let ptrConnection = ``;
+    switch (fieldType) {
+      case "var":
+        // label += `: ${field[fieldName]}`;
+        label += `${field.val}`;
+        break;
+      case "ptr":
+        switch (field.val) {
+          case "N":
+            // label += `: NULL`;
+            label += `Null`;
+            break;
+          case "U":
+            // label += `: Undefined`;
+            label += `Undef`;
+            break;
+          default:
+            ptrConnection += makePtrConnection(
+              `${nodeName}:f${fieldIdx}`,
+              // `${nodeName}:f0`,
+              // `node${field[fieldName]}:f0
+              `node${field.val}
+              `
+            );
+        }
+        break;
+      default:
+        break;
+    }
+  }
+  return createNode(nodeName, label, `record`, ptrConnection);
+};
+
 const createStackvar = (variable) => {
-  if (variable.data_type.includes("struct")) {
+  if (
+    ["int", "float", "char", "str"].find(
+      (ele) => ele === variable.data_type
+    ) === undefined
+  ) {
+    //add other basic types to the array
     return createStructNode(variable);
   }
   const nodeName = `node${variable.id}`;
   const label =
-    variable.name !== undefined
-      ? `<f0> ${variable.name}: ${variable.val}`
-      : `${variable.val}`;
+      variable.name !== undefined
+        ? `<f0> ${variable.name}: ${variable.val}`
+        : `${variable.val}`;
   return createNode(nodeName, label);
 };
 
@@ -185,11 +262,11 @@ const getChangingEdgeWeightsIds = (nodeA, nodeB) => {
   const edgeWeightsA = nodeA.val[0].edge_weights;
   const edgeWeightsB = nodeB.val[0].edge_weights;
   let res = [];
-  for(const fromId in edgeWeightsA) {
-    for(const toId in edgeWeightsA[fromId]) {
-      if(edgeWeightsA[fromId][toId] !== edgeWeightsB[fromId][toId]) {
-        res.push(getGraphNodeName(graphName, fromId))
-        res.push(getGraphNodeName(graphName, toId))
+  for (const fromId in edgeWeightsA) {
+    for (const toId in edgeWeightsA[fromId]) {
+      if (edgeWeightsA[fromId][toId] !== edgeWeightsB[fromId][toId]) {
+        res.push(getGraphNodeName(graphName, fromId));
+        res.push(getGraphNodeName(graphName, toId));
       }
     }
   }

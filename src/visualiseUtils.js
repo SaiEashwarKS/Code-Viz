@@ -9,14 +9,12 @@ const { digraphs, lineNos, highlightNodes } = getDigraphs(input);
 // const canvas = document.getElementById("canvas");
 var canvas;
 var highlightLine;
-let idx = 1;
+let idx = 0;
 let line_idx = 1;
 
 let max_line_idx = 0;
-for(let t=0;t<digraphs.length;t++)
-{
-	if(digraphs[t] !== "highlightNode")
-		++max_line_idx;
+for (let t = 0; t < digraphs.length; t++) {
+  if (digraphs[t] !== "highlightNode") ++max_line_idx;
 }
 
 // const visualise = async () => {
@@ -127,6 +125,7 @@ export const vis_play = async () => {
   while (idx < digraphs.length && play) {
     canvas.innerHTML = "";
     let digraph = digraphs[idx];
+    console.log(idx, digraph);
     // dehighlightLine();
     highlightLine(lineNos[line_idx]);
     viz.renderSVGElement(digraph).then(async function (element) {
@@ -194,13 +193,18 @@ const colorNodes = (digraph) => {
   return digraph;
 };
 
-export const visualiseInitialStack = (canvasRef) => {
+export const visualiseInitialStack = async (canvasRef) => {
   canvas = canvasRef.current;
   if (!canvas) return;
-  if (lineNos[0] === 0) {
+  if (lineNos[0] === 0 && digraphs[0] !== "highlightNode") {
     viz.renderSVGElement(digraphs[0]).then(async function (element) {
       canvas.appendChild(element);
     });
+    idx++;
+    if (digraphs[1] === "highlightNode") {
+      idx++;
+      highlightNodesIdx += 1;
+    }
   }
 };
 
@@ -212,6 +216,6 @@ export const startVisualisation = () => {
 export const init_variables = (canvasRef, setMarker) => {
   canvas = canvasRef.current;
   highlightLine = setMarker;
-}
+};
 
 // visualise();
