@@ -13,8 +13,14 @@ let idx = 0;
 let line_idx = 1;
 
 let max_line_idx = 0;
-for (let t = 0; t < digraphs.length; t++) {
-  if (digraphs[t] !== "highlightNode") ++max_line_idx;
+let max_line_idx_h = 0;
+for(let t=0;t<digraphs.length;t++)
+{
+	if(digraphs[t] !== "highlightNode")
+		++max_line_idx;
+	else
+		max_line_idx_h += 1;
+
 }
 
 // const visualise = async () => {
@@ -76,7 +82,7 @@ const visualise_1 = async () => {
   line_idx++;
 };
 
-export const vis_forward = async () => {
+export const step_forward = async () => {
   if (idx < digraphs.length) {
     // console.log("vis forward idx=", idx, " line_idx=", line_idx);
     canvas.innerHTML = "";
@@ -88,14 +94,15 @@ export const vis_forward = async () => {
     });
     await new Promise((resolve) => setTimeout(resolve, 2500));
     if (digraphs[idx + 1] === "highlightNode") {
-      canvas.innerHTML = "";
-      let coloredDigraph = colorNodes(digraph);
-      // dehighlightLine();
-      highlightLine(lineNos[line_idx + 1]);
-      viz.renderSVGElement(coloredDigraph).then(async function (element) {
-        canvas.appendChild(element);
-      });
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      // canvas.innerHTML = "";
+      // let coloredDigraph = colorNodes(digraph);
+      // // dehighlightLine();
+      // highlightLine(lineNos[line_idx + 1]);
+      // viz.renderSVGElement(coloredDigraph).then(async function (element) {
+      //   canvas.appendChild(element);
+      // });
+      // await new Promise((resolve) => setTimeout(resolve, 1500));
+      highlightNodesIdx += 1;
       idx++;
     }
     idx++;
@@ -103,19 +110,28 @@ export const vis_forward = async () => {
   }
 };
 
-export const vis_backward = async () => {
-  // if(idx-1 >= 1)
-  // {
-  // console.log("vis backward 1 idx=", idx, " line_idx=", line_idx);
-  if (digraphs[idx - 1] === "highlightNode") idx -= 2;
-  else idx -= 1;
-  line_idx--;
-  if (digraphs[idx - 1] === "highlightNode") idx -= 2;
-  else idx -= 1;
-  line_idx--;
-  // console.log("vis backward 2 idx=", idx, " line_idx=", line_idx);
-  vis_forward();
-  // }
+export const step_backward = async () => {
+  if(idx > 1)
+	{
+    // console.log("vis backward 1 idx=",idx," line_idx=",line_idx);
+    if(digraphs[idx - 1] === "highlightNode"){
+		idx -= 2;
+		highlightNodesIdx -= 1;
+	}
+	else	
+		idx -=1;
+	line_idx--; 
+	if(digraphs[idx - 1] === "highlightNode")
+	{
+		idx -= 2;
+		highlightNodesIdx -=1;
+	}
+	else	
+		idx -= 1;
+	line_idx--;
+    // console.log("vis backward 2 idx=",idx," line_idx=",line_idx);
+	step_forward();
+	}
 };
 
 let play = 1;
@@ -154,22 +170,25 @@ export const vis_pause = async () => {
   play = 0;
 };
 
-export const skip_backward = async () => {
+export const skip_to_beginning = async () => {
   idx = 1;
   line_idx = 1;
+  highlightNodesIdx = 0;
   // console.log("vis skip backward before idx=", idx, " line_idx=", line_idx);
   // visualiseInitialStack();
-  // vis_forward();
+  // step_forward();
   // startVisualisation();
   visualise_1();
   // console.log("vis skip backward after idx=", idx, " line_idx=", line_idx);
 };
 
-export const skip_forward = async () => {
+export const skip_to_end = async () => {
   // console.log("vis skip forward before idx=", idx, " line_idx=", line_idx);
   idx = digraphs.length - 1;
   line_idx = max_line_idx;
-  vis_forward();
+  let highlightNodesIdx_difference = max_line_idx_h-highlightNodesIdx;
+	highlightNodesIdx += highlightNodesIdx_difference;
+  step_forward();
   // console.log("vis skip forward after idx=", idx, " line_idx=", line_idx);
 };
 
@@ -183,6 +202,8 @@ const addHighlightedNodes = (nodeIds) => {
   });
   return res;
 };
+
+
 
 var highlightNodesIdx = 0;
 const colorNodes = (digraph) => {
@@ -218,4 +239,3 @@ export const init_variables = (canvasRef, setMarker) => {
   highlightLine = setMarker;
 };
 
-// visualise();
