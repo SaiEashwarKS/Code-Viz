@@ -1,13 +1,13 @@
 class node:
     def __init__(self,val=0):
-        self.left = None
-        self.right = None
-        self.val = val
-    
+      self.left = None
+      self.right = None
+      self.val = val
+
 def mirror(node):
-    if node:
+      if node:
         node.left,node.right = mirror(node.right),mirror(node.left)
-    return node
+      return node
 
 head = node(10000)
 head.left = node(9000)

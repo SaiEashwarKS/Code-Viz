@@ -218,8 +218,15 @@ def format_trace(trace:List[Dict]):
 	cv_lineno = 0
 	new_trace = []
 	global classes
+	steps_count = len(trace)
 	
+	step = 0
 	for entry in trace:
+		step += 1
+		if entry['LineNum'] == cv_lineno:
+			continue
+		if entry['event'] == 'return' and step < steps_count - 2:
+			continue
 		if 'exception_msg' in entry:
 			new_trace.append(dict(exception_msg=entry['exception_msg']))
 			break
@@ -356,6 +363,5 @@ if __name__ == '__main__':
 	#print(json.dumps(htrace, indent=2))
 	#print('---------cviz---------')
 	#print(json.dumps(handle_heap_var(htrace), indent=2))
-
 
     
