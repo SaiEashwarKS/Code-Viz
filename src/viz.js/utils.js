@@ -161,7 +161,7 @@ const createStructNode = (variable) => {
         switch (field.val) {
           case "N":
             // label += `: NULL`;
-            label += `Null`;
+            label += `⏚`;
             break;
           case "U":
             // label += `: Undefined`;
@@ -207,7 +207,7 @@ const createStackPtr = (variable) => {
   let ptrConnection = ``;
   switch (variable.val) {
     case "N":
-      label += `: Null`;
+      label += `: ⏚`;
       break;
     case "U":
       label += `: Undef`;
