@@ -1,9 +1,9 @@
 class node:
     def __init__(self,val=0):
       self.left = None
-      self.right = None
       self.val = val
-
+      self.right = None
+      
 def mirror(node):
       if node:
         node.left,node.right = mirror(node.right),mirror(node.left)

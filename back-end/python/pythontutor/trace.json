@@ -1,5 +1,5 @@
 {
-  "code": "class node:\n    def __init__(self,val=0):\n      self.left = None\n      self.right = None\n      self.val = val\n\ndef mirror(node):\n      if node:\n        node.left,node.right = mirror(node.right),mirror(node.left)\n      return node\n\nhead = node(10000)\nhead.left = node(9000)\nhead.right = node(11000)\nhead.left.left = node(8500)\nhead.left.right = node(9500)\nhead.right.left = node(10500)\nhead.right.right = node(11500)\n\nhead = mirror(head)\n",
+  "code": "class node:\n    def __init__(self,val=0):\n      self.left = None\n      self.val = val\n      self.right = None\n      \ndef mirror(node):\n      if node:\n        node.left,node.right = mirror(node.right),mirror(node.left)\n      return node\n\nhead = node(10000)\nhead.left = node(9000)\nhead.right = node(11000)\nhead.left.left = node(8500)\nhead.left.right = node(9500)\nhead.right.left = node(10500)\nhead.right.right = node(11500)\n\nhead = mirror(head)\n",
   "trace": [
     {
       "LineNum": 1,
@@ -448,12 +448,12 @@
               {
                 "type": "var",
                 "data_type": "str",
-                "val": "right"
+                "val": "val"
               },
               {
                 "type": "var",
-                "data_type": "NoneType",
-                "val": null
+                "data_type": "int",
+                "val": 10000
               }
             ]
           ]
@@ -1215,12 +1215,12 @@
               {
                 "type": "var",
                 "data_type": "str",
-                "val": "right"
+                "val": "val"
               },
               {
                 "type": "var",
-                "data_type": "NoneType",
-                "val": null
+                "data_type": "int",
+                "val": 9000
               }
             ]
           ]
@@ -2241,12 +2241,12 @@
               {
                 "type": "var",
                 "data_type": "str",
-                "val": "right"
+                "val": "val"
               },
               {
                 "type": "var",
-                "data_type": "NoneType",
-                "val": null
+                "data_type": "int",
+                "val": 11000
               }
             ]
           ]
@@ -3519,12 +3519,12 @@
               {
                 "type": "var",
                 "data_type": "str",
-                "val": "right"
+                "val": "val"
               },
               {
                 "type": "var",
-                "data_type": "NoneType",
-                "val": null
+                "data_type": "int",
+                "val": 8500
               }
             ]
           ]
@@ -5049,12 +5049,12 @@
               {
                 "type": "var",
                 "data_type": "str",
-                "val": "right"
+                "val": "val"
               },
               {
                 "type": "var",
-                "data_type": "NoneType",
-                "val": null
+                "data_type": "int",
+                "val": 9500
               }
             ]
           ]
@@ -6831,12 +6831,12 @@
               {
                 "type": "var",
                 "data_type": "str",
-                "val": "right"
+                "val": "val"
               },
               {
                 "type": "var",
-                "data_type": "NoneType",
-                "val": null
+                "data_type": "int",
+                "val": 10500
               }
             ]
           ]
@@ -8865,12 +8865,12 @@
               {
                 "type": "var",
                 "data_type": "str",
-                "val": "right"
+                "val": "val"
               },
               {
                 "type": "var",
-                "data_type": "NoneType",
-                "val": null
+                "data_type": "int",
+                "val": 11500
               }
             ]
           ]
