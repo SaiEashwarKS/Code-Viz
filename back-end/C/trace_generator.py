@@ -70,11 +70,15 @@ func = re.compile("\w+ \(((\w+\=\w+), )*(\w+\=\w+)?\)")
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-f","--file",type=str,required=True)
+parser.add_argument("-s","--save",type=str,required=True)
 parser.add_argument("-t","--time",type=int,required=False)
+
 parser.add_argument('functions', type=str, nargs='*')
 args = parser.parse_args()
 
 my_file = args.file
+
+final_json_location = args.save
 
 time_limit = 200
 if args.time:
@@ -1356,8 +1360,8 @@ maindic = {"Lines_Data":lines_data}
 maindic["Structures"] = struct_details
 maindic = json.dumps(maindic,indent=2)
 
-
-f1=open("ll.json","w")
+final_file = final_json_location+".json"
+f1=open(final_file,"w")
 f1.write(maindic)
 f1.close()
 remove(my_file[:-1]+"o")

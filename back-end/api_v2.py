@@ -23,32 +23,59 @@ def get_trace():
 		data = request.get_json()
 		lang = data['language']
 		usercode = data['code']
+		encoded_string = ""
+
 		if lang == 'PY':
-			with open("usercode.py", "w") as f:
-				f.write(usercode)
 			encoded_string = hashlib.md5(usercode.encode()).hexdigest()
+			code_file = encoded_string + ".py"
+			with open(code_file, "w") as f:
+				f.write(usercode)
 			#Popen runs the process in background
 			dicttobesent = {"id":encoded_string}
-			subprocess.Popen(["python3","python/pythontutor/generate_json_trace.py","usercode.py",encoded_string])
+			subprocess.Popen(["python3","python/pythontutor/generate_json_trace.py",code_file,encoded_string])
 			return Response(status=200,response=json.dumps(dicttobesent),mimetype="application/json")
+
 		elif lang == 'C':
-			f = open("usercode.c", "w")
 			usercode = usercode + "\nint rsrsaser=0;\n"
-			f.write(usercode)
-			f.close()
 			encoded_string = hashlib.md5(usercode.encode()).hexdigest()
+			code_file = encoded_string + ".c"
+			with open(code_file, "w") as f:
+				f.write(usercode)
 			time_to_run = 200
 			if "time" in data:
 				time_to_run = int(data["time"])
 			if "fns_to_skip" in data:
-				subprocess.Popen(["python","C/trace_generator.py","-f","usercode.c","-s",encoded_string,"-t",time_to_run," ".join(data["fns_to_skip"])])
+				subprocess.Popen(["python","C/trace_generator.py","-f",code_file,"-s",encoded_string,"-t",time_to_run," ".join(data["fns_to_skip"])])
 			else:
-				subprocess.Popen(["python","C/trace_generator.py","-f","usercode.c","-s",encoded_string,"-t",time_to_run])
-			
-			f = open("ll.json", "r")
+				subprocess.Popen(["python","C/trace_generator.py","-f",code_file,"-s",encoded_string,"-t",time_to_run])
+
+			dicttobesent = {"id":encoded_string}
+			subprocess.Popen(["python3","python/pythontutor/generate_json_trace.py",code_file,encoded_string])
+			return Response(status=200,response=json.dumps(dicttobesent),mimetype="application/json")
+
+@app.route('/api/traceget', methods=['POST'])
+def poller():
+	if request.method == "POST":
+		data = request.get_json()
+		lang = data['language']
+		id = data['id']
+		file = id + ".json"
+		if lang == "PY":
+			location = "python/" + file
+		else:
+			location = "C/" + file
+		
+		if os.path.isfile(location):
+			f = open(location,"r")
 			trace = f.read()
-			
-			return Response(trace, status=200, mimetype="application/json")
+			f.close()
+			return Response(status=200,response=trace,mimetype="application/json")
+		else:
+			return Response(status=204,response={},mimetype="application/json")
+
+
+
+
 
 if __name__ == '__main__':
 	app.run(debug = True)
