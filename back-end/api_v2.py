@@ -62,8 +62,10 @@ def poller():
 		file = id + ".json"
 		if lang == "PY":
 			location = "python/" + file
-		else:
+		elif lang == "C":
 			location = "C/" + file
+		else:
+			pass
 		
 		if os.path.isfile(location):
 			f = open(location,"r")
