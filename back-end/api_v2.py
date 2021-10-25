@@ -17,6 +17,8 @@ api = Api(app)
 
 import time
 
+di_running_subprocesses = dict()
+
 @app.route('/api/tracegenerator', methods=['POST'])
 def get_trace():
 	if request.method == 'POST':
@@ -31,9 +33,8 @@ def get_trace():
 			with open(code_file, "w") as f:
 				f.write(usercode)
 			#Popen runs the process in background
-			dicttobesent = {"id":encoded_string}
-			subprocess.Popen(["python3","python/pythontutor/generate_json_trace.py",code_file,encoded_string])
-			return Response(status=200,response=json.dumps(dicttobesent),mimetype="application/json")
+			di_running_subprocesses[encoded_string] = subprocess.Popen(["python3","python/pythontutor/generate_json_trace.py",code_file,encoded_string])
+			
 
 		elif lang == 'C':
 			usercode = usercode + "\nint rsrsaser=0;\n"
@@ -45,13 +46,13 @@ def get_trace():
 			if "time" in data:
 				time_to_run = int(data["time"])
 			if "fns_to_skip" in data:
-				subprocess.Popen(["python","C/trace_generator.py","-f",code_file,"-s",encoded_string,"-t",time_to_run," ".join(data["fns_to_skip"])])
+				di_running_subprocesses[encoded_string] = subprocess.Popen(["python","C/trace_generator.py","-f",code_file,"-s",encoded_string,"-t",time_to_run," ".join(data["fns_to_skip"])])
 			else:
-				subprocess.Popen(["python","C/trace_generator.py","-f",code_file,"-s",encoded_string,"-t",time_to_run])
-
-			dicttobesent = {"id":encoded_string}
+				di_running_subprocesses[encoded_string] = subprocess.Popen(["python","C/trace_generator.py","-f",code_file,"-s",encoded_string,"-t",time_to_run])
 			subprocess.Popen(["python3","python/pythontutor/generate_json_trace.py",code_file,encoded_string])
-			return Response(status=200,response=json.dumps(dicttobesent),mimetype="application/json")
+
+		dicttobesent = {"id":encoded_string}	
+		return Response(status=200,response=json.dumps(dicttobesent),mimetype="application/json")
 
 @app.route('/api/traceget', methods=['POST'])
 def poller():
@@ -60,6 +61,7 @@ def poller():
 		lang = data['language']
 		id = data['id']
 		file = id + ".json"
+		
 		if lang == "PY":
 			location = "python/" + file
 		elif lang == "C":
@@ -71,6 +73,7 @@ def poller():
 			f = open(location,"r")
 			trace = f.read()
 			f.close()
+			di_running_subprocesses[id].terminate()
 			return Response(status=200,response=trace,mimetype="application/json")
 		else:
 			return Response(status=204,response={},mimetype="application/json")
