@@ -195,9 +195,9 @@ const createStackvar = (variable) => {
   }
   const nodeName = `node${variable.id}`;
   const label =
-      variable.name !== undefined
-        ? `<f0> ${variable.name}: ${variable.val}`
-        : `${variable.val}`;
+    variable.name !== undefined
+      ? `<f0> ${variable.name}: ${variable.val}`
+      : `${variable.val}`;
   return createNode(nodeName, label);
 };
 
@@ -322,9 +322,10 @@ const addChangingNodes = (prevLineData, lineData) => {
 
 var structs;
 
-const initialDigraph = `digraph code_viz {
+export const initialDigraph = `digraph code_viz {
 graph [
 rankdir = "LR"
+bgcolor="#F9F7F7"
 ];
 node [
 fontsize = "16"

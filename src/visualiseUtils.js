@@ -1,7 +1,7 @@
 import Viz from "./viz.js/viz.es.js";
 import { input } from "./viz.js/input.js";
 // import { getDigraphs, highlightLine, dehighlightLine } from "./viz.js/utils.js";
-import { getDigraphs } from "./viz.js/utils.js";
+import { getDigraphs, initialDigraph } from "./viz.js/utils.js";
 import { Colors } from "./colors.js";
 
 var viz = new Viz({ workerURL: "./viz.js/full.render.js" });
@@ -14,13 +14,9 @@ let line_idx = 1;
 
 let max_line_idx = 0;
 let max_line_idx_h = 0;
-for(let t=0;t<digraphs.length;t++)
-{
-	if(digraphs[t] !== "highlightNode")
-		++max_line_idx;
-	else
-		max_line_idx_h += 1;
-
+for (let t = 0; t < digraphs.length; t++) {
+  if (digraphs[t] !== "highlightNode") ++max_line_idx;
+  else max_line_idx_h += 1;
 }
 
 // const visualise = async () => {
@@ -111,38 +107,37 @@ export const step_forward = async () => {
 };
 
 export const step_backward = async () => {
-  if(idx > 1)
-	{
+  if (idx > 1) {
     // console.log("vis backward 1 idx=",idx," line_idx=",line_idx);
-    if(digraphs[idx - 1] === "highlightNode"){
-		idx -= 2;
-		highlightNodesIdx -= 1;
-	}
-	else	
-		idx -=1;
-	line_idx--; 
-	if(digraphs[idx - 1] === "highlightNode")
-	{
-		idx -= 2;
-		highlightNodesIdx -=1;
-	}
-	else	
-		idx -= 1;
-	line_idx--;
+    if (digraphs[idx - 1] === "highlightNode") {
+      idx -= 2;
+      highlightNodesIdx -= 1;
+    } else idx -= 1;
+    line_idx--;
+    if (digraphs[idx - 1] === "highlightNode") {
+      idx -= 2;
+      highlightNodesIdx -= 1;
+    } else idx -= 1;
+    line_idx--;
     // console.log("vis backward 2 idx=",idx," line_idx=",line_idx);
-	step_forward();
-	}
+    step_forward();
+  }
 };
 
-let play = 1;
+let play = 0;
 export const vis_play = async () => {
   // console.log("vis play idx=", idx, " line_idx=", line_idx);
   if (play === 0) play = 1;
   while (idx < digraphs.length && play) {
+    console.log(isDark);
     canvas.innerHTML = "";
     let digraph = digraphs[idx];
-    console.log(idx, digraph);
+    // console.log(idx, digraph);
     // dehighlightLine();
+    if (isDark) {
+      digraph = createDarkDigraph(digraph);
+      console.log(digraph);
+    }
     highlightLine(lineNos[line_idx]);
     viz.renderSVGElement(digraph).then(async function (element) {
       canvas.appendChild(element);
@@ -163,6 +158,7 @@ export const vis_play = async () => {
     idx++;
     line_idx++;
   }
+  play = 0;
 };
 
 export const vis_pause = async () => {
@@ -186,24 +182,41 @@ export const skip_to_end = async () => {
   // console.log("vis skip forward before idx=", idx, " line_idx=", line_idx);
   idx = digraphs.length - 1;
   line_idx = max_line_idx;
-  let highlightNodesIdx_difference = max_line_idx_h-highlightNodesIdx;
-	highlightNodesIdx += highlightNodesIdx_difference;
+  let highlightNodesIdx_difference = max_line_idx_h - highlightNodesIdx;
+  highlightNodesIdx += highlightNodesIdx_difference;
   step_forward();
   // console.log("vis skip forward after idx=", idx, " line_idx=", line_idx);
+};
+
+const createDarkDigraph = (digraph) => {
+  const darkDigraph = `digraph code_viz {
+    graph [
+    rankdir = "LR"
+    bgcolor="#0F0F0F"
+    ];
+    node [
+    fontsize = "16"
+    shape = "ellipse"
+    color="white"
+    fontcolor="#F9F7F7"
+    ];
+    edge [
+      color="#F9F7F7"
+    ];
+    `;
+  return digraph.replace(initialDigraph, darkDigraph);
 };
 
 const addHighlightedNodes = (nodeIds) => {
   let res = ``;
   nodeIds?.forEach((nodeId) => {
     res += `${nodeId}[
-  color="${Colors.green_1}"
+  color="${Colors.primary_1}"
 ]
 `;
   });
   return res;
 };
-
-
 
 var highlightNodesIdx = 0;
 const colorNodes = (digraph) => {
@@ -234,8 +247,16 @@ export const startVisualisation = () => {
   visualise_1();
 };
 
-export const init_variables = (canvasRef, setMarker) => {
-  canvas = canvasRef.current;
-  highlightLine = setMarker;
+var isDark = false;
+export const setIsDark = (is_dark) => {
+  isDark = is_dark;
+  if (canvas && play) {
+    canvas.innerHTML = "";
+  }
 };
 
+export const init_variables = (canvasRef, setMarker, is_dark) => {
+  canvas = canvasRef.current;
+  highlightLine = setMarker;
+  isDark = is_dark;
+};

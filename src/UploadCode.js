@@ -1,15 +1,16 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import AceEditor from "react-ace";
+import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/mode-c_cpp";
+import "ace-builds/src-noconflict/theme-vibrant_ink";
 import "ace-builds/src-noconflict/theme-xcode";
-import "ace-builds/src-noconflict/ext-language_tools";
 import { useHistory } from "react-router-dom";
 import logo from "./pes.jpg";
-import { Colors } from "./colors";
+import { ThemeContext } from "./theme";
 
 let fileReader;
 
@@ -48,6 +49,19 @@ const UploadCode = () => {
     }
   };
 
+  const { Colors, isDark } = useContext(ThemeContext);
+  const styles = useMemo(() => getStyles(Colors), [isDark]);
+
+  const [aceTheme, setAceTheme] = useState({ theme: "xcode" });
+
+  useEffect(() => {
+    if (isDark) {
+      setAceTheme({ theme: "vibrant_ink" });
+    } else {
+      setAceTheme({ theme: "xcode" });
+    }
+  }, [isDark]);
+
   const fileData = () => {
     if (file) {
       return (
@@ -55,7 +69,7 @@ const UploadCode = () => {
           <h4>Code :</h4>
           <AceEditor
             mode="c_cpp"
-            theme="xcode"
+            {...aceTheme}
             name="fileContentEditor"
             value={content}
             readOnly={true}
@@ -132,17 +146,27 @@ const UploadCode = () => {
   );
 };
 
-const styles = {
-  jumbotron: {
-    padding: "25px",
-    backgroundColor: Colors.green_1,
-    boxShadow: "0 3px 10px rgb(0 0 0 / 0.5)",
-  },
-  card: {
-    boxShadow: "0 3px 10px rgb(0 0 0 / 0.3)",
-    marginBottom: 16,
-  },
-  button: { backgroundColor: Colors.green_1, borderColor: Colors.green_1 },
+const getStyles = (Colors) => {
+  return {
+    jumbotron: {
+      padding: "25px",
+      backgroundColor: Colors.primary_1,
+      boxShadow: "0 3px 10px rgb(0 0 0 / 0.5)",
+      color: Colors.white_1,
+    },
+    card: {
+      boxShadow: "0 3px 10px rgb(0 0 0 / 0.3)",
+      marginBottom: 16,
+      backgroundColor: Colors.white_2,
+      color: Colors.black,
+    },
+    button: {
+      backgroundColor: Colors.primary_1,
+      borderColor: Colors.primary_1,
+      color: Colors.white_1,
+      alignSelf: "center",
+    },
+  };
 };
 
 export default UploadCode;
