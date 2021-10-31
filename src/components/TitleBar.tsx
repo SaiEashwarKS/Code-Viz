@@ -62,7 +62,6 @@ const getStyles = (Colors: any) => {
       fontSize: 20,
       padding: 16,
       color: Colors.white_1,
-      // color: Colors.constantWhite,
     },
     logoContainer: {
       display: "flex",

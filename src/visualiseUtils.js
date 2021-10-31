@@ -129,14 +129,12 @@ export const vis_play = async () => {
   // console.log("vis play idx=", idx, " line_idx=", line_idx);
   if (play === 0) play = 1;
   while (idx < digraphs.length && play) {
-    console.log(isDark);
     canvas.innerHTML = "";
     let digraph = digraphs[idx];
     // console.log(idx, digraph);
     // dehighlightLine();
     if (isDark) {
       digraph = createDarkDigraph(digraph);
-      console.log(digraph);
     }
     highlightLine(lineNos[line_idx]);
     viz.renderSVGElement(digraph).then(async function (element) {
@@ -194,7 +192,6 @@ const createDarkDigraph = (digraph) => {
     `bgcolor = "#F9F7F7"`,
     `bgcolor = "#0F0F0F"`
   );
-  console.log(darkDigraph);
   return darkDigraph;
 };
 

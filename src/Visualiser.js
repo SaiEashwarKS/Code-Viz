@@ -54,6 +54,13 @@ const Visualiser = ({ code, mode }) => {
   }, [isDark]);
 
   useEffect(() => {
+    const marker = document.getElementsByClassName("aceMarker")[0];
+    if (marker) {
+      marker.style.backgroundColor = Colors.primary_2;
+    }
+  });
+
+  useEffect(() => {
     if (isDark) {
       setAceTheme({ theme: "vibrant_ink" });
     } else {
