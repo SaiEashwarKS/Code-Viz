@@ -322,16 +322,19 @@ const addChangingNodes = (prevLineData, lineData) => {
 
 var structs;
 
-export const initialDigraph = `digraph code_viz {
+const initialDigraph = `digraph code_viz {
 graph [
 rankdir = "LR"
-bgcolor="#F9F7F7"
+bgcolor = "#F9F7F7"
 ];
 node [
 fontsize = "16"
 shape = "ellipse"
+color = "#0F0F0F"
+fontcolor = "#0F0F0F"
 ];
 edge [
+  color = "#0F0F0F"
 ];
 `;
 

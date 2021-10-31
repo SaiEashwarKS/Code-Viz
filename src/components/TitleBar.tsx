@@ -62,6 +62,7 @@ const getStyles = (Colors: any) => {
       fontSize: 20,
       padding: 16,
       color: Colors.white_1,
+      // color: Colors.constantWhite,
     },
     logoContainer: {
       display: "flex",
@@ -78,7 +79,6 @@ const getStyles = (Colors: any) => {
     },
     settingsIcon: {
       color: Colors.constantBlack,
-      // color: Colors.white_2,
       margin: 10,
       fontSize: 30,
     },

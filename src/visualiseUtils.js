@@ -1,7 +1,7 @@
 import Viz from "./viz.js/viz.es.js";
 import { input } from "./viz.js/input.js";
 // import { getDigraphs, highlightLine, dehighlightLine } from "./viz.js/utils.js";
-import { getDigraphs, initialDigraph } from "./viz.js/utils.js";
+import { getDigraphs } from "./viz.js/utils.js";
 import { Colors } from "./colors.js";
 
 var viz = new Viz({ workerURL: "./viz.js/full.render.js" });
@@ -189,22 +189,13 @@ export const skip_to_end = async () => {
 };
 
 const createDarkDigraph = (digraph) => {
-  const darkDigraph = `digraph code_viz {
-    graph [
-    rankdir = "LR"
-    bgcolor="#0F0F0F"
-    ];
-    node [
-    fontsize = "16"
-    shape = "ellipse"
-    color="white"
-    fontcolor="#F9F7F7"
-    ];
-    edge [
-      color="#F9F7F7"
-    ];
-    `;
-  return digraph.replace(initialDigraph, darkDigraph);
+  let darkDigraph = digraph.replaceAll("#0F0F0F", "#F9F7F7");
+  darkDigraph = darkDigraph.replaceAll(
+    `bgcolor = "#F9F7F7"`,
+    `bgcolor = "#0F0F0F"`
+  );
+  console.log(darkDigraph);
+  return darkDigraph;
 };
 
 const addHighlightedNodes = (nodeIds) => {
