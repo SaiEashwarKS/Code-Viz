@@ -1,4 +1,6 @@
-class node:
+import json
+
+s = '''class node:
     def __init__(self,val=0):
       self.left = None
       self.val = val
@@ -17,4 +19,5 @@ head.left.right = node(9500)
 head.right.left = node(10500)
 head.right.right = node(11500)
 
-head = mirror(head)
+head = mirror(head)'''
+print(json.dumps(s))

@@ -24,33 +24,33 @@ def get_trace():
 	if request.method == 'POST':
 		data = request.get_json()
 		lang = data['language']
-		usercode = data['code']
-		encoded_string = ""
 
-		if lang == 'PY':
-			encoded_string = hashlib.md5(usercode.encode()).hexdigest()
-			code_file = encoded_string + ".py"
-			with open(code_file, "w") as f:
-				f.write(usercode)
-			#Popen runs the process in background
-			di_running_subprocesses[encoded_string] = subprocess.Popen(["python3","python/pythontutor/generate_json_trace.py",code_file,encoded_string])
-			
+		usercode = data['code'] + "\nint rsrsaser=0;\n" if lang == "C" else data['code']
+		encoded_string = hashlib.md5(usercode.encode()).hexdigest()
 
-		elif lang == 'C':
-			usercode = usercode + "\nint rsrsaser=0;\n"
-			encoded_string = hashlib.md5(usercode.encode()).hexdigest()
+		#could have done this, but extensibiltiy of the code gets sacrificed while supporting multiple languages
+		#code_file = encoded_string + ".c" if lang == "C" else encoded_string+".py"
+		if lang == "C":
 			code_file = encoded_string + ".c"
+		elif lang == 'PY':
+			code_file = encoded_string+".py"
+		
+		if not(os.path.isfile(code_file)):
 			with open(code_file, "w") as f:
 				f.write(usercode)
-			time_to_run = 200
-			if "time" in data:
-				time_to_run = int(data["time"])
-			if "fns_to_skip" in data:
-				di_running_subprocesses[encoded_string] = subprocess.Popen(["python","C/trace_generator.py","-f",code_file,"-s",encoded_string,"-t",time_to_run," ".join(data["fns_to_skip"])])
-			else:
-				di_running_subprocesses[encoded_string] = subprocess.Popen(["python","C/trace_generator.py","-f",code_file,"-s",encoded_string,"-t",time_to_run])
-			subprocess.Popen(["python3","python/pythontutor/generate_json_trace.py",code_file,encoded_string])
 
+			if lang == 'PY':
+				di_running_subprocesses[encoded_string] = subprocess.Popen(["python3","python/pythontutor/generate_json_trace.py",code_file,encoded_string])
+				
+			elif lang == 'C':				
+				time_to_run = 200
+				if "time" in data:
+					time_to_run = int(data["time"])
+				if "fns_to_skip" in data:
+					di_running_subprocesses[encoded_string] = subprocess.Popen(["python","C/trace_generator.py","-f",code_file,"-s",encoded_string,"-t",time_to_run," ".join(data["fns_to_skip"])])
+				else:
+					di_running_subprocesses[encoded_string] = subprocess.Popen(["python","C/trace_generator.py","-f",code_file,"-s",encoded_string,"-t",time_to_run])
+				
 		dicttobesent = {"id":encoded_string}	
 		return Response(status=200,response=json.dumps(dicttobesent),mimetype="application/json")
 
@@ -58,16 +58,15 @@ def get_trace():
 def poller():
 	if request.method == "POST":
 		data = request.get_json()
-		lang = data['language']
 		id = data['id']
-		file = id + ".json"
+		location = id + ".json"
 		
-		if lang == "PY":
-			location = "python/" + file
-		elif lang == "C":
-			location = "C/" + file
-		else:
-			pass
+		# if lang == "PY":
+		# 	location = "python/" + file
+		# elif lang == "C":
+		# 	location = "C/" + file
+		# else:
+		# 	pass
 		
 		if os.path.isfile(location):
 			f = open(location,"r")
