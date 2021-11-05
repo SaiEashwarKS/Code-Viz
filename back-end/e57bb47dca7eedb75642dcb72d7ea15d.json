@@ -1,0 +1,283 @@
+{
+  "Structures": {
+    "struct node": {
+      "fields": [
+        {
+          "type": "ptr", 
+          "name": "left", 
+          "data_type": "struct node *"
+        }, 
+        {
+          "type": "var", 
+          "name": "data", 
+          "data_type": "int"
+        }, 
+        {
+          "type": "ptr", 
+          "name": "right", 
+          "data_type": "struct node *"
+        }, 
+        {
+          "type": "ptr", 
+          "name": "parent", 
+          "data_type": "struct node *"
+        }
+      ], 
+      "datastructure": "tree"
+    }
+  }, 
+  "Lines_Data": [
+    {
+      "LineNum": 0, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "0", 
+          "name": "g"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 3, 
+          "val": 1, 
+          "name": "head"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 0, 
+      "stackdepth": 1, 
+      "nameid": 5, 
+      "type": "Function", 
+      "id": 4, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 29, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "0", 
+          "name": "g"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 3, 
+          "val": 1, 
+          "name": "head"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 29, 
+      "stackdepth": 1, 
+      "nameid": 5, 
+      "type": "Function", 
+      "id": 4, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 30, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "0", 
+          "name": "g"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 3, 
+          "val": 1, 
+          "name": "head"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 30, 
+      "stackdepth": 1, 
+      "nameid": 5, 
+      "type": "Function", 
+      "id": 4, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 31, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "0", 
+          "name": "g"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 3, 
+          "val": 1, 
+          "name": "head"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 31, 
+      "stackdepth": 1, 
+      "nameid": 5, 
+      "type": "Function", 
+      "id": 4, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 32, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "0", 
+          "name": "g"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 3, 
+          "val": 1, 
+          "name": "head"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 32, 
+      "stackdepth": 1, 
+      "nameid": 5, 
+      "type": "Function", 
+      "id": 4, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 33, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "0", 
+          "name": "g"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 3, 
+          "val": 1, 
+          "name": "head"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 33, 
+      "stackdepth": 1, 
+      "nameid": 5, 
+      "type": "Function", 
+      "id": 4, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 34, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "0", 
+          "name": "g"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 3, 
+          "val": 1, 
+          "name": "head"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 34, 
+      "stackdepth": 1, 
+      "nameid": 5, 
+      "type": "Function", 
+      "id": 4, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 35, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "0", 
+          "name": "g"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 3, 
+          "val": 1, 
+          "name": "head"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 35, 
+      "stackdepth": 1, 
+      "nameid": 5, 
+      "type": "Function", 
+      "id": 4, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 36, 
+      "type": "GlobalVariables", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 2, 
+          "val": "0", 
+          "name": "g"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 3, 
+          "val": 1, 
+          "name": "head"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 36, 
+      "stackdepth": 1, 
+      "nameid": 5, 
+      "type": "Function", 
+      "id": 4, 
+      "name": "main"
+    }
+  ]
+}

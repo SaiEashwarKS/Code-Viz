@@ -43,9 +43,9 @@ def get_trace():
 				di_running_subprocesses[encoded_string] = subprocess.Popen(["python3","python/pythontutor/generate_json_trace.py",code_file,encoded_string])
 				
 			elif lang == 'C':				
-				time_to_run = 200
+				time_to_run = str(200)
 				if "time" in data:
-					time_to_run = int(data["time"])
+					time_to_run = str(int(data["time"]))
 				if "fns_to_skip" in data:
 					di_running_subprocesses[encoded_string] = subprocess.Popen(["python","C/trace_generator.py","-f",code_file,"-s",encoded_string,"-t",time_to_run," ".join(data["fns_to_skip"])])
 				else:
@@ -60,13 +60,6 @@ def poller():
 		data = request.get_json()
 		id = data['id']
 		location = id + ".json"
-		
-		# if lang == "PY":
-		# 	location = "python/" + file
-		# elif lang == "C":
-		# 	location = "C/" + file
-		# else:
-		# 	pass
 		
 		if os.path.isfile(location):
 			f = open(location,"r")

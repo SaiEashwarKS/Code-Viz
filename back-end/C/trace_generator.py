@@ -57,6 +57,8 @@ gn = 0
 sn = 0 # no of local/stack variables
 an = 0
 
+print("HELLO")
+
 addr_to_id = {}#addr_to_id is for mapping addressID to smaller id
 id_counter = 1
 
@@ -80,13 +82,16 @@ my_file = args.file
 
 final_json_location = args.save
 
+final_file = final_json_location+".json"
+
 time_limit = 200
 if args.time:
 	time_limit = min(args.time, 1000)
-
+print(args.functions)
 if args.functions:
-	skip_fn += args.functions
+	skip_fn += args.functions[0].split()
 
+print(skip_fn)
 # my_file = raw_input('Enter C Program Name (with ./ if in local directory): ')
 '''
 my_file = sys.argv[1]
@@ -99,20 +104,20 @@ logb = 1
 
 
 subprocess.call(["gcc","-c","-Dmalloc=mymalloc", "-Dfree=myfree","-g",my_file])
-logb = subprocess.call(["gcc","-g","-static",str(my_file)[:-1]+"o","mymalloc.o"])
+logb = subprocess.call(["gcc","-g","-static",str(my_file)[:-1]+"o","C/mymalloc.o"])
 
 if logb:
 	p_glob = Popen(["gcc","-c",my_file], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 	op = p_glob.communicate()
-	f = open("ll.json","w")
+	f = open(final_file,"w")
 	#print("HERE",op[1])
 	f.write(json.dumps("COMPILE TIME ERROR\n" + op[1]))
 	f.close()
 	#had to do all this bullshitery to remove left and right quotes which appear as unknown unicode characters in the file
-	f = open("ll.json","r")
+	f = open(final_file,"r")
 	new = (f.read().replace(my_file,"").replace("\u2018","'").replace("\u2019","'"))
 	f.close()
-	f = open("ll.json","w")
+	f = open(final_file,"w")
 	f.write(new)
 	f.close()
 	sys.exit()
@@ -1360,7 +1365,7 @@ maindic = {"Lines_Data":lines_data}
 maindic["Structures"] = struct_details
 maindic = json.dumps(maindic,indent=2)
 
-final_file = final_json_location+".json"
+
 f1=open(final_file,"w")
 f1.write(maindic)
 f1.close()

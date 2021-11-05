@@ -42,6 +42,7 @@ parser.add_option("--code", dest="usercode", default=None,
 INDENT_LEVEL = None if options.compact else 2
 
 #cviz
+print("HERE")
 
 if options.usercode:
 	INDENT_LEVEL = None
