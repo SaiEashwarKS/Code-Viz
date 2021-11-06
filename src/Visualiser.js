@@ -23,7 +23,7 @@ import {
   vis_pause,
   vis_play,
 } from "./visualiseUtils";
-import { ThemeContext } from "./theme";
+import { ConfigContext } from "./config";
 
 const Visualiser = ({ code, mode }) => {
   const [canvasRef, setCanvasRef] = useState(null);
@@ -34,7 +34,9 @@ const Visualiser = ({ code, mode }) => {
     },
   ]);
 
-  const { Colors, isDark } = useContext(ThemeContext);
+  const { config } = useContext(ConfigContext);
+  const { fontSize, Colors, isDark } = config;
+
   const styles = useMemo(() => getStyles(Colors), [isDark]);
   const [aceTheme, setAceTheme] = useState({ theme: "xcode" });
 
@@ -93,7 +95,7 @@ const Visualiser = ({ code, mode }) => {
             mode={mode}
             markers={aceMarker}
             readOnly
-            fontSize={16}
+            fontSize={fontSize}
             width={"100%"}
             height={"100%"}
             {...aceTheme}

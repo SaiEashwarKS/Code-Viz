@@ -10,7 +10,7 @@ import "ace-builds/src-noconflict/theme-vibrant_ink";
 import "ace-builds/src-noconflict/theme-xcode";
 import { useHistory } from "react-router-dom";
 import logo from "./pes.jpg";
-import { ThemeContext } from "./theme";
+import { ConfigContext } from "./config";
 
 let fileReader;
 
@@ -49,7 +49,8 @@ const UploadCode = () => {
     }
   };
 
-  const { Colors, isDark } = useContext(ThemeContext);
+  const { config } = useContext(ConfigContext);
+  const { Colors, isDark } = config;
   const styles = useMemo(() => getStyles(Colors), [isDark]);
 
   const [aceTheme, setAceTheme] = useState({ theme: "xcode" });

@@ -1,10 +1,10 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import { Colors } from "./colors";
 import UploadCode from "./UploadCode";
 import Visualiser from "./Visualiser";
-import { ThemeContext } from "./theme";
+import { ConfigContext, configType, defaultConfig } from "./config";
 
 const code = `a = [1,2,3,"saminamina"]
 
@@ -18,17 +18,26 @@ else:
     k=8`;
 
 function App() {
-  const [isDark, setIsDark] = useState(false);
+  const [configValue, setConfigValue] = useState<configType>(defaultConfig);
+  const setConfig = (config: Partial<configType>) => {
+    setConfigValue((prevConfig: configType) => {
+      return { ...prevConfig, ...config };
+    });
+  };
+  const { isDark } = configValue;
   const colors = isDark ? Colors.dark : Colors.light;
+  const configContextValue = {
+    config: { ...configValue, Colors: colors },
+    setConfig,
+  };
 
   useEffect(() => {
     document.body.style.backgroundColor = colors.white_1;
   }, [isDark]);
 
-  const themeProviderValue = { Colors: colors, isDark, setIsDark };
   return (
     <>
-      <ThemeContext.Provider value={themeProviderValue}>
+      <ConfigContext.Provider value={configContextValue}>
         <Router>
           <Switch>
             <Route exact path="/">
@@ -41,7 +50,7 @@ function App() {
             </Route>
           </Switch>
         </Router>
-      </ThemeContext.Provider>
+      </ConfigContext.Provider>
     </>
   );
 }

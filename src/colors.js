@@ -15,7 +15,7 @@ const ColorsLight = {
 const ColorsDark = {
   ...constantColors,
   primary_1: "#293A80",
-  primary_2: "#537EC5",
+  primary_2: "#4a568a",
   white_1: "#000",
   white_2: "#0F0F0F",
   black: "#F9F7F7",

@@ -4,14 +4,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSlidersH } from "@fortawesome/free-solid-svg-icons";
 import { SettingsMenu } from ".";
 import { useContext, useState } from "react";
-import { ThemeContext } from "../theme";
+import { ConfigContext } from "../config";
 
 const TitleBar = () => {
   const [showSettings, setShowSettings] = useState(false);
   const onSettingsClick = () => {
     setShowSettings(!showSettings);
   };
-  const { Colors } = useContext(ThemeContext);
+  const { config } = useContext(ConfigContext);
+  const { Colors } = config;
   const styles = getStyles(Colors);
   const settingsIconBgColor = showSettings
     ? Colors.primary_2
@@ -72,14 +73,18 @@ const getStyles = (Colors: any) => {
     settingsIconContainer: {
       cursor: "pointer",
       margin: 4,
+      marginRight: 10,
       borderRadius: 50,
-      height: 50,
-      width: 50,
+      height: 35,
+      width: 35,
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
     },
     settingsIcon: {
       color: Colors.constantBlack,
-      margin: 10,
-      fontSize: 30,
+      // margin: 10,
+      fontSize: 22,
     },
     pesLogo: {
       height: 50,

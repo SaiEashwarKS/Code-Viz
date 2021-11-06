@@ -1,6 +1,5 @@
 import { useContext } from "react";
-// import { Colors } from "../colors";
-import { ThemeContext } from "../theme";
+import { ConfigContext } from "../config";
 
 type propsType = {
   onStart?: () => void;
@@ -22,7 +21,8 @@ const ControlBar = (props: propsType) => {
     onSkipToEnd,
   } = props;
 
-  const { Colors } = useContext(ThemeContext);
+  const { config } = useContext(ConfigContext);
+  const { Colors } = config;
   const styles = getStyles(Colors);
   return (
     <div style={styles.container}>
