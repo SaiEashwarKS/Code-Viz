@@ -77,6 +77,7 @@ const visualise_1 = async () => {
 
 const visualiseDigraph = (digraph) => {
   digraph = addConfigDigraph(digraph);
+  console.log(digraph);
   viz.renderSVGElement(digraph).then(async function (element) {
     canvas.appendChild(element);
   });

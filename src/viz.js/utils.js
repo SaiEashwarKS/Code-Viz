@@ -83,7 +83,7 @@ const createGraphNode = (variable) => {
   let graph = `subgraph cluster_${graphName.replace(
     " ",
     ""
-  )}{\ncolor=black;\nlabel="${graphName}";\n`;
+  )}{\ncolor="$edgeColor";\nlabel="${graphName}"\nfontcolor="$fontColor";\n`;
   for (let valIdx in variable.val) {
     const vals = variable.val[valIdx];
     const vertexWeights = vals["vertex_weights"];
@@ -186,7 +186,7 @@ const createStructNode = (variable) => {
 
 const createStackvar = (variable) => {
   if (
-    ["int", "float", "char", "str"].find(
+    ["int", "float", "char", "str", "int ("].find(
       (ele) => ele === variable.data_type
     ) === undefined
   ) {
@@ -335,6 +335,7 @@ fontcolor = "$fontColor"
 ];
 edge [
   color = "$edgeColor"
+  fontcolor = "$fontColor"
 ];
 `;
 

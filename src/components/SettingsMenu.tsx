@@ -34,7 +34,7 @@ const SettingsMenu = ({ style }: propsType) => {
     <div style={{ ...styles.container, ...style }}>
       <div style={styles.itemContainer}>
         <div style={styles.labelContainer}>
-          <span>Dark Mode</span>
+          <span>Dark mode</span>
         </div>
         <div style={styles.valueContainer}>
           <Toggle
