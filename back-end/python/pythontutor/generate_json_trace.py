@@ -185,7 +185,10 @@ def format_trace(trace:List[Dict]):
 		step += 1
 		
 		if 'exception_msg' in entry:
+			print(entry)
 			exception = dict(type='Exception',message=entry['exception_msg'])
+			if 'LineNum' in entry:
+				exception['LineNum'] = entry['LineNum']
 			if 'line' in entry:
 				exception['LineNum'] = entry['line']
 			if 'offset' in entry:
@@ -230,12 +233,11 @@ def format_trace(trace:List[Dict]):
 	return new_trace
 
 tr = json.loads(out_trace)
-#print(type(tr))
 new_tr = format_trace(tr['trace'])
 Lines_Data = dict(Lines_Data=new_tr)
 trace_json = json.dumps(Lines_Data, indent=2)
 
 file_name = sys.argv[2] + ".json"
-newf=open(file_name,"w")
-#print(trace_json)
+newf = open(file_name,"w")
 newf.write(trace_json)
+
