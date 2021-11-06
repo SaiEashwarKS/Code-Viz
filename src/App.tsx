@@ -74,11 +74,15 @@ void remove_to_edges(int to_be_explored,struct graph* gr)
 
 }
 
-void toposort(struct graph* gr)
+int main()
 {
+    int k=0;
+    struct graph gr;
+    fill_graph(&gr);
     int visited[MAX];
     int number_of_incoming_edges;
     fill_visited(visited);
+
     for (int numberoftimes=0;numberoftimes<MAX;++numberoftimes)
     {
         int to_be_explored = -1;
@@ -86,7 +90,7 @@ void toposort(struct graph* gr)
         {
             if (visited[currentvertex]==0)
             {
-                number_of_incoming_edges = check_incoming_edges(currentvertex,gr);               
+                number_of_incoming_edges = check_incoming_edges(currentvertex,&gr);               
                 if (number_of_incoming_edges==0)
                 {
                     to_be_explored = currentvertex;
@@ -95,16 +99,8 @@ void toposort(struct graph* gr)
             }
         }
         visited[to_be_explored] = 1;
-        remove_to_edges(to_be_explored,gr);
+        remove_to_edges(to_be_explored,&gr);
     }
-}
-
-int main()
-{
-    int k=0;
-    struct graph gr;
-    fill_graph(&gr);
-    toposort(&gr);
 }
 
 int rsrsaser=0;
