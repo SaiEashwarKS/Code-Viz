@@ -223,10 +223,10 @@ def format_trace(trace:List[Dict]):
 	step = 0
 	for entry in trace:
 		step += 1
-		if entry['LineNum'] == cv_lineno:
+		if entry['LineNum'] == cv_lineno and step < steps_count - 1:
 			continue
-		if entry['event'] == 'return' and step < steps_count - 2:
-			continue
+		#if entry['event'] == 'return' and step < steps_count - 2:
+		#	continue
 		if 'exception_msg' in entry:
 			new_trace.append(dict(exception_msg=entry['exception_msg']))
 			break
