@@ -57,7 +57,6 @@ gn = 0
 sn = 0 # no of local/stack variables
 an = 0
 
-print("HELLO")
 
 addr_to_id = {}#addr_to_id is for mapping addressID to smaller id
 id_counter = 1
@@ -87,11 +86,14 @@ final_file = final_json_location+".json"
 time_limit = 200
 if args.time:
 	time_limit = min(args.time, 1000)
-print(args.functions)
+
+#print(args.functions)
+
 if args.functions:
 	skip_fn += args.functions[0].split()
 
-print(skip_fn)
+#print(skip_fn)
+
 # my_file = raw_input('Enter C Program Name (with ./ if in local directory): ')
 '''
 my_file = sys.argv[1]
@@ -110,8 +112,13 @@ if logb:
 	p_glob = Popen(["gcc","-c",my_file], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 	op = p_glob.communicate()
 	f = open(final_file,"w")
-	#print("HERE",op[1])
-	f.write(json.dumps("COMPILE TIME ERROR\n" + op[1]))
+	print("Exception",op[1])
+	
+	trace = dict(Structures={}, Lines_Data=[])
+	exception = dict(type='Exception', message=op[1])
+	trace['Lines_Data'].append(exception)
+	
+	f.write(json.dumps(trace, indent=2))
 	f.close()
 	#had to do all this bullshitery to remove left and right quotes which appear as unknown unicode characters in the file
 	f = open(final_file,"r")
@@ -812,10 +819,10 @@ def output(p1,flag):#display (stack frame, arguments..)
 			use_next = 1
 			break
 	
-	
 	if "scanf" in my_out:
 		global scanf
 		scanf = 1
+	
 	if "printf" in my_out:
 		print "Output from printf is:"
 		op_string = my_out[11:len(my_out)-9].split(",")
@@ -1107,10 +1114,7 @@ def identify_datastructure(structure, structure_name):
 			return 
 		'''
 		
-			
-			
 
-			
 
 
 def get_heap_info(pipe):
@@ -1359,6 +1363,9 @@ for structure in struct_details:
 			struct_details[structure]['datastructure'] ='linkedlist'
 			break
 '''
+
+if curtime-starttime >= time_limit:
+	lines_data.append(dict(type='Exception', message='Please shorten your code,\nCode-Viz is not designed to handle long-running code.'))
 
 #print("\nLINES DATA",lines_data,"\n")
 maindic = {"Lines_Data":lines_data}
