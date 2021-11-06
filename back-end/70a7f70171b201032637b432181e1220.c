@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>
-
 struct node
 {
     struct node* left;
@@ -41,3 +40,6 @@ int main()
     head->right->right=createnode(11500);  
     head = tree_mirroring(head); 
 }
+
+
+int rsrsaser=0;

@@ -173,312 +173,6 @@
             },
             {
               "type": "var",
-              "name": "right",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        }
-      ]
-    },
-    {
-      "LineNum": 4,
-      "type": "GlobalVariables",
-      "Contents": []
-    },
-    {
-      "LineNum": 4,
-      "type": "StackFrame",
-      "Contents": []
-    },
-    {
-      "LineNum": 5,
-      "stackdepth": 0,
-      "type": "Function"
-    },
-    {
-      "LineNum": 5,
-      "type": "Heap",
-      "Contents": [
-        {
-          "id": 4,
-          "data_type": "node",
-          "val": [
-            {
-              "type": "var",
-              "name": "left",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
-              "name": "right",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
-              "name": "val",
-              "val": 10000,
-              "data_type": "int"
-            }
-          ],
-          "type": "var"
-        }
-      ]
-    },
-    {
-      "LineNum": 5,
-      "type": "GlobalVariables",
-      "Contents": [
-        {
-          "type": "ptr",
-          "id": "1000",
-          "val": 4,
-          "name": "head"
-        }
-      ]
-    },
-    {
-      "LineNum": 5,
-      "type": "StackFrame",
-      "Contents": []
-    },
-    {
-      "LineNum": 13,
-      "stackdepth": 1,
-      "type": "Function",
-      "name": "__init__"
-    },
-    {
-      "LineNum": 13,
-      "type": "Heap",
-      "Contents": [
-        {
-          "id": 5,
-          "data_type": "node",
-          "val": [],
-          "type": "var"
-        },
-        {
-          "id": 4,
-          "data_type": "node",
-          "val": [
-            {
-              "type": "var",
-              "name": "left",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
-              "name": "right",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
-              "name": "val",
-              "val": 10000,
-              "data_type": "int"
-            }
-          ],
-          "type": "var"
-        }
-      ]
-    },
-    {
-      "LineNum": 13,
-      "type": "GlobalVariables",
-      "Contents": [
-        {
-          "type": "ptr",
-          "id": "1000",
-          "val": 4,
-          "name": "head"
-        }
-      ]
-    },
-    {
-      "LineNum": 13,
-      "type": "StackFrame",
-      "Contents": []
-    },
-    {
-      "LineNum": 2,
-      "stackdepth": 1,
-      "type": "Function",
-      "name": "__init__"
-    },
-    {
-      "LineNum": 2,
-      "type": "Heap",
-      "Contents": [
-        {
-          "id": 5,
-          "data_type": "node",
-          "val": [],
-          "type": "var"
-        },
-        {
-          "id": 4,
-          "data_type": "node",
-          "val": [
-            {
-              "type": "var",
-              "name": "left",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
-              "name": "right",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
-              "name": "val",
-              "val": 10000,
-              "data_type": "int"
-            }
-          ],
-          "type": "var"
-        }
-      ]
-    },
-    {
-      "LineNum": 2,
-      "type": "GlobalVariables",
-      "Contents": [
-        {
-          "type": "ptr",
-          "id": "1000",
-          "val": 4,
-          "name": "head"
-        }
-      ]
-    },
-    {
-      "LineNum": 2,
-      "type": "StackFrame",
-      "Contents": []
-    },
-    {
-      "LineNum": 3,
-      "stackdepth": 1,
-      "type": "Function",
-      "name": "__init__"
-    },
-    {
-      "LineNum": 3,
-      "type": "Heap",
-      "Contents": [
-        {
-          "id": 5,
-          "data_type": "node",
-          "val": [
-            {
-              "type": "var",
-              "name": "left",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 4,
-          "data_type": "node",
-          "val": [
-            {
-              "type": "var",
-              "name": "left",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
-              "name": "right",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
-              "name": "val",
-              "val": 10000,
-              "data_type": "int"
-            }
-          ],
-          "type": "var"
-        }
-      ]
-    },
-    {
-      "LineNum": 3,
-      "type": "GlobalVariables",
-      "Contents": [
-        {
-          "type": "ptr",
-          "id": "1000",
-          "val": 4,
-          "name": "head"
-        }
-      ]
-    },
-    {
-      "LineNum": 3,
-      "type": "StackFrame",
-      "Contents": []
-    },
-    {
-      "LineNum": 4,
-      "stackdepth": 1,
-      "type": "Function",
-      "name": "__init__"
-    },
-    {
-      "LineNum": 4,
-      "type": "Heap",
-      "Contents": [
-        {
-          "id": 5,
-          "data_type": "node",
-          "val": [
-            {
-              "type": "var",
-              "name": "left",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
-              "name": "right",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 4,
-          "data_type": "node",
-          "val": [
-            {
-              "type": "var",
-              "name": "left",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
-              "name": "right",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
               "name": "val",
               "val": 10000,
               "data_type": "int"
@@ -491,14 +185,7 @@
     {
       "LineNum": 4,
       "type": "GlobalVariables",
-      "Contents": [
-        {
-          "type": "ptr",
-          "id": "1000",
-          "val": 4,
-          "name": "head"
-        }
-      ]
+      "Contents": []
     },
     {
       "LineNum": 4,
@@ -519,9 +206,10 @@
           "data_type": "node",
           "val": [
             {
-              "type": "ptr",
+              "type": "var",
               "name": "left",
-              "val": 5
+              "val": null,
+              "data_type": "NoneType"
             },
             {
               "type": "var",
@@ -533,31 +221,6 @@
               "type": "var",
               "name": "val",
               "val": 10000,
-              "data_type": "int"
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 5,
-          "data_type": "node",
-          "val": [
-            {
-              "type": "var",
-              "name": "left",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
-              "name": "right",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
-              "name": "val",
-              "val": 9000,
               "data_type": "int"
             }
           ],
@@ -583,17 +246,17 @@
       "Contents": []
     },
     {
-      "LineNum": 14,
+      "LineNum": 13,
       "stackdepth": 1,
       "type": "Function",
       "name": "__init__"
     },
     {
-      "LineNum": 14,
+      "LineNum": 13,
       "type": "Heap",
       "Contents": [
         {
-          "id": 6,
+          "id": 5,
           "data_type": "node",
           "val": [],
           "type": "var"
@@ -603,9 +266,10 @@
           "data_type": "node",
           "val": [
             {
-              "type": "ptr",
+              "type": "var",
               "name": "left",
-              "val": 5
+              "val": null,
+              "data_type": "NoneType"
             },
             {
               "type": "var",
@@ -621,36 +285,11 @@
             }
           ],
           "type": "var"
-        },
-        {
-          "id": 5,
-          "data_type": "node",
-          "val": [
-            {
-              "type": "var",
-              "name": "left",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
-              "name": "right",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
-              "name": "val",
-              "val": 9000,
-              "data_type": "int"
-            }
-          ],
-          "type": "var"
         }
       ]
     },
     {
-      "LineNum": 14,
+      "LineNum": 13,
       "type": "GlobalVariables",
       "Contents": [
         {
@@ -662,7 +301,7 @@
       ]
     },
     {
-      "LineNum": 14,
+      "LineNum": 13,
       "type": "StackFrame",
       "Contents": []
     },
@@ -677,7 +316,7 @@
       "type": "Heap",
       "Contents": [
         {
-          "id": 6,
+          "id": 5,
           "data_type": "node",
           "val": [],
           "type": "var"
@@ -687,9 +326,10 @@
           "data_type": "node",
           "val": [
             {
-              "type": "ptr",
+              "type": "var",
               "name": "left",
-              "val": 5
+              "val": null,
+              "data_type": "NoneType"
             },
             {
               "type": "var",
@@ -701,31 +341,6 @@
               "type": "var",
               "name": "val",
               "val": 10000,
-              "data_type": "int"
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 5,
-          "data_type": "node",
-          "val": [
-            {
-              "type": "var",
-              "name": "left",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
-              "name": "right",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
-              "name": "val",
-              "val": 9000,
               "data_type": "int"
             }
           ],
@@ -761,7 +376,7 @@
       "type": "Heap",
       "Contents": [
         {
-          "id": 6,
+          "id": 5,
           "data_type": "node",
           "val": [
             {
@@ -778,9 +393,10 @@
           "data_type": "node",
           "val": [
             {
-              "type": "ptr",
+              "type": "var",
               "name": "left",
-              "val": 5
+              "val": null,
+              "data_type": "NoneType"
             },
             {
               "type": "var",
@@ -792,31 +408,6 @@
               "type": "var",
               "name": "val",
               "val": 10000,
-              "data_type": "int"
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 5,
-          "data_type": "node",
-          "val": [
-            {
-              "type": "var",
-              "name": "left",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
-              "name": "right",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
-              "name": "val",
-              "val": 9000,
               "data_type": "int"
             }
           ],
@@ -852,49 +443,6 @@
       "type": "Heap",
       "Contents": [
         {
-          "id": 6,
-          "data_type": "node",
-          "val": [
-            {
-              "type": "var",
-              "name": "left",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
-              "name": "right",
-              "val": null,
-              "data_type": "NoneType"
-            }
-          ],
-          "type": "var"
-        },
-        {
-          "id": 4,
-          "data_type": "node",
-          "val": [
-            {
-              "type": "ptr",
-              "name": "left",
-              "val": 5
-            },
-            {
-              "type": "var",
-              "name": "right",
-              "val": null,
-              "data_type": "NoneType"
-            },
-            {
-              "type": "var",
-              "name": "val",
-              "val": 10000,
-              "data_type": "int"
-            }
-          ],
-          "type": "var"
-        },
-        {
           "id": 5,
           "data_type": "node",
           "val": [
@@ -906,6 +454,25 @@
             },
             {
               "type": "var",
+              "name": "val",
+              "val": 9000,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        },
+        {
+          "id": 4,
+          "data_type": "node",
+          "val": [
+            {
+              "type": "var",
+              "name": "left",
+              "val": null,
+              "data_type": "NoneType"
+            },
+            {
+              "type": "var",
               "name": "right",
               "val": null,
               "data_type": "NoneType"
@@ -913,7 +480,7 @@
             {
               "type": "var",
               "name": "val",
-              "val": 9000,
+              "val": 10000,
               "data_type": "int"
             }
           ],
@@ -957,6 +524,439 @@
               "val": 5
             },
             {
+              "type": "var",
+              "name": "right",
+              "val": null,
+              "data_type": "NoneType"
+            },
+            {
+              "type": "var",
+              "name": "val",
+              "val": 10000,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        },
+        {
+          "id": 5,
+          "data_type": "node",
+          "val": [
+            {
+              "type": "var",
+              "name": "left",
+              "val": null,
+              "data_type": "NoneType"
+            },
+            {
+              "type": "var",
+              "name": "right",
+              "val": null,
+              "data_type": "NoneType"
+            },
+            {
+              "type": "var",
+              "name": "val",
+              "val": 9000,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        }
+      ]
+    },
+    {
+      "LineNum": 5,
+      "type": "GlobalVariables",
+      "Contents": [
+        {
+          "type": "ptr",
+          "id": "1000",
+          "val": 4,
+          "name": "head"
+        }
+      ]
+    },
+    {
+      "LineNum": 5,
+      "type": "StackFrame",
+      "Contents": []
+    },
+    {
+      "LineNum": 14,
+      "stackdepth": 1,
+      "type": "Function",
+      "name": "__init__"
+    },
+    {
+      "LineNum": 14,
+      "type": "Heap",
+      "Contents": [
+        {
+          "id": 6,
+          "data_type": "node",
+          "val": [],
+          "type": "var"
+        },
+        {
+          "id": 4,
+          "data_type": "node",
+          "val": [
+            {
+              "type": "ptr",
+              "name": "left",
+              "val": 5
+            },
+            {
+              "type": "var",
+              "name": "right",
+              "val": null,
+              "data_type": "NoneType"
+            },
+            {
+              "type": "var",
+              "name": "val",
+              "val": 10000,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        },
+        {
+          "id": 5,
+          "data_type": "node",
+          "val": [
+            {
+              "type": "var",
+              "name": "left",
+              "val": null,
+              "data_type": "NoneType"
+            },
+            {
+              "type": "var",
+              "name": "right",
+              "val": null,
+              "data_type": "NoneType"
+            },
+            {
+              "type": "var",
+              "name": "val",
+              "val": 9000,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        }
+      ]
+    },
+    {
+      "LineNum": 14,
+      "type": "GlobalVariables",
+      "Contents": [
+        {
+          "type": "ptr",
+          "id": "1000",
+          "val": 4,
+          "name": "head"
+        }
+      ]
+    },
+    {
+      "LineNum": 14,
+      "type": "StackFrame",
+      "Contents": []
+    },
+    {
+      "LineNum": 2,
+      "stackdepth": 1,
+      "type": "Function",
+      "name": "__init__"
+    },
+    {
+      "LineNum": 2,
+      "type": "Heap",
+      "Contents": [
+        {
+          "id": 6,
+          "data_type": "node",
+          "val": [],
+          "type": "var"
+        },
+        {
+          "id": 4,
+          "data_type": "node",
+          "val": [
+            {
+              "type": "ptr",
+              "name": "left",
+              "val": 5
+            },
+            {
+              "type": "var",
+              "name": "right",
+              "val": null,
+              "data_type": "NoneType"
+            },
+            {
+              "type": "var",
+              "name": "val",
+              "val": 10000,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        },
+        {
+          "id": 5,
+          "data_type": "node",
+          "val": [
+            {
+              "type": "var",
+              "name": "left",
+              "val": null,
+              "data_type": "NoneType"
+            },
+            {
+              "type": "var",
+              "name": "right",
+              "val": null,
+              "data_type": "NoneType"
+            },
+            {
+              "type": "var",
+              "name": "val",
+              "val": 9000,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        }
+      ]
+    },
+    {
+      "LineNum": 2,
+      "type": "GlobalVariables",
+      "Contents": [
+        {
+          "type": "ptr",
+          "id": "1000",
+          "val": 4,
+          "name": "head"
+        }
+      ]
+    },
+    {
+      "LineNum": 2,
+      "type": "StackFrame",
+      "Contents": []
+    },
+    {
+      "LineNum": 3,
+      "stackdepth": 1,
+      "type": "Function",
+      "name": "__init__"
+    },
+    {
+      "LineNum": 3,
+      "type": "Heap",
+      "Contents": [
+        {
+          "id": 6,
+          "data_type": "node",
+          "val": [
+            {
+              "type": "var",
+              "name": "left",
+              "val": null,
+              "data_type": "NoneType"
+            }
+          ],
+          "type": "var"
+        },
+        {
+          "id": 4,
+          "data_type": "node",
+          "val": [
+            {
+              "type": "ptr",
+              "name": "left",
+              "val": 5
+            },
+            {
+              "type": "var",
+              "name": "right",
+              "val": null,
+              "data_type": "NoneType"
+            },
+            {
+              "type": "var",
+              "name": "val",
+              "val": 10000,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        },
+        {
+          "id": 5,
+          "data_type": "node",
+          "val": [
+            {
+              "type": "var",
+              "name": "left",
+              "val": null,
+              "data_type": "NoneType"
+            },
+            {
+              "type": "var",
+              "name": "right",
+              "val": null,
+              "data_type": "NoneType"
+            },
+            {
+              "type": "var",
+              "name": "val",
+              "val": 9000,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        }
+      ]
+    },
+    {
+      "LineNum": 3,
+      "type": "GlobalVariables",
+      "Contents": [
+        {
+          "type": "ptr",
+          "id": "1000",
+          "val": 4,
+          "name": "head"
+        }
+      ]
+    },
+    {
+      "LineNum": 3,
+      "type": "StackFrame",
+      "Contents": []
+    },
+    {
+      "LineNum": 4,
+      "stackdepth": 1,
+      "type": "Function",
+      "name": "__init__"
+    },
+    {
+      "LineNum": 4,
+      "type": "Heap",
+      "Contents": [
+        {
+          "id": 6,
+          "data_type": "node",
+          "val": [
+            {
+              "type": "var",
+              "name": "left",
+              "val": null,
+              "data_type": "NoneType"
+            },
+            {
+              "type": "var",
+              "name": "val",
+              "val": 11000,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        },
+        {
+          "id": 4,
+          "data_type": "node",
+          "val": [
+            {
+              "type": "ptr",
+              "name": "left",
+              "val": 5
+            },
+            {
+              "type": "var",
+              "name": "right",
+              "val": null,
+              "data_type": "NoneType"
+            },
+            {
+              "type": "var",
+              "name": "val",
+              "val": 10000,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        },
+        {
+          "id": 5,
+          "data_type": "node",
+          "val": [
+            {
+              "type": "var",
+              "name": "left",
+              "val": null,
+              "data_type": "NoneType"
+            },
+            {
+              "type": "var",
+              "name": "right",
+              "val": null,
+              "data_type": "NoneType"
+            },
+            {
+              "type": "var",
+              "name": "val",
+              "val": 9000,
+              "data_type": "int"
+            }
+          ],
+          "type": "var"
+        }
+      ]
+    },
+    {
+      "LineNum": 4,
+      "type": "GlobalVariables",
+      "Contents": [
+        {
+          "type": "ptr",
+          "id": "1000",
+          "val": 4,
+          "name": "head"
+        }
+      ]
+    },
+    {
+      "LineNum": 4,
+      "type": "StackFrame",
+      "Contents": []
+    },
+    {
+      "LineNum": 5,
+      "stackdepth": 0,
+      "type": "Function"
+    },
+    {
+      "LineNum": 5,
+      "type": "Heap",
+      "Contents": [
+        {
+          "id": 4,
+          "data_type": "node",
+          "val": [
+            {
+              "type": "ptr",
+              "name": "left",
+              "val": 5
+            },
+            {
               "type": "ptr",
               "name": "right",
               "val": 6
@@ -1392,9 +1392,9 @@
             },
             {
               "type": "var",
-              "name": "right",
-              "val": null,
-              "data_type": "NoneType"
+              "name": "val",
+              "val": 8500,
+              "data_type": "int"
             }
           ],
           "type": "var"
@@ -2041,9 +2041,9 @@
             },
             {
               "type": "var",
-              "name": "right",
-              "val": null,
-              "data_type": "NoneType"
+              "name": "val",
+              "val": 9500,
+              "data_type": "int"
             }
           ],
           "type": "var"
@@ -2810,9 +2810,9 @@
             },
             {
               "type": "var",
-              "name": "right",
-              "val": null,
-              "data_type": "NoneType"
+              "name": "val",
+              "val": 10500,
+              "data_type": "int"
             }
           ],
           "type": "var"
@@ -3699,9 +3699,9 @@
             },
             {
               "type": "var",
-              "name": "right",
-              "val": null,
-              "data_type": "NoneType"
+              "name": "val",
+              "val": 11500,
+              "data_type": "int"
             }
           ],
           "type": "var"
