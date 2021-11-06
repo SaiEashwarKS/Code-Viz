@@ -42,7 +42,6 @@ parser.add_option("--code", dest="usercode", default=None,
 INDENT_LEVEL = None if options.compact else 2
 
 #cviz
-print("HERE")
 
 if options.usercode:
 	INDENT_LEVEL = None
@@ -177,22 +176,31 @@ def handle_heap_var(variables:List) -> List:
 
 def format_trace(trace:List[Dict]):
 	cv_lineno = 0
-	#print(type(trace))
 	new_trace = []
 	global classes
 	steps_count = len(trace)
-	#print(trace)
 	step = 0
+	
 	for entry in trace:
-		#print(entry)
 		step += 1
+		
+		if 'exception_msg' in entry:
+			exception = dict(type='Exception',message=entry['exception_msg'])
+			if 'line' in entry:
+				exception['LineNum'] = entry['line']
+			if 'offset' in entry:
+				exception['offset'] = entry['offset']
+				
+			if entry['event'] == 'instruction_limit_reached':
+				exception['message'] = 'Please shorten your code,\nCode-Viz is not designed to handle long-running code.'
+			
+			new_trace.append(exception)
+			break
+		
 		if entry['LineNum'] == cv_lineno:
 			continue
 		if entry['event'] == 'return' and step < steps_count - 2:
 			continue
-		if 'exception_msg' in entry:
-			new_trace.append(dict(exception_msg=entry['exception_msg']))
-			break
 	
 		pt_lineno = entry['LineNum']
 		stackdepth = entry['stackdepth']
