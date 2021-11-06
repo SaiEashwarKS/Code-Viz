@@ -1,9 +1,3 @@
-// import Iframe from "react-iframe";
-// import Container from "react-bootstrap/Container";
-// import AceEditor from "react-ace";
-// import "ace-builds/src-noconflict/mode-c_cpp";
-// import "ace-builds/src-noconflict/theme-xcode";
-// import "ace-builds/src-noconflict/ext-language_tools";
 import { useContext, useEffect, useMemo, useState } from "react";
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-python";
@@ -11,10 +5,8 @@ import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-vibrant_ink";
 import "ace-builds/src-noconflict/theme-xcode";
 import { Canvas, TitleBar, ControlBar } from "./components";
-// import { init_variables, skip_backward, skip_forward, startVisualisation, visualiseInitialStack, vis_backward, vis_forward, vis_pause, vis_play } from "./visualiseUtils";
 import {
   init_variables,
-  setIsDark,
   step_backward,
   step_forward,
   visualiseInitialStack,
@@ -22,6 +14,7 @@ import {
   skip_to_beginning,
   vis_pause,
   vis_play,
+  setConfig,
 } from "./visualiseUtils";
 import { ConfigContext } from "./config";
 
@@ -42,7 +35,7 @@ const Visualiser = ({ code, mode }) => {
 
   useEffect(() => {
     if (canvasRef) {
-      init_variables(canvasRef, setMarker, isDark);
+      init_variables(canvasRef, setMarker, config);
       visualiseInitialStack(canvasRef);
     }
     return () => {
@@ -52,8 +45,8 @@ const Visualiser = ({ code, mode }) => {
   }, [canvasRef]);
 
   useEffect(() => {
-    setIsDark(isDark);
-  }, [isDark]);
+    setConfig(config);
+  }, [fontSize, isDark]);
 
   useEffect(() => {
     const marker = document.getElementsByClassName("aceMarker")[0];

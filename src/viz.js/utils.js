@@ -325,16 +325,16 @@ var structs;
 const initialDigraph = `digraph code_viz {
 graph [
 rankdir = "LR"
-bgcolor = "#F9F7F7"
+bgcolor = "$bgColor"
 ];
 node [
-fontsize = "16"
+fontsize = $fontSize
 shape = "ellipse"
-color = "#0F0F0F"
-fontcolor = "#0F0F0F"
+color = "$edgeColor"
+fontcolor = "$fontColor"
 ];
 edge [
-  color = "#0F0F0F"
+  color = "$edgeColor"
 ];
 `;
 

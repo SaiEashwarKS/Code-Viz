@@ -7,8 +7,8 @@ const ColorsLight = {
   ...constantColors,
   primary_1: "#3F72AF",
   primary_2: "#DBE2EF",
-  white_1: "#F9F7F7",
-  white_2: "#F9F7F7",
+  white_1: "#FFFFFF",
+  white_2: "#FFFFFF",
   black: "#000",
 };
 

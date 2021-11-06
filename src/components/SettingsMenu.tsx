@@ -1,7 +1,6 @@
-import { useCallback, useContext, useMemo, useState } from "react";
+import { useCallback, useContext, useMemo, useRef, useState } from "react";
 import Toggle from "react-toggle";
 import "react-toggle/style.css";
-import { Colors } from "../colors";
 import { ConfigContext } from "../config";
 
 type propsType = {
@@ -21,13 +20,15 @@ const SettingsMenu = ({ style }: propsType) => {
   );
 
   const [fontSize, setFontSize] = useState(config.fontSize);
-  const onFontSizeChange = (fontInput: React.ChangeEvent<HTMLInputElement>) => {
-    if (fontInput.target.value) {
+
+  const onFontSizeChange = useCallback(
+    (fontInput: React.ChangeEvent<HTMLInputElement>) => {
       const size = Number.parseInt(fontInput.target.value);
       setConfig({ fontSize: size });
       setFontSize(size);
-    }
-  };
+    },
+    []
+  );
 
   return (
     <div style={{ ...styles.container, ...style }}>
