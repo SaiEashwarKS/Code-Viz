@@ -27,7 +27,7 @@ stack_depth = 1
 skip_fn = ["malloc", "free"]
 use_next = 0
 
-time_to_sleep = 0.05
+time_to_sleep = 0.3
 
 mo = [] # [['$i/func_name', 'address'], ['$i/func_name', 'address'], ...]
 mp = [] # [['name', 'value'], ['name', 'value'], ...]
@@ -35,6 +35,8 @@ ml = [] # [['name', 'address'], ['name', 'address'], ...]
 
 lnc = 0 # global variable for storing current line no
 prev_lineno = 0
+
+pattern = r"\n[A-Za-z_][\S]*"
 
 #above are temporarily used lists during data processing
 vall = []#stores variable address
@@ -187,6 +189,18 @@ def tr():#function name
 	my_out = string.replace(my_out,'(gdb)','').strip() # $11 = (int (*)(int, int *, int *)) 0x400bb6 <foo>
 	my_out = my_out.split("\n") # [$11 = (int (*)(int, int *, int *)) 0x400bb6 <foo>]
 	my_out = [ x.split('=',1) for x in my_out ] # [['$11 ', ' (int (*)(int, int *, int *)) 0x400bb6 <foo>']]
+	'''
+	my_out = "\n"+my_out
+	iters = re.finditer(pattern,my_out)
+	iters = list(iters)
+	newout = []
+	for index in range(len(iters)-1):
+		newout.append(my_out[iters[index].start()+1:iters[index+1].start()].replace("\n","").replace(" ",""))
+	if iters:
+		newout.append(my_out[iters[-1].start()+1:].replace("\n","").replace(" ",""))
+	my_out = [ x.split('=',1) for x in newout ]
+	'''
+
 	for x in range(len(my_out)):
 		my_out[x] = [ y.strip() for y in my_out[x] ] # [['$11', '(int (*)(int, int *, int *)) 0x400bb6 <foo>']]
 	my_out = filter(lambda a : len(a) == 2,my_out) # [['$11', '(int (*)(int, int *, int *)) 0x400bb6 <foo>']]
@@ -391,7 +405,7 @@ def maketogether(ln,di,gl,stringnamed):
 		sepdi['type']=var
 		sepdi['data_type']=datatype.strip()
 		sepdi['name']=i[0].strip()
-		sepdi['val']=val
+		sepdi['val']=val.replace("{","[").replace("}","]")
 		
 		if is_struct and '*' not in datatype:
 			fields = struct_fields_info(p1, datatype)
@@ -484,7 +498,7 @@ def maketogether(ln,di,gl,stringnamed):
 					#{edge_weights : {{17, 28}, {24, 26}}, vertex_weights : {4, 4}}
 					#so we split by '},' : WRONG
 					dicttobedumped={}
-					for field in k.split(', "'):
+					for field in k.split(',"'):
 						if field[0]=="{":
 							field=field[1:]
 						else:
@@ -778,6 +792,10 @@ def struct_fields_info(pipe, structure):
 		info = {}
 		if '*' in i:
 			info['type'] = 'ptr'
+			'''
+			if "(*)" in i:
+				info['data_type'] = 
+			'''
 			info['data_type'] = i[0 : i.rfind('*') + 1]
 			info['name'] = i[i.rfind('*') + 1 : ]
 		else:
@@ -866,6 +884,19 @@ def output(p1,flag):#display (stack frame, arguments..)
 		my_out = string.replace(my_out,'(gdb)','').strip() # $1 = (int (*)(int, int *, int *)) 0x400bb6 <foo>
 		my_out = my_out.split("\n")	# ['$1 = (int (*)(int, int *, int *)) 0x400bb6 <foo>']
 		my_out = [ x.split('=',1) for x in my_out ] # [['$1 ', ' (int (*)(int, int *, int *)) 0x400bb6 <foo>']]
+		'''
+		my_out = "\n"+my_out
+		iters = re.finditer(pattern,my_out)
+		iters = list(iters)
+		newout = []
+		for index in range(len(iters)-1):
+			newout.append(my_out[iters[index].start()+1:iters[index+1].start()].replace("\n","").replace(" ",""))
+		
+		if iters:
+			newout.append(my_out[iters[-1].start()+1:].replace("\n","").replace(" ",""))
+		my_out = [ x.split('=',1) for x in newout ]
+		'''
+
 		for x in range(len(my_out)):
 			my_out[x] = [y.strip() for y in my_out[x]] # [['$1', '(int (*)(int, int *, int *)) 0x400bb6 <foo>']]
 		my_out = filter(lambda a : len(a) == 2,my_out) # [['$55', '(int (*)(int, int *, int *)) 0x400bb6 <foo>']]
@@ -929,14 +960,29 @@ def output(p1,flag):#display (stack frame, arguments..)
 		(gdb)
 		'''
 		if my_out != 'No symbol table info available.\n(gdb) ':
+			#print("MYout moh",my_out)
 			my_out = string.replace(my_out,'(gdb)','')
 			my_out = my_out.strip()
 			#f.write(str(my_out)+'\n')
 			#print '\n(Stack Frame)'
-			my_out = my_out.split('\n') # ['p = 0x401a50 <__libc_csu_fini>', 'l = 0x0', ...]
+			#print("MYOUT OH",my_out)
+			#my_out = my_out.split("\n") # ['p = 0x401a50 <__libc_csu_fini>', 'l = 0x0', ...]
+			#my_out = re.split('\n[a-zA-Z_]',my_out)
 			#f.write(str(my_out)+'\n')
-			my_out = [ x.split('=',1) for x in my_out ] # [['p ', ' 0x401a50 <__libc_csu_fini>'], ['l ', ' 0x0'], ...]
+			#print("MYOUT HO",my_out)
+			#my_out = [ x.split('=',1) for x in my_out ] # [['p ', ' 0x401a50 <__libc_csu_fini>'], ['l ', ' 0x0'], ...]
 			#f.write(str(my_out)+'\n')
+
+			my_out = "\n"+my_out
+			iters = re.finditer(pattern,my_out)
+			iters = list(iters)
+			newout = []
+			for index in range(len(iters)-1):
+				newout.append(my_out[iters[index].start()+1:iters[index+1].start()].replace("\n","").replace(" ",""))
+			if iters:
+				newout.append(my_out[iters[-1].start()+1:].replace("\n","").replace(" ",""))
+			my_out = [ x.split('=',1) for x in newout ]
+
 			for x in range(len(my_out)):
 				my_out[x] = [ y.strip() for y in my_out[x] ] # [['p', '0x401a50 <__libc_csu_fini>'], ['l', '0x0'], ...]
 			#f.write(str(my_out)+'\n')
@@ -948,7 +994,10 @@ def output(p1,flag):#display (stack frame, arguments..)
 				for x in range(len(my_out)):
 					if len(my_out[x])!= 2:
 						if len(my_out[x]) == 1:
-							my_out[prev][1] += my_out[x][0]
+							try: # error happens mostly when time_to_sleep is not large enough
+								my_out[prev][1] += my_out[x][0]
+							except:
+								print("TIME SLEEP",my_out,prev,x,prev_lineno)
 					else:
 						prev = x
 				my_out = filter(lambda a: len(a) ==2, my_out)
@@ -974,15 +1023,36 @@ def output(p1,flag):#display (stack frame, arguments..)
 						my_out += read(p1.stdout.fileno(), 1024)
 					except OSError:
 						break
+				print("MYOUT HERE",my_out)
 				my_out = string.replace(my_out,'(gdb)','').strip() # $9 = (int **) 0x7fffffffde08\n$10 = (int **) 0x7fffffffde10\n..
 				my_out = my_out.split("\n") # ['$9 = (int **) 0x7fffffffde08', '$10 = (int **) 0x7fffffffde10', ..]
 				my_out = [ x.split('=',1) for x in my_out ] # ['$9 ', ' (int **) 0x7fffffffde08'], ['$10 ', ' (int **) 0x7fffffffde10'], ...]
+				'''
+				my_out = "\n"+my_out
+				iters = re.finditer(pattern,my_out)
+				iters = list(iters)
+				newout = []
+				for index in range(len(iters)-1):
+					newout.append(my_out[iters[index].start()+1:iters[index+1].start()].replace("\n","").replace(" ",""))
+				if iters:
+					newout.append(my_out[iters[-1].start()+1:].replace("\n","").replace(" ",""))
+				my_out = [ x.split('=',1) for x in newout ]
+				'''
+
 				for x in range(len(my_out)):
 					my_out[x] = [ y.strip() for y in my_out[x] ] # ['$9', '(int **) 0x7fffffffde08'], ['$10', '(int **) 0x7fffffffde10'], ...]
 				my_out = filter(lambda a : len(a) == 2,my_out) # ['$9', '(int **) 0x7fffffffde08'], ['$10', '(int **) 0x7fffffffde10'], ...]
 				mo = copy.deepcopy(my_out)	#mo-> ['$9', '(int **) 0x7fffffffde08'], ['$10', '(int **) 0x7fffffffde10'], ...]
 				c = 0
 				for i in mp:
+					'''
+					try:
+						a = mo[c][1] # '(int **) 0x7fffffffde08'
+						ml.append([i[0],a]) # [['p', '(int **) 0x7fffffffde08'], ['l', '(int **) 0x7fffffffde10'], ...]
+						c+=1
+					except:
+						print("ERROR at SPACING",my_out,mo,c,mp)
+					'''
 					a = mo[c][1] # '(int **) 0x7fffffffde08'
 					ml.append([i[0],a]) # [['p', '(int **) 0x7fffffffde08'], ['l', '(int **) 0x7fffffffde10'], ...]
 					c+=1
@@ -1002,8 +1072,19 @@ def output(p1,flag):#display (stack frame, arguments..)
 		my_out = string.replace(my_out,'(gdb)','').strip()
 		if my_out != "No arguments.":
 			#print "\n(Arguments)"
-			my_out = my_out.split("\n")
-			my_out = [ x.split('=',1) for x in my_out ]
+			#my_out = my_out.split("\n")
+			#my_out = [ x.split('=',1) for x in my_out ]
+
+			my_out = "\n"+my_out
+			iters = re.finditer(pattern,my_out)
+			iters = list(iters)
+			newout = []
+			for index in range(len(iters)-1):
+				newout.append(my_out[iters[index].start()+1:iters[index+1].start()].replace("\n","").replace(" ",""))
+			if iters:
+				newout.append(my_out[iters[-1].start()+1:].replace("\n","").replace(" ",""))
+			my_out = [ x.split('=',1) for x in newout ]
+
 			for x in range(len(my_out)):
 				my_out[x] = [ y.strip() for y in my_out[x] ]
 			my_out = filter(lambda a : len(a) == 2,my_out)
@@ -1032,6 +1113,17 @@ def output(p1,flag):#display (stack frame, arguments..)
 			my_out = string.replace(my_out,'(gdb)','').strip()
 			my_out = my_out.split("\n")
 			my_out = [ x.split('=',1) for x in my_out ]
+			'''
+			my_out = "\n"+my_out
+			iters = re.finditer(pattern,my_out)
+			iters = list(iters)
+			newout = []
+			for index in range(len(iters)-1):
+				newout.append(my_out[iters[index].start()+1:iters[index+1].start()].replace("\n","").replace(" ",""))
+			if iters:
+				newout.append(my_out[iters[-1].start()+1:].replace("\n","").replace(" ",""))
+			my_out = [ x.split('=',1) for x in newout ]
+			'''
 			for x in range(len(my_out)):
 				my_out[x] = [ y.strip() for y in my_out[x] ]
 			my_out = filter(lambda a : len(a) == 2,my_out)
@@ -1231,6 +1323,17 @@ while (curtime-starttime < time_limit):
 	my_out = string.replace(my_out,'(gdb)','').strip() # $3 = (int *) 0x6bc3a0 <g>\n
 	my_out = my_out.split("\n") # ['$3 = (int *) 0x6bc3a0 <g>', '$4 = (int *) 0x6bc3a0 <g>', ..]
 	my_out = [ x.split('=',1) for x in my_out ] # [['$3 ', ' (int *) 0x6bc3a0 <g>'], ['$4 ', ' (int *) 0x6bc3a0 <g>'], ...]
+	'''
+	my_out = "\n"+my_out
+	iters = re.finditer(pattern,my_out)
+	iters = list(iters)
+	newout = []
+	for index in range(len(iters)-1):
+		newout.append(my_out[iters[index].start()+1:iters[index+1].start()].replace("\n","").replace(" ",""))
+	if iters:
+		newout.append(my_out[iters[-1].start()+1:].replace("\n","").replace(" ",""))
+	my_out = [ x.split('=',1) for x in newout ]
+	'''
 	for x in range(len(my_out)):
 		my_out[x] = [ y.strip() for y in my_out[x] ] # [['$3', '(int *) 0x6bc3a0 <g>'], ['$4', '(int *) 0x6bc3a0 <g>'], ...]
 	my_out = filter(lambda a : len(a) == 2,my_out)
@@ -1259,8 +1362,11 @@ while (curtime-starttime < time_limit):
 	sv=[]
 	cl=0
 	for u in vallv:
-		val.append([u[0],u[1],vall[cl][1]])
-		cl+=1
+		try:
+			val.append([u[0],u[1],vall[cl][1]])
+			cl+=1
+		except:
+			break
 	cl=0	
 	hista.append(fname)
 	hista.append(val)
