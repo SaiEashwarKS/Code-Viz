@@ -27,7 +27,7 @@ stack_depth = 1
 skip_fn = ["malloc", "free"]
 use_next = 0
 
-time_to_sleep = 0.3
+time_to_sleep = 0.1
 
 mo = [] # [['$i/func_name', 'address'], ['$i/func_name', 'address'], ...]
 mp = [] # [['name', 'value'], ['name', 'value'], ...]
@@ -60,6 +60,8 @@ sn = 0 # no of local/stack variables
 an = 0
 
 print("HELLO")
+
+print_stmts = [""]
 
 addr_to_id = {}#addr_to_id is for mapping addressID to smaller id
 id_counter = 1
@@ -364,6 +366,8 @@ def maketogether(ln,di,gl,stringnamed):
 			var="ptr"
 			#try:
 			addr = i[1].split()[0]
+			pat = re.compile(r'\s*<.*?>')
+			addr = re.sub(pat, '', addr)
 			val = int(addr, 16)
 			if val in addr_to_id:
 				val = addr_to_id[val]
@@ -405,11 +409,10 @@ def maketogether(ln,di,gl,stringnamed):
 		sepdi['type']=var
 		sepdi['data_type']=datatype.strip()
 		sepdi['name']=i[0].strip()
-		sepdi['val']=val.replace("{","[").replace("}","]")
 		
 		if is_struct and '*' not in datatype:
 			fields = struct_fields_info(p1, datatype)
-			pat = re.compile(r' <.*?>')
+			pat = re.compile(r'\s*<.*?>')
 			val = re.sub(pat, '', val)
 			reg = re.compile(r'0x[0-9a-f]*[,}]') #pattern to find hexadecimals in val, => they are pointers and we need to replace it with ID
 			l = reg.findall(val)
@@ -434,7 +437,8 @@ def maketogether(ln,di,gl,stringnamed):
 					ID = 'U'#addr
 				val = val.replace(addr, str(ID))
 			#print("HEREv1",val)
-			sepdi['val'] = val #val is string -> '{data = 123, next = U}'
+			#sepdi['val'] = val #val is string -> '{data = 123, next = U}'
+			sepdi['val']=val.replace("{","[").replace("}","]")
 			
 			
 			# string processing to make val a list of dictionary(key is variable name value is value)
@@ -643,6 +647,13 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		print '\n-Pointers-'
 		heading = ["Line\nNo.","Function\nName/Address\n(Pointer)","Pointer\nName/Address/Value","Variable\nPointed to\nName/Address","Value of\nVariable\nPointed to","Function\nName/Address\n(Variable Pointed to)"]
 		print(tabulate(rv[6],headers=heading,tablefmt="psql"))
+	
+	di = {"LineNum":ln,"STDOUT":print_stmts[0]}
+	print_stmts[0] = ""
+	lines_data.append(di.copy())
+	del di
+
+	
 	#print(di)
 	'''
 	f1.write(json.dumps(di,indent=4))
@@ -836,6 +847,7 @@ def output(p1,flag):#display (stack frame, arguments..)
 		scanf = 1
 	if "printf" in my_out:
 		print "Output from printf is:"
+		print_stmts[0] = ""
 		op_string = my_out[11:len(my_out)-9].split(",")
 		i = 0
 		i_args = 1
@@ -845,13 +857,15 @@ def output(p1,flag):#display (stack frame, arguments..)
 			if format_string[i] == '%':
 				temp = 'print '+op_string[i_args]+'\n'
 				p1.stdin.write(temp)
+				sleep(time_to_sleep)
 				output(p1,5)
 				i_args += 1
 				i +=2
 				continue
-			sys.stdout.write(format_string[i])
+			#sys.stdout.write(format_string[i])
+			#print_stmts[0] += format_string[i]
 			i += 1
-		print '\n'
+		print 'PRINT EXECUTED \n'
 	global ret
 	m = func.match(my_out) #foo (a=1, p=0x7fffffffddfc, d=0x7fffffffddf8)
 	if m is not None:
@@ -928,6 +942,8 @@ def output(p1,flag):#display (stack frame, arguments..)
 		my_out = my_out.split('=')[1]
 		my_out = string.replace(my_out,'(gdb)','')
 		my_out = string.replace(my_out,'\n','')
+		print("HEREEEEEEEEEEEGGGGGG")
+		print_stmts[0] += my_out
 		sys.stdout.write(my_out)
 
 	elif flag == 2: #for info line

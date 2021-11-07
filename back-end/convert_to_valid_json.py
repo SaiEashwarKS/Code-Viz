@@ -1,4 +1,5 @@
 import json
+import re
 """
 s = '''
 #include<stdio.h>
@@ -83,7 +84,6 @@ int main()
 }
 
 '''
-
 s = '''#include<stdio.h>
 #include<stdlib.h>
 
@@ -183,7 +183,6 @@ int main()
     }
 }
 '''
-"""
 s = '''#include<stdio.h>
 #include<stdlib.h>
 
@@ -285,9 +284,57 @@ int main()
     for (int numberoftimes=0;numberoftimes<MAX;++numberoftimes)
     {
         to_be_explored = find_next(&gr,visited);
+        printf("%d %d\n",to_be_explored,to_be_explored+1);
         visited[to_be_explored] = 1;
         remove_to_edges(to_be_explored,&gr);
     }
 }
+'''
+"""
+s = '''
+#include<stdio.h>
+#include<stdlib.h>
+
+int g=0;
+
+struct node
+{
+    struct node* left;
+    int data;
+    struct node* right;
+    struct node* parent;
+};
+
+struct node* createnode(int data)
+{
+    struct node* temp=malloc(sizeof(struct node));
+    temp->left=NULL;
+    temp->right=NULL;
+    temp->parent=NULL;
+    temp->data=data;
+    printf("%d\n",data);
+    return temp;
+}
+
+
+int main()
+{
+    struct node* head=createnode(50);
+    head->left=createnode(25);
+    head->left->parent=head;
+    head->right=createnode(75);
+    head->right->parent=head;
+    head->left->left=createnode(10);
+    head->left->left->parent=head->left;
+    head->left->right=createnode(40);
+    head->left->right->parent=head->left;
+}
+'''
+'''
+li = list(re.finditer(r"printf[.\n\(\)a-z\"0-9A-Z\% +_,]*;",s))
+#print(li)
+for i in li:
+    s = s[:i.start()] + s[i.start():i.end()].replace("\n","\\n").replace("\t","\\t") + s[i.end():]
+print(s)
 '''
 print(json.dumps(s))
