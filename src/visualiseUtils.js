@@ -77,7 +77,7 @@ const visualise_1 = async () => {
 
 const visualiseDigraph = (digraph) => {
   digraph = addConfigDigraph(digraph);
-  console.log(digraph);
+  // console.log(digraph);
   viz.renderSVGElement(digraph).then(async function (element) {
     canvas.appendChild(element);
   });
@@ -86,12 +86,17 @@ const visualiseDigraph = (digraph) => {
 export const step_forward = async () => {
   if (idx < digraphs.length) {
     // console.log("vis forward idx=", idx, " line_idx=", line_idx);
+    
+    if(digraphs[idx]!=="highlightNode")
+    {
     canvas.innerHTML = "";
     let digraph = digraphs[idx];
     // dehighlightLine();
     highlightLine(lineNos[line_idx]);
     visualiseDigraph(digraph);
     await new Promise((resolve) => setTimeout(resolve, 2500));
+    }
+  
     if (digraphs[idx + 1] === "highlightNode") {
       highlightNodesIdx += 1;
       idx++;
@@ -121,6 +126,7 @@ export const step_backward = async () => {
 
 let play = 0;
 export const vis_play = async () => {
+  console.log("digraphs :",digraphs)
   // console.log("vis play idx=", idx, " line_idx=", line_idx);
   if (play === 0) play = 1;
   while (idx < digraphs.length && play) {
@@ -151,14 +157,23 @@ export const vis_pause = async () => {
 };
 
 export const skip_to_beginning = async () => {
+  // idx = 1;
+  // line_idx = 1;
+  //  =highlightNodesIdx 0;
+
+  // console.log("vis skip backward before idx=", idx, " line_idx=", line_idx);
   idx = 1;
   line_idx = 1;
   highlightNodesIdx = 0;
-  // console.log("vis skip backward before idx=", idx, " line_idx=", line_idx);
+  if (digraphs[idx] === "highlightNode") {
+    idx++;
+    highlightNodesIdx += 1;
+  }
+  line_idx++;
   // visualiseInitialStack();
-  // step_forward();
+  step_forward();
   // startVisualisation();
-  visualise_1();
+  // visualise_1();
   // console.log("vis skip backward after idx=", idx, " line_idx=", line_idx);
 };
 
@@ -226,6 +241,41 @@ export const startVisualisation = () => {
 var config = defaultConfig;
 export const setConfig = (newConfig) => {
   config = newConfig;
+  if (idx > 0) {
+    if (digraphs[idx] === "highlightNode"){console.log("Stopped at highlightNode!");}
+    if (play) {
+      //TODO : pause
+      vis_pause();
+      //TODO: go to the idx of the digraph currently displayed
+      // idx is pointing to the next frame to be visualised
+      if (digraphs[idx - 1] === "highlightNode") {
+        //if next frame to be visualised is a highlightNode, need to decrement idx twice
+        if (digraphs[idx] === "highlightNode"){console.log("Never Stopped at highlightNode!");}
+        idx -= 2;
+        highlightNodesIdx -= 1;
+      } else idx -= 1;
+      line_idx--;
+      // Now idx is at currently visualised frame, along with highlightNodesIdx and line_idx
+      // TODO: call visualiseDigraph(prevDigraph)
+      console.log(idx, digraphs[idx]);
+      visualiseDigraph(digraphs[idx]);
+      //TODO: play
+      vis_play();
+    } else {
+      //TODO :go to the idx of the digraph currently displayed
+      // idx is pointing to the next frame to be visualised
+      if (digraphs[idx - 1] === "highlightNode") {
+        //if next frame to be visualised is a highlightNode, need to decrement idx twice
+        idx -= 2;
+        highlightNodesIdx -= 1;
+      } else idx -= 1;
+      line_idx--;
+      // Now idx is at currently visualised frame, along with highlightNodesIdx and line_idx
+      // TODO: call visualiseDigraph(prevDigraph)
+      console.log(idx, digraphs[idx]);
+      visualiseDigraph(digraphs[idx]);
+    }
+  }
 };
 
 export const init_variables = (canvasRef, setMarker, config) => {
