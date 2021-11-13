@@ -736,7 +736,7 @@
     }, 
     {
       "LineNum": 21, 
-      "STDOUT": "Node made of value:\\t25\\n"
+      "STDOUT": ""
     }, 
     {
       "LineNum": 22, 
@@ -849,7 +849,7 @@
     }, 
     {
       "LineNum": 22, 
-      "STDOUT": ""
+      "STDOUT": "Node made of value:\\t25\\n"
     }, 
     {
       "LineNum": 23, 
@@ -1746,7 +1746,7 @@
     }, 
     {
       "LineNum": 21, 
-      "STDOUT": "Node made of value:\\t75\\n"
+      "STDOUT": ""
     }, 
     {
       "LineNum": 22, 
@@ -1890,7 +1890,7 @@
     }, 
     {
       "LineNum": 22, 
-      "STDOUT": ""
+      "STDOUT": "Node made of value:\\t75\\n"
     }, 
     {
       "LineNum": 23, 
@@ -2973,7 +2973,7 @@
     }, 
     {
       "LineNum": 21, 
-      "STDOUT": "Node made of value:\\t10\\n"
+      "STDOUT": ""
     }, 
     {
       "LineNum": 22, 
@@ -3148,7 +3148,7 @@
     }, 
     {
       "LineNum": 22, 
-      "STDOUT": ""
+      "STDOUT": "Node made of value:\\t10\\n"
     }, 
     {
       "LineNum": 23, 
@@ -4417,7 +4417,7 @@
     }, 
     {
       "LineNum": 21, 
-      "STDOUT": "Node made of value:\\t40\\n"
+      "STDOUT": ""
     }, 
     {
       "LineNum": 22, 
@@ -4623,7 +4623,7 @@
     }, 
     {
       "LineNum": 22, 
-      "STDOUT": ""
+      "STDOUT": "Node made of value:\\t40\\n"
     }, 
     {
       "LineNum": 23, 

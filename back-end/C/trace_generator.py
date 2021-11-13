@@ -60,7 +60,7 @@ sn = 0 # no of local/stack variables
 an = 0
 
 
-print_stmts = [""]
+print_stmts = ["",""]
 
 addr_to_id = {}#addr_to_id is for mapping addressID to smaller id
 id_counter = 1
@@ -666,7 +666,8 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 	if print_stmts[0]:
 		print_stmts[0] += "\n"
 	'''
-	di = {"LineNum":ln,"STDOUT":print_stmts[0].replace("\n","\\n").replace("\t","\\t")}
+	di = {"LineNum":ln,"STDOUT":print_stmts[1].replace("\n","\\n").replace("\t","\\t")}
+	print_stmts[1] = print_stmts[0]
 	print_stmts[0] = ""
 	lines_data.append(di.copy())
 	del di

@@ -342,6 +342,7 @@ s = '''#include<stdio.h>
 int g=0;
 int main()
 {
-    printf("HELLO\t%d\n",25);
+    for(int i=0;i<5;++i)
+        printf("HELLO\t%d\n",i);
 }'''
 print(json.dumps(s))
