@@ -648,6 +648,8 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		heading = ["Line\nNo.","Function\nName/Address\n(Pointer)","Pointer\nName/Address/Value","Variable\nPointed to\nName/Address","Value of\nVariable\nPointed to","Function\nName/Address\n(Variable Pointed to)"]
 		print(tabulate(rv[6],headers=heading,tablefmt="psql"))
 	
+	if print_stmts[0]:
+		print_stmts[0] += "\n"	
 	di = {"LineNum":ln,"STDOUT":print_stmts[0]}
 	print_stmts[0] = ""
 	lines_data.append(di.copy())
