@@ -4,7 +4,7 @@ import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-vibrant_ink";
 import "ace-builds/src-noconflict/theme-xcode";
-import { Canvas, TitleBar, ControlBar } from "./components";
+import { Canvas, TitleBar, ControlBar, Stdout } from "./components";
 import {
   init_variables,
   step_backward,
@@ -33,9 +33,21 @@ const Visualiser = ({ code, mode }) => {
   const styles = useMemo(() => getStyles(Colors), [isDark]);
   const [aceTheme, setAceTheme] = useState({ theme: "xcode" });
 
+  const [stdout, setStdout] = useState([]);
+
+  /**
+   * @param {{STDOUT:string, lineNum: string}} digraph
+   */
+  const displayStdout = (digraph) => {
+    setStdout((prevStdout) => [
+      ...prevStdout,
+      `[Line ${digraph["lineNum"]}] ${digraph["STDOUT"]}`,
+    ]);
+  };
+
   useEffect(() => {
     if (canvasRef) {
-      init_variables(canvasRef, setMarker, config);
+      init_variables(canvasRef, setMarker, config, displayStdout);
       visualiseInitialStack(canvasRef);
     }
     return () => {
@@ -82,17 +94,27 @@ const Visualiser = ({ code, mode }) => {
         <TitleBar />
       </div>
       <div style={styles.canvasContainer}>
-        <div style={{ ...styles.canvas, marginRight: 0 }}>
-          <AceEditor
-            value={code}
-            mode={mode}
-            markers={aceMarker}
-            readOnly
-            fontSize={fontSize}
-            width={"100%"}
-            height={"100%"}
-            {...aceTheme}
-          />
+        <div style={styles.leftContainer}>
+          <div
+            style={{
+              ...styles.canvas,
+              ...styles.aceEditor,
+            }}
+          >
+            <AceEditor
+              value={code}
+              mode={mode}
+              markers={aceMarker}
+              readOnly
+              fontSize={fontSize}
+              width={"100%"}
+              height={"100%"}
+              {...aceTheme}
+            />
+          </div>
+          <div style={{ ...styles.canvas, ...styles.stdout }}>
+            <Stdout outputs={stdout} />
+          </div>
         </div>
         <div style={styles.canvas}>
           <Canvas setCanvasRef={setCanvasRef} />
@@ -129,15 +151,31 @@ const getStyles = (Colors) => {
       height: "88vh",
       flex: 1,
     },
+    leftContainer: {
+      flexDirection: "column",
+      flex: 1,
+      marginRight: 0,
+    },
+    aceEditor: {
+      position: "relative",
+      height: "80%",
+      // width: "100%",
+      marginRight: 0,
+    },
+    stdout: {
+      marginRight: 0,
+      height: "16.2%",
+    },
     canvas: {
       display: "flex",
       flex: 1,
-      height: "100%",
+      // height: "100%",
       boxShadow: "0 3px 10px rgb(0 0 0 / 0.3)",
       margin: 16,
       marginTop: 0,
       overflow: "scroll",
       backgroundColor: Colors.white_2,
+      // position: "relative",
     },
     controlBarContainer: {
       margin: 16,

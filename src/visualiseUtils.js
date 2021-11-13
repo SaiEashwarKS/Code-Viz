@@ -62,7 +62,7 @@ const visualise_1 = async () => {
   visualiseDigraph(digraph);
   await new Promise((resolve) => setTimeout(resolve, 2500));
   // console.log("middle");
-  if (digraphs[idx + 1] === "highlightNode") {
+  if (!isStdout(digraph) && digraphs[idx + 1] === "highlightNode") {
     canvas.innerHTML = "";
     let coloredDigraph = colorNodes(digraph);
     // dehighlightLine();
@@ -75,12 +75,21 @@ const visualise_1 = async () => {
   line_idx++;
 };
 
+const isStdout = (digraph) => {
+  return typeof digraph === "object" && Object.keys(digraph).includes("STDOUT");
+};
+
 const visualiseDigraph = (digraph) => {
-  digraph = addConfigDigraph(digraph);
-  console.log(digraph);
-  viz.renderSVGElement(digraph).then(async function (element) {
-    canvas.appendChild(element);
-  });
+  if (isStdout(digraph)) {
+    // console.log(digraph);
+    displayStdout(digraph);
+  } else {
+    digraph = addConfigDigraph(digraph);
+    // console.log(digraph);
+    viz.renderSVGElement(digraph).then(async function (element) {
+      canvas.appendChild(element);
+    });
+  }
 };
 
 export const step_forward = async () => {
@@ -130,13 +139,17 @@ export const vis_play = async () => {
     visualiseDigraph(digraph);
     await new Promise((resolve) => setTimeout(resolve, 2500));
     if (digraphs[idx + 1] === "highlightNode") {
-      canvas.innerHTML = "";
-      let coloredDigraph = colorNodes(digraph);
-      // console.log('prev\n', digraphs[idx], 'curr\n',  digraphs[idx+2], 'color\n', coloredDigraph)
-      // dehighlightLine();
-      highlightLine(lineNos[line_idx + 1]);
-      visualiseDigraph(coloredDigraph);
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      if (isStdout(digraph)) {
+        digraph = digraphs[idx - 1];
+      }
+      if (digraph) {
+        canvas.innerHTML = "";
+        let coloredDigraph = colorNodes(digraph);
+        // console.log('prev\n', digraphs[idx], 'curr\n',  digraphs[idx+2], 'color\n', coloredDigraph)
+        highlightLine(lineNos[line_idx + 1]);
+        visualiseDigraph(coloredDigraph);
+        await new Promise((resolve) => setTimeout(resolve, 1500));
+      }
       idx++;
     }
     idx++;
@@ -205,17 +218,34 @@ export const visualiseInitialStack = async (canvasRef) => {
   canvas = canvasRef.current;
   if (!canvas) return;
   if (lineNos[0] === 0 && digraphs[0] !== "highlightNode") {
-    viz
-      .renderSVGElement(addConfigDigraph(digraphs[0]))
-      .then(async function (element) {
-        canvas.appendChild(element);
-      });
+    // if (
+    //   typeof digraphs[0] === "object" &&
+    //   Object.keys(digraphs[0]).includes("STDOUT")
+    // ) {
+    //   displayStdout(digraphs[0]);
+    // } else {
+    //   viz
+    //     .renderSVGElement(addConfigDigraph(digraphs[0]))
+    //     .then(async function (element) {
+    //       canvas.appendChild(element);
+    //     });
+    // }
+    visualiseDigraph(digraphs[0]);
     idx++;
     if (digraphs[1] === "highlightNode") {
       idx++;
       highlightNodesIdx += 1;
     }
   }
+};
+
+var stdoutCallback;
+/**
+ * @param {{STDOUT:string, lineNum: string}} digraph
+ */
+const displayStdout = (digraph) => {
+  // console.log(stdoutCallback);
+  stdoutCallback?.(digraph);
 };
 
 export const startVisualisation = () => {
@@ -228,8 +258,14 @@ export const setConfig = (newConfig) => {
   config = newConfig;
 };
 
-export const init_variables = (canvasRef, setMarker, config) => {
+export const init_variables = (
+  canvasRef,
+  setMarker,
+  config,
+  stdout_callback
+) => {
   canvas = canvasRef.current;
   highlightLine = setMarker;
   config = config;
+  stdoutCallback = stdout_callback;
 };

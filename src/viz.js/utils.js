@@ -324,7 +324,7 @@ var structs;
 
 const initialDigraph = `digraph code_viz {
 graph [
-rankdir = "LR"
+rankdir = "TB"
 bgcolor = "$bgColor"
 ];
 node [
@@ -373,11 +373,22 @@ export const getDigraphs = (input) => {
       currLineDatas = [];
       // }
     } else {
-      currLineDatas.push(lineData);
-      const node = getStackFrameNode(lineData);
-      // console.log(lineData, node)
-      if (node) {
-        prevDigraph += node;
+      if (
+        Object.keys(lineData).includes("STDOUT") &&
+        lineData["STDOUT"] !== ""
+      ) {
+        // console.log({ STDOUT: lineData["STDOUT"] });
+        digraphs.push({
+          STDOUT: lineData["STDOUT"],
+          lineNum: lineData.LineNum,
+        });
+      } else {
+        currLineDatas.push(lineData);
+        const node = getStackFrameNode(lineData);
+        // console.log(lineData, node)
+        if (node) {
+          prevDigraph += node;
+        }
       }
       ++lineDataIdx;
     }
