@@ -28,11 +28,13 @@ def get_trace():
 
 		usercode = data['code'] + "\nint rsrsaser=0;\n" if lang == "C" else data['code']
 		encoded_string = hashlib.md5(usercode.encode()).hexdigest()
+		#print(usercode,"\t" in usercode,"\n" in usercode)
 
-		li = list(re.finditer(r"printf[.\n\(\)a-z\"0-9A-Z\% +\-*/_,]*;",usercode))
-		#print(li)
+		li = list(re.finditer(r"printf[.\n\t\(\)a-z\"0-9A-Z\% +\-*/_,:&\\]*;",usercode))
+		print(li)
 		for i in li:
 			usercode = usercode[:i.start()] + usercode[i.start():i.end()].replace("\n","\\n").replace("\t","\\t") + usercode[i.end():]
+		print(usercode)
 
 		#could have done this, but extensibiltiy of the code gets sacrificed while supporting multiple languages
 		#code_file = encoded_string + ".c" if lang == "C" else encoded_string+".py"

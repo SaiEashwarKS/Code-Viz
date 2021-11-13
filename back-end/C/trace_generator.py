@@ -148,7 +148,7 @@ try:
 except:
 	global_name_list = []
 	pass
-
+print(global_name_list)
 gn=len(global_name_list)# no of global variables
 p1 = Popen(['gdb', 'a.out'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 flags = fcntl(p1.stdout, F_GETFL) # get current p.stdout flags
@@ -179,8 +179,11 @@ def tr():#function name
 	stack_depth = len(my_out1.split("\n"))
 	
 	my_out2 = my_out1.split(" ")
-	s = "p &"+my_out2[2]+"\n" # my_out2[2]-> function_name-> foo
-	p1.stdin.write(s)
+	try:
+		s = "p &"+my_out2[2]+"\n" # my_out2[2]-> function_name-> foo
+		p1.stdin.write(s)
+	except:
+		pass
 	my_out = ''
 	sleep(time_to_sleep)
 	while True:
@@ -409,6 +412,10 @@ def maketogether(ln,di,gl,stringnamed):
 		sepdi['type']=var
 		sepdi['data_type']=datatype.strip()
 		sepdi['name']=i[0].strip()
+		try:
+			sepdi['val']=val.replace("{","[").replace("}","]")
+		except:
+			sepdi['val']=val
 		
 		if is_struct and '*' not in datatype:
 			fields = struct_fields_info(p1, datatype)
@@ -635,7 +642,7 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 	
 	#Arguments
 	# if len(al)>0:
-	# 	print '\n(Arguments)'
+	# 																																print '\n(Arguments)'
 	# 	heading = ["VARIABLE","VALUE","ADDRESS"]
 	# 	print(tabulate(al,headers=heading,tablefmt="psql"))
 	# 	di={}
@@ -647,17 +654,19 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		print '\n-Pointers-'
 		heading = ["Line\nNo.","Function\nName/Address\n(Pointer)","Pointer\nName/Address/Value","Variable\nPointed to\nName/Address","Value of\nVariable\nPointed to","Function\nName/Address\n(Variable Pointed to)"]
 		print(tabulate(rv[6],headers=heading,tablefmt="psql"))
-	
+	#print(print_stmts[0])
+	'''
 	if print_stmts[0]:
-		print_stmts[0] += "\n"	
-	di = {"LineNum":ln,"STDOUT":print_stmts[0]}
+		print_stmts[0] += "\n"
+	'''
+	di = {"LineNum":ln,"STDOUT":print_stmts[0].replace("\n","\\n").replace("\t","\\t")}
 	print_stmts[0] = ""
 	lines_data.append(di.copy())
 	del di
 
 	
 	#print(di)
-	'''
+	'''																																																																																																																																																																																																												
 	f1.write(json.dumps(di,indent=4))
 	f1.write("\n".join([str(i) for i in rv[6]]))
 	f1.write("\n--------------------------------------------\n")
@@ -835,20 +844,43 @@ def output(p1,flag):#display (stack frame, arguments..)
 			# print '[No more data]'
 			break
 	
-	
 	#if "malloc" in my_out or "free" in my_out:
 	for i in skip_fn:
 		if i in my_out:
+			print("TRIGGERED")
 			global use_next
 			use_next = 1
 			break
-	
-	
+
 	if "scanf" in my_out:
 		global scanf
 		scanf = 1
 	if "printf" in my_out:
 		print "Output from printf is:"
+		print "PRINT TRIGGERERED"
+		#print(my_out,"\n" in my_out)
+		l = list(re.findall(r"printf\(.*\);",my_out))
+		#print("LISOSOSOSOS",l[0][-1])
+		temp = "printf " + l[0][6:-1].replace("(","").replace(")","")
+		print(temp)
+		p1.stdin.write(temp+"\n")
+		#print(p1.stdin.read(1024))
+		final = ""
+		while True:
+			sleep(time_to_sleep)
+			try:
+				final += read(p1.stdout.fileno(), 1024)
+			except OSError:
+				# the os throws an exception if there is no data
+				# print '[No more data]'
+				break
+			print("LOOP var",final)
+		print_stmts[0] = final
+		print_stmts[0] = print_stmts[0].replace("(gdb)","").strip(" ")
+		print("FINAL",final,temp)
+		#output(p1,5)
+		'''
+		#temp = "call " + my_out[:-1] #we can't give
 		print_stmts[0] = ""
 		op_string = my_out[11:len(my_out)-9].split(",")
 		i = 0
@@ -867,6 +899,7 @@ def output(p1,flag):#display (stack frame, arguments..)
 			#sys.stdout.write(format_string[i])
 			#print_stmts[0] += format_string[i]
 			i += 1
+		'''
 		print 'PRINT EXECUTED \n'
 	global ret
 	m = func.match(my_out) #foo (a=1, p=0x7fffffffddfc, d=0x7fffffffddf8)
@@ -936,6 +969,7 @@ def output(p1,flag):#display (stack frame, arguments..)
 		return 
 	if flag == 6: # 'print '+i+'\n' #i-> global variable # $2 = 0\n(gdb)
 		# returns value of the global variable
+		print("GLOBAL",my_out)
 		my_out = my_out.split('=')[1] #  0\n(gdb)
 		my_out = string.replace(my_out,'(gdb)','') #  0\n
 		my_out = string.replace(my_out,'\n','') #  0
@@ -945,7 +979,7 @@ def output(p1,flag):#display (stack frame, arguments..)
 		my_out = string.replace(my_out,'(gdb)','')
 		my_out = string.replace(my_out,'\n','')
 		print("HEREEEEEEEEEEEGGGGGG")
-		print_stmts[0] += my_out
+		#print_stmts[0] += my_out
 		sys.stdout.write(my_out)
 
 	elif flag == 2: #for info line
@@ -1494,4 +1528,3 @@ f1=open(final_file,"w")
 f1.write(maindic)
 f1.close()
 remove(my_file[:-1]+"o")
-

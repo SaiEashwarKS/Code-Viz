@@ -290,7 +290,7 @@ int main()
     }
 }
 '''
-"""
+
 s = '''
 #include<stdio.h>
 #include<stdlib.h>
@@ -337,4 +337,11 @@ for i in li:
     s = s[:i.start()] + s[i.start():i.end()].replace("\n","\\n").replace("\t","\\t") + s[i.end():]
 print(s)
 '''
+"""
+s = '''#include<stdio.h>
+int g=0;
+int main()
+{
+    printf("HELLO\t%d\n",25);
+}'''
 print(json.dumps(s))
