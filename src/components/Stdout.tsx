@@ -56,4 +56,4 @@ const getStyles = (Colors: any, fontSize: number) => {
   };
 };
 
-export default Stdout;
+export default React.memo(Stdout);

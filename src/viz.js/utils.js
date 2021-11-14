@@ -366,6 +366,7 @@ export const getDigraphs = (input) => {
       // dehighlightLine();
       prevDigraph += `}`;
       digraphs.push(prevDigraph);
+      // console.log(prevLineNo, prevDigraph);
       lineNos.push(prevLineNo);
       prevLineNo = currLineNo;
       prevDigraph = initialDigraph;
@@ -373,15 +374,13 @@ export const getDigraphs = (input) => {
       currLineDatas = [];
       // }
     } else {
-      if (
-        Object.keys(lineData).includes("STDOUT") &&
-        lineData["STDOUT"] !== ""
-      ) {
-        // console.log({ STDOUT: lineData["STDOUT"] });
-        digraphs.push({
-          STDOUT: lineData["STDOUT"],
-          lineNum: lineData.LineNum,
-        });
+      if (Object.keys(lineData).includes("STDOUT")) {
+        if (lineData["STDOUT"] !== "") {
+          digraphs.push({
+            STDOUT: lineData["STDOUT"],
+            lineNum: lineData.LineNum,
+          });
+        }
       } else {
         currLineDatas.push(lineData);
         const node = getStackFrameNode(lineData);
@@ -395,7 +394,6 @@ export const getDigraphs = (input) => {
     // console.log("prevDG", prevDigraph);
   }
   prevDigraph += `}`;
-  // console.log(prevDigraph);
   digraphs.push(prevDigraph);
   lineNos.push(prevLineNo);
   // console.log(digraphs);

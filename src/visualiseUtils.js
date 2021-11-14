@@ -139,7 +139,8 @@ export const vis_play = async () => {
     visualiseDigraph(digraph);
     await new Promise((resolve) => setTimeout(resolve, 2500));
     if (digraphs[idx + 1] === "highlightNode") {
-      if (isStdout(digraph)) {
+      const isStdoutDigraph = isStdout(digraph);
+      if (isStdoutDigraph) {
         digraph = digraphs[idx - 1];
       }
       if (digraph) {

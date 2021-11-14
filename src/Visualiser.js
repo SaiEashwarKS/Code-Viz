@@ -98,7 +98,7 @@ const Visualiser = ({ code, mode }) => {
           <div
             style={{
               ...styles.canvas,
-              ...styles.aceEditor,
+              height: stdout.length ? "80%" : "100%",
             }}
           >
             <AceEditor
@@ -112,11 +112,13 @@ const Visualiser = ({ code, mode }) => {
               {...aceTheme}
             />
           </div>
-          <div style={{ ...styles.canvas, ...styles.stdout }}>
-            <Stdout outputs={stdout} />
-          </div>
+          {stdout.length ? (
+            <div style={{ ...styles.canvas, ...styles.stdout }}>
+              <Stdout outputs={stdout} />
+            </div>
+          ) : null}
         </div>
-        <div style={styles.canvas}>
+        <div style={{ ...styles.canvas, marginLeft: 0 }}>
           <Canvas setCanvasRef={setCanvasRef} />
         </div>
       </div>
@@ -156,20 +158,13 @@ const getStyles = (Colors) => {
       flex: 1,
       marginRight: 0,
     },
-    aceEditor: {
-      position: "relative",
-      height: "80%",
-      // width: "100%",
-      marginRight: 0,
-    },
     stdout: {
-      marginRight: 0,
-      height: "16.2%",
+      height: "18%",
     },
     canvas: {
       display: "flex",
       flex: 1,
-      // height: "100%",
+      height: "100%",
       boxShadow: "0 3px 10px rgb(0 0 0 / 0.3)",
       margin: 16,
       marginTop: 0,

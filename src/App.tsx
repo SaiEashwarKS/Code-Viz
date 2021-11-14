@@ -10,9 +10,9 @@ const code = `#include<stdio.h>
 int g=0;
 int main()
 {
-  int k=0;
-  printf("HELLO\\t%d\\n",g);
+    printf("HELLO\\t%d\\n",g);
 }
+
 `;
 
 function App() {
