@@ -19,6 +19,7 @@ struct node* createnode(int data)
     temp->right=NULL;
     temp->parent=NULL;
     temp->data=data;
+    printf("Node made of value:\t%d\n",data);
     return temp;
 }
 

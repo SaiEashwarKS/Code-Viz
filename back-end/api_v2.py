@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify, R
 import requests
 import json
 import os
+import re
 
 from flask_restful import Resource, Api
 from flask_restful import reqparse
@@ -27,6 +28,13 @@ def get_trace():
 
 		usercode = data['code'] + "\nint rsrsaser=0;\n" if lang == "C" else data['code']
 		encoded_string = hashlib.md5(usercode.encode()).hexdigest()
+		#print(usercode,"\t" in usercode,"\n" in usercode)
+
+		li = list(re.finditer(r"printf[.\n\t\(\)a-z\"0-9A-Z\% +\-*/_,:&\\]*;",usercode))
+		print(li)
+		for i in li:
+			usercode = usercode[:i.start()] + usercode[i.start():i.end()].replace("\n","\\n").replace("\t","\\t") + usercode[i.end():]
+		print(usercode)
 
 		#could have done this, but extensibiltiy of the code gets sacrificed while supporting multiple languages
 		#code_file = encoded_string + ".c" if lang == "C" else encoded_string+".py"
@@ -65,7 +73,8 @@ def poller():
 			f = open(location,"r")
 			trace = f.read()
 			f.close()
-			di_running_subprocesses[id].terminate()
+			if id in di_running_subprocesses:
+				di_running_subprocesses[id].terminate()
 			return Response(status=200,response=trace,mimetype="application/json")
 		else:
 			return Response(status=204,response={},mimetype="application/json")
