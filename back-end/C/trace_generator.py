@@ -667,7 +667,7 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 		print_stmts[0] += "\n"
 	'''
 	di = {"LineNum":ln,"STDOUT":print_stmts[1].replace("\n","\\n").replace("\t","\\t")}
-	print_stmts[1] = print_stmts[0]
+	print_stmts[1] = print_stmts[0]#Fibonacci sequence was the inspiration
 	print_stmts[0] = ""
 	lines_data.append(di.copy())
 	del di
