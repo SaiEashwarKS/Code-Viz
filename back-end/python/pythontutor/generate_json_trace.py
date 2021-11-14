@@ -226,13 +226,18 @@ def format_trace(trace:List[Dict]):
 		Contents = handle_stack_frame(entry['StackFrame'])
 		cviz_stack_frame = dict(LineNum=cv_lineno, type='StackFrame', Contents=Contents)
 		
-		new_trace.extend([cviz_function, cviz_heap, cviz_gvar, cviz_stack_frame])
+		# STDOUT
+		cviz_stdout = dict(LineNum=cv_lineno, STDOUT=entry['stdout'])
+		
+		
+		new_trace.extend([cviz_function, cviz_heap, cviz_gvar, cviz_stack_frame, cviz_stdout])
 		
 		cv_lineno = pt_lineno
 		
 	return new_trace
 
 tr = json.loads(out_trace)
+print(json.dumps(tr, indent=2))
 new_tr = format_trace(tr['trace'])
 Lines_Data = dict(Lines_Data=new_tr)
 trace_json = json.dumps(Lines_Data, indent=2)
