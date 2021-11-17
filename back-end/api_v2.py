@@ -30,11 +30,19 @@ def get_trace():
 		encoded_string = hashlib.md5(usercode.encode()).hexdigest()
 		#print(usercode,"\t" in usercode,"\n" in usercode)
 
-		li = list(re.finditer(r"printf[.\n\t\(\)a-z\"0-9A-Z\% +\-*/_,:&\\]*;",usercode))
+		li = list(re.finditer(r"printf[.\n\t\(\)a-z\"0-9A-Z\% +\-*/_,:&\\><=]*;",usercode))
 		print(li)
-		for i in li:
-			usercode = usercode[:i.start()] + usercode[i.start():i.end()].replace("\n","\\n").replace("\t","\\t") + usercode[i.end():]
-		print(usercode)
+		if li:
+			lengli =len(li)
+			usercode1 = usercode[:li[0].start()]
+			for index in range(lengli):
+				i = li[index]
+				usercode1 += usercode[i.start():i.end()].replace("\n","\\n").replace("\t","\\t")
+				if index+1<lengli:
+					usercode1 += usercode[i.end():li[index+1].start()]
+				else:
+					usercode1 += usercode[i.end():]
+			usercode = usercode1
 
 		#could have done this, but extensibiltiy of the code gets sacrificed while supporting multiple languages
 		#code_file = encoded_string + ".c" if lang == "C" else encoded_string+".py"

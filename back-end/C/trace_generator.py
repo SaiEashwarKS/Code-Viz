@@ -1048,7 +1048,7 @@ def output(p1,flag):#display (stack frame, arguments..)
 			#f.write(str(my_out)+'\n')
 			prev = 0
 			print("MYOUT",my_out)
-			if len(my_out)==2 and len(my_out[0])==1 or my_out[0][0]=="No locals.":
+			if len(my_out)==2 and len(my_out[0])==1 or not(my_out) or my_out[0][0]=="No locals.":
 				print "\nNo Locals.\n"
 			else:	
 				for x in range(len(my_out)):
@@ -1492,6 +1492,10 @@ while (curtime-starttime < time_limit):
 			i += 1
 		break
 	if ret == 1:
+		try:
+			get_heap_info(p1)
+		except Exception as e:
+			f.write("\nEXCEPT "+str(e))
 		p1.stdin.write('finish\n')
 		output(p1,3)
 	

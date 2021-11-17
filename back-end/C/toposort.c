@@ -100,6 +100,7 @@ int main()
     {
         to_be_explored = find_next(&gr,visited);
         visited[to_be_explored] = 1;
+        printf("Explored : %d\n",to_be_explored);
         remove_to_edges(to_be_explored,&gr);
     }
 }
