@@ -1,0 +1,1787 @@
+ * Serving Flask app 'api_v2' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+['g']
+Hit Enter to Begin
+TRIGGERED
+('GLOBAL', '$2 = 0\n(gdb) ')
+('MYOUT', [['head', '0x401b20<__libc_csu_fini>']])
+('MYOUT HERE', '$4 = (struct node **) 0x7fffffffdae8\n(gdb) ')
+('I', ['#G'], 0, 1, 0, 1, 0, 0)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 0)
+('I', ['#S'], 2, 1, 0, 1, 0, 0)
+('I', ['head', '0x401b20<__libc_csu_fini>', '(struct node **) 0x7fffffffdae8'], 2, 1, 1, 1, 0, 0)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['head', '0x401b20<__libc_csu_fini>', '(struct node **) 0x7fffffffdae8']], [], 'Line 29', [['main', '(int (*)()) 0x400bcf <main>']])
+
+Line 29
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  main 
+Function Address:  (int (*)()) 0x400bcf <main>
+
+(Stack Frame)
++------------+---------------------------+---------------------------------+
+| VARIABLE   | VALUE                     | ADDRESS                         |
+|------------+---------------------------+---------------------------------|
+| head       | 0x401b20<__libc_csu_fini> | (struct node **) 0x7fffffffdae8 |
++------------+---------------------------+---------------------------------+
+('SEPDI', {'val': 'U', 'type': 'ptr', 'id': 4, 'data_type': 'struct node *', 'name': 'head'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$8 = 0\n(gdb) ')
+('MYOUT', [['head', '0x6c0b40']])
+('MYOUT HERE', '$10 = (struct node **) 0x7fffffffdae8\n(gdb) ')
+('I', ['#G'], 0, 1, 0, 1, 0, 0)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 0)
+('I', ['#S'], 2, 1, 0, 1, 0, 0)
+('I', ['head', '0x6c0b40', '(struct node **) 0x7fffffffdae8'], 2, 1, 1, 1, 0, 0)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['head', '0x6c0b40', '(struct node **) 0x7fffffffdae8']], [], 'Line 30', [['main', '(int (*)()) 0x400bcf <main>']])
+
+Line 30
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  main 
+Function Address:  (int (*)()) 0x400bcf <main>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| head       | 0x6c0b40 | (struct node **) 0x7fffffffdae8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c0b40']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 50'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '50'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 5, 'type': 'ptr', 'id': 4, 'data_type': 'struct node *', 'name': 'head'})
+
+Hit Enter to Continue, exit/quit to stop
+
+TRIGGERED
+Function ' createnode ' with Arguments:
++------------+---------+
+| ARGUMENT   |   VALUE |
+|------------+---------|
+| data       |      25 |
++------------+---------+
+Function Name/Address:  [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']]
+('GLOBAL', '$16 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c0b40']])
+('MYOUT HERE', '$18 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c0b40', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '25', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c0b40', '(struct node **) 0x7fffffffdac8']], [['data', '25', '(int *) 0x7fffffffdabc']], 'Line 17', [['createnode'], ['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 17
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c0b40 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c0b40']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 50'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '50'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 5, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '25', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$25 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1b80']])
+('MYOUT HERE', '$27 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1b80', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '25', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1b80', '(struct node **) 0x7fffffffdac8']], [['data', '25', '(int *) 0x7fffffffdabc']], 'Line 18', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 18
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1b80 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1b80']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 0'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '0'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 10, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '25', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$34 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1b80']])
+('MYOUT HERE', '$36 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1b80', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '25', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1b80', '(struct node **) 0x7fffffffdac8']], [['data', '25', '(int *) 0x7fffffffdabc']], 'Line 19', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 19
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1b80 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1b80']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 0'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '0'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 10, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '25', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$43 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1b80']])
+('MYOUT HERE', '$45 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1b80', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '25', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1b80', '(struct node **) 0x7fffffffdac8']], [['data', '25', '(int *) 0x7fffffffdabc']], 'Line 20', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 20
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1b80 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1b80']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 0'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '0'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 10, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '25', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$52 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1b80']])
+('MYOUT HERE', '$54 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1b80', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '25', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1b80', '(struct node **) 0x7fffffffdac8']], [['data', '25', '(int *) 0x7fffffffdabc']], 'Line 21', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 21
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1b80 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1b80']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 0'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '0'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 10, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '25', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+Output from printf is:
+PRINT TRIGGERERED
+PRINT EXECUTED 
+
+('GLOBAL', '$61 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1b80']])
+('MYOUT HERE', '$63 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1b80', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '25', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1b80', '(struct node **) 0x7fffffffdac8']], [['data', '25', '(int *) 0x7fffffffdabc']], 'Line 22', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 22
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1b80 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1b80']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 25'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '25'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 10, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '25', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$70 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1b80']])
+('MYOUT HERE', '$72 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1b80', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '25', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1b80', '(struct node **) 0x7fffffffdac8']], [['data', '25', '(int *) 0x7fffffffdabc']], 'Line 23', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 23
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1b80 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1b80']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 25'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '25'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 10, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '25', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+
+Return Value: 0x6c1b80 
+
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$83 = 0\n(gdb) ')
+('MYOUT', [['head', '0x6c0b40']])
+('MYOUT HERE', '$85 = (struct node **) 0x7fffffffdae8\n(gdb) ')
+('I', ['#G'], 0, 1, 0, 1, 0, 0)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 0)
+('I', ['#S'], 2, 1, 0, 1, 0, 0)
+('I', ['head', '0x6c0b40', '(struct node **) 0x7fffffffdae8'], 2, 1, 1, 1, 0, 0)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['head', '0x6c0b40', '(struct node **) 0x7fffffffdae8']], [], 'Line 31', [['main', '(int (*)()) 0x400bcf <main>']])
+
+Line 31
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  main 
+Function Address:  (int (*)()) 0x400bcf <main>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| head       | 0x6c0b40 | (struct node **) 0x7fffffffdae8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c0b40']), '0x0')
+('HERE', ['left ', ' 10'])
+('HERE', [' data ', ' 50'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('VISITED', set(['0x6c1b80', '0x6c0b40']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 25'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '25'}, {'right': 'N'}, {'parent': 'N'}])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': '10'}, {'data': '50'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 5, 'type': 'ptr', 'id': 4, 'data_type': 'struct node *', 'name': 'head'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$92 = 0\n(gdb) ')
+('MYOUT', [['head', '0x6c0b40']])
+('MYOUT HERE', '$94 = (struct node **) 0x7fffffffdae8\n(gdb) ')
+('I', ['#G'], 0, 1, 0, 1, 0, 0)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 0)
+('I', ['#S'], 2, 1, 0, 1, 0, 0)
+('I', ['head', '0x6c0b40', '(struct node **) 0x7fffffffdae8'], 2, 1, 1, 1, 0, 0)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['head', '0x6c0b40', '(struct node **) 0x7fffffffdae8']], [], 'Line 32', [['main', '(int (*)()) 0x400bcf <main>']])
+
+Line 32
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  main 
+Function Address:  (int (*)()) 0x400bcf <main>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| head       | 0x6c0b40 | (struct node **) 0x7fffffffdae8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c0b40']), '0x0')
+('HERE', ['left ', ' 10'])
+('HERE', [' data ', ' 50'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('VISITED', set(['0x6c1b80', '0x6c0b40']), '0x6c0b40')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 25'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' 5'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '25'}, {'right': 'N'}, {'parent': '5'}])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': '10'}, {'data': '50'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 5, 'type': 'ptr', 'id': 4, 'data_type': 'struct node *', 'name': 'head'})
+
+Hit Enter to Continue, exit/quit to stop
+
+TRIGGERED
+Function ' createnode ' with Arguments:
++------------+---------+
+| ARGUMENT   |   VALUE |
+|------------+---------|
+| data       |      75 |
++------------+---------+
+Function Name/Address:  [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']]
+('GLOBAL', '$102 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1b80']])
+('MYOUT HERE', '$104 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1b80', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '75', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1b80', '(struct node **) 0x7fffffffdac8']], [['data', '75', '(int *) 0x7fffffffdabc']], 'Line 17', [['createnode'], ['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 17
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1b80 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1b80']), '0x6c0b40')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 25'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' 5'])
+('VISITED', set(['0x6c1b80', '0x6c0b40']), '0x0')
+('HERE', ['left ', ' 10'])
+('HERE', [' data ', ' 50'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': '10'}, {'data': '50'}, {'right': 'N'}, {'parent': 'N'}])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '25'}, {'right': 'N'}, {'parent': '5'}])
+('SEPDI', {'val': 10, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '75', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$113 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1bb0']])
+('MYOUT HERE', '$115 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1bb0', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '75', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1bb0', '(struct node **) 0x7fffffffdac8']], [['data', '75', '(int *) 0x7fffffffdabc']], 'Line 18', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 18
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1bb0 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1bb0']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 0'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '0'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 11, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '75', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$123 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1bb0']])
+('MYOUT HERE', '$125 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1bb0', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '75', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1bb0', '(struct node **) 0x7fffffffdac8']], [['data', '75', '(int *) 0x7fffffffdabc']], 'Line 19', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 19
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1bb0 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1bb0']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 0'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '0'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 11, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '75', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$133 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1bb0']])
+('MYOUT HERE', '$135 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1bb0', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '75', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1bb0', '(struct node **) 0x7fffffffdac8']], [['data', '75', '(int *) 0x7fffffffdabc']], 'Line 20', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 20
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1bb0 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1bb0']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 0'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '0'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 11, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '75', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$143 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1bb0']])
+('MYOUT HERE', '$145 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1bb0', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '75', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1bb0', '(struct node **) 0x7fffffffdac8']], [['data', '75', '(int *) 0x7fffffffdabc']], 'Line 21', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 21
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1bb0 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1bb0']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 0'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '0'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 11, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '75', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+Output from printf is:
+PRINT TRIGGERERED
+PRINT EXECUTED 
+
+('GLOBAL', '$153 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1bb0']])
+('MYOUT HERE', '$155 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1bb0', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '75', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1bb0', '(struct node **) 0x7fffffffdac8']], [['data', '75', '(int *) 0x7fffffffdabc']], 'Line 22', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 22
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1bb0 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1bb0']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 75'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '75'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 11, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '75', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$163 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1bb0']])
+('MYOUT HERE', '$165 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1bb0', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '75', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1bb0', '(struct node **) 0x7fffffffdac8']], [['data', '75', '(int *) 0x7fffffffdabc']], 'Line 23', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 23
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1bb0 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1bb0']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 75'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '75'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 11, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '75', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+
+Return Value: 0x6c1bb0 
+
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$178 = 0\n(gdb) ')
+('MYOUT', [['head', '0x6c0b40']])
+('MYOUT HERE', '$180 = (struct node **) 0x7fffffffdae8\n(gdb) ')
+('I', ['#G'], 0, 1, 0, 1, 0, 0)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 0)
+('I', ['#S'], 2, 1, 0, 1, 0, 0)
+('I', ['head', '0x6c0b40', '(struct node **) 0x7fffffffdae8'], 2, 1, 1, 1, 0, 0)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['head', '0x6c0b40', '(struct node **) 0x7fffffffdae8']], [], 'Line 33', [['main', '(int (*)()) 0x400bcf <main>']])
+
+Line 33
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  main 
+Function Address:  (int (*)()) 0x400bcf <main>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| head       | 0x6c0b40 | (struct node **) 0x7fffffffdae8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c0b40']), '0x0')
+('HERE', ['left ', ' 10'])
+('HERE', [' data ', ' 50'])
+('HERE', [' right ', ' 11'])
+('HERE', [' parent ', ' N'])
+('VISITED', set(['0x6c1b80', '0x6c0b40']), '0x6c0b40')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 25'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' 5'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '25'}, {'right': 'N'}, {'parent': '5'}])
+('VISITED', set(['0x6c1bb0', '0x6c1b80', '0x6c0b40']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 75'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '75'}, {'right': 'N'}, {'parent': 'N'}])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': '10'}, {'data': '50'}, {'right': '11'}, {'parent': 'N'}])
+('SEPDI', {'val': 5, 'type': 'ptr', 'id': 4, 'data_type': 'struct node *', 'name': 'head'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$189 = 0\n(gdb) ')
+('MYOUT', [['head', '0x6c0b40']])
+('MYOUT HERE', '$191 = (struct node **) 0x7fffffffdae8\n(gdb) ')
+('I', ['#G'], 0, 1, 0, 1, 0, 0)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 0)
+('I', ['#S'], 2, 1, 0, 1, 0, 0)
+('I', ['head', '0x6c0b40', '(struct node **) 0x7fffffffdae8'], 2, 1, 1, 1, 0, 0)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['head', '0x6c0b40', '(struct node **) 0x7fffffffdae8']], [], 'Line 34', [['main', '(int (*)()) 0x400bcf <main>']])
+
+Line 34
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  main 
+Function Address:  (int (*)()) 0x400bcf <main>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| head       | 0x6c0b40 | (struct node **) 0x7fffffffdae8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c0b40']), '0x0')
+('HERE', ['left ', ' 10'])
+('HERE', [' data ', ' 50'])
+('HERE', [' right ', ' 11'])
+('HERE', [' parent ', ' N'])
+('VISITED', set(['0x6c1b80', '0x6c0b40']), '0x6c0b40')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 25'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' 5'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '25'}, {'right': 'N'}, {'parent': '5'}])
+('VISITED', set(['0x6c1bb0', '0x6c1b80', '0x6c0b40']), '0x6c0b40')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 75'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' 5'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '75'}, {'right': 'N'}, {'parent': '5'}])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': '10'}, {'data': '50'}, {'right': '11'}, {'parent': 'N'}])
+('SEPDI', {'val': 5, 'type': 'ptr', 'id': 4, 'data_type': 'struct node *', 'name': 'head'})
+
+Hit Enter to Continue, exit/quit to stop
+
+TRIGGERED
+Function ' createnode ' with Arguments:
++------------+---------+
+| ARGUMENT   |   VALUE |
+|------------+---------|
+| data       |      10 |
++------------+---------+
+Function Name/Address:  [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']]
+('GLOBAL', '$201 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1bb0']])
+('MYOUT HERE', '$203 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1bb0', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '10', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1bb0', '(struct node **) 0x7fffffffdac8']], [['data', '10', '(int *) 0x7fffffffdabc']], 'Line 17', [['createnode'], ['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 17
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1bb0 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1bb0']), '0x6c0b40')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 75'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' 5'])
+('VISITED', set(['0x6c1bb0', '0x6c0b40']), '0x0')
+('HERE', ['left ', ' 10'])
+('HERE', [' data ', ' 50'])
+('HERE', [' right ', ' 11'])
+('HERE', [' parent ', ' N'])
+('VISITED', set(['0x6c1bb0', '0x6c1b80', '0x6c0b40']), '0x6c0b40')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 25'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' 5'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '25'}, {'right': 'N'}, {'parent': '5'}])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': '10'}, {'data': '50'}, {'right': '11'}, {'parent': 'N'}])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '75'}, {'right': 'N'}, {'parent': '5'}])
+('SEPDI', {'val': 11, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '10', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$214 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1be0']])
+('MYOUT HERE', '$216 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1be0', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '10', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1be0', '(struct node **) 0x7fffffffdac8']], [['data', '10', '(int *) 0x7fffffffdabc']], 'Line 18', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 18
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1be0 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1be0']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 0'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '0'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 12, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '10', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$225 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1be0']])
+('MYOUT HERE', '$227 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1be0', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '10', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1be0', '(struct node **) 0x7fffffffdac8']], [['data', '10', '(int *) 0x7fffffffdabc']], 'Line 19', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 19
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1be0 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1be0']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 0'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '0'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 12, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '10', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$236 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1be0']])
+('MYOUT HERE', '$238 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1be0', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '10', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1be0', '(struct node **) 0x7fffffffdac8']], [['data', '10', '(int *) 0x7fffffffdabc']], 'Line 20', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 20
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1be0 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1be0']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 0'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '0'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 12, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '10', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$247 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1be0']])
+('MYOUT HERE', '$249 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1be0', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '10', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1be0', '(struct node **) 0x7fffffffdac8']], [['data', '10', '(int *) 0x7fffffffdabc']], 'Line 21', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 21
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1be0 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1be0']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 0'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '0'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 12, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '10', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+Output from printf is:
+PRINT TRIGGERERED
+PRINT EXECUTED 
+
+('GLOBAL', '$258 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1be0']])
+('MYOUT HERE', '$260 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1be0', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '10', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1be0', '(struct node **) 0x7fffffffdac8']], [['data', '10', '(int *) 0x7fffffffdabc']], 'Line 22', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 22
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1be0 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1be0']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 10'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '10'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 12, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '10', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$269 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1be0']])
+('MYOUT HERE', '$271 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1be0', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '10', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1be0', '(struct node **) 0x7fffffffdac8']], [['data', '10', '(int *) 0x7fffffffdabc']], 'Line 23', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 23
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1be0 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1be0']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 10'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '10'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 12, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '10', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+
+Return Value: 0x6c1be0 
+
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$286 = 0\n(gdb) ')
+('MYOUT', [['head', '0x6c0b40']])
+('MYOUT HERE', '$288 = (struct node **) 0x7fffffffdae8\n(gdb) ')
+('I', ['#G'], 0, 1, 0, 1, 0, 0)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 0)
+('I', ['#S'], 2, 1, 0, 1, 0, 0)
+('I', ['head', '0x6c0b40', '(struct node **) 0x7fffffffdae8'], 2, 1, 1, 1, 0, 0)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['head', '0x6c0b40', '(struct node **) 0x7fffffffdae8']], [], 'Line 35', [['main', '(int (*)()) 0x400bcf <main>']])
+
+Line 35
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  main 
+Function Address:  (int (*)()) 0x400bcf <main>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| head       | 0x6c0b40 | (struct node **) 0x7fffffffdae8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c0b40']), '0x0')
+('HERE', ['left ', ' 10'])
+('HERE', [' data ', ' 50'])
+('HERE', [' right ', ' 11'])
+('HERE', [' parent ', ' N'])
+('VISITED', set(['0x6c1b80', '0x6c0b40']), '0x6c0b40')
+('HERE', ['left ', ' 12'])
+('HERE', [' data ', ' 25'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' 5'])
+('VISITED', set(['0x6c1be0', '0x6c1b80', '0x6c0b40']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 10'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '10'}, {'right': 'N'}, {'parent': 'N'}])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': '12'}, {'data': '25'}, {'right': 'N'}, {'parent': '5'}])
+('VISITED', set(['0x6c1bb0', '0x6c1be0', '0x6c1b80', '0x6c0b40']), '0x6c0b40')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 75'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' 5'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '75'}, {'right': 'N'}, {'parent': '5'}])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': '10'}, {'data': '50'}, {'right': '11'}, {'parent': 'N'}])
+('SEPDI', {'val': 5, 'type': 'ptr', 'id': 4, 'data_type': 'struct node *', 'name': 'head'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$299 = 0\n(gdb) ')
+('MYOUT', [['head', '0x6c0b40']])
+('MYOUT HERE', '$301 = (struct node **) 0x7fffffffdae8\n(gdb) ')
+('I', ['#G'], 0, 1, 0, 1, 0, 0)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 0)
+('I', ['#S'], 2, 1, 0, 1, 0, 0)
+('I', ['head', '0x6c0b40', '(struct node **) 0x7fffffffdae8'], 2, 1, 1, 1, 0, 0)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['head', '0x6c0b40', '(struct node **) 0x7fffffffdae8']], [], 'Line 36', [['main', '(int (*)()) 0x400bcf <main>']])
+
+Line 36
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  main 
+Function Address:  (int (*)()) 0x400bcf <main>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| head       | 0x6c0b40 | (struct node **) 0x7fffffffdae8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c0b40']), '0x0')
+('HERE', ['left ', ' 10'])
+('HERE', [' data ', ' 50'])
+('HERE', [' right ', ' 11'])
+('HERE', [' parent ', ' N'])
+('VISITED', set(['0x6c1b80', '0x6c0b40']), '0x6c0b40')
+('HERE', ['left ', ' 12'])
+('HERE', [' data ', ' 25'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' 5'])
+('VISITED', set(['0x6c1be0', '0x6c1b80', '0x6c0b40']), '0x6c1b80')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 10'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' 10'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '10'}, {'right': 'N'}, {'parent': '10'}])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': '12'}, {'data': '25'}, {'right': 'N'}, {'parent': '5'}])
+('VISITED', set(['0x6c1bb0', '0x6c1be0', '0x6c1b80', '0x6c0b40']), '0x6c0b40')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 75'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' 5'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '75'}, {'right': 'N'}, {'parent': '5'}])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': '10'}, {'data': '50'}, {'right': '11'}, {'parent': 'N'}])
+('SEPDI', {'val': 5, 'type': 'ptr', 'id': 4, 'data_type': 'struct node *', 'name': 'head'})
+
+Hit Enter to Continue, exit/quit to stop
+
+TRIGGERED
+Function ' createnode ' with Arguments:
++------------+---------+
+| ARGUMENT   |   VALUE |
+|------------+---------|
+| data       |      40 |
++------------+---------+
+Function Name/Address:  [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']]
+('GLOBAL', '$313 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1be0']])
+('MYOUT HERE', '$315 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1be0', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '40', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1be0', '(struct node **) 0x7fffffffdac8']], [['data', '40', '(int *) 0x7fffffffdabc']], 'Line 17', [['createnode'], ['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 17
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1be0 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1be0']), '0x6c1b80')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 10'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' 10'])
+('VISITED', set(['0x6c1be0', '0x6c1b80']), '0x6c0b40')
+('HERE', ['left ', ' 12'])
+('HERE', [' data ', ' 25'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' 5'])
+('VISITED', set(['0x6c1be0', '0x6c1b80', '0x6c0b40']), '0x0')
+('HERE', ['left ', ' 10'])
+('HERE', [' data ', ' 50'])
+('HERE', [' right ', ' 11'])
+('HERE', [' parent ', ' N'])
+('VISITED', set(['0x6c1bb0', '0x6c1be0', '0x6c1b80', '0x6c0b40']), '0x6c0b40')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 75'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' 5'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '75'}, {'right': 'N'}, {'parent': '5'}])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': '10'}, {'data': '50'}, {'right': '11'}, {'parent': 'N'}])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': '12'}, {'data': '25'}, {'right': 'N'}, {'parent': '5'}])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '10'}, {'right': 'N'}, {'parent': '10'}])
+('SEPDI', {'val': 12, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '40', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$328 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1c10']])
+('MYOUT HERE', '$330 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1c10', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '40', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1c10', '(struct node **) 0x7fffffffdac8']], [['data', '40', '(int *) 0x7fffffffdabc']], 'Line 18', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 18
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1c10 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1c10']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 0'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '0'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 13, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '40', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$340 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1c10']])
+('MYOUT HERE', '$342 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1c10', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '40', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1c10', '(struct node **) 0x7fffffffdac8']], [['data', '40', '(int *) 0x7fffffffdabc']], 'Line 19', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 19
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1c10 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1c10']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 0'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '0'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 13, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '40', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$352 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1c10']])
+('MYOUT HERE', '$354 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1c10', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '40', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1c10', '(struct node **) 0x7fffffffdac8']], [['data', '40', '(int *) 0x7fffffffdabc']], 'Line 20', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 20
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1c10 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1c10']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 0'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '0'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 13, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '40', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$364 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1c10']])
+('MYOUT HERE', '$366 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1c10', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '40', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1c10', '(struct node **) 0x7fffffffdac8']], [['data', '40', '(int *) 0x7fffffffdabc']], 'Line 21', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 21
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1c10 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1c10']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 0'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '0'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 13, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '40', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+Output from printf is:
+PRINT TRIGGERERED
+PRINT EXECUTED 
+
+('GLOBAL', '$376 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1c10']])
+('MYOUT HERE', '$378 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1c10', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '40', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1c10', '(struct node **) 0x7fffffffdac8']], [['data', '40', '(int *) 0x7fffffffdabc']], 'Line 22', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 22
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1c10 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1c10']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 40'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '40'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 13, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '40', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$388 = 0\n(gdb) ')
+('MYOUT', [['temp', '0x6c1c10']])
+('MYOUT HERE', '$390 = (struct node **) 0x7fffffffdac8\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 1, 0, 1)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 1)
+('I', ['#S'], 2, 1, 0, 1, 0, 1)
+('I', ['temp', '0x6c1c10', '(struct node **) 0x7fffffffdac8'], 2, 1, 1, 1, 0, 1)
+('I', ['#A'], 2, 1, 2, 1, 0, 1)
+('I', ['data', '40', '(int *) 0x7fffffffdabc'], 2, 1, 2, 1, 1, 1)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['temp', '0x6c1c10', '(struct node **) 0x7fffffffdac8']], [['data', '40', '(int *) 0x7fffffffdabc']], 'Line 23', [['createnode', '(struct node *(*)(int)) 0x400b6d <createnode>']])
+
+Line 23
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  createnode 
+Function Address:  (struct node *(*)(int)) 0x400b6d <createnode>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| temp       | 0x6c1c10 | (struct node **) 0x7fffffffdac8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c1c10']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 40'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '40'}, {'right': 'N'}, {'parent': 'N'}])
+('SEPDI', {'val': 13, 'type': 'ptr', 'id': 8, 'data_type': 'struct node *', 'name': 'temp'})
+('SEPDI', {'val': '40', 'type': 'var', 'id': 9, 'data_type': 'int', 'name': 'data'})
+
+
+Return Value: 0x6c1c10 
+
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$407 = 0\n(gdb) ')
+('MYOUT', [['head', '0x6c0b40']])
+('MYOUT HERE', '$409 = (struct node **) 0x7fffffffdae8\n(gdb) ')
+('I', ['#G'], 0, 1, 0, 1, 0, 0)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 0)
+('I', ['#S'], 2, 1, 0, 1, 0, 0)
+('I', ['head', '0x6c0b40', '(struct node **) 0x7fffffffdae8'], 2, 1, 1, 1, 0, 0)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['head', '0x6c0b40', '(struct node **) 0x7fffffffdae8']], [], 'Line 37', [['main', '(int (*)()) 0x400bcf <main>']])
+
+Line 37
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  main 
+Function Address:  (int (*)()) 0x400bcf <main>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| head       | 0x6c0b40 | (struct node **) 0x7fffffffdae8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c0b40']), '0x0')
+('HERE', ['left ', ' 10'])
+('HERE', [' data ', ' 50'])
+('HERE', [' right ', ' 11'])
+('HERE', [' parent ', ' N'])
+('VISITED', set(['0x6c1b80', '0x6c0b40']), '0x6c0b40')
+('HERE', ['left ', ' 12'])
+('HERE', [' data ', ' 25'])
+('HERE', [' right ', ' 13'])
+('HERE', [' parent ', ' 5'])
+('VISITED', set(['0x6c1be0', '0x6c1b80', '0x6c0b40']), '0x6c1b80')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 10'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' 10'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '10'}, {'right': 'N'}, {'parent': '10'}])
+('VISITED', set(['0x6c1c10', '0x6c1be0', '0x6c1b80', '0x6c0b40']), '0x0')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 40'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' N'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '40'}, {'right': 'N'}, {'parent': 'N'}])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': '12'}, {'data': '25'}, {'right': '13'}, {'parent': '5'}])
+('VISITED', set(['0x6c1c10', '0x6c1be0', '0x6c1b80', '0x6c1bb0', '0x6c0b40']), '0x6c0b40')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 75'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' 5'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '75'}, {'right': 'N'}, {'parent': '5'}])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': '10'}, {'data': '50'}, {'right': '11'}, {'parent': 'N'}])
+('SEPDI', {'val': 5, 'type': 'ptr', 'id': 4, 'data_type': 'struct node *', 'name': 'head'})
+
+Hit Enter to Continue, exit/quit to stop
+
+TRIGGERED
+('GLOBAL', '$422 = 0\n(gdb) ')
+('MYOUT', [['head', '0x6c0b40']])
+('MYOUT HERE', '$424 = (struct node **) 0x7fffffffdae8\n(gdb) ')
+('I', ['#G'], 0, 1, 0, 1, 0, 0)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 1, 0, 0)
+('I', ['#S'], 2, 1, 0, 1, 0, 0)
+('I', ['head', '0x6c0b40', '(struct node **) 0x7fffffffdae8'], 2, 1, 1, 1, 0, 0)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [['head', '0x6c0b40', '(struct node **) 0x7fffffffdae8']], [], 'Line 38', [['main', '(int (*)()) 0x400bcf <main>']])
+
+Line 38
+
+(Global Variables)
++------------+---------+----------------------+
+| VARIABLE   |   VALUE | ADDRESS              |
+|------------+---------+----------------------|
+| g          |      0  | (int *) 0x6bb330 <g> |
++------------+---------+----------------------+
+('SEPDI', {'val': '0', 'type': 'var', 'id': 1, 'data_type': 'int', 'name': 'g'})
+
+Function Name:  main 
+Function Address:  (int (*)()) 0x400bcf <main>
+
+(Stack Frame)
++------------+----------+---------------------------------+
+| VARIABLE   | VALUE    | ADDRESS                         |
+|------------+----------+---------------------------------|
+| head       | 0x6c0b40 | (struct node **) 0x7fffffffdae8 |
++------------+----------+---------------------------------+
+('VISITED', set(['0x6c0b40']), '0x0')
+('HERE', ['left ', ' 10'])
+('HERE', [' data ', ' 50'])
+('HERE', [' right ', ' 11'])
+('HERE', [' parent ', ' N'])
+('VISITED', set(['0x6c1b80', '0x6c0b40']), '0x6c0b40')
+('HERE', ['left ', ' 12'])
+('HERE', [' data ', ' 25'])
+('HERE', [' right ', ' 13'])
+('HERE', [' parent ', ' 5'])
+('VISITED', set(['0x6c1be0', '0x6c1b80', '0x6c0b40']), '0x6c1b80')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 10'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' 10'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '10'}, {'right': 'N'}, {'parent': '10'}])
+('VISITED', set(['0x6c1c10', '0x6c1be0', '0x6c1b80', '0x6c0b40']), '0x6c1b80')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 40'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' 10'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '40'}, {'right': 'N'}, {'parent': '10'}])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': '12'}, {'data': '25'}, {'right': '13'}, {'parent': '5'}])
+('VISITED', set(['0x6c1c10', '0x6c1be0', '0x6c1b80', '0x6c1bb0', '0x6c0b40']), '0x6c0b40')
+('HERE', ['left ', ' N'])
+('HERE', [' data ', ' 75'])
+('HERE', [' right ', ' N'])
+('HERE', [' parent ', ' 5'])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': 'N'}, {'data': '75'}, {'right': 'N'}, {'parent': '5'}])
+('FIELDS', [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}], 'x', [{'left': '10'}, {'data': '50'}, {'right': '11'}, {'parent': 'N'}])
+('SEPDI', {'val': 5, 'type': 'ptr', 'id': 4, 'data_type': 'struct node *', 'name': 'head'})
+
+Hit Enter to Continue, exit/quit to stop
+
+('GLOBAL', '$437 = 0\n(gdb) ')
+
+('I', ['#G'], 0, 1, 0, 0, 0, 0)
+('I', ['g', ' 0 ', '(int *) 0x6bb330 <g>'], 1, 1, 0, 0, 0, 0)
+('linkall', [['g', ' 0 ', '(int *) 0x6bb330 <g>']], [], [], 'Line number', [])
+
+Line number
+('IDENTIFY', {'fields': [{'type': 'ptr', 'name': 'left', 'data_type': 'struct node *'}, {'type': 'var', 'name': 'data', 'data_type': 'int'}, {'type': 'ptr', 'name': 'right', 'data_type': 'struct node *'}, {'type': 'ptr', 'name': 'parent', 'data_type': 'struct node *'}]})

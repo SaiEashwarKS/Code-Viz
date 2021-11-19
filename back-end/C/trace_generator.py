@@ -143,6 +143,9 @@ try:
 	#print glob_list
 	while glob_list[i]!='':
 		x = glob_list[i].split(' ')[1].replace(";",'').replace("\n",'')
+		if "rsrsaser" in x:
+			i += 1
+			continue
 		if x[0] == '*':
 			x = x[1:]
 		name = ''
@@ -156,7 +159,8 @@ except:
 	global_name_list = []
 	pass
 print(global_name_list)
-gn=len(global_name_list)# no of global variables
+gn=len(global_name_list) #because rsrsaser has to be accounted for
+# no of global variables
 p1 = Popen(['gdb', 'a.out'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 flags = fcntl(p1.stdout, F_GETFL) # get current p.stdout flags
 fcntl(p1.stdout, F_SETFL, flags | O_NONBLOCK)
@@ -683,6 +687,7 @@ def vdisp(gl,sl,al,ln,fname,rv):#Global, Local and Argument Variables Display
 
 
 def linkall(gl,sl,al,ln,fn):#links pointers and displays it
+	print("linkall",gl,sl,al,ln,fn)
 	global tsav2
 	global tsav11
 	global cc11
@@ -870,7 +875,7 @@ def output(p1,flag):#display (stack frame, arguments..)
 		l = list(re.findall(r"printf\(.*\);",my_out))
 		#print("LISOSOSOSOS",l[0][-1])
 		temp = "printf " + l[0][6:-1].replace("(","").replace(")","")
-		print(temp)
+		#print(temp)
 		p1.stdin.write(temp+"\n")
 		#print(p1.stdin.read(1024))
 		final = ""
@@ -882,10 +887,10 @@ def output(p1,flag):#display (stack frame, arguments..)
 				# the os throws an exception if there is no data
 				# print '[No more data]'
 				break
-			print("LOOP var",final)
+			#print("LOOP var",final)
 		print_stmts[0] = final
 		print_stmts[0] = print_stmts[0].replace("(gdb)","").strip(" ")
-		print("FINAL",final,temp)
+		#print("FINAL",final,temp)
 		#output(p1,5)
 		'''
 		#temp = "call " + my_out[:-1] #we can't give
@@ -1442,21 +1447,22 @@ while (curtime-starttime < time_limit):
 	svc1=0
 	avc1=0
 	for i in hista[2]:
-		if gvc1<=gn:
+		print("I",i,gvc1,gn,svc1,sn,avc1,an)
+		if gn and gvc1<=gn:#gn-1 is because rsrsaser is a part of globals
 			gvp1.append(i)
 			gvc1+=1
-		elif svc1<=sn:
+		elif sn and svc1<=sn:
 			svp1.append(i)
 			svc1+=1
-		elif avc1<=an:	
+		elif an and avc1<=an:	
 			avp1.append(i)
 			avc1+=1
-	if len(gvp1)>0:
-		del gvp1[0]
-	if len(svp1)>0:
-		del svp1[0]
-	if len(avp1)>0:
-		del avp1[0]
+	if ['#G'] in gvp1:
+		del gvp1[gvp1.index(['#G'])]
+	if ['#S'] in svp1:
+		del svp1[svp1.index(['#S'])]
+	if ['#A'] in avp1:
+		del avp1[avp1.index(['#A'])]
 	rv=linkall(gvp1,svp1,avp1,lnc,fname)
 		
 	

@@ -614,9 +614,7 @@ int main()
   root = insert(root, 50);
   printf("%d\n",root->key);
   root = insert(root, 25);
-  printf("%d\n",root->key);
-  int z= 255;
- 
+  printf("%d\n",root->key); 
   /* 
   The constructed AVL Tree would be
             30
