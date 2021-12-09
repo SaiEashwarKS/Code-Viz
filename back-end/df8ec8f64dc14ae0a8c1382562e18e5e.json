@@ -1,0 +1,1371 @@
+{
+  "Structures": {
+    "struct node": {
+      "fields": [
+        {
+          "type": "ptr", 
+          "name": "next", 
+          "data_type": "struct node *"
+        }, 
+        {
+          "type": "var", 
+          "name": "data", 
+          "data_type": "int"
+        }
+      ], 
+      "datastructure": "linkedlist"
+    }, 
+    "struct graph": {
+      "fields": [
+        {
+          "type": "var", 
+          "name": "edge_weights[2][2]", 
+          "data_type": "int"
+        }, 
+        {
+          "type": "var", 
+          "name": "vertex_weights[2]", 
+          "data_type": "int"
+        }
+      ], 
+      "datastructure": "graph"
+    }
+  }, 
+  "Lines_Data": [
+    {
+      "LineNum": 0, 
+      "stackdepth": 1, 
+      "nameid": 2, 
+      "type": "Function", 
+      "id": 1, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 0, 
+      "type": "Heap", 
+      "Contents": []
+    }, 
+    {
+      "LineNum": 0, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "0", 
+          "name": "k"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 4, 
+          "val": "U", 
+          "name": "head"
+        }, 
+        {
+          "data_type": "struct graph", 
+          "type": "var", 
+          "id": 5, 
+          "val": [
+            {
+              "edge_weights": [
+                [
+                  -9176, 
+                  32767
+                ], 
+                [
+                  4195328, 
+                  0
+                ]
+              ], 
+              "vertex_weights": [
+                4201264, 
+                0
+              ]
+            }
+          ], 
+          "name": "gr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 0, 
+      "STDOUT": ""
+    }, 
+    {
+      "LineNum": 44, 
+      "stackdepth": 1, 
+      "nameid": 2, 
+      "type": "Function", 
+      "id": 1, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 44, 
+      "type": "Heap", 
+      "Contents": []
+    }, 
+    {
+      "LineNum": 44, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "0", 
+          "name": "k"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 4, 
+          "val": "U", 
+          "name": "head"
+        }, 
+        {
+          "data_type": "struct graph", 
+          "type": "var", 
+          "id": 5, 
+          "val": [
+            {
+              "edge_weights": [
+                [
+                  -9176, 
+                  32767
+                ], 
+                [
+                  4195328, 
+                  0
+                ]
+              ], 
+              "vertex_weights": [
+                4201264, 
+                0
+              ]
+            }
+          ], 
+          "name": "gr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 44, 
+      "STDOUT": ""
+    }, 
+    {
+      "LineNum": 45, 
+      "stackdepth": 1, 
+      "nameid": 2, 
+      "type": "Function", 
+      "id": 1, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 45, 
+      "type": "Heap", 
+      "Contents": []
+    }, 
+    {
+      "LineNum": 45, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "0", 
+          "name": "k"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 4, 
+          "val": "U", 
+          "name": "head"
+        }, 
+        {
+          "data_type": "struct graph", 
+          "type": "var", 
+          "id": 5, 
+          "val": [
+            {
+              "edge_weights": [
+                [
+                  -9176, 
+                  32767
+                ], 
+                [
+                  4195328, 
+                  0
+                ]
+              ], 
+              "vertex_weights": [
+                4201264, 
+                0
+              ]
+            }
+          ], 
+          "name": "gr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 45, 
+      "STDOUT": ""
+    }, 
+    {
+      "LineNum": 46, 
+      "stackdepth": 1, 
+      "nameid": 2, 
+      "type": "Function", 
+      "id": 1, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 46, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "N"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "0"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 6
+        }
+      ]
+    }, 
+    {
+      "LineNum": 46, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "0", 
+          "name": "k"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 4, 
+          "val": 6, 
+          "name": "head"
+        }, 
+        {
+          "data_type": "struct graph", 
+          "type": "var", 
+          "id": 5, 
+          "val": [
+            {
+              "edge_weights": [
+                [
+                  -9176, 
+                  32767
+                ], 
+                [
+                  4195328, 
+                  0
+                ]
+              ], 
+              "vertex_weights": [
+                4201264, 
+                0
+              ]
+            }
+          ], 
+          "name": "gr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 46, 
+      "STDOUT": ""
+    }, 
+    {
+      "LineNum": 47, 
+      "stackdepth": 1, 
+      "nameid": 2, 
+      "type": "Function", 
+      "id": 1, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 47, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "N"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "45"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 6
+        }
+      ]
+    }, 
+    {
+      "LineNum": 47, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "0", 
+          "name": "k"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 4, 
+          "val": 6, 
+          "name": "head"
+        }, 
+        {
+          "data_type": "struct graph", 
+          "type": "var", 
+          "id": 5, 
+          "val": [
+            {
+              "edge_weights": [
+                [
+                  -9176, 
+                  32767
+                ], 
+                [
+                  4195328, 
+                  0
+                ]
+              ], 
+              "vertex_weights": [
+                4201264, 
+                0
+              ]
+            }
+          ], 
+          "name": "gr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 47, 
+      "STDOUT": ""
+    }, 
+    {
+      "LineNum": 48, 
+      "stackdepth": 1, 
+      "nameid": 2, 
+      "type": "Function", 
+      "id": 1, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 48, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "7"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "45"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 6
+        }, 
+        {
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "N"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "0"
+            }
+          ], 
+          "type": "var", 
+          "id": 7, 
+          "data_type": "struct node"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 48, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "0", 
+          "name": "k"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 4, 
+          "val": 6, 
+          "name": "head"
+        }, 
+        {
+          "data_type": "struct graph", 
+          "type": "var", 
+          "id": 5, 
+          "val": [
+            {
+              "edge_weights": [
+                [
+                  -9176, 
+                  32767
+                ], 
+                [
+                  4195328, 
+                  0
+                ]
+              ], 
+              "vertex_weights": [
+                4201264, 
+                0
+              ]
+            }
+          ], 
+          "name": "gr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 48, 
+      "STDOUT": ""
+    }, 
+    {
+      "LineNum": 49, 
+      "stackdepth": 1, 
+      "nameid": 2, 
+      "type": "Function", 
+      "id": 1, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 49, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "7"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "45"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 6
+        }, 
+        {
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "N"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "50"
+            }
+          ], 
+          "type": "var", 
+          "id": 7, 
+          "data_type": "struct node"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 49, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "0", 
+          "name": "k"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 4, 
+          "val": 6, 
+          "name": "head"
+        }, 
+        {
+          "data_type": "struct graph", 
+          "type": "var", 
+          "id": 5, 
+          "val": [
+            {
+              "edge_weights": [
+                [
+                  -9176, 
+                  32767
+                ], 
+                [
+                  4195328, 
+                  0
+                ]
+              ], 
+              "vertex_weights": [
+                4201264, 
+                0
+              ]
+            }
+          ], 
+          "name": "gr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 49, 
+      "STDOUT": ""
+    }, 
+    {
+      "LineNum": 50, 
+      "stackdepth": 1, 
+      "nameid": 2, 
+      "type": "Function", 
+      "id": 1, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 50, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "7"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "45"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 6
+        }, 
+        {
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "N"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "0"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct node"
+        }, 
+        {
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "8"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "50"
+            }
+          ], 
+          "type": "var", 
+          "id": 7, 
+          "data_type": "struct node"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 50, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "0", 
+          "name": "k"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 4, 
+          "val": 6, 
+          "name": "head"
+        }, 
+        {
+          "data_type": "struct graph", 
+          "type": "var", 
+          "id": 5, 
+          "val": [
+            {
+              "edge_weights": [
+                [
+                  -9176, 
+                  32767
+                ], 
+                [
+                  4195328, 
+                  0
+                ]
+              ], 
+              "vertex_weights": [
+                4201264, 
+                0
+              ]
+            }
+          ], 
+          "name": "gr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 50, 
+      "STDOUT": ""
+    }, 
+    {
+      "LineNum": 51, 
+      "stackdepth": 1, 
+      "nameid": 2, 
+      "type": "Function", 
+      "id": 1, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 51, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "7"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "45"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 6
+        }, 
+        {
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "N"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "55"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct node"
+        }, 
+        {
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "8"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "50"
+            }
+          ], 
+          "type": "var", 
+          "id": 7, 
+          "data_type": "struct node"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 51, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "0", 
+          "name": "k"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 4, 
+          "val": 6, 
+          "name": "head"
+        }, 
+        {
+          "data_type": "struct graph", 
+          "type": "var", 
+          "id": 5, 
+          "val": [
+            {
+              "edge_weights": [
+                [
+                  -9176, 
+                  32767
+                ], 
+                [
+                  4195328, 
+                  0
+                ]
+              ], 
+              "vertex_weights": [
+                4201264, 
+                0
+              ]
+            }
+          ], 
+          "name": "gr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 51, 
+      "STDOUT": ""
+    }, 
+    {
+      "LineNum": 52, 
+      "stackdepth": 1, 
+      "nameid": 2, 
+      "type": "Function", 
+      "id": 1, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 52, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "7"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "45"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 6
+        }, 
+        {
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "9"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "55"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct node"
+        }, 
+        {
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "8"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "50"
+            }
+          ], 
+          "type": "var", 
+          "id": 7, 
+          "data_type": "struct node"
+        }, 
+        {
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "N"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "0"
+            }
+          ], 
+          "type": "var", 
+          "id": 9, 
+          "data_type": "struct node"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 52, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "0", 
+          "name": "k"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 4, 
+          "val": 6, 
+          "name": "head"
+        }, 
+        {
+          "data_type": "struct graph", 
+          "type": "var", 
+          "id": 5, 
+          "val": [
+            {
+              "edge_weights": [
+                [
+                  -9176, 
+                  32767
+                ], 
+                [
+                  4195328, 
+                  0
+                ]
+              ], 
+              "vertex_weights": [
+                4201264, 
+                0
+              ]
+            }
+          ], 
+          "name": "gr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 52, 
+      "STDOUT": ""
+    }, 
+    {
+      "LineNum": 53, 
+      "stackdepth": 1, 
+      "nameid": 2, 
+      "type": "Function", 
+      "id": 1, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 53, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "7"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "45"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 6
+        }, 
+        {
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "9"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "55"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct node"
+        }, 
+        {
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "8"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "50"
+            }
+          ], 
+          "type": "var", 
+          "id": 7, 
+          "data_type": "struct node"
+        }, 
+        {
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "N"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "60"
+            }
+          ], 
+          "type": "var", 
+          "id": 9, 
+          "data_type": "struct node"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 53, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "0", 
+          "name": "k"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 4, 
+          "val": 6, 
+          "name": "head"
+        }, 
+        {
+          "data_type": "struct graph", 
+          "type": "var", 
+          "id": 5, 
+          "val": [
+            {
+              "edge_weights": [
+                [
+                  -9176, 
+                  32767
+                ], 
+                [
+                  4195328, 
+                  0
+                ]
+              ], 
+              "vertex_weights": [
+                4201264, 
+                0
+              ]
+            }
+          ], 
+          "name": "gr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 53, 
+      "STDOUT": ""
+    }, 
+    {
+      "LineNum": 54, 
+      "stackdepth": 1, 
+      "nameid": 2, 
+      "type": "Function", 
+      "id": 1, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 54, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "N"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "45"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 6
+        }, 
+        {
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "7"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "55"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct node"
+        }, 
+        {
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "6"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "50"
+            }
+          ], 
+          "type": "var", 
+          "id": 7, 
+          "data_type": "struct node"
+        }, 
+        {
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "8"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "60"
+            }
+          ], 
+          "type": "var", 
+          "id": 9, 
+          "data_type": "struct node"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 54, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "0", 
+          "name": "k"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 4, 
+          "val": 9, 
+          "name": "head"
+        }, 
+        {
+          "data_type": "struct graph", 
+          "type": "var", 
+          "id": 5, 
+          "val": [
+            {
+              "edge_weights": [
+                [
+                  -9176, 
+                  32767
+                ], 
+                [
+                  4195328, 
+                  0
+                ]
+              ], 
+              "vertex_weights": [
+                4201264, 
+                0
+              ]
+            }
+          ], 
+          "name": "gr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 54, 
+      "STDOUT": ""
+    }, 
+    {
+      "LineNum": 56, 
+      "stackdepth": 1, 
+      "nameid": 2, 
+      "type": "Function", 
+      "id": 1, 
+      "name": "main"
+    }, 
+    {
+      "LineNum": 56, 
+      "type": "Heap", 
+      "Contents": [
+        {
+          "type": "var", 
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "N"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "45"
+            }
+          ], 
+          "data_type": "struct node", 
+          "id": 6
+        }, 
+        {
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "7"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "55"
+            }
+          ], 
+          "type": "var", 
+          "id": 8, 
+          "data_type": "struct node"
+        }, 
+        {
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "6"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "50"
+            }
+          ], 
+          "type": "var", 
+          "id": 7, 
+          "data_type": "struct node"
+        }, 
+        {
+          "val": [
+            {
+              "data_type": "struct node *", 
+              "type": "ptr", 
+              "name": "next", 
+              "val": "8"
+            }, 
+            {
+              "data_type": "int", 
+              "type": "var", 
+              "name": "data", 
+              "val": "60"
+            }
+          ], 
+          "type": "var", 
+          "id": 9, 
+          "data_type": "struct node"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 56, 
+      "type": "StackFrame", 
+      "Contents": [
+        {
+          "data_type": "int", 
+          "type": "var", 
+          "id": 3, 
+          "val": "0", 
+          "name": "k"
+        }, 
+        {
+          "data_type": "struct node *", 
+          "type": "ptr", 
+          "id": 4, 
+          "val": 9, 
+          "name": "head"
+        }, 
+        {
+          "data_type": "struct graph", 
+          "type": "var", 
+          "id": 5, 
+          "val": [
+            {
+              "edge_weights": [
+                [
+                  17, 
+                  28
+                ], 
+                [
+                  24, 
+                  26
+                ]
+              ], 
+              "vertex_weights": [
+                4, 
+                4
+              ]
+            }
+          ], 
+          "name": "gr"
+        }
+      ]
+    }, 
+    {
+      "LineNum": 56, 
+      "STDOUT": ""
+    }
+  ]
+}

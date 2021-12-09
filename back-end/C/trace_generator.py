@@ -498,6 +498,15 @@ def maketogether(ln,di,gl,stringnamed):
 						elif s[index]=="}":
 							curstack-=1
 						index+=1
+				elif i=="[":
+					curstack+=1
+					while(index<n and curstack):
+						curword+=s[index]
+						if s[index]=="[":
+							curstack+=1
+						elif s[index]=="]":
+							curstack-=1
+						index+=1
 				else:
 					curword+=s[index]
 					index+=1
@@ -1533,8 +1542,24 @@ for structure in struct_details:
 			break
 '''
 
+
 if curtime-starttime >= time_limit:
 	lines_data.append(dict(type='Exception', message='Please shorten your code,\nCode-Viz is not designed to handle long-running code.'))
+	i = 0
+	while i < len(structures):
+		fields_list = struct_fields_info(p1, structures[i].strip())
+		#struct_details[structures[i].strip()] = fields_list
+		name = structures[i].strip()
+		struct_details[name] = {}
+		struct_details[name]['fields'] = fields_list
+		struct_details[name]['datastructure'] = identify_datastructure(struct_details[name], name)	#
+		
+		for x in fields_list:
+			if 'struct' in x:
+				x = x[0 : x.rfind(" ") + 1]
+				if x not in structures:
+					structures.append(x)
+		i += 1
 
 #print("\nLINES DATA",lines_data,"\n")
 maindic = {"Lines_Data":lines_data}

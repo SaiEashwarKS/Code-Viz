@@ -346,7 +346,6 @@ int main()
         printf("HELLO\t%d\n",i);
 }'''
 """
-"""
 s = '''#include<stdio.h>
 #include<stdlib.h>
 
@@ -622,5 +621,166 @@ int main()
         /  \            10  25    50
   */
  }
+'''
+"""
+"""
+s = '''#include<stdio.h>
+#include<stdlib.h>
+int g=0;
+struct node
+{
+    struct node* left;
+    int data;
+    struct node* right;
+};
+
+struct node* createnode(int data)
+{
+    struct node* temp=malloc(sizeof(struct node));
+    temp->left=NULL;
+    temp->data=data;
+    temp->right=NULL;
+    return temp;
+}
+
+void inorder(struct node* root)
+{
+    if (root)
+    {
+        inorder(root->left);
+        printf("VISITED NODE%d\n",root->data);
+        inorder(root->right);
+    }
+}
+
+
+int main()
+{
+    struct node* head=createnode(10000);
+    head->left=createnode(9000);
+    head->right=createnode(11000);
+    head->left->left=createnode(8500);
+    head->left->right=createnode(9500);
+    head->right->left=createnode(10500);
+    head->right->right=createnode(11500);
+    inorder(head);  
+}
+
+'''
+"""
+"""
+s = '''#include<stdio.h>
+#include<stdlib.h>
+
+#define MAX 2
+
+struct node
+{
+    struct node* next;
+    int data;
+};
+
+struct graph
+{
+    int edge_weights[MAX][MAX];
+    int vertex_weights[MAX];
+};
+
+struct node* reverse_node(struct node* root)
+{
+    struct node* prev = NULL;
+    while(root)
+    {
+        struct node* temp = root->next;
+        root->next = prev;
+        prev = root;
+        root = temp;
+    }
+    return prev;
+}
+
+void fill_graph(struct graph* gr)
+{
+    for(int r=0;r<MAX;++r)
+    {
+        gr->vertex_weights[r]=rand()%4 + 1;
+        for(int c=0;c<MAX;++c)
+        {
+            gr->edge_weights[r][c]=rand()%45 + 1;
+        }
+    }
+}
+
+int main()
+{
+    int k = 0;
+    struct node* head = malloc(sizeof(struct node));
+    head->data = 45;
+    head->next = malloc(sizeof(struct node));
+    head->next->data = 50;
+    head->next->next = malloc(sizeof(struct node));
+    head->next->next->data = 55;
+    head->next->next->next = malloc(sizeof(struct node));
+    head->next->next->next->data = 60;
+    head = reverse_node(head);
+    struct graph gr;
+    fill_graph(&gr);
+    
+}
+'''
+"""
+"""
+s = '''
+#include<stdio.h>
+#include<stdlib.h>
+
+#define MAX 2
+
+struct node
+{
+    struct node* next;
+    int data;
+};
+
+int main()
+{
+    int k = 0;
+    struct node* head = malloc(sizeof(struct node));
+    head->data = 45;
+    head->next = malloc(sizeof(struct node));
+    head->next->data = 50;
+    head->next->next = malloc(sizeof(struct node));
+    head->next->next->data = 55;
+    head->next->next->next = malloc(sizeof(struct node));
+    head->next->next->next->data = 60;
+    while(head)
+    {
+        struct node* temp = head;
+        printf("%d\n",head->data);
+    }
+}
+'''
+"""
+s = '''
+class node:
+    def __init__(self,val=0):
+      self.left = None
+      self.val = val
+      self.right = None
+      
+def mirror(node):
+      if node:
+        node.left,node.right = mirror(node.right),mirror(node.left)
+      return node
+
+head = node(10000)
+head.left = node(9000)
+head.right = node(11000)
+head.left.left = node(8500)
+head.left.right = node(9500)
+head.right.left = node(10500)
+head.right.right = node(11500)
+
+head = mirror(head)
 '''
 print(json.dumps(s))

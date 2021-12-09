@@ -39,3 +39,6 @@ int main()
     head->right->right=createnode(11500);
     inorder(head);  
 }
+
+
+int rsrsaser=0;
