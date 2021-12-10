@@ -1,0 +1,116 @@
+{
+  "Lines_Data": [
+    {
+      "LineNum": 0,
+      "stackdepth": 0,
+      "type": "Function"
+    },
+    {
+      "LineNum": 0,
+      "type": "Heap",
+      "Contents": []
+    },
+    {
+      "LineNum": 0,
+      "type": "GlobalVariables",
+      "Contents": []
+    },
+    {
+      "LineNum": 0,
+      "type": "StackFrame",
+      "Contents": []
+    },
+    {
+      "LineNum": 0,
+      "STDOUT": ""
+    },
+    {
+      "LineNum": 1,
+      "stackdepth": 0,
+      "type": "Function"
+    },
+    {
+      "LineNum": 1,
+      "type": "Heap",
+      "Contents": [
+        {
+          "id": 1,
+          "data_type": "LIST",
+          "val": [],
+          "type": "var"
+        }
+      ]
+    },
+    {
+      "LineNum": 1,
+      "type": "GlobalVariables",
+      "Contents": [
+        {
+          "type": "ptr",
+          "id": "1000",
+          "val": 1,
+          "name": "nums"
+        }
+      ]
+    },
+    {
+      "LineNum": 1,
+      "type": "StackFrame",
+      "Contents": []
+    },
+    {
+      "LineNum": 1,
+      "STDOUT": ""
+    },
+    {
+      "LineNum": 2,
+      "stackdepth": 0,
+      "type": "Function"
+    },
+    {
+      "LineNum": 2,
+      "type": "Heap",
+      "Contents": [
+        {
+          "id": 1,
+          "data_type": "LIST",
+          "val": [],
+          "type": "var"
+        }
+      ]
+    },
+    {
+      "LineNum": 2,
+      "type": "GlobalVariables",
+      "Contents": [
+        {
+          "type": "ptr",
+          "id": "1000",
+          "val": 1,
+          "name": "nums"
+        },
+        {
+          "type": "var",
+          "id": "1001",
+          "val": 0,
+          "name": "total",
+          "data_type": "int"
+        }
+      ]
+    },
+    {
+      "LineNum": 2,
+      "type": "StackFrame",
+      "Contents": []
+    },
+    {
+      "LineNum": 2,
+      "STDOUT": ""
+    },
+    {
+      "type": "Exception",
+      "message": "ZeroDivisionError: division by zero",
+      "LineNum": 3
+    }
+  ]
+}

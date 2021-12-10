@@ -27,6 +27,8 @@ stack_depth = 1
 skip_fn = ["malloc", "free"]
 use_next = 0
 
+SEGFAULT = 0
+
 time_to_sleep = 0.1
 
 mo = [] # [['$i/func_name', 'address'], ['$i/func_name', 'address'], ...]
@@ -1351,7 +1353,8 @@ while (curtime-starttime < time_limit):
 		scanf = 0
 	output(p1,0)
 	
-	
+	if SEGFAULT == 1:
+		break
 	#
 	#p1.stdin.write('p resrsasr_i')
 	#get_heap_info()
@@ -1424,8 +1427,8 @@ while (curtime-starttime < time_limit):
 	p1.stdin.write('info locals\n')
 	output(p1,1)
 	p1.stdin.write('info args\n')
-	output(p1,4)	
-	
+	output(p1,4)
+
 	fname.extend(tr())
 	sv.extend([counter])
 	sv.extend(fname)
@@ -1525,7 +1528,19 @@ while (curtime-starttime < time_limit):
 	else:
 		p1.stdin.write('step\n')
 	counter+=1
-
+	
+	my_out = ''
+	sleep(time_to_sleep)
+	while True:
+		try:
+			my_out += read(p1.stdout.fileno(), 1024) # $3 = (int *) 0x6bc3a0 <g>\n(gdb)
+		except OSError:
+			break
+	
+	if 'SIGSEGV' in my_out:
+		SEGFAULT = 1
+		break
+	
 	print '\nHit Enter to Continue, exit/quit to stop\n'
 	curtime=timeit.default_timer()
 
@@ -1560,6 +1575,9 @@ if curtime-starttime >= time_limit:
 				if x not in structures:
 					structures.append(x)
 		i += 1
+
+if SEGFAULT == 1:
+	lines_data.append(dict(LineNum=int(lnc.split()[1]), type='Exception', message='Segmentation fault'))
 
 #print("\nLINES DATA",lines_data,"\n")
 maindic = {"Lines_Data":lines_data}
