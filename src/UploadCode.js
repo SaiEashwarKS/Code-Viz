@@ -14,6 +14,7 @@ import { ConfigContext } from "./config";
 import API_ENDPOINTS from "./apiEndpoints";
 import { aceModeMapper, langMapper } from "./uploadCodeUtils";
 import { InputContext } from "./codeStore";
+import Loader from "./components/Loader";
 
 let fileReader;
 
@@ -105,7 +106,10 @@ const UploadCode = () => {
         code: content,
       };
       console.log(body);
+      setUploading(true);
       axios.post(API_ENDPOINTS.uploadCode, body).then((res) => {
+        setUploading(false);
+        setProcessing(true);
         handleTraceGenRes(res);
       });
 
@@ -159,6 +163,8 @@ const UploadCode = () => {
 
   return (
     <>
+      {uploading && <Loader text="Uploading..." />}
+      {processing && <Loader text="Processing..." />}
       <Container className="pt-3">
         <Jumbotron style={styles.jumbotron}>
           <div className="container">
