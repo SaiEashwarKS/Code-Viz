@@ -324,7 +324,7 @@ var structs;
 
 const initialDigraph = `digraph code_viz {
 graph [
-rankdir = "TB"
+rankdir = "LR"
 bgcolor = "$bgColor"
 ];
 node [
@@ -341,6 +341,7 @@ edge [
 
 var highlightNodes = []; //each elelment of the array is an array of ids of nodes whose values are changing from one line to another
 var didHighlightNode = false;
+var stdout_exists = false;
 
 export const getDigraphs = (input) => {
   const json = JSON.parse(input);
@@ -376,6 +377,7 @@ export const getDigraphs = (input) => {
     } else {
       if (Object.keys(lineData).includes("STDOUT")) {
         if (lineData["STDOUT"] !== "") {
+          stdout_exists = true;
           digraphs.push({
             STDOUT: lineData["STDOUT"],
             lineNum: lineData.LineNum,
@@ -401,5 +403,6 @@ export const getDigraphs = (input) => {
     digraphs: digraphs,
     lineNos: lineNos,
     highlightNodes: highlightNodes,
+    stdout_exists: stdout_exists,
   };
 };

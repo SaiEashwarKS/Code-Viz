@@ -15,6 +15,7 @@ import {
   vis_pause,
   vis_play,
   setConfig,
+  stdoutExists,
 } from "./visualiseUtils";
 import { ConfigContext } from "./config";
 
@@ -34,15 +35,13 @@ const Visualiser = ({ code, mode }) => {
   const [aceTheme, setAceTheme] = useState({ theme: "xcode" });
 
   const [stdout, setStdout] = useState([]);
+  const showStdout = stdoutExists();
 
   /**
    * @param {{STDOUT:string, lineNum: string}} digraph
    */
   const displayStdout = (digraph) => {
-    setStdout((prevStdout) => [
-      ...prevStdout,
-      `[Line ${digraph["lineNum"]}] ${digraph["STDOUT"]}`,
-    ]);
+    setStdout((prevStdout) => [...prevStdout, `${digraph["STDOUT"]}`]);
   };
 
   useEffect(() => {
@@ -50,6 +49,7 @@ const Visualiser = ({ code, mode }) => {
       init_variables(canvasRef, setMarker, config, displayStdout);
       visualiseInitialStack(canvasRef);
     }
+
     return () => {
       //TODO
       //STOP VISUALISATION
@@ -89,7 +89,6 @@ const Visualiser = ({ code, mode }) => {
 
   return (
     <div className="visualiser" style={styles.container}>
-      {/* <Iframe src="../LL.html" width="100%" height="900"></Iframe> */}
       <div style={styles.titleContainer}>
         <TitleBar />
       </div>
@@ -98,7 +97,7 @@ const Visualiser = ({ code, mode }) => {
           <div
             style={{
               ...styles.canvas,
-              height: stdout.length ? "80%" : "100%",
+              height: showStdout ? "80%" : "100%",
             }}
           >
             <AceEditor
@@ -112,7 +111,7 @@ const Visualiser = ({ code, mode }) => {
               {...aceTheme}
             />
           </div>
-          {stdout.length ? (
+          {showStdout ? (
             <div style={{ ...styles.canvas, ...styles.stdout }}>
               <Stdout outputs={stdout} />
             </div>
@@ -164,12 +163,12 @@ const getStyles = (Colors) => {
     canvas: {
       display: "flex",
       flex: 1,
-      height: "100%",
       boxShadow: "0 3px 10px rgb(0 0 0 / 0.3)",
       margin: 16,
       marginTop: 0,
       overflow: "scroll",
       backgroundColor: Colors.white_2,
+      height: "100%",
       // position: "relative",
     },
     controlBarContainer: {

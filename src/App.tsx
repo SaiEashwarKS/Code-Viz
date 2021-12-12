@@ -6,13 +6,19 @@ import UploadCode from "./UploadCode";
 import Visualiser from "./Visualiser";
 import { ConfigContext, configType, defaultConfig } from "./config";
 
-const code = `#include<stdio.h>
-int g=0;
-int main()
-{
-    printf("HELLO\\t%d\\n",g);
-}
+const code = `# Loops in python
 
+l1 = []
+l2 = []
+
+for i in range(4):
+	l1.append(i)
+	
+while(l1 != []):
+	l2.append(l1.pop())
+
+
+print("l2: ", l2)
 `;
 
 function App() {
@@ -44,7 +50,7 @@ function App() {
               </div>
             </Route>
             <Route path="/visualise">
-              <Visualiser code={code} mode={"c_cpp"} />
+              <Visualiser code={code} mode={"python"} />
             </Route>
           </Switch>
         </Router>

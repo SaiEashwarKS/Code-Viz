@@ -1,12 +1,10 @@
 import Viz from "./viz.js/viz.es.js";
 import { input } from "./viz.js/input.js";
-// import { getDigraphs, highlightLine, dehighlightLine } from "./viz.js/utils.js";
 import { getDigraphs } from "./viz.js/utils.js";
-import { Colors } from "./colors.js";
 import { defaultConfig } from "./config";
 
 var viz = new Viz({ workerURL: "./viz.js/full.render.js" });
-const { digraphs, lineNos, highlightNodes } = getDigraphs(input);
+const { digraphs, lineNos, highlightNodes, stdout_exists } = getDigraphs(input);
 // const canvas = document.getElementById("canvas");
 var canvas;
 var highlightLine;
@@ -19,37 +17,6 @@ for (let t = 0; t < digraphs.length; t++) {
   if (digraphs[t] !== "highlightNode") ++max_line_idx;
   else max_line_idx_h += 1;
 }
-
-// const visualise = async () => {
-//   if (!canvas) return;
-//   let i = 1;
-//   let lineIdx = 1;
-//   while (i < digraphs.length) {
-//     canvas.innerHTML = "";
-//     let digraph = digraphs[i];
-//     // dehighlightLine();
-//     // highlightLine(lineNos[lineIdx]);
-//     highlightLine?.(lineNos[lineIdx]);
-//     viz.renderSVGElement(digraph).then(async function (element) {
-//       canvas.appendChild(element);
-//     });
-//     await new Promise((resolve) => setTimeout(resolve, 2500));
-//     if (digraphs[i + 1] === "highlightNode") {
-//       canvas.innerHTML = "";
-//       let coloredDigraph = colorNodes(digraph);
-//       // dehighlightLine();
-//       // highlightLine(lineNos[lineIdx + 1]);
-//       highlightLine?.(lineNos[lineIdx + 1]);
-//       viz.renderSVGElement(coloredDigraph).then(async function (element) {
-//         canvas.appendChild(element);
-//       });
-//       await new Promise((resolve) => setTimeout(resolve, 1500));
-//       i++;
-//     }
-//     i++;
-//     lineIdx++;
-//   }
-// };
 
 const visualise_1 = async () => {
   // console.log("digraphs after",digraphs)
@@ -199,7 +166,8 @@ const addHighlightedNodes = (nodeIds) => {
   let res = ``;
   nodeIds?.forEach((nodeId) => {
     res += `${nodeId}[
-  color="${config.Colors.primary_1}"
+      style="filled"
+  fillcolor="${config.Colors.primary_1}"
 ]
 `;
   });
@@ -269,4 +237,9 @@ export const init_variables = (
   highlightLine = setMarker;
   config = config;
   stdoutCallback = stdout_callback;
+};
+
+export const stdoutExists = () => {
+  console.log(stdout_exists);
+  return stdout_exists;
 };
