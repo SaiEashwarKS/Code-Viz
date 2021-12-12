@@ -183,7 +183,6 @@ def format_trace(trace:List[Dict]):
 	
 	for entry in trace:
 		step += 1
-		
 		if 'exception_msg' in entry:
 			print(entry)
 			exception = dict(type='Exception',message=entry['exception_msg'])
@@ -200,7 +199,7 @@ def format_trace(trace:List[Dict]):
 			new_trace.append(exception)
 			break
 		
-		if entry['LineNum'] == cv_lineno:
+		if entry['LineNum'] == cv_lineno and step < steps_count - 2:
 			continue
 		if entry['event'] == 'return' and step < steps_count - 2:
 			continue
@@ -231,13 +230,13 @@ def format_trace(trace:List[Dict]):
 		
 		
 		new_trace.extend([cviz_function, cviz_heap, cviz_gvar, cviz_stack_frame, cviz_stdout])
-		
+
 		cv_lineno = pt_lineno
 		
 	return new_trace
 
 tr = json.loads(out_trace)
-print(json.dumps(tr, indent=2))
+#print(json.dumps(tr, indent=2))
 new_tr = format_trace(tr['trace'])
 Lines_Data = dict(Lines_Data=new_tr)
 trace_json = json.dumps(Lines_Data, indent=2)
