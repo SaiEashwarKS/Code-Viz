@@ -344,7 +344,9 @@ var didHighlightNode = false;
 var stdout_exists = false;
 
 export const getDigraphs = (input) => {
-  const json = JSON.parse(input);
+  console.log(input);
+  // const json = JSON.parse(input);
+  const json = input;
   structs = getStructsInfo(json.Structures);
   let digraphs = [];
   let lineNos = [];
@@ -400,9 +402,9 @@ export const getDigraphs = (input) => {
   lineNos.push(prevLineNo);
   // console.log(digraphs);
   return {
-    digraphs: digraphs,
-    lineNos: lineNos,
-    highlightNodes: highlightNodes,
-    stdout_exists: stdout_exists,
+    _digraphs: digraphs,
+    _lineNos: lineNos,
+    _highlightNodes: highlightNodes,
+    _stdout_exists: stdout_exists,
   };
 };

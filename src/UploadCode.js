@@ -11,6 +11,9 @@ import "ace-builds/src-noconflict/theme-xcode";
 import { useHistory } from "react-router-dom";
 import logo from "./pes.jpg";
 import { ConfigContext } from "./config";
+import API_ENDPOINTS from "./apiEndpoints";
+import { aceModeMapper, langMapper } from "./uploadCodeUtils";
+import { InputContext } from "./codeStore";
 
 let fileReader;
 
@@ -18,7 +21,25 @@ const UploadCode = () => {
   const [file, setFile] = useState(null);
   const [content, setContent] = useState(null);
   const [uploadClicked, setUploadClicked] = useState(false);
+  const [apiResId, setApiResId] = useState(null);
+  const [uploading, setUploading] = useState(false);
+  const [processing, setProcessing] = useState(false);
   const history = useHistory();
+  const { input, setInputContext } = useContext(InputContext);
+
+  useEffect(() => {
+    if (apiResId) {
+      startTracePoll(apiResId);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [apiResId]);
+
+  useEffect(() => {
+    if (!processing && input.code && input.trace) {
+      history.push("/visualise");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [processing, input.code, input.trace]);
 
   const fileNotUploaded = () => {
     return (
@@ -37,15 +58,58 @@ const UploadCode = () => {
     fileReader.readAsText(event.target.files[0]);
   };
 
+  const handleTraceGenRes = (res) => {
+    if (res.status === 200) {
+      handleTraceGenResSuccess(res.data);
+    }
+  };
+
+  const handleTraceGenResSuccess = (data) => {
+    if (data.id) {
+      setApiResId(data.id);
+    }
+  };
+
+  const startTracePoll = async (id) => {
+    setProcessing(true);
+    const body = { id: id };
+    let finished = false;
+    let response;
+    while (!finished) {
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+      console.log("polling");
+      // eslint-disable-next-line no-loop-func
+      axios.post(API_ENDPOINTS.getTrace, body).then((res) => {
+        finished = res.status === 200;
+        response = res;
+      });
+    }
+    tracePollSuccess(response.data);
+  };
+
+  const tracePollSuccess = (data) => {
+    console.log("poll response", data);
+    const extension = file.name.split(".")[1];
+    const mode = aceModeMapper[extension];
+    setInputContext({ code: content, mode, trace: data });
+    setProcessing(false);
+  };
+
   const onFileUpload = () => {
     setUploadClicked(true);
     if (file) {
-      const formData = new FormData();
-      formData.append("codeFile", file);
+      console.log(file);
+      const extension = file.name.split(".")[1];
+      const body = {
+        language: langMapper[extension],
+        code: content,
+      };
+      console.log(body);
+      axios.post(API_ENDPOINTS.uploadCode, body).then((res) => {
+        handleTraceGenRes(res);
+      });
 
-      axios.post("api/uploadfile", formData);
-
-      history.push("/visualise");
+      // history.push("/visualise");
     }
   };
 
@@ -124,7 +188,7 @@ const UploadCode = () => {
               <div className="card-body">
                 <div className="row">
                   <div className="col-12 offset-sm-3 col-sm-3 pt-3">
-                    <input type="file" onChange={onFileChange} />
+                    <input type="file" onChange={onFileChange} id="fileInput" />
                   </div>
                   <div className="col-12 col-sm-4 pt-3">
                     <Button

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect, useMemo, useState } from "react";
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-python";
@@ -18,8 +19,9 @@ import {
   stdoutExists,
 } from "./visualiseUtils";
 import { ConfigContext } from "./config";
+import { InputContext } from "./codeStore";
 
-const Visualiser = ({ code, mode }) => {
+const Visualiser = () => {
   const [canvasRef, setCanvasRef] = useState(null);
   const [aceMarker, setAceMarker] = useState([
     {
@@ -27,6 +29,8 @@ const Visualiser = ({ code, mode }) => {
       type: "line",
     },
   ]);
+
+  const { input } = useContext(InputContext);
 
   const { config } = useContext(ConfigContext);
   const { fontSize, Colors, isDark } = config;
@@ -45,8 +49,8 @@ const Visualiser = ({ code, mode }) => {
   };
 
   useEffect(() => {
-    if (canvasRef) {
-      init_variables(canvasRef, setMarker, config, displayStdout);
+    if (canvasRef && input.code) {
+      init_variables(input.trace, canvasRef, setMarker, config, displayStdout);
       visualiseInitialStack(canvasRef);
     }
 
@@ -101,8 +105,8 @@ const Visualiser = ({ code, mode }) => {
             }}
           >
             <AceEditor
-              value={code}
-              mode={mode}
+              value={input.code}
+              mode={input.mode}
               markers={aceMarker}
               readOnly
               fontSize={fontSize}

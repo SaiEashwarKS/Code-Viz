@@ -1,22 +1,18 @@
 import Viz from "./viz.js/viz.es.js";
-import { input } from "./viz.js/input.js";
+// import { input } from "./viz.js/input.js";
 import { getDigraphs } from "./viz.js/utils.js";
 import { defaultConfig } from "./config";
 
-var viz = new Viz({ workerURL: "./viz.js/full.render.js" });
-const { digraphs, lineNos, highlightNodes, stdout_exists } = getDigraphs(input);
-// const canvas = document.getElementById("canvas");
+var jsonInput;
+
+var digraphs, lineNos, highlightNodes, stdout_exists;
+var viz;
 var canvas;
 var highlightLine;
-let idx = 0;
-let line_idx = 1;
-
-let max_line_idx = 0;
-let max_line_idx_h = 0;
-for (let t = 0; t < digraphs.length; t++) {
-  if (digraphs[t] !== "highlightNode") ++max_line_idx;
-  else max_line_idx_h += 1;
-}
+var idx;
+var line_idx;
+var max_line_idx;
+var max_line_idx_h;
 
 const visualise_1 = async () => {
   // console.log("digraphs after",digraphs)
@@ -228,18 +224,36 @@ export const setConfig = (newConfig) => {
 };
 
 export const init_variables = (
+  inputJson,
   canvasRef,
   setMarker,
   config,
   stdout_callback
 ) => {
+  jsonInput = inputJson;
   canvas = canvasRef.current;
   highlightLine = setMarker;
   config = config;
   stdoutCallback = stdout_callback;
+  viz = new Viz({ workerURL: "./viz.js/full.render.js" });
+  console.log(jsonInput);
+  const { _digraphs, _lineNos, _highlightNodes, _stdout_exists } =
+    getDigraphs(jsonInput);
+  idx = 0;
+  line_idx = 1;
+  max_line_idx = 0;
+  max_line_idx_h = 0;
+  digraphs = _digraphs;
+  lineNos = _lineNos;
+  highlightNodes = _highlightNodes;
+  stdout_exists = _stdout_exists;
+  for (let t = 0; t < digraphs.length; t++) {
+    if (digraphs[t] !== "highlightNode") ++max_line_idx;
+    else max_line_idx_h += 1;
+  }
 };
 
 export const stdoutExists = () => {
-  console.log(stdout_exists);
+  // console.log(stdout_exists);
   return stdout_exists;
 };
